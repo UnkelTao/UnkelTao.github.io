@@ -4,7 +4,7 @@
   <title><![CDATA[UnkelTao]]></title>
   <link href="http://UnkelTao.github.io/atom.xml" rel="self"/>
   <link href="http://UnkelTao.github.io/"/>
-  <updated>2014-02-18T14:53:35+08:00</updated>
+  <updated>2014-02-18T17:05:41+08:00</updated>
   <id>http://UnkelTao.github.io/</id>
   <author>
     <name><![CDATA[UnkelTao]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[My First Octopress Blog]]></title>
+    <title type="html"><![CDATA[My first octopress blog]]></title>
     <link href="http://UnkelTao.github.io/blog/2014/02/18/my-first-octopress-blog/"/>
     <updated>2014-02-18T13:41:01+08:00</updated>
     <id>http://UnkelTao.github.io/blog/2014/02/18/my-first-octopress-blog</id>

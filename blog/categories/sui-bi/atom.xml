@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: 随笔 | UnkelTao]]></title>
+  <link href="http://UnkelTao.github.io/blog/categories/sui-bi/atom.xml" rel="self"/>
+  <link href="http://UnkelTao.github.io/"/>
+  <updated>2014-02-18T22:10:52+08:00</updated>
+  <id>http://UnkelTao.github.io/</id>
+  <author>
+    <name><![CDATA[UnkelTao]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[从 wordpress 搬迁到 octopress]]></title>
+    <link href="http://UnkelTao.github.io/blog/2014/02/18/wordpress-to-octopress/"/>
+    <updated>2014-02-18T21:48:51+08:00</updated>
+    <id>http://UnkelTao.github.io/blog/2014/02/18/wordpress-to-octopress</id>
+    <content type="html"><![CDATA[<p>终于还是从 wordpress 搬迁到 octopress 上来了，搬迁相对还是挺容易了，毕竟以前还是接触过一些ruby，所以环境什么的搭建的比较顺利。</p>
+
+<p>大概的步骤也就这些：
+<code>
+安装相关环境：ruby，Devkit,python(代码高亮)
+参照Octopress官方文档就行操作
+下载对应主题并修改
+添加disqus评论
+绑定域名暂时没有做（其实很简单，但是域名暂有其他作用）
+</code>
+而且本身wordpress并没有使用太久，所以文章很少，就手动复制了两篇过来，其他觉得没有必要保留的就抛弃了。比较麻烦的是以前使用过很多个不同类型的博客，里面的搬迁过来手动的写markdown还是挺麻烦的，而且数量也很大，只能挑选一些放上来了。</p>
+
+<p>以后的博客就是这个了，试用了一下还可以哟。</p>
+]]></content>
+  </entry>
+  
+</feed>

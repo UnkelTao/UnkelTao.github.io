@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: 
-
-Sitemap: http://UnkelTao.github.io/sitemap.xml 

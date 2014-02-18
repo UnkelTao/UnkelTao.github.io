@@ -4,7 +4,7 @@
   <title><![CDATA[UnkelTao]]></title>
   <link href="http://UnkelTao.github.io/atom.xml" rel="self"/>
   <link href="http://UnkelTao.github.io/"/>
-  <updated>2014-02-18T21:04:17+08:00</updated>
+  <updated>2014-02-18T21:34:59+08:00</updated>
   <id>http://UnkelTao.github.io/</id>
   <author>
     <name><![CDATA[UnkelTao]]></name>
@@ -408,6 +408,39 @@
 
 
 <p>（效果似乎一般）</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ubuntu problem]]></title>
+    <link href="http://UnkelTao.github.io/blog/2011/02/19/ubuntu-problem/"/>
+    <updated>2011-02-19T00:00:07+08:00</updated>
+    <id>http://UnkelTao.github.io/blog/2011/02/19/ubuntu-problem</id>
+    <content type="html"><![CDATA[<p>问题：</p>
+
+<p><img src="http://d.pcs.baidu.com/thumbnail/7d035361bbf02d85d862a84985d594da?fid=101724653-250528-1662718638&amp;time=1392729334&amp;rt=pr&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-DtygEbw%2Bh4AN0AwdIGRv9Zydyqc%3D&amp;expires=8h&amp;prisign=RK9dhfZlTqV5TuwkO5ihMQzlM241kT2YfffnCZFTaEPwOxHv/XxtwRXLxDSXMBba1Ms9seOiqT9/QffwI8K2Baw0mmLABRQNl51b/oS8+InqoadADmwcyikKawH2SpzFmVrGREiaH1zZ09BZiFo3CF7dwGcK/xIzj9971pKao/QALkDxW+JJC9zJS3FHk0o7boWsiiwPAK5reKjnULC44sCCTNu35NkJ&amp;r=276187455&amp;size=c850_u580&amp;quality=100" alt="" /></p>
+
+<p><img src="http://d.pcs.baidu.com/thumbnail/8d0133f3f0ba1407dc893c36a21526bf?fid=101724653-250528-1716450544&amp;time=1392729334&amp;rt=pr&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-DIEnFY3z3zMHbQMpJSui0w7fCXM%3D&amp;expires=8h&amp;prisign=RK9dhfZlTqV5TuwkO5ihMQzlM241kT2YfffnCZFTaEPwOxHv/XxtwRXLxDSXMBba1Ms9seOiqT9/QffwI8K2Baw0mmLABRQNl51b/oS8+InqoadADmwcyikKawH2SpzFmVrGREiaH1zZ09BZiFo3CF7dwGcK/xIzj9971pKao/QALkDxW+JJC9zJS3FHk0o7boWsiiwPAK5reKjnULC44sCCTNu35NkJ&amp;r=735911543&amp;size=c850_u580&amp;quality=100" alt="" /></p>
+
+<p>解决代码：</p>
+
+<p>法1：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install dkms build-essential linux-headers-$(uname -r) 
+</span><span class='line'>sudo /etc/init.d/vboxdrv setup</span></code></pre></td></tr></table></div></figure>
+
+
+<p>法2：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install module-assistant
+</span><span class='line'>sudo modprobe vboxnetflt
+</span><span class='line'>sudo modprobe vboxdrv</span></code></pre></td></tr></table></div></figure>
+
 ]]></content>
   </entry>
   

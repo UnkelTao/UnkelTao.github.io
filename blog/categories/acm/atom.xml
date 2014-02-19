@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ACM | \UnkelTao]]></title>
   <link href="http://UnkelTao.github.io/blog/categories/acm/atom.xml" rel="self"/>
   <link href="http://UnkelTao.github.io/"/>
-  <updated>2014-02-19T21:21:58+08:00</updated>
+  <updated>2014-02-19T21:51:43+08:00</updated>
   <id>http://UnkelTao.github.io/</id>
   <author>
     <name><![CDATA[UnkelTao]]></name>
@@ -35,7 +35,7 @@
 
 <p>解法：数据那么弱，统计下源串每个字母的个数，直接暴力匹配从1个到(n+k-1)/k个能否拼成源串就好,写的2分,也过了.</p>
 
-<p>```</p>
+<p>```c++</p>
 
 <h1>include <cstdio></h1>
 
@@ -157,7 +157,7 @@ int main(){
 
 <p>这样超过长度2600的就可以直接DP前2600个字母就行了<del>然后就是模板题了</del>真是弱爆了~~</p>
 
-<p>```</p>
+<p>```c++</p>
 
 <h1>include <cstdio></h1>
 
@@ -308,7 +308,7 @@ int main(){
 <h2>A <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1982">A+B</a></h2>
 
 <p>完全熟悉OJ环境的题目,上面都有标程,第一次接触ACM的需要知道怎么多组输入.
-```
+```c++
 int a, b;
 while(scanf(&ldquo;%d %d&rdquo;, &amp;a, &amp;b)==2){</p>
 
@@ -326,7 +326,7 @@ while(scanf(&ldquo;%d %d&rdquo;, &amp;a, &amp;b)==2){</p>
 <li><p>原理：看 n能被被整除<code>GCD(a,b)</code>整除，推论过程略,详见大牛(<a href="http://blog.csdn.net/openspirit/article/details/8797246">大牛题解</a>)。</p></li>
 <li><p>模拟法：我们可以确定只要大于 <code>a+b-1</code>的数 我们都可以通过加上a来得到,在+a ,-b的过程中，通过模拟产生出<code>(1，a+b-1)</code>所有的可能,把n对a取模既可以。</p></li>
 <li><p>搜索或者暴力,记忆化搜索，也就1000个点而已,代码未写,参见C题。<br/>
-<code>
+<code>c++
 //模拟法
 int s[10000];
 int cnt(int a,int b)
@@ -355,7 +355,7 @@ return cur;
 </ul>
 
 
-<p>```
+<p>```c++
 //模拟法</p>
 
 <h1>include<cstdio></h1>
@@ -404,7 +404,7 @@ return 0;
 
 <p>}
 <code>
-</code>
+</code>c++
 //记忆化搜索
 bool used[1100];
 bool bfs(int a,int b,int n,int m)
@@ -434,7 +434,7 @@ return 0;
 
 <p>排序下，扫描一遍即可，秒杀级水题一枚。不会快排的可冒泡。</p>
 
-<p>```</p>
+<p>```c++</p>
 
 <h1>include<cstdio></h1>
 
@@ -475,7 +475,7 @@ return 0;
 <p>此题也是一个排序题，当然如果直接<code>strcmp</code>是不行的，考虑90 9这组数据，结果很明显应该是990而不是909。<br/>
 因为我们在排序的时候只要保证<code>(a+b)>(b+a)</code>即可。<br/>
 <strong>再次表示对数据中出现了大于1000的数表示抱歉</strong>
-```</p>
+```c++</p>
 
 <h1>include<cstdio></h1>
 
@@ -532,7 +532,7 @@ return 0;
 </ul>
 
 
-<p>```</p>
+<p>```c++</p>
 
 <h1>include<cstdio></h1>
 
@@ -572,7 +572,7 @@ return 0;
 <h2>G <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1994">不知道自己不知道</a></h2>
 
 <p>没什么好说的
-<code>
+<code>c
 while(~scanf("%d",&amp;n)) printf("%d\n",2013-n);
 </code></p>
 
@@ -588,7 +588,7 @@ printf("%d\n",(sum+m-1)/m); //加上m-1为向上取整
 <h2>I <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1996">不知道自己知道</a></h2>
 
 <p>暴力比较即可
-```</p>
+```c++</p>
 
 <h1>define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)</h1>
 
@@ -622,7 +622,7 @@ return 0;
 <h1>J <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1997">知道自己知道</a></h1>
 
 <p>做一下结构体，保存i和和i出现的次数，有负数，i集体加上100，然后恢复即可。
-```</p>
+```c++</p>
 
 <h1>define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)</h1>
 
@@ -716,7 +716,7 @@ yes</p>
 <p>水题，比赛的时候没有写完,
 在学妹的提示下，知道了判断回文可以用hash，正反hash相等的子串就是回文;于是再套上线段树来维护区间的hash值.</p>
 
-<p>```</p>
+<p>```c++</p>
 
 <h1>include<iostream></h1>
 

@@ -118,14 +118,15 @@
 
 <p>完全熟悉OJ环境的题目,上面都有标程,第一次接触ACM的需要知道怎么多组输入.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>int a, b; 
-</span><span class='line'>while(scanf("%d %d", &a, &b)==2){
-</span><span class='line'>    printf("%d\n", a + b);
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
+</span><span class='line'><span class="k">while</span><span class="p">(</span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d %d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">)</span><span class="o">==</span><span class="mi">2</span><span class="p">){</span>
+</span><span class='line'>    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <h2>B <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1986">猴子爬楼梯1</a></h2>
@@ -139,7 +140,7 @@
 </ul>
 
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -153,20 +154,21 @@
 <span class='line-number'>12</span>
 <span class='line-number'>13</span>
 <span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>//模拟法
-</span><span class='line'>int s[10000];
-</span><span class='line'>int cnt(int a,int b)
-</span><span class='line'>{
-</span><span class='line'>    int tmp=a,cur=0;
-</span><span class='line'>    memset(s,0,sizeof(s));
-</span><span class='line'>    while(tmp!=0)
-</span><span class='line'>    {
-</span><span class='line'>        s[cur++]=tmp;         
-</span><span class='line'>        if(tmp&gt;=b)tmp-=b;
-</span><span class='line'>        else tmp+=a;           
-</span><span class='line'>    } 
-</span><span class='line'>    return cur;
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="c1">//模拟法</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">s</span><span class="p">[</span><span class="mi">10000</span><span class="p">];</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">cnt</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span><span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">tmp</span><span class="o">=</span><span class="n">a</span><span class="p">,</span><span class="n">cur</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">memset</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="n">s</span><span class="p">));</span>
+</span><span class='line'>    <span class="k">while</span><span class="p">(</span><span class="n">tmp</span><span class="o">!=</span><span class="mi">0</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="n">s</span><span class="p">[</span><span class="n">cur</span><span class="o">++</span><span class="p">]</span><span class="o">=</span><span class="n">tmp</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">if</span><span class="p">(</span><span class="n">tmp</span><span class="o">&gt;=</span><span class="n">b</span><span class="p">)</span><span class="n">tmp</span><span class="o">-=</span><span class="n">b</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">else</span> <span class="n">tmp</span><span class="o">+=</span><span class="n">a</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="k">return</span> <span class="n">cur</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <h2>C <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1990">猴子爬楼梯2</a></h2>
@@ -179,7 +181,7 @@
 </ul>
 
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -217,47 +219,48 @@
 <span class='line-number'>36</span>
 <span class='line-number'>37</span>
 <span class='line-number'>38</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>//模拟法
-</span><span class='line'>#include&lt;cstdio&gt;
-</span><span class='line'>#define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)
-</span><span class='line'>int gcd(int a,int b){return b?gcd(b,a%b):a;}
-</span><span class='line'>int s[1000];
-</span><span class='line'>int cnt(int a,int b)
-</span><span class='line'>{
-</span><span class='line'>    int tmp=a,cur=0;
-</span><span class='line'>    if(b==0){s[0]=a; return 1;}
-</span><span class='line'>    while(tmp!=0){s[cur++]=tmp;if(tmp&gt;=b)tmp-=b;else tmp+=a;} 
-</span><span class='line'>    return cur;
-</span><span class='line'>}
-</span><span class='line'>int main()
-</span><span class='line'>{
-</span><span class='line'>    //freopen("data.in","r",stdin);
-</span><span class='line'>    //freopen("data2.out","w",stdout);
-</span><span class='line'>    int T,a,b,n,m;
-</span><span class='line'>    scanf("%d",&T);
-</span><span class='line'>    while(T--){
-</span><span class='line'>       scanf("%d%d%d%d",&a,&b,&n,&m);
-</span><span class='line'>       if(n&gt;m||a==0) printf("NO\n");
-</span><span class='line'>       else {
-</span><span class='line'>          if(n%a==0) printf("YES\n");
-</span><span class='line'>          else {  
-</span><span class='line'>               int len=cnt(a,b);
-</span><span class='line'>               n=n%a; 
-</span><span class='line'>               bool fg=0;
-</span><span class='line'>               rep(i,0,len){
-</span><span class='line'>                  if(s[i]==n) {fg=1;break;}
-</span><span class='line'>                  if(s[i]&gt;m){fg=0;break;}
-</span><span class='line'>               }
-</span><span class='line'>               if(fg)printf("YES\n");else printf("NO\n");  
-</span><span class='line'>          
-</span><span class='line'>          }
-</span><span class='line'>       }
-</span><span class='line'>    }
-</span><span class='line'>    return 0;
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="c1">//模拟法</span>
+</span><span class='line'><span class="cp">#include&lt;cstdio&gt;</span>
+</span><span class='line'><span class="cp">#define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">gcd</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span><span class="kt">int</span> <span class="n">b</span><span class="p">){</span><span class="k">return</span> <span class="n">b</span><span class="o">?</span><span class="n">gcd</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="o">%</span><span class="n">b</span><span class="p">)</span><span class="o">:</span><span class="n">a</span><span class="p">;}</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">s</span><span class="p">[</span><span class="mi">1000</span><span class="p">];</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">cnt</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span><span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">tmp</span><span class="o">=</span><span class="n">a</span><span class="p">,</span><span class="n">cur</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">if</span><span class="p">(</span><span class="n">b</span><span class="o">==</span><span class="mi">0</span><span class="p">){</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">a</span><span class="p">;</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;}</span>
+</span><span class='line'>    <span class="k">while</span><span class="p">(</span><span class="n">tmp</span><span class="o">!=</span><span class="mi">0</span><span class="p">){</span><span class="n">s</span><span class="p">[</span><span class="n">cur</span><span class="o">++</span><span class="p">]</span><span class="o">=</span><span class="n">tmp</span><span class="p">;</span><span class="k">if</span><span class="p">(</span><span class="n">tmp</span><span class="o">&gt;=</span><span class="n">b</span><span class="p">)</span><span class="n">tmp</span><span class="o">-=</span><span class="n">b</span><span class="p">;</span><span class="k">else</span> <span class="n">tmp</span><span class="o">+=</span><span class="n">a</span><span class="p">;}</span>
+</span><span class='line'>    <span class="k">return</span> <span class="n">cur</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="c1">//freopen(&quot;data.in&quot;,&quot;r&quot;,stdin);</span>
+</span><span class='line'>    <span class="c1">//freopen(&quot;data2.out&quot;,&quot;w&quot;,stdout);</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">T</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">T</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">while</span><span class="p">(</span><span class="n">T</span><span class="o">--</span><span class="p">){</span>
+</span><span class='line'>       <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d%d%d%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">a</span><span class="p">,</span><span class="o">&amp;</span><span class="n">b</span><span class="p">,</span><span class="o">&amp;</span><span class="n">n</span><span class="p">,</span><span class="o">&amp;</span><span class="n">m</span><span class="p">);</span>
+</span><span class='line'>       <span class="k">if</span><span class="p">(</span><span class="n">n</span><span class="o">&gt;</span><span class="n">m</span><span class="o">||</span><span class="n">a</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&quot;NO</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</span><span class='line'>       <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>          <span class="k">if</span><span class="p">(</span><span class="n">n</span><span class="o">%</span><span class="n">a</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&quot;YES</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</span><span class='line'>          <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>               <span class="kt">int</span> <span class="n">len</span><span class="o">=</span><span class="n">cnt</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">);</span>
+</span><span class='line'>               <span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="o">%</span><span class="n">a</span><span class="p">;</span>
+</span><span class='line'>               <span class="kt">bool</span> <span class="n">fg</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>               <span class="n">rep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">len</span><span class="p">){</span>
+</span><span class='line'>                  <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="n">n</span><span class="p">)</span> <span class="p">{</span><span class="n">fg</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="k">break</span><span class="p">;}</span>
+</span><span class='line'>                  <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&gt;</span><span class="n">m</span><span class="p">){</span><span class="n">fg</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="k">break</span><span class="p">;}</span>
+</span><span class='line'>               <span class="p">}</span>
+</span><span class='line'>               <span class="k">if</span><span class="p">(</span><span class="n">fg</span><span class="p">)</span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;YES</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="k">else</span> <span class="n">printf</span><span class="p">(</span><span class="s">&quot;NO</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="p">}</span>
+</span><span class='line'>       <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -277,33 +280,34 @@
 <span class='line-number'>18</span>
 <span class='line-number'>19</span>
 <span class='line-number'>20</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>//记忆化搜索
-</span><span class='line'>bool used[1100];
-</span><span class='line'>bool bfs(int a,int b,int n,int m)
-</span><span class='line'>{
-</span><span class='line'>    queue&lt;int&gt; q;
-</span><span class='line'>    memset(used,0,sizeof(used));
-</span><span class='line'>    if(a&gt;m) return 0;
-</span><span class='line'>    q.push(a);
-</span><span class='line'>    used[a]=1;
-</span><span class='line'>    int t;
-</span><span class='line'>    while(!q.empty())
-</span><span class='line'>    {
-</span><span class='line'>       int tmp=q.front(); q.pop();
-</span><span class='line'>       used[tmp]=1;
-</span><span class='line'>       if(tmp==n) return 1;
-</span><span class='line'>       if(tmp+a&lt;=m&&!used[tmp+a]){used[tmp+a]=1; q.push(tmp+a);}
-</span><span class='line'>       if(tmp-b&gt;=0&&!used[tmp-b]){used[tmp-b]=1; q.push(tmp-b);}           
-</span><span class='line'>    }
-</span><span class='line'>    return 0;
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="c1">//记忆化搜索</span>
+</span><span class='line'><span class="kt">bool</span> <span class="n">used</span><span class="p">[</span><span class="mi">1100</span><span class="p">];</span>
+</span><span class='line'><span class="kt">bool</span> <span class="n">bfs</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span><span class="kt">int</span> <span class="n">b</span><span class="p">,</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span><span class="kt">int</span> <span class="n">m</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="n">queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">q</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">memset</span><span class="p">(</span><span class="n">used</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="n">used</span><span class="p">));</span>
+</span><span class='line'>    <span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="o">&gt;</span><span class="n">m</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">used</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">t</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">q</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>       <span class="kt">int</span> <span class="n">tmp</span><span class="o">=</span><span class="n">q</span><span class="p">.</span><span class="n">front</span><span class="p">();</span> <span class="n">q</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span><span class='line'>       <span class="n">used</span><span class="p">[</span><span class="n">tmp</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</span><span class='line'>       <span class="k">if</span><span class="p">(</span><span class="n">tmp</span><span class="o">==</span><span class="n">n</span><span class="p">)</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class='line'>       <span class="k">if</span><span class="p">(</span><span class="n">tmp</span><span class="o">+</span><span class="n">a</span><span class="o">&lt;=</span><span class="n">m</span><span class="o">&amp;&amp;!</span><span class="n">used</span><span class="p">[</span><span class="n">tmp</span><span class="o">+</span><span class="n">a</span><span class="p">]){</span><span class="n">used</span><span class="p">[</span><span class="n">tmp</span><span class="o">+</span><span class="n">a</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">tmp</span><span class="o">+</span><span class="n">a</span><span class="p">);}</span>
+</span><span class='line'>       <span class="k">if</span><span class="p">(</span><span class="n">tmp</span><span class="o">-</span><span class="n">b</span><span class="o">&gt;=</span><span class="mi">0</span><span class="o">&amp;&amp;!</span><span class="n">used</span><span class="p">[</span><span class="n">tmp</span><span class="o">-</span><span class="n">b</span><span class="p">]){</span><span class="n">used</span><span class="p">[</span><span class="n">tmp</span><span class="o">-</span><span class="n">b</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">tmp</span><span class="o">-</span><span class="n">b</span><span class="p">);}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <h2>D <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1991">统计学号</a></h2>
 
 <p>排序下，扫描一遍即可，秒杀级水题一枚。不会快排的可冒泡。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -326,29 +330,30 @@
 <span class='line-number'>21</span>
 <span class='line-number'>22</span>
 <span class='line-number'>23</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>#include&lt;cstdio&gt;
-</span><span class='line'>#include&lt;cstring&gt;
-</span><span class='line'>#include&lt;iostream&gt;
-</span><span class='line'>#include&lt;algorithm&gt;
-</span><span class='line'>using namespace std;
-</span><span class='line'>#define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)
-</span><span class='line'>int a[110];
-</span><span class='line'>int main()
-</span><span class='line'>{
-</span><span class='line'> //   freopen("data.in","r",stdin);
-</span><span class='line'> //   freopen("data.out","w",stdout);
-</span><span class='line'>    int T,n;
-</span><span class='line'>    scanf("%d",&T);
-</span><span class='line'>    while(T--){
-</span><span class='line'>       scanf("%d",&n);
-</span><span class='line'>       rep(i,0,n)scanf("%d",&a[i]);
-</span><span class='line'>       sort(a,a+n);
-</span><span class='line'>       int cnt=1;
-</span><span class='line'>       rep(i,1,n) {if(a[i]!=a[i-1])cnt++;}
-</span><span class='line'>       printf("%d\n",cnt);        
-</span><span class='line'>    }
-</span><span class='line'>    return 0;
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="cp">#include&lt;cstdio&gt;</span>
+</span><span class='line'><span class="cp">#include&lt;cstring&gt;</span>
+</span><span class='line'><span class="cp">#include&lt;iostream&gt;</span>
+</span><span class='line'><span class="cp">#include&lt;algorithm&gt;</span>
+</span><span class='line'><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span><span class='line'><span class="cp">#define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">110</span><span class="p">];</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'> <span class="c1">//   freopen(&quot;data.in&quot;,&quot;r&quot;,stdin);</span>
+</span><span class='line'> <span class="c1">//   freopen(&quot;data.out&quot;,&quot;w&quot;,stdout);</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">T</span><span class="p">,</span><span class="n">n</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">T</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">while</span><span class="p">(</span><span class="n">T</span><span class="o">--</span><span class="p">){</span>
+</span><span class='line'>       <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+</span><span class='line'>       <span class="n">rep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">)</span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span><span class='line'>       <span class="n">sort</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="o">+</span><span class="n">n</span><span class="p">);</span>
+</span><span class='line'>       <span class="kt">int</span> <span class="n">cnt</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</span><span class='line'>       <span class="n">rep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">)</span> <span class="p">{</span><span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">!=</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="n">cnt</span><span class="o">++</span><span class="p">;}</span>
+</span><span class='line'>       <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">cnt</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <h2>E <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1992">德德的嗜好2.0</a></h2>
@@ -357,7 +362,7 @@
 因为我们在排序的时候只要保证<code>(a+b)>(b+a)</code>即可。<br/>
 <strong>再次表示对数据中出现了大于1000的数表示抱歉</strong></p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -384,33 +389,34 @@
 <span class='line-number'>25</span>
 <span class='line-number'>26</span>
 <span class='line-number'>27</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>#include&lt;cstdio&gt;
-</span><span class='line'>#include&lt;cstring&gt;
-</span><span class='line'>#include&lt;iostream&gt;
-</span><span class='line'>#include&lt;algorithm&gt;
-</span><span class='line'>using namespace std;
-</span><span class='line'>#define rep(i, n) for (int i=0; i&lt;(n); ++i)
-</span><span class='line'>string s[81];
-</span><span class='line'>bool cmp(string a,string b)
-</span><span class='line'>{
-</span><span class='line'>     return (a+b)&gt;(b+a);
-</span><span class='line'>}
-</span><span class='line'>int main()
-</span><span class='line'>{
-</span><span class='line'>    //freopen("data.in","r",stdin);
-</span><span class='line'>    //freopen("data.out","w",stdout);
-</span><span class='line'>    int T,n;
-</span><span class='line'>    cin&gt;&gt;T;
-</span><span class='line'>    while(T--)
-</span><span class='line'>    {
-</span><span class='line'>      cin&gt;&gt;n;
-</span><span class='line'>      rep(i,n)cin&gt;&gt;s[i];
-</span><span class='line'>      sort(s,s+n,cmp);   
-</span><span class='line'>      rep(i,n)cout&lt;&lt;s[i];
-</span><span class='line'>      cout&lt;&lt;endl;    
-</span><span class='line'>    }
-</span><span class='line'>    return 0;
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="cp">#include&lt;cstdio&gt;</span>
+</span><span class='line'><span class="cp">#include&lt;cstring&gt;</span>
+</span><span class='line'><span class="cp">#include&lt;iostream&gt;</span>
+</span><span class='line'><span class="cp">#include&lt;algorithm&gt;</span>
+</span><span class='line'><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span><span class='line'><span class="cp">#define rep(i, n) for (int i=0; i&lt;(n); ++i)</span>
+</span><span class='line'><span class="n">string</span> <span class="n">s</span><span class="p">[</span><span class="mi">81</span><span class="p">];</span>
+</span><span class='line'><span class="kt">bool</span> <span class="n">cmp</span><span class="p">(</span><span class="n">string</span> <span class="n">a</span><span class="p">,</span><span class="n">string</span> <span class="n">b</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>     <span class="k">return</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="o">&gt;</span><span class="p">(</span><span class="n">b</span><span class="o">+</span><span class="n">a</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="c1">//freopen(&quot;data.in&quot;,&quot;r&quot;,stdin);</span>
+</span><span class='line'>    <span class="c1">//freopen(&quot;data.out&quot;,&quot;w&quot;,stdout);</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">T</span><span class="p">,</span><span class="n">n</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">T</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">while</span><span class="p">(</span><span class="n">T</span><span class="o">--</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>      <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">n</span><span class="p">;</span>
+</span><span class='line'>      <span class="n">rep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">n</span><span class="p">)</span><span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span class='line'>      <span class="n">sort</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">s</span><span class="o">+</span><span class="n">n</span><span class="p">,</span><span class="n">cmp</span><span class="p">);</span>
+</span><span class='line'>      <span class="n">rep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">n</span><span class="p">)</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span class='line'>      <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <h2>F <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1993">德德的嗜好3.0</a></h2>
@@ -427,7 +433,7 @@
 </ul>
 
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -450,56 +456,59 @@
 <span class='line-number'>21</span>
 <span class='line-number'>22</span>
 <span class='line-number'>23</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>#include&lt;cstdio&gt;
-</span><span class='line'>#include&lt;cstring&gt;
-</span><span class='line'>#include&lt;iostream&gt;
-</span><span class='line'>#include&lt;algorithm&gt;
-</span><span class='line'>using namespace std;
-</span><span class='line'>#define ll long long
-</span><span class='line'>#define rep(i, n) for (int i=0; i&lt;(n); ++i)
-</span><span class='line'>int b[8]={-1,7,11,19,23,31,43,47};
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="cp">#include&lt;cstdio&gt;</span>
+</span><span class='line'><span class="cp">#include&lt;cstring&gt;</span>
+</span><span class='line'><span class="cp">#include&lt;iostream&gt;</span>
+</span><span class='line'><span class="cp">#include&lt;algorithm&gt;</span>
+</span><span class='line'><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span><span class='line'><span class="cp">#define ll long long</span>
+</span><span class='line'><span class="cp">#define rep(i, n) for (int i=0; i&lt;(n); ++i)</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">b</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">43</span><span class="p">,</span><span class="mi">47</span><span class="p">};</span>
 </span><span class='line'>
-</span><span class='line'>int main()
-</span><span class='line'>{
-</span><span class='line'>    //freopen("data.in","r",stdin);
-</span><span class='line'>    //freopen("data.out","w",stdout);
-</span><span class='line'>    int T,n;
-</span><span class='line'>    scanf("%d",&T);
-</span><span class='line'>    while(T--)
-</span><span class='line'>    {
-</span><span class='line'>        scanf("%d",&n);  
-</span><span class='line'>        ll ans=60LL*(n/8)+b[n%8];
-</span><span class='line'>        printf("%lld\n",ans);    
-</span><span class='line'>    }
-</span><span class='line'>    return 0;
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'><span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="c1">//freopen(&quot;data.in&quot;,&quot;r&quot;,stdin);</span>
+</span><span class='line'>    <span class="c1">//freopen(&quot;data.out&quot;,&quot;w&quot;,stdout);</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">T</span><span class="p">,</span><span class="n">n</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">T</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">while</span><span class="p">(</span><span class="n">T</span><span class="o">--</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+</span><span class='line'>        <span class="n">ll</span> <span class="n">ans</span><span class="o">=</span><span class="mi">60LL</span><span class="o">*</span><span class="p">(</span><span class="n">n</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span><span class="o">+</span><span class="n">b</span><span class="p">[</span><span class="n">n</span><span class="o">%</span><span class="mi">8</span><span class="p">];</span>
+</span><span class='line'>        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%lld</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">ans</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <h2>G <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1994">不知道自己不知道</a></h2>
 
 <p>没什么好说的</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>while(~scanf("%d",&n)) printf("%d\n",2013-n);</span></code></pre></td></tr></table></div></figure>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="k">while</span><span class="p">(</span><span class="o">~</span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">n</span><span class="p">))</span> <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="mi">2013</span><span class="o">-</span><span class="n">n</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <h2>H <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1995">知道自己不知道</a></h2>
 
 <p>数组求和除以M向上取整.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rep(i,0,n)  scanf("%d",&a);
-</span><span class='line'>sum+=a;     
-</span><span class='line'>printf("%d\n",(sum+m-1)/m); //加上m-1为向上取整</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">rep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>  <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
+</span><span class='line'><span class="n">sum</span><span class="o">+=</span><span class="n">a</span><span class="p">;</span>
+</span><span class='line'><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,(</span><span class="n">sum</span><span class="o">+</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">m</span><span class="p">);</span> <span class="c1">//加上m-1为向上取整</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <h2>I <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1996">不知道自己知道</a></h2>
 
 <p>暴力比较即可</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -523,37 +532,38 @@
 <span class='line-number'>22</span>
 <span class='line-number'>23</span>
 <span class='line-number'>24</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>#define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)
-</span><span class='line'>string s[110];
-</span><span class='line'>int main()
-</span><span class='line'>{
-</span><span class='line'> 
-</span><span class='line'>    int t=0,T,m,n;
-</span><span class='line'>    cin&gt;&gt;T;
-</span><span class='line'>    string qurry;
-</span><span class='line'>    while(t++&lt;T)
-</span><span class='line'>    {
-</span><span class='line'>        cin&gt;&gt;m;
-</span><span class='line'>        rep(i,0,m){cin&gt;&gt;s[i];}
-</span><span class='line'>        cin&gt;&gt;n;
-</span><span class='line'>        cout&lt;&lt;"Case #"&lt;&lt;t&lt;&lt;":"&lt;&lt;endl;
-</span><span class='line'>        rep(i,0,n){
-</span><span class='line'>          cin&gt;&gt;qurry;
-</span><span class='line'>          bool fg=0;
-</span><span class='line'>          rep(j,0,m){if(qurry==s[j]){fg=1;break;}}
-</span><span class='line'>          if(fg)cout&lt;&lt;"Yes"&lt;&lt;endl;
-</span><span class='line'>          else cout&lt;&lt;"No"&lt;&lt;endl;
-</span><span class='line'>        }        
-</span><span class='line'>    }
-</span><span class='line'>    return 0;
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="cp">#define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)</span>
+</span><span class='line'><span class="n">string</span> <span class="n">s</span><span class="p">[</span><span class="mi">110</span><span class="p">];</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">T</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">string</span> <span class="n">qurry</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">while</span><span class="p">(</span><span class="n">t</span><span class="o">++&lt;</span><span class="n">T</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">m</span><span class="p">;</span>
+</span><span class='line'>        <span class="n">rep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">m</span><span class="p">){</span><span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">];}</span>
+</span><span class='line'>        <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">n</span><span class="p">;</span>
+</span><span class='line'>        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;Case #&quot;</span><span class="o">&lt;&lt;</span><span class="n">t</span><span class="o">&lt;&lt;</span><span class="s">&quot;:&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span><span class='line'>        <span class="n">rep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">){</span>
+</span><span class='line'>          <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">qurry</span><span class="p">;</span>
+</span><span class='line'>          <span class="kt">bool</span> <span class="n">fg</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>          <span class="n">rep</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">m</span><span class="p">){</span><span class="k">if</span><span class="p">(</span><span class="n">qurry</span><span class="o">==</span><span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="p">]){</span><span class="n">fg</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="k">break</span><span class="p">;}}</span>
+</span><span class='line'>          <span class="k">if</span><span class="p">(</span><span class="n">fg</span><span class="p">)</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;Yes&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span><span class='line'>          <span class="k">else</span> <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;No&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <h1>J <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1997">知道自己知道</a></h1>
 
 <p>做一下结构体，保存i和和i出现的次数，有负数，i集体加上100，然后恢复即可。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -579,32 +589,33 @@
 <span class='line-number'>24</span>
 <span class='line-number'>25</span>
 <span class='line-number'>26</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>#define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)
-</span><span class='line'>struct pt{     
-</span><span class='line'>  int cnt;
-</span><span class='line'>    int i;  
-</span><span class='line'>};
-</span><span class='line'>pt s[550];
-</span><span class='line'>bool cmp(pt a,pt b){
-</span><span class='line'>     if(a.cnt==b.cnt) return a.i&lt;b.i;     
-</span><span class='line'>     return a.cnt&gt;b.cnt;
-</span><span class='line'>}
-</span><span class='line'>int main(){
-</span><span class='line'>    int t,n,a;
-</span><span class='line'>    scanf("%d",&t);
-</span><span class='line'>    while(t--){
-</span><span class='line'>        rep(i,0,500){s[i].i=i-100;s[i].cnt=0;}
-</span><span class='line'>        scanf("%d",&n);
-</span><span class='line'>        rep(i,0,n)  {  scanf("%d",&a);      s[a+100].cnt++; }
-</span><span class='line'>        sort(s,s+500,cmp);
-</span><span class='line'>        int cnt=0;
-</span><span class='line'>        rep(i,0,500){if(s[i].cnt!=0)cnt++;else break;}
-</span><span class='line'>        printf("%d",cnt);
-</span><span class='line'>        rep(i,0,500){  if(!s[i].cnt)break;  printf(" %d",s[i].i);   }
-</span><span class='line'>        printf("\n");
-</span><span class='line'>    }
-</span><span class='line'>    return 0;
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="cp">#define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)</span>
+</span><span class='line'><span class="k">struct</span> <span class="n">pt</span><span class="p">{</span>
+</span><span class='line'>  <span class="kt">int</span> <span class="n">cnt</span><span class="p">;</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+</span><span class='line'><span class="p">};</span>
+</span><span class='line'><span class="n">pt</span> <span class="n">s</span><span class="p">[</span><span class="mi">550</span><span class="p">];</span>
+</span><span class='line'><span class="kt">bool</span> <span class="n">cmp</span><span class="p">(</span><span class="n">pt</span> <span class="n">a</span><span class="p">,</span><span class="n">pt</span> <span class="n">b</span><span class="p">){</span>
+</span><span class='line'>     <span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">cnt</span><span class="o">==</span><span class="n">b</span><span class="p">.</span><span class="n">cnt</span><span class="p">)</span> <span class="k">return</span> <span class="n">a</span><span class="p">.</span><span class="n">i</span><span class="o">&lt;</span><span class="n">b</span><span class="p">.</span><span class="n">i</span><span class="p">;</span>
+</span><span class='line'>     <span class="k">return</span> <span class="n">a</span><span class="p">.</span><span class="n">cnt</span><span class="o">&gt;</span><span class="n">b</span><span class="p">.</span><span class="n">cnt</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">main</span><span class="p">(){</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">t</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">a</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">t</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">while</span><span class="p">(</span><span class="n">t</span><span class="o">--</span><span class="p">){</span>
+</span><span class='line'>        <span class="n">rep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">500</span><span class="p">){</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="o">-</span><span class="mi">100</span><span class="p">;</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">cnt</span><span class="o">=</span><span class="mi">0</span><span class="p">;}</span>
+</span><span class='line'>        <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+</span><span class='line'>        <span class="n">rep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>  <span class="p">{</span>  <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>      <span class="n">s</span><span class="p">[</span><span class="n">a</span><span class="o">+</span><span class="mi">100</span><span class="p">].</span><span class="n">cnt</span><span class="o">++</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'>        <span class="n">sort</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">s</span><span class="o">+</span><span class="mi">500</span><span class="p">,</span><span class="n">cmp</span><span class="p">);</span>
+</span><span class='line'>        <span class="kt">int</span> <span class="n">cnt</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>        <span class="n">rep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">500</span><span class="p">){</span><span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">cnt</span><span class="o">!=</span><span class="mi">0</span><span class="p">)</span><span class="n">cnt</span><span class="o">++</span><span class="p">;</span><span class="k">else</span> <span class="k">break</span><span class="p">;}</span>
+</span><span class='line'>        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="n">cnt</span><span class="p">);</span>
+</span><span class='line'>        <span class="n">rep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">500</span><span class="p">){</span>  <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">cnt</span><span class="p">)</span><span class="k">break</span><span class="p">;</span>  <span class="n">printf</span><span class="p">(</span><span class="s">&quot; %d&quot;</span><span class="p">,</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">i</span><span class="p">);</span>   <span class="p">}</span>
+</span><span class='line'>        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>以上题目均为过测试数据的程序，不保证程序完全正确无误，欢迎指正,预赛题目难度很明显会增大很多，大家加油。 3Q</p>

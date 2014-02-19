@@ -4,7 +4,7 @@
   <title><![CDATA[Category: CF | \UnkelTao]]></title>
   <link href="http://UnkelTao.github.io/blog/categories/cf/atom.xml" rel="self"/>
   <link href="http://UnkelTao.github.io/"/>
-  <updated>2014-02-19T21:21:58+08:00</updated>
+  <updated>2014-02-19T21:51:43+08:00</updated>
   <id>http://UnkelTao.github.io/</id>
   <author>
     <name><![CDATA[UnkelTao]]></name>
@@ -35,7 +35,7 @@
 
 <p>解法：数据那么弱，统计下源串每个字母的个数，直接暴力匹配从1个到(n+k-1)/k个能否拼成源串就好,写的2分,也过了.</p>
 
-<p>```</p>
+<p>```c++</p>
 
 <h1>include <cstdio></h1>
 
@@ -157,7 +157,7 @@ int main(){
 
 <p>这样超过长度2600的就可以直接DP前2600个字母就行了<del>然后就是模板题了</del>真是弱爆了~~</p>
 
-<p>```</p>
+<p>```c++</p>
 
 <h1>include <cstdio></h1>
 

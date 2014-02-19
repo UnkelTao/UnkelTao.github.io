@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Ubuntu | UnkelTao]]></title>
+  <title><![CDATA[Category: Ubuntu | \UnkelTao]]></title>
   <link href="http://UnkelTao.github.io/blog/categories/ubuntu/atom.xml" rel="self"/>
   <link href="http://UnkelTao.github.io/"/>
-  <updated>2014-02-19T00:01:56+08:00</updated>
+  <updated>2014-02-19T13:54:22+08:00</updated>
   <id>http://UnkelTao.github.io/</id>
   <author>
     <name><![CDATA[UnkelTao]]></name>
@@ -20,9 +20,8 @@
     <id>http://UnkelTao.github.io/blog/2011/02/19/ubuntu-problem</id>
     <content type="html"><![CDATA[<p>问题：</p>
 
-<p><img src="http://d.pcs.baidu.com/thumbnail/7d035361bbf02d85d862a84985d594da?fid=101724653-250528-1662718638&amp;time=1392729334&amp;rt=pr&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-DtygEbw%2Bh4AN0AwdIGRv9Zydyqc%3D&amp;expires=8h&amp;prisign=RK9dhfZlTqV5TuwkO5ihMQzlM241kT2YfffnCZFTaEPwOxHv/XxtwRXLxDSXMBba1Ms9seOiqT9/QffwI8K2Baw0mmLABRQNl51b/oS8+InqoadADmwcyikKawH2SpzFmVrGREiaH1zZ09BZiFo3CF7dwGcK/xIzj9971pKao/QALkDxW+JJC9zJS3FHk0o7boWsiiwPAK5reKjnULC44sCCTNu35NkJ&amp;r=276187455&amp;size=c850_u580&amp;quality=100" alt="" /></p>
-
-<p><img src="http://d.pcs.baidu.com/thumbnail/8d0133f3f0ba1407dc893c36a21526bf?fid=101724653-250528-1716450544&amp;time=1392729334&amp;rt=pr&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-DIEnFY3z3zMHbQMpJSui0w7fCXM%3D&amp;expires=8h&amp;prisign=RK9dhfZlTqV5TuwkO5ihMQzlM241kT2YfffnCZFTaEPwOxHv/XxtwRXLxDSXMBba1Ms9seOiqT9/QffwI8K2Baw0mmLABRQNl51b/oS8+InqoadADmwcyikKawH2SpzFmVrGREiaH1zZ09BZiFo3CF7dwGcK/xIzj9971pKao/QALkDxW+JJC9zJS3FHk0o7boWsiiwPAK5reKjnULC44sCCTNu35NkJ&amp;r=735911543&amp;size=c850_u580&amp;quality=100" alt="" /></p>
+<p><img src="http://unkeltao.qiniudn.com/IMG_002.jpg" alt="" />
+<img src="http://unkeltao.qiniudn.com/IMG_003.jpg" alt="" /></p>
 
 <p>解决代码：</p>
 

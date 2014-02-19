@@ -1,0 +1,774 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>The 9th SWJTU Collegiate Programming Contest Qualification Round - \UnkelTao</title>
+  <meta name="author" content="UnkelTao">
+
+  
+  <meta name="description" content="比赛链接： 第九届ACM校赛资格赛 资格赛嘛，本着大家熟悉环境增强自信心的原则~10道题没有太难的题目~适合新手练习.本次比赛D、E、F是我出的，本着简单的想法却没想到坑了一部分人，其中E题的数据再随机的时候超出了题目描述的范围造成一些人AC的程序WA了，在此表示抱歉,致以诚挚的歉意。 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://UnkelTao.github.io/blog/2013/04/14/the-9th-swjtu-collegiate-programming-contest-qualification-round/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+   <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="\UnkelTao" type="application/atom+xml">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lora:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700,900' rel='stylesheet' type='text/css'>
+
+
+
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-48154170-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+  <style>html{background: url("/images/background.png") no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;}</style>
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+</hgroup>
+
+</header>
+  <!-- <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:UnkelTao.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/blog/archives">About</a></li>
+</ul>
+
+</nav> -->
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">The 9th SWJTU Collegiate Programming Contest Qualification Round</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-14T06:16:28+08:00" pubdate data-updated="true">Apr 14<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><strong>比赛链接：</strong>  <a href="http://acm.swjtu.edu.cn/JudgeOnline/showcontest?contest_id=1135" title="第九届ACM校赛资格赛">第九届ACM校赛资格赛</a></p>
+
+<p>资格赛嘛，本着大家熟悉环境增强自信心的原则~10道题没有太难的题目~适合新手练习.本次比赛D、E、F是我出的，本着简单的想法却没想到坑了一部分人，其中E题的数据再随机的时候超出了题目描述的范围造成一些人AC的程序WA了，在此表示抱歉,致以诚挚的歉意。下面给出我对着10道题的解法，可能我的解法并不是完全正确恰好过了数据而已，欢迎大家指正。</p>
+
+<!--more-->
+
+
+<h2>A <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1982">A+B</a></h2>
+
+<p>完全熟悉OJ环境的题目,上面都有标程,第一次接触ACM的需要知道怎么多组输入.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>int a, b; 
+</span><span class='line'>while(scanf("%d %d", &a, &b)==2){
+</span><span class='line'>    printf("%d\n", a + b);
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>B <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1986">猴子爬楼梯1</a></h2>
+
+<p>因为数据不大，可以有3中解法:</p>
+
+<ul>
+<li><p>原理：看 n能被被整除<code>GCD(a,b)</code>整除，推论过程略,详见大牛(<a href="http://blog.csdn.net/openspirit/article/details/8797246">大牛题解</a>)。</p></li>
+<li><p>模拟法：我们可以确定只要大于 <code>a+b-1</code>的数 我们都可以通过加上a来得到,在+a ,-b的过程中，通过模拟产生出<code>(1，a+b-1)</code>所有的可能,把n对a取模既可以。</p></li>
+<li><p>搜索或者暴力,记忆化搜索，也就1000个点而已,代码未写,参见C题。</p></li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>//模拟法
+</span><span class='line'>int s[10000];
+</span><span class='line'>int cnt(int a,int b)
+</span><span class='line'>{
+</span><span class='line'>    int tmp=a,cur=0;
+</span><span class='line'>    memset(s,0,sizeof(s));
+</span><span class='line'>    while(tmp!=0)
+</span><span class='line'>    {
+</span><span class='line'>        s[cur++]=tmp;         
+</span><span class='line'>        if(tmp&gt;=b)tmp-=b;
+</span><span class='line'>        else tmp+=a;           
+</span><span class='line'>    } 
+</span><span class='line'>    return cur;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>C <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1990">猴子爬楼梯2</a></h2>
+
+<p><strong>本题将我深深的伤害了</strong></p>
+
+<ul>
+<li><p>模拟法:看着数据不大，于是暴力模拟,无限WA,基本思路同B题二解法，只是模拟过程中出现大于top就停止,至今未AC，未发现错误数据，回头对拍,有待考证。(<strong>忘记加特判了<code>a=0,b=0</code>时候挂掉了, 加上AC</strong>)</p></li>
+<li><p>记忆化搜索</p></li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>//模拟法
+</span><span class='line'>#include&lt;cstdio&gt;
+</span><span class='line'>#define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)
+</span><span class='line'>int gcd(int a,int b){return b?gcd(b,a%b):a;}
+</span><span class='line'>int s[1000];
+</span><span class='line'>int cnt(int a,int b)
+</span><span class='line'>{
+</span><span class='line'>    int tmp=a,cur=0;
+</span><span class='line'>    if(b==0){s[0]=a; return 1;}
+</span><span class='line'>    while(tmp!=0){s[cur++]=tmp;if(tmp&gt;=b)tmp-=b;else tmp+=a;} 
+</span><span class='line'>    return cur;
+</span><span class='line'>}
+</span><span class='line'>int main()
+</span><span class='line'>{
+</span><span class='line'>    //freopen("data.in","r",stdin);
+</span><span class='line'>    //freopen("data2.out","w",stdout);
+</span><span class='line'>    int T,a,b,n,m;
+</span><span class='line'>    scanf("%d",&T);
+</span><span class='line'>    while(T--){
+</span><span class='line'>       scanf("%d%d%d%d",&a,&b,&n,&m);
+</span><span class='line'>       if(n&gt;m||a==0) printf("NO\n");
+</span><span class='line'>       else {
+</span><span class='line'>          if(n%a==0) printf("YES\n");
+</span><span class='line'>          else {  
+</span><span class='line'>               int len=cnt(a,b);
+</span><span class='line'>               n=n%a; 
+</span><span class='line'>               bool fg=0;
+</span><span class='line'>               rep(i,0,len){
+</span><span class='line'>                  if(s[i]==n) {fg=1;break;}
+</span><span class='line'>                  if(s[i]&gt;m){fg=0;break;}
+</span><span class='line'>               }
+</span><span class='line'>               if(fg)printf("YES\n");else printf("NO\n");  
+</span><span class='line'>          
+</span><span class='line'>          }
+</span><span class='line'>       }
+</span><span class='line'>    }
+</span><span class='line'>    return 0;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>//记忆化搜索
+</span><span class='line'>bool used[1100];
+</span><span class='line'>bool bfs(int a,int b,int n,int m)
+</span><span class='line'>{
+</span><span class='line'>    queue&lt;int&gt; q;
+</span><span class='line'>    memset(used,0,sizeof(used));
+</span><span class='line'>    if(a&gt;m) return 0;
+</span><span class='line'>    q.push(a);
+</span><span class='line'>    used[a]=1;
+</span><span class='line'>    int t;
+</span><span class='line'>    while(!q.empty())
+</span><span class='line'>    {
+</span><span class='line'>       int tmp=q.front(); q.pop();
+</span><span class='line'>       used[tmp]=1;
+</span><span class='line'>       if(tmp==n) return 1;
+</span><span class='line'>       if(tmp+a&lt;=m&&!used[tmp+a]){used[tmp+a]=1; q.push(tmp+a);}
+</span><span class='line'>       if(tmp-b&gt;=0&&!used[tmp-b]){used[tmp-b]=1; q.push(tmp-b);}           
+</span><span class='line'>    }
+</span><span class='line'>    return 0;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>D <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1991">统计学号</a></h2>
+
+<p>排序下，扫描一遍即可，秒杀级水题一枚。不会快排的可冒泡。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#include&lt;cstdio&gt;
+</span><span class='line'>#include&lt;cstring&gt;
+</span><span class='line'>#include&lt;iostream&gt;
+</span><span class='line'>#include&lt;algorithm&gt;
+</span><span class='line'>using namespace std;
+</span><span class='line'>#define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)
+</span><span class='line'>int a[110];
+</span><span class='line'>int main()
+</span><span class='line'>{
+</span><span class='line'> //   freopen("data.in","r",stdin);
+</span><span class='line'> //   freopen("data.out","w",stdout);
+</span><span class='line'>    int T,n;
+</span><span class='line'>    scanf("%d",&T);
+</span><span class='line'>    while(T--){
+</span><span class='line'>       scanf("%d",&n);
+</span><span class='line'>       rep(i,0,n)scanf("%d",&a[i]);
+</span><span class='line'>       sort(a,a+n);
+</span><span class='line'>       int cnt=1;
+</span><span class='line'>       rep(i,1,n) {if(a[i]!=a[i-1])cnt++;}
+</span><span class='line'>       printf("%d\n",cnt);        
+</span><span class='line'>    }
+</span><span class='line'>    return 0;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>E <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1992">德德的嗜好2.0</a></h2>
+
+<p>此题也是一个排序题，当然如果直接<code>strcmp</code>是不行的，考虑90 9这组数据，结果很明显应该是990而不是909。<br/>
+因为我们在排序的时候只要保证<code>(a+b)>(b+a)</code>即可。<br/>
+<strong>再次表示对数据中出现了大于1000的数表示抱歉</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#include&lt;cstdio&gt;
+</span><span class='line'>#include&lt;cstring&gt;
+</span><span class='line'>#include&lt;iostream&gt;
+</span><span class='line'>#include&lt;algorithm&gt;
+</span><span class='line'>using namespace std;
+</span><span class='line'>#define rep(i, n) for (int i=0; i&lt;(n); ++i)
+</span><span class='line'>string s[81];
+</span><span class='line'>bool cmp(string a,string b)
+</span><span class='line'>{
+</span><span class='line'>     return (a+b)&gt;(b+a);
+</span><span class='line'>}
+</span><span class='line'>int main()
+</span><span class='line'>{
+</span><span class='line'>    //freopen("data.in","r",stdin);
+</span><span class='line'>    //freopen("data.out","w",stdout);
+</span><span class='line'>    int T,n;
+</span><span class='line'>    cin&gt;&gt;T;
+</span><span class='line'>    while(T--)
+</span><span class='line'>    {
+</span><span class='line'>      cin&gt;&gt;n;
+</span><span class='line'>      rep(i,n)cin&gt;&gt;s[i];
+</span><span class='line'>      sort(s,s+n,cmp);   
+</span><span class='line'>      rep(i,n)cout&lt;&lt;s[i];
+</span><span class='line'>      cout&lt;&lt;endl;    
+</span><span class='line'>    }
+</span><span class='line'>    return 0;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>F <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1993">德德的嗜好3.0</a></h2>
+
+<p>公式题或者找规律  <code>b(8k+m)=b(m)+60k;  (k=n/8;m=n%8)</code> 打表出前8项就够了;其中<code>b(0)=-1;</code> 可以m等于1到8~这样就用不到b(0)但是计算k,m就多了几行代码。<br/>
+下面是推论：</p>
+
+<ul>
+<li><p>由于<code>a(n+15)-a(n)=60</code>,故若<code>a(n)</code>是3或5的倍数,当且仅当<code>a(n+15)</code>是3或5的倍数.</p></li>
+<li><p>于是每15个数是一个周期，前15个3-59~所以划分区间。</p></li>
+<li><p>现将数轴正向分成一系列长为60的区间段: <code>(0,+?)＝(0,60]∪(60,120]∪(120,180]∪…,</code>注意第一个区间段中含有{a(n)}的项15个,即<code>3,7,11,15,19,23,27,31,35,39,43,47,51,55,59</code>其中属于{ }的项8个,为:<code>b(1)=7, b(2)=11, b(3)=19, b(4)=23,   b(5)=31, b(6)=43, b(7)=47, b(8)=59</code></p></li>
+<li><p>于是每个区间段中恰有15个{ }的项,8个{ }的项,且有<code>b(8k+m)-b(m)=60k;</code></p></li>
+<li><p>EG：由于<code>2006＝8×250+6</code>,而<code>b(6)=43</code>,所以<code>b(2006)=60*250+b(6)=15043</code>。</p></li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#include&lt;cstdio&gt;
+</span><span class='line'>#include&lt;cstring&gt;
+</span><span class='line'>#include&lt;iostream&gt;
+</span><span class='line'>#include&lt;algorithm&gt;
+</span><span class='line'>using namespace std;
+</span><span class='line'>#define ll long long
+</span><span class='line'>#define rep(i, n) for (int i=0; i&lt;(n); ++i)
+</span><span class='line'>int b[8]={-1,7,11,19,23,31,43,47};
+</span><span class='line'>
+</span><span class='line'>int main()
+</span><span class='line'>{
+</span><span class='line'>    //freopen("data.in","r",stdin);
+</span><span class='line'>    //freopen("data.out","w",stdout);
+</span><span class='line'>    int T,n;
+</span><span class='line'>    scanf("%d",&T);
+</span><span class='line'>    while(T--)
+</span><span class='line'>    {
+</span><span class='line'>        scanf("%d",&n);  
+</span><span class='line'>        ll ans=60LL*(n/8)+b[n%8];
+</span><span class='line'>        printf("%lld\n",ans);    
+</span><span class='line'>    }
+</span><span class='line'>    return 0;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>G <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1994">不知道自己不知道</a></h2>
+
+<p>没什么好说的</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>while(~scanf("%d",&n)) printf("%d\n",2013-n);</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>H <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1995">知道自己不知道</a></h2>
+
+<p>数组求和除以M向上取整.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rep(i,0,n)  scanf("%d",&a);
+</span><span class='line'>sum+=a;     
+</span><span class='line'>printf("%d\n",(sum+m-1)/m); //加上m-1为向上取整</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>I <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1996">不知道自己知道</a></h2>
+
+<p>暴力比较即可</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)
+</span><span class='line'>string s[110];
+</span><span class='line'>int main()
+</span><span class='line'>{
+</span><span class='line'> 
+</span><span class='line'>    int t=0,T,m,n;
+</span><span class='line'>    cin&gt;&gt;T;
+</span><span class='line'>    string qurry;
+</span><span class='line'>    while(t++&lt;T)
+</span><span class='line'>    {
+</span><span class='line'>        cin&gt;&gt;m;
+</span><span class='line'>        rep(i,0,m){cin&gt;&gt;s[i];}
+</span><span class='line'>        cin&gt;&gt;n;
+</span><span class='line'>        cout&lt;&lt;"Case #"&lt;&lt;t&lt;&lt;":"&lt;&lt;endl;
+</span><span class='line'>        rep(i,0,n){
+</span><span class='line'>          cin&gt;&gt;qurry;
+</span><span class='line'>          bool fg=0;
+</span><span class='line'>          rep(j,0,m){if(qurry==s[j]){fg=1;break;}}
+</span><span class='line'>          if(fg)cout&lt;&lt;"Yes"&lt;&lt;endl;
+</span><span class='line'>          else cout&lt;&lt;"No"&lt;&lt;endl;
+</span><span class='line'>        }        
+</span><span class='line'>    }
+</span><span class='line'>    return 0;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>J <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1997">知道自己知道</a></h1>
+
+<p>做一下结构体，保存i和和i出现的次数，有负数，i集体加上100，然后恢复即可。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)
+</span><span class='line'>struct pt{     
+</span><span class='line'>  int cnt;
+</span><span class='line'>    int i;  
+</span><span class='line'>};
+</span><span class='line'>pt s[550];
+</span><span class='line'>bool cmp(pt a,pt b){
+</span><span class='line'>     if(a.cnt==b.cnt) return a.i&lt;b.i;     
+</span><span class='line'>     return a.cnt&gt;b.cnt;
+</span><span class='line'>}
+</span><span class='line'>int main(){
+</span><span class='line'>    int t,n,a;
+</span><span class='line'>    scanf("%d",&t);
+</span><span class='line'>    while(t--){
+</span><span class='line'>        rep(i,0,500){s[i].i=i-100;s[i].cnt=0;}
+</span><span class='line'>        scanf("%d",&n);
+</span><span class='line'>        rep(i,0,n)  {  scanf("%d",&a);      s[a+100].cnt++; }
+</span><span class='line'>        sort(s,s+500,cmp);
+</span><span class='line'>        int cnt=0;
+</span><span class='line'>        rep(i,0,500){if(s[i].cnt!=0)cnt++;else break;}
+</span><span class='line'>        printf("%d",cnt);
+</span><span class='line'>        rep(i,0,500){  if(!s[i].cnt)break;  printf(" %d",s[i].i);   }
+</span><span class='line'>        printf("\n");
+</span><span class='line'>    }
+</span><span class='line'>    return 0;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>以上题目均为过测试数据的程序，不保证程序完全正确无误，欢迎指正,预赛题目难度很明显会增大很多，大家加油。 3Q</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">UnkelTao</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-14T06:16:28+08:00" pubdate data-updated="true">Apr 14<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/acm/'>ACM</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/12/18/huiwen-hash/" title="Previous Post: 回文判断 Hash+线段树">&laquo; 回文判断 Hash+线段树</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/08/04/memsql-start/" title="Next Post: MemSQL start">MemSQL start &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section id="titles">
+  <h1 id="site_title"><a href="http://UnkelTao.github.io" title="\UnkelTao">\UnkelTao</a></h1>
+  <h3 id="site_subtitle">一个还未开始搬砖的程序猿.</h3>
+</section>
+
+<section id="menu">
+  <ul>
+    <li><i class="fa fa-home fa-lg"></i><a href="http://UnkelTao.github.io"> Home </a></li>
+    <li><i class="fa fa-calendar fa-lg"></i><a href="http://UnkelTao.github.io/blog/archives/"> Archives </a></li>
+    <li><i class="fa fa-user fa-lg"></i><a href="http://UnkelTao.github.io/about/"> About </a></li>
+    <li><i class="fa fa-rss fa-lg"></i><a href="http://UnkelTao.github.io/atom.xml"> Feed </a></li>
+  </ul>
+</section>
+
+<section id="social">
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/02/18/wordpress-to-octopress/">从 Wordpress 搬迁到 Octopress</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/04/memsql-start/">MemSQL start</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/04/14/the-9th-swjtu-collegiate-programming-contest-qualification-round/">The 9th SWJTU Collegiate Programming Contest Qualification Round</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/18/huiwen-hash/">回文判断 Hash+线段树</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/02/19/ubuntu-problem/">Ubuntu problem</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - UnkelTao -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'UnkelTao';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://UnkelTao.github.io/blog/2013/04/14/the-9th-swjtu-collegiate-programming-contest-qualification-round/';
+        var disqus_url = 'http://UnkelTao.github.io/blog/2013/04/14/the-9th-swjtu-collegiate-programming-contest-qualification-round/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

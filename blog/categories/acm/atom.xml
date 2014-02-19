@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: ACM | UnkelTao]]></title>
+  <title><![CDATA[Category: ACM | \UnkelTao]]></title>
   <link href="http://UnkelTao.github.io/blog/categories/acm/atom.xml" rel="self"/>
   <link href="http://UnkelTao.github.io/"/>
-  <updated>2014-02-19T00:01:56+08:00</updated>
+  <updated>2014-02-19T13:54:22+08:00</updated>
   <id>http://UnkelTao.github.io/</id>
   <author>
     <name><![CDATA[UnkelTao]]></name>
@@ -294,47 +294,424 @@ int main(){
   </entry>
   
   <entry>
+    <title type="html"><![CDATA[The 9th SWJTU Collegiate Programming Contest Qualification Round]]></title>
+    <link href="http://UnkelTao.github.io/blog/2013/04/14/the-9th-swjtu-collegiate-programming-contest-qualification-round/"/>
+    <updated>2013-04-14T06:16:28+08:00</updated>
+    <id>http://UnkelTao.github.io/blog/2013/04/14/the-9th-swjtu-collegiate-programming-contest-qualification-round</id>
+    <content type="html"><![CDATA[<p><strong>比赛链接：</strong>  <a href="http://acm.swjtu.edu.cn/JudgeOnline/showcontest?contest_id=1135" title="第九届ACM校赛资格赛">第九届ACM校赛资格赛</a></p>
+
+<p>资格赛嘛，本着大家熟悉环境增强自信心的原则~10道题没有太难的题目~适合新手练习.本次比赛D、E、F是我出的，本着简单的想法却没想到坑了一部分人，其中E题的数据再随机的时候超出了题目描述的范围造成一些人AC的程序WA了，在此表示抱歉,致以诚挚的歉意。下面给出我对着10道题的解法，可能我的解法并不是完全正确恰好过了数据而已，欢迎大家指正。</p>
+
+<!--more-->
+
+
+<h2>A <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1982">A+B</a></h2>
+
+<p>完全熟悉OJ环境的题目,上面都有标程,第一次接触ACM的需要知道怎么多组输入.
+```
+int a, b;
+while(scanf(&ldquo;%d %d&rdquo;, &amp;a, &amp;b)==2){</p>
+
+<pre><code>printf("%d\n", a + b);
+</code></pre>
+
+<p>}
+```</p>
+
+<h2>B <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1986">猴子爬楼梯1</a></h2>
+
+<p>因为数据不大，可以有3中解法:</p>
+
+<ul>
+<li><p>原理：看 n能被被整除<code>GCD(a,b)</code>整除，推论过程略,详见大牛(<a href="http://blog.csdn.net/openspirit/article/details/8797246">大牛题解</a>)。</p></li>
+<li><p>模拟法：我们可以确定只要大于 <code>a+b-1</code>的数 我们都可以通过加上a来得到,在+a ,-b的过程中，通过模拟产生出<code>(1，a+b-1)</code>所有的可能,把n对a取模既可以。</p></li>
+<li><p>搜索或者暴力,记忆化搜索，也就1000个点而已,代码未写,参见C题。<br/>
+<code>
+//模拟法
+int s[10000];
+int cnt(int a,int b)
+{
+int tmp=a,cur=0;
+memset(s,0,sizeof(s));
+while(tmp!=0)
+{
+    s[cur++]=tmp;         
+    if(tmp&gt;=b)tmp-=b;
+    else tmp+=a;           
+}
+return cur;
+}
+</code></p></li>
+</ul>
+
+
+<h2>C <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1990">猴子爬楼梯2</a></h2>
+
+<p><strong>本题将我深深的伤害了</strong></p>
+
+<ul>
+<li><p>模拟法:看着数据不大，于是暴力模拟,无限WA,基本思路同B题二解法，只是模拟过程中出现大于top就停止,至今未AC，未发现错误数据，回头对拍,有待考证。(<strong>忘记加特判了<code>a=0,b=0</code>时候挂掉了, 加上AC</strong>)</p></li>
+<li><p>记忆化搜索</p></li>
+</ul>
+
+
+<p>```
+//模拟法</p>
+
+<h1>include<cstdio></h1>
+
+<h1>define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)</h1>
+
+<p>int gcd(int a,int b){return b?gcd(b,a%b):a;}
+int s[1000];
+int cnt(int a,int b)
+{</p>
+
+<pre><code>int tmp=a,cur=0;
+if(b==0){s[0]=a; return 1;}
+while(tmp!=0){s[cur++]=tmp;if(tmp&gt;=b)tmp-=b;else tmp+=a;} 
+return cur;
+</code></pre>
+
+<p>}
+int main()
+{</p>
+
+<pre><code>//freopen("data.in","r",stdin);
+//freopen("data2.out","w",stdout);
+int T,a,b,n,m;
+scanf("%d",&amp;T);
+while(T--){
+   scanf("%d%d%d%d",&amp;a,&amp;b,&amp;n,&amp;m);
+   if(n&gt;m||a==0) printf("NO\n");
+   else {
+      if(n%a==0) printf("YES\n");
+      else {  
+           int len=cnt(a,b);
+           n=n%a; 
+           bool fg=0;
+           rep(i,0,len){
+              if(s[i]==n) {fg=1;break;}
+              if(s[i]&gt;m){fg=0;break;}
+           }
+           if(fg)printf("YES\n");else printf("NO\n");  
+
+      }
+   }
+}
+return 0;
+</code></pre>
+
+<p>}
+<code>
+</code>
+//记忆化搜索
+bool used[1100];
+bool bfs(int a,int b,int n,int m)
+{</p>
+
+<pre><code>queue&lt;int&gt; q;
+memset(used,0,sizeof(used));
+if(a&gt;m) return 0;
+q.push(a);
+used[a]=1;
+int t;
+while(!q.empty())
+{
+   int tmp=q.front(); q.pop();
+   used[tmp]=1;
+   if(tmp==n) return 1;
+   if(tmp+a&lt;=m&amp;&amp;!used[tmp+a]){used[tmp+a]=1; q.push(tmp+a);}
+   if(tmp-b&gt;=0&amp;&amp;!used[tmp-b]){used[tmp-b]=1; q.push(tmp-b);}           
+}
+return 0;
+</code></pre>
+
+<p>}
+```</p>
+
+<h2>D <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1991">统计学号</a></h2>
+
+<p>排序下，扫描一遍即可，秒杀级水题一枚。不会快排的可冒泡。</p>
+
+<p>```</p>
+
+<h1>include<cstdio></h1>
+
+<h1>include<cstring></h1>
+
+<h1>include<iostream></h1>
+
+<h1>include<algorithm></h1>
+
+<p>using namespace std;</p>
+
+<h1>define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)</h1>
+
+<p>int a[110];
+int main()
+{
+ //   freopen(&ldquo;data.in&rdquo;,&ldquo;r&rdquo;,stdin);
+ //   freopen(&ldquo;data.out&rdquo;,&ldquo;w&rdquo;,stdout);</p>
+
+<pre><code>int T,n;
+scanf("%d",&amp;T);
+while(T--){
+   scanf("%d",&amp;n);
+   rep(i,0,n)scanf("%d",&amp;a[i]);
+   sort(a,a+n);
+   int cnt=1;
+   rep(i,1,n) {if(a[i]!=a[i-1])cnt++;}
+   printf("%d\n",cnt);        
+}
+return 0;
+</code></pre>
+
+<p>}
+```</p>
+
+<h2>E <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1992">德德的嗜好2.0</a></h2>
+
+<p>此题也是一个排序题，当然如果直接<code>strcmp</code>是不行的，考虑90 9这组数据，结果很明显应该是990而不是909。<br/>
+因为我们在排序的时候只要保证<code>(a+b)>(b+a)</code>即可。<br/>
+<strong>再次表示对数据中出现了大于1000的数表示抱歉</strong>
+```</p>
+
+<h1>include<cstdio></h1>
+
+<h1>include<cstring></h1>
+
+<h1>include<iostream></h1>
+
+<h1>include<algorithm></h1>
+
+<p>using namespace std;</p>
+
+<h1>define rep(i, n) for (int i=0; i&lt;(n); ++i)</h1>
+
+<p>string s[81];
+bool cmp(string a,string b)
+{</p>
+
+<pre><code> return (a+b)&gt;(b+a);
+</code></pre>
+
+<p>}
+int main()
+{</p>
+
+<pre><code>//freopen("data.in","r",stdin);
+//freopen("data.out","w",stdout);
+int T,n;
+cin&gt;&gt;T;
+while(T--)
+{
+  cin&gt;&gt;n;
+  rep(i,n)cin&gt;&gt;s[i];
+  sort(s,s+n,cmp);   
+  rep(i,n)cout&lt;&lt;s[i];
+  cout&lt;&lt;endl;    
+}
+return 0;
+</code></pre>
+
+<p>}
+```</p>
+
+<h2>F <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1993">德德的嗜好3.0</a></h2>
+
+<p>公式题或者找规律  <code>b(8k+m)=b(m)+60k;  (k=n/8;m=n%8)</code> 打表出前8项就够了;其中<code>b(0)=-1;</code> 可以m等于1到8~这样就用不到b(0)但是计算k,m就多了几行代码。<br/>
+下面是推论：</p>
+
+<ul>
+<li><p>由于<code>a(n+15)-a(n)=60</code>,故若<code>a(n)</code>是3或5的倍数,当且仅当<code>a(n+15)</code>是3或5的倍数.</p></li>
+<li><p>于是每15个数是一个周期，前15个3-59~所以划分区间。</p></li>
+<li><p>现将数轴正向分成一系列长为60的区间段: <code>(0,+?)＝(0,60]∪(60,120]∪(120,180]∪…,</code>注意第一个区间段中含有{a(n)}的项15个,即<code>3,7,11,15,19,23,27,31,35,39,43,47,51,55,59</code>其中属于{ }的项8个,为:<code>b(1)=7, b(2)=11, b(3)=19, b(4)=23,   b(5)=31, b(6)=43, b(7)=47, b(8)=59</code></p></li>
+<li><p>于是每个区间段中恰有15个{ }的项,8个{ }的项,且有<code>b(8k+m)-b(m)=60k;</code></p></li>
+<li><p>EG：由于<code>2006＝8×250+6</code>,而<code>b(6)=43</code>,所以<code>b(2006)=60*250+b(6)=15043</code>。</p></li>
+</ul>
+
+
+<p>```</p>
+
+<h1>include<cstdio></h1>
+
+<h1>include<cstring></h1>
+
+<h1>include<iostream></h1>
+
+<h1>include<algorithm></h1>
+
+<p>using namespace std;</p>
+
+<h1>define ll long long</h1>
+
+<h1>define rep(i, n) for (int i=0; i&lt;(n); ++i)</h1>
+
+<p>int b[8]={-1,7,11,19,23,31,43,47};</p>
+
+<p>int main()
+{</p>
+
+<pre><code>//freopen("data.in","r",stdin);
+//freopen("data.out","w",stdout);
+int T,n;
+scanf("%d",&amp;T);
+while(T--)
+{
+    scanf("%d",&amp;n);  
+    ll ans=60LL*(n/8)+b[n%8];
+    printf("%lld\n",ans);    
+}
+return 0;
+</code></pre>
+
+<p>}
+```</p>
+
+<h2>G <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1994">不知道自己不知道</a></h2>
+
+<p>没什么好说的
+<code>
+while(~scanf("%d",&amp;n)) printf("%d\n",2013-n);
+</code></p>
+
+<h2>H <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1995">知道自己不知道</a></h2>
+
+<p>数组求和除以M向上取整.<br/>
+<code>
+rep(i,0,n)  scanf("%d",&amp;a);
+sum+=a;     
+printf("%d\n",(sum+m-1)/m); //加上m-1为向上取整
+</code></p>
+
+<h2>I <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1996">不知道自己知道</a></h2>
+
+<p>暴力比较即可
+```</p>
+
+<h1>define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)</h1>
+
+<p>string s[110];
+int main()
+{</p>
+
+<pre><code>int t=0,T,m,n;
+cin&gt;&gt;T;
+string qurry;
+while(t++&lt;T)
+{
+    cin&gt;&gt;m;
+    rep(i,0,m){cin&gt;&gt;s[i];}
+    cin&gt;&gt;n;
+    cout&lt;&lt;"Case #"&lt;&lt;t&lt;&lt;":"&lt;&lt;endl;
+    rep(i,0,n){
+      cin&gt;&gt;qurry;
+      bool fg=0;
+      rep(j,0,m){if(qurry==s[j]){fg=1;break;}}
+      if(fg)cout&lt;&lt;"Yes"&lt;&lt;endl;
+      else cout&lt;&lt;"No"&lt;&lt;endl;
+    }        
+}
+return 0;
+</code></pre>
+
+<p>}
+```</p>
+
+<h1>J <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1997">知道自己知道</a></h1>
+
+<p>做一下结构体，保存i和和i出现的次数，有负数，i集体加上100，然后恢复即可。
+```</p>
+
+<h1>define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)</h1>
+
+<p>struct pt{</p>
+
+<pre><code>int cnt;
+int i;  
+</code></pre>
+
+<p>};
+pt s[550];
+bool cmp(pt a,pt b){</p>
+
+<pre><code> if(a.cnt==b.cnt) return a.i&lt;b.i;     
+ return a.cnt&gt;b.cnt;
+</code></pre>
+
+<p>}
+int main(){</p>
+
+<pre><code>int t,n,a;
+scanf("%d",&amp;t);
+while(t--){
+    rep(i,0,500){s[i].i=i-100;s[i].cnt=0;}
+    scanf("%d",&amp;n);
+    rep(i,0,n)  {  scanf("%d",&amp;a);      s[a+100].cnt++; }
+    sort(s,s+500,cmp);
+    int cnt=0;
+    rep(i,0,500){if(s[i].cnt!=0)cnt++;else break;}
+    printf("%d",cnt);
+    rep(i,0,500){  if(!s[i].cnt)break;  printf(" %d",s[i].i);   }
+    printf("\n");
+}
+return 0;
+</code></pre>
+
+<p>}
+```</p>
+
+<p>以上题目均为过测试数据的程序，不保证程序完全正确无误，欢迎指正,预赛题目难度很明显会增大很多，大家加油。 3Q</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[回文判断 Hash+线段树]]></title>
     <link href="http://UnkelTao.github.io/blog/2012/12/18/huiwen-hash/"/>
     <updated>2012-12-18T17:14:12+08:00</updated>
     <id>http://UnkelTao.github.io/blog/2012/12/18/huiwen-hash</id>
     <content type="html"><![CDATA[<p>比赛的一道题,一直没时间写.最近空了，继续写写水题。</p>
 
+<p>题目描述：</p>
+
 <!--more-->
 
 
-<p>题目描述：
-Description</p>
+<h2>Description</h2>
 
-<p>Now we have a long long string, and we will have two kinds of operation on it.
-C i y: change the ith letter to y;
-Q i j: check whether the substring from ith letter to jth letter is a palindrome.
-Input</p>
+<p>Now we have a long long string, and we will have two kinds of operation on it.<br/>
+C i y: change the ith letter to y;<br/>
+Q i j: check whether the substring from ith letter to jth letter is a palindrome.</p>
 
-<p>There are multiple test cases.
-The first line contains a string whose length is not large than 1,000,000.
-The next line contains a integer N indicating the number of operations.
-The next N lines each lines contains a operation.
-All letters in the input are lower-case.
-Output</p>
+<h2>Input</h2>
+
+<p>There are multiple test cases.<br/>
+The first line contains a string whose length is not large than 1,000,000.<br/>
+The next line contains a integer N indicating the number of operations.<br/>
+The next N lines each lines contains a operation.<br/>
+All letters in the input are lower-case.</p>
+
+<h2>Output</h2>
 
 <p>For each query operation, output &ldquo;yes&rdquo; if the corresponding substring is a palindrome, otherwise output &ldquo;no&rdquo;.</p>
 
-<p>Sample Input
-aaaaa
-4
-Q 1 5
-C 2 b
-Q 1 5
+<h2>Sample Input</h2>
+
+<p>aaaaa <br/>
+4<br/>
+Q 1 5 <br/>
+C 2 b <br/>
+Q 1 5 <br/>
 Q 1 3</p>
 
-<p>Sample Output</p>
+<h2>Sample Output</h2>
 
-<p>yes
-no
+<p>yes <br/>
+no <br/>
 yes</p>
 
-<p>题意：给你一串字符串~然后有两种操作：Q a b 询问a到b之间的子串是否是回文 ；C i y 将第i个字母变成y</p>
+<p><strong>题意：</strong>给你一串字符串~然后有两种操作：Q a b 询问a到b之间的子串是否是回文 ；C i y 将第i个字母变成y</p>
 
 <p>水题，比赛的时候没有写完,
 在学妹的提示下，知道了判断回文可以用hash，正反hash相等的子串就是回文;于是再套上线段树来维护区间的hash值.</p>

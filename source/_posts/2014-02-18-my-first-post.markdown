@@ -6,7 +6,7 @@ comments: true
 categories: [心情笔记]
 ---
 
-![](http://d.pcs.baidu.com/thumbnail/7035e986948392045e392f38a9dcc9b9?fid=101724653-250528-881813552&time=1392723708&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-fDVLgea6GfJrq4xfvDwYjTHdh4o%3D&expires=8h&prisign=RK9dhfZlTqV5TuwkO5ihMQzlM241kT2YfffnCZFTaEPwOxHv/XxtwRXLxDSXMBba1Ms9seOiqT9/QffwI8K2Baw0mmLABRQNl51b/oS8+InqoadADmwcyikKawH2SpzFmVrGREiaH1zZ09BZiFo3CF7dwGcK/xIzj9971pKao/QALkDxW+JJC9zJS3FHk0o7boWsiiwPAK5reKjnULC44nO2igm8C/0s&r=120311863&size=c850_u580&quality=100)
+![](http://unkeltao.qiniudn.com/IMG_001.jpg)
 人之所以悲哀，是因为我们留不住岁月，更无法不承认，青春，有一日是要这么自然地消失过去。
 <!--more-->
 而人之可贵，也在于我们因着时光环境的改变，在生活上得到长进。岁月的流失固然是无可奈何，而人的逐渐蜕变，却又脱不出时光的力量。

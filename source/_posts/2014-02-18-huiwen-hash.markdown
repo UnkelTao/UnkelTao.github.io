@@ -7,39 +7,44 @@ categories: [ACM]
 ---
 
 比赛的一道题,一直没时间写.最近空了，继续写写水题。
-<!--more-->
+
 题目描述：
-Description
+<!--more-->
 
-Now we have a long long string, and we will have two kinds of operation on it.
-C i y: change the ith letter to y;
-Q i j: check whether the substring from ith letter to jth letter is a palindrome.
-Input
+##Description  
 
-There are multiple test cases.
-The first line contains a string whose length is not large than 1,000,000.
-The next line contains a integer N indicating the number of operations.
-The next N lines each lines contains a operation.
-All letters in the input are lower-case.
-Output
+Now we have a long long string, and we will have two kinds of operation on it.  
+C i y: change the ith letter to y;  
+Q i j: check whether the substring from ith letter to jth letter is a palindrome.  
+
+##Input  
+
+There are multiple test cases.  
+The first line contains a string whose length is not large than 1,000,000.  
+The next line contains a integer N indicating the number of operations.  
+The next N lines each lines contains a operation.  
+All letters in the input are lower-case.  
+
+##Output  
 
 For each query operation, output "yes" if the corresponding substring is a palindrome, otherwise output "no".
 
-Sample Input
-aaaaa 
-4 
-Q 1 5 
-C 2 b 
-Q 1 5 
-Q 1 3
+##Sample Input
 
-Sample Output
+aaaaa   
+4  
+Q 1 5   
+C 2 b   
+Q 1 5   
+Q 1 3   
 
-yes 
-no 
-yes
+##Sample Output
 
-题意：给你一串字符串~然后有两种操作：Q a b 询问a到b之间的子串是否是回文 ；C i y 将第i个字母变成y
+yes   
+no   
+yes  
+
+**题意：**给你一串字符串~然后有两种操作：Q a b 询问a到b之间的子串是否是回文 ；C i y 将第i个字母变成y
 
 水题，比赛的时候没有写完, 
 在学妹的提示下，知道了判断回文可以用hash，正反hash相等的子串就是回文;于是再套上线段树来维护区间的hash值.

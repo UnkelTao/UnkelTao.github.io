@@ -49,7 +49,7 @@ yes
 水题，比赛的时候没有写完, 
 在学妹的提示下，知道了判断回文可以用hash，正反hash相等的子串就是回文;于是再套上线段树来维护区间的hash值.
 
-```
+```c++ 
 #include<iostream>
 #include <cstdio>
 #include <cstdlib>

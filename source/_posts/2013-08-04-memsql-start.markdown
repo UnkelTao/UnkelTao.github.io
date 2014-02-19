@@ -21,7 +21,7 @@ categories: [ACM,CF]
 
 解法：数据那么弱，统计下源串每个字母的个数，直接暴力匹配从1个到(n+k-1)/k个能否拼成源串就好,写的2分,也过了.
 
-``` 
+```c++ 
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
@@ -113,7 +113,7 @@ B题一看最长回文子序列，能想到的方法就是2维DP出LCS~~可是�
 
 这样超过长度2600的就可以直接DP前2600个字母就行了~~~然后就是模板题了~~~真是弱爆了~~
 
-```
+```c++ 
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>

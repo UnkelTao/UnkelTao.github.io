@@ -13,7 +13,7 @@ categories: [ACM]
 <!--more-->
 ##A [A+B](http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1982)
 完全熟悉OJ环境的题目,上面都有标程,第一次接触ACM的需要知道怎么多组输入.
-```
+```c++ 
 int a, b; 
 while(scanf("%d %d", &a, &b)==2){
     printf("%d\n", a + b);
@@ -28,7 +28,7 @@ while(scanf("%d %d", &a, &b)==2){
 * 	模拟法：我们可以确定只要大于 <code>a+b-1</code>的数 我们都可以通过加上a来得到,在+a ,-b的过程中，通过模拟产生出<code>(1，a+b-1)</code>所有的可能,把n对a取模既可以。	
 
 *	搜索或者暴力,记忆化搜索，也就1000个点而已,代码未写,参见C题。	
-```
+```c++ 
 //模拟法
 int s[10000];
 int cnt(int a,int b)
@@ -53,7 +53,7 @@ int cnt(int a,int b)
 
 *	记忆化搜索	
 
-```
+```c++ 
 //模拟法
 #include<cstdio>
 #define rep(i,a,n) for (int i=(a); i<(n); ++i)
@@ -93,7 +93,7 @@ int main()
     return 0;
 }
 ```
-```
+```c++
 //记忆化搜索
 bool used[1100];
 bool bfs(int a,int b,int n,int m)
@@ -119,7 +119,7 @@ bool bfs(int a,int b,int n,int m)
 
 排序下，扫描一遍即可，秒杀级水题一枚。不会快排的可冒泡。
 
-```
+```c++ 
 #include<cstdio>
 #include<cstring>
 #include<iostream>
@@ -150,7 +150,7 @@ int main()
 此题也是一个排序题，当然如果直接<code>strcmp</code>是不行的，考虑90 9这组数据，结果很明显应该是990而不是909。  
 因为我们在排序的时候只要保证<code>(a+b)>(b+a)</code>即可。  
 **再次表示对数据中出现了大于1000的数表示抱歉**
-```
+```c++ 
 #include<cstdio>
 #include<cstring>
 #include<iostream>
@@ -194,7 +194,7 @@ int main()
 
 *	EG：由于<code>2006＝8×250+6</code>,而<code>b(6)=43</code>,所以<code>b(2006)=60*250+b(6)=15043</code>。	
 
-```
+```c++ 
 #include<cstdio>
 #include<cstring>
 #include<iostream>
@@ -223,7 +223,7 @@ int main()
 ##G [不知道自己不知道](http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1994)  
 
 没什么好说的
-```
+```c
 while(~scanf("%d",&n)) printf("%d\n",2013-n);
 ```
 
@@ -239,7 +239,7 @@ printf("%d\n",(sum+m-1)/m); //加上m-1为向上取整
 ##I [不知道自己知道](http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1996)  
 
 暴力比较即可
-```
+```c++ 
 #define rep(i,a,n) for (int i=(a); i<(n); ++i)
 string s[110];
 int main()
@@ -269,7 +269,7 @@ int main()
 #J [知道自己知道](http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1997)  
 
 做一下结构体，保存i和和i出现的次数，有负数，i集体加上100，然后恢复即可。
-```
+```c++ 
 #define rep(i,a,n) for (int i=(a); i<(n); ++i)
 struct pt{     
 	int cnt;

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ubuntu | \UnkelTao]]></title>
   <link href="http://UnkelTao.github.io/blog/categories/ubuntu/atom.xml" rel="self"/>
   <link href="http://UnkelTao.github.io/"/>
-  <updated>2014-02-19T21:51:43+08:00</updated>
+  <updated>2014-02-20T18:01:43+08:00</updated>
   <id>http://UnkelTao.github.io/</id>
   <author>
     <name><![CDATA[UnkelTao]]></name>
@@ -23,10 +23,10 @@
 <p><img src="http://unkeltao.qiniudn.com/IMG_002.jpg" alt="" />
 <img src="http://unkeltao.qiniudn.com/IMG_003.jpg" alt="" /></p>
 
-<p>解决代码：</p>
+<p>解决代码：
+法1：</p>
 
-<p>法1：
-<code>sh
+<p><code>sh
 sudo apt-get install dkms build-essential linux-headers-$(uname -r)
 sudo /etc/init.d/vboxdrv setup
 </code></p>

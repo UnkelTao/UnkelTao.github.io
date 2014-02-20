@@ -4,7 +4,7 @@
   <title><![CDATA[\UnkelTao]]></title>
   <link href="http://UnkelTao.github.io/atom.xml" rel="self"/>
   <link href="http://UnkelTao.github.io/"/>
-  <updated>2014-02-20T19:22:54+08:00</updated>
+  <updated>2014-02-20T19:29:12+08:00</updated>
   <id>http://UnkelTao.github.io/</id>
   <author>
     <name><![CDATA[UnkelTao]]></name>
@@ -19,6 +19,9 @@
     <updated>2014-02-20T16:29:21+08:00</updated>
     <id>http://UnkelTao.github.io/blog/2014/02/20/sublime-text-for-ctex</id>
     <content type="html"><![CDATA[<p>写论文必不可少的工具当然是 Latex，但是WinEdL的界面实在是不喜欢，钟爱Sublime的当然想在Sublime上进行Latex的书写，一找，还真找到插件了<strong><a href="https://github.com/SublimeText/LaTeXTools/blob/master/README.markdown">LatexTools</a></strong>。</p>
+
+<!--more-->
+
 
 <h3>安装与配置</h3>
 
@@ -36,6 +39,9 @@
     <updated>2014-02-18T21:48:51+08:00</updated>
     <id>http://UnkelTao.github.io/blog/2014/02/18/wordpress-to-octopress</id>
     <content type="html"><![CDATA[<p>终于还是从 Wordpress 搬迁到 Octopress 上来了，搬迁相对还是挺容易了，毕竟以前还是接触过一些ruby，加上<a href="http://octopress.org/docs/setup/" title="官方文档">官方文档</a> ，所以环境什么的搭建的比较顺利。</p>
+
+<!--more-->
+
 
 <p>大概的步骤也就这些：</p>
 

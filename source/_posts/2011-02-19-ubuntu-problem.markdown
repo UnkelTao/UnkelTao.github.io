@@ -12,8 +12,8 @@ categories: [Ubuntu]
 ![](http://unkeltao.qiniudn.com/IMG_003.jpg)
 
 解决代码：
-
 法1：
+
 ```sh 
 sudo apt-get install dkms build-essential linux-headers-$(uname -r) 
 sudo /etc/init.d/vboxdrv setup

@@ -3,11 +3,11 @@ layout: post
 title: "利用Sublime text 编写 Ctex"
 date: 2014-02-20 16:29:21 +0800
 comments: true
-categories: [latex]
+categories: [latex,Sublime Text]
 ---
 
 写论文必不可少的工具当然是 Latex，但是WinEdL的界面实在是不喜欢，钟爱Sublime的当然想在Sublime上进行Latex的书写，一找，还真找到插件了**[LatexTools](https://github.com/SublimeText/LaTeXTools/blob/master/README.markdown)**。
-
+<!--more-->
 
 ###安装与配置
 

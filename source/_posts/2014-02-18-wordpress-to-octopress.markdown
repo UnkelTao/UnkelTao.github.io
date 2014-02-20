@@ -3,11 +3,11 @@ layout: post
 title: "从 Wordpress 搬迁到 Octopress"
 date: 2014-02-18 21:48:51 +0800
 comments: true
-categories: [随笔]
+categories: [随笔,octopress]
 ---
 
 终于还是从 Wordpress 搬迁到 Octopress 上来了，搬迁相对还是挺容易了，毕竟以前还是接触过一些ruby，加上[官方文档](http://octopress.org/docs/setup/ "官方文档") ，所以环境什么的搭建的比较顺利。
-
+<!--more-->
 大概的步骤也就这些：
 ```
 安装相关环境：Ruby，Devkit,Python(代码高亮)

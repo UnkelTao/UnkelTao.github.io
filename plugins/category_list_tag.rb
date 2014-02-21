@@ -49,7 +49,18 @@
       html
     end
   end
+
+  class BackgroudPage < Liquid::Tag
+    def render(context)
+      html = ""
+      #root_url = context.registers[:site].config['root']
+      kt = rand(2)
+      html << "<style>html{background: url('./images/IMG_#{kt}_fengmian.jpg') no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;}</style>\n"
+      html
+    end
+  end
 end
 
 Liquid::Template.register_tag('tag_cloud', Jekyll::TagCloud)
+Liquid::Template.register_tag('background_image', Jekyll::BackgroudPage)
 Liquid::Template.register_tag('category_list', Jekyll::CategoryListTag)

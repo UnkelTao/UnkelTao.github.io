@@ -4,6 +4,8 @@ title: "雨季不再来"
 date: 2010-03-05 20:10:42 +0800
 comments: true
 categories: [心情笔记]
+description: "雨季不再来" 
+keywords: 心情笔记
 ---
 
 ![](http://unkeltao.qiniudn.com/IMG_001.jpg)

@@ -4,6 +4,8 @@ title: "Ubuntu problem"
 date: 2011-02-19 00:00:07 +0800
 comments: true
 categories: [Ubuntu]
+description: "Ubuntu problem" 
+keywords: Ubuntu 
 ---
 
 问题：

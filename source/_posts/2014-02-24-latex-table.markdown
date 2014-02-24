@@ -4,6 +4,8 @@ title: "Latex 绘制跨页表格"
 date: 2014-02-24 19:16:26 +0800
 comments: true
 categories: [latex]
+description: "Latex 绘制跨页表格" 
+keywords: Latex 
 ---
 
 使用latex绘制表格或多或少都会遇到这样的问题，一个表格过长超过一页应该如何处理，latex提供了一些宏包，如longtable和supertabular;这里介绍如何用supertabular绘制跨页表格。

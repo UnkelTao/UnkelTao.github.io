@@ -4,6 +4,8 @@ title: "MemSQL start"
 date: 2013-08-04 20:13:34 +0800
 comments: true
 categories: [ACM,CF]
+description: "MemSQL start" 
+keywords: ACM,CF,C/C++
 ---
 
 【测试代码】

@@ -6,7 +6,7 @@ comments: true
 categories: [latex,Sublime Text]
 ---
 
-写论文必不可少的工具当然是 Latex，但是WinEdL的界面实在是不喜欢，钟爱Sublime的当然想在Sublime上进行Latex的书写，一找，还真找到插件了**[LatexTools](https://github.com/SublimeText/LaTeXTools/blob/master/README.markdown)**。
+写论文必不可少的工具当然是 Latex，但是WinEdt的界面实在是不喜欢，钟爱Sublime的当然想在Sublime上进行Latex的书写，一找，还真找到插件了**[LatexTools](https://github.com/SublimeText/LaTeXTools/blob/master/README.markdown)**。
 <!--more-->
 
 ###安装与配置

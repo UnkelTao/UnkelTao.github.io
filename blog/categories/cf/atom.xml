@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: CF | \UnkelTao]]></title>
-  <link href="http://UnkelTao.github.io/blog/categories/cf/atom.xml" rel="self"/>
-  <link href="http://UnkelTao.github.io/"/>
-  <updated>2014-02-24T21:10:09+08:00</updated>
-  <id>http://UnkelTao.github.io/</id>
+  <title><![CDATA[Category: CF | /UnkelTao]]></title>
+  <link href="http://www.unkeltao.com/blog/categories/cf/atom.xml" rel="self"/>
+  <link href="http://www.unkeltao.com/"/>
+  <updated>2014-02-24T21:28:04+08:00</updated>
+  <id>http://www.unkeltao.com/</id>
   <author>
     <name><![CDATA[UnkelTao]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[MemSQL start]]></title>
-    <link href="http://UnkelTao.github.io/blog/2013/08/04/memsql-start/"/>
+    <link href="http://www.unkeltao.com/blog/2013/08/04/memsql-start/"/>
     <updated>2013-08-04T20:13:34+08:00</updated>
-    <id>http://UnkelTao.github.io/blog/2013/08/04/memsql-start</id>
+    <id>http://www.unkeltao.com/blog/2013/08/04/memsql-start</id>
     <content type="html"><![CDATA[<p>【测试代码】</p>
 
 <p>昨晚的CF略晚~~而且提示说div2的少年们，你们很可能会爆0~~~</p>

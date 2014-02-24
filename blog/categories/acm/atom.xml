@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: ACM | \UnkelTao]]></title>
-  <link href="http://UnkelTao.github.io/blog/categories/acm/atom.xml" rel="self"/>
-  <link href="http://UnkelTao.github.io/"/>
-  <updated>2014-02-24T21:10:09+08:00</updated>
-  <id>http://UnkelTao.github.io/</id>
+  <title><![CDATA[Category: ACM | /UnkelTao]]></title>
+  <link href="http://www.unkeltao.com/blog/categories/acm/atom.xml" rel="self"/>
+  <link href="http://www.unkeltao.com/"/>
+  <updated>2014-02-24T21:28:04+08:00</updated>
+  <id>http://www.unkeltao.com/</id>
   <author>
     <name><![CDATA[UnkelTao]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[MemSQL start]]></title>
-    <link href="http://UnkelTao.github.io/blog/2013/08/04/memsql-start/"/>
+    <link href="http://www.unkeltao.com/blog/2013/08/04/memsql-start/"/>
     <updated>2013-08-04T20:13:34+08:00</updated>
-    <id>http://UnkelTao.github.io/blog/2013/08/04/memsql-start</id>
+    <id>http://www.unkeltao.com/blog/2013/08/04/memsql-start</id>
     <content type="html"><![CDATA[<p>【测试代码】</p>
 
 <p>昨晚的CF略晚~~而且提示说div2的少年们，你们很可能会爆0~~~</p>
@@ -295,9 +295,9 @@ int main(){
   
   <entry>
     <title type="html"><![CDATA[The 9th SWJTU Collegiate Programming Contest Qualification Round]]></title>
-    <link href="http://UnkelTao.github.io/blog/2013/04/14/the-9th-swjtu-collegiate-programming-contest-qualification-round/"/>
+    <link href="http://www.unkeltao.com/blog/2013/04/14/the-9th-swjtu-collegiate-programming-contest-qualification-round/"/>
     <updated>2013-04-14T06:16:28+08:00</updated>
-    <id>http://UnkelTao.github.io/blog/2013/04/14/the-9th-swjtu-collegiate-programming-contest-qualification-round</id>
+    <id>http://www.unkeltao.com/blog/2013/04/14/the-9th-swjtu-collegiate-programming-contest-qualification-round</id>
     <content type="html"><![CDATA[<p><strong>比赛链接：</strong>  <a href="http://acm.swjtu.edu.cn/JudgeOnline/showcontest?contest_id=1135" title="第九届ACM校赛资格赛">第九届ACM校赛资格赛</a></p>
 
 <p>资格赛嘛，本着大家熟悉环境增强自信心的原则~10道题没有太难的题目~适合新手练习.本次比赛D、E、F是我出的，本着简单的想法却没想到坑了一部分人，其中E题的数据再随机的时候超出了题目描述的范围造成一些人AC的程序WA了，在此表示抱歉,致以诚挚的歉意。下面给出我对着10道题的解法，可能我的解法并不是完全正确恰好过了数据而已，欢迎大家指正。</p>
@@ -668,9 +668,9 @@ return 0;
   
   <entry>
     <title type="html"><![CDATA[回文判断 Hash+线段树]]></title>
-    <link href="http://UnkelTao.github.io/blog/2012/12/18/huiwen-hash/"/>
+    <link href="http://www.unkeltao.com/blog/2012/12/18/huiwen-hash/"/>
     <updated>2012-12-18T17:14:12+08:00</updated>
-    <id>http://UnkelTao.github.io/blog/2012/12/18/huiwen-hash</id>
+    <id>http://www.unkeltao.com/blog/2012/12/18/huiwen-hash</id>
     <content type="html"><![CDATA[<p>比赛的一道题,一直没时间写.最近空了，继续写写水题。</p>
 
 <p>题目描述：</p>

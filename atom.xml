@@ -4,7 +4,7 @@
   <title><![CDATA[\UnkelTao]]></title>
   <link href="http://UnkelTao.github.io/atom.xml" rel="self"/>
   <link href="http://UnkelTao.github.io/"/>
-  <updated>2014-02-24T20:05:48+08:00</updated>
+  <updated>2014-02-24T20:34:53+08:00</updated>
   <id>http://UnkelTao.github.io/</id>
   <author>
     <name><![CDATA[UnkelTao]]></name>
@@ -25,7 +25,7 @@
 
 <h2>标题命令</h2>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>宏包相关命令</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -60,7 +60,7 @@
 
 <h2>参考样例</h2>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>宏包</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -149,7 +149,7 @@
     <link href="http://UnkelTao.github.io/blog/2014/02/20/sublime-text-for-ctex/"/>
     <updated>2014-02-20T16:29:21+08:00</updated>
     <id>http://UnkelTao.github.io/blog/2014/02/20/sublime-text-for-ctex</id>
-    <content type="html"><![CDATA[<p>写论文必不可少的工具当然是 Latex，但是WinEdL的界面实在是不喜欢，钟爱Sublime的当然想在Sublime上进行Latex的书写，一找，还真找到插件了<strong><a href="https://github.com/SublimeText/LaTeXTools/blob/master/README.markdown">LatexTools</a></strong>。</p>
+    <content type="html"><![CDATA[<p>写论文必不可少的工具当然是 Latex，但是WinEdt的界面实在是不喜欢，钟爱Sublime的当然想在Sublime上进行Latex的书写，一找，还真找到插件了<strong><a href="https://github.com/SublimeText/LaTeXTools/blob/master/README.markdown">LatexTools</a></strong>。</p>
 
 <!--more-->
 

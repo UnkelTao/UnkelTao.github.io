@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: latex | /UnkelTao]]></title>
-  <link href="http://www.unkeltao.com/blog/categories/latex/atom.xml" rel="self"/>
-  <link href="http://www.unkeltao.com/"/>
-  <updated>2014-02-24T21:28:04+08:00</updated>
-  <id>http://www.unkeltao.com/</id>
+  <link href="http://www.UnkelTao.com/blog/categories/latex/atom.xml" rel="self"/>
+  <link href="http://www.UnkelTao.com/"/>
+  <updated>2014-02-24T21:33:34+08:00</updated>
+  <id>http://www.UnkelTao.com/</id>
   <author>
     <name><![CDATA[UnkelTao]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Latex 绘制跨页表格]]></title>
-    <link href="http://www.unkeltao.com/blog/2014/02/24/latex-table/"/>
+    <link href="http://www.UnkelTao.com/blog/2014/02/24/latex-table/"/>
     <updated>2014-02-24T19:16:26+08:00</updated>
-    <id>http://www.unkeltao.com/blog/2014/02/24/latex-table</id>
+    <id>http://www.UnkelTao.com/blog/2014/02/24/latex-table</id>
     <content type="html"><![CDATA[<p>使用latex绘制表格或多或少都会遇到这样的问题，一个表格过长超过一页应该如何处理，latex提供了一些宏包，如longtable和supertabular;这里介绍如何用supertabular绘制跨页表格。</p>
 
 <!--more-->
@@ -125,9 +125,9 @@
   
   <entry>
     <title type="html"><![CDATA[利用Sublime text 编写 Ctex]]></title>
-    <link href="http://www.unkeltao.com/blog/2014/02/20/sublime-text-for-ctex/"/>
+    <link href="http://www.UnkelTao.com/blog/2014/02/20/sublime-text-for-ctex/"/>
     <updated>2014-02-20T16:29:21+08:00</updated>
-    <id>http://www.unkeltao.com/blog/2014/02/20/sublime-text-for-ctex</id>
+    <id>http://www.UnkelTao.com/blog/2014/02/20/sublime-text-for-ctex</id>
     <content type="html"><![CDATA[<p>写论文必不可少的工具当然是 Latex，但是WinEdt的界面实在是不喜欢，钟爱Sublime的当然想在Sublime上进行Latex的书写，一找，还真找到插件了<strong><a href="https://github.com/SublimeText/LaTeXTools/blob/master/README.markdown">LatexTools</a></strong>。</p>
 
 <!--more-->

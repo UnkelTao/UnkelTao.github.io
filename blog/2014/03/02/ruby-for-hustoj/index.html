@@ -5,12 +5,15 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>从 Wordpress 搬迁到 Octopress - /UnkelTao</title>
+  <title>为Hustoj添加ruby支持 - /UnkelTao</title>
   <meta name="author" content="UnkelTao">
 
   
-  <meta name="description" content="从 Wordpress 搬迁到 Octopress">
-  <meta name="keywords" content="随笔,octopress">
+  <meta name="description" content="虽然已经不是再搞ACM了，但是算法偶尔还是要练习一下写代码，然后最近学习ruby中，打算用ruby来写写ACM题目也算熟悉ruby，免得不用就忘记了，记得Hustoj是可以支持Ruby的，于是就在我们学校的训练Oj上提交了A+B的Ruby代码： 1
+2
+3
+readlines.each{|line &hellip;">
+  
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -18,7 +21,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://www.UnkelTao.com/blog/2014/02/18/wordpress-to-octopress/">
+  <link rel="canonical" href="http://www.UnkelTao.com/blog/2014/03/02/ruby-for-hustoj/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
    <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -89,7 +92,7 @@
   
   <header>
     
-      <h1 class="entry-title">从 Wordpress 搬迁到 Octopress</h1>
+      <h1 class="entry-title">为Hustoj添加ruby支持</h1>
     
     
       <p class="meta">
@@ -105,35 +108,96 @@
   
 
 
-<time datetime="2014-02-18T21:48:51+08:00" pubdate data-updated="true">Feb 18<span>th</span>, 2014</time>
+<time datetime="2014-03-02T22:33:16+08:00" pubdate data-updated="true">Mar 2<span>nd</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>终于还是从 Wordpress 搬迁到 Octopress 上来了，搬迁相对还是挺容易了，毕竟以前还是接触过一些ruby，加上<a href="http://octopress.org/docs/setup/" title="官方文档">官方文档</a> ，所以环境什么的搭建的比较顺利。</p>
+<div class="entry-content"><p>虽然已经不是再搞ACM了，但是算法偶尔还是要练习一下写代码，然后最近学习ruby中，打算用ruby来写写ACM题目也算熟悉ruby，免得不用就忘记了，记得Hustoj是可以支持Ruby的，于是就在我们学校的训练Oj上提交了A+B的Ruby代码：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">readlines</span><span class="o">.</span><span class="n">each</span><span class="p">{</span><span class="o">|</span><span class="n">line</span><span class="o">|</span>
+</span><span class='line'>  <span class="nb">p</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="o">.</span><span class="n">collect</span><span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="o">.</span><span class="n">to_i</span><span class="p">}</span><span class="o">.</span><span class="n">inject</span><span class="p">{</span><span class="o">|</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">|</span> <span class="n">y</span> <span class="o">+=</span> <span class="n">x</span><span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>于是华丽的给了我一个WA~~~正在想怎么可能，想起来服务器上没有装ruby，于是远程到7509的服务器上再ssh到训练oj的服务器(只能内网访问，ping不到外网地址)，将ruby装上。</p>
+
+<p>然后就开始了无止境的RE生涯，简直无情，各种call禁止：</p>
 
 <!--more-->
 
 
-<p>大概的步骤也就这些：</p>
+<p><img src="http://unkeltao.qiniudn.com/img/IMG_ruby_1.png" alt="" /></p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p>在hustoj的wiki页面上，终于找到了参考的添加其他<a href="http://code.google.com/p/hustoj/wiki/AddProgrammingLanguage">语言支持的方法</a></p>
+
+<p>其实主要的就是找到所有的call编号，放到数组里面去就行了，ruby对应了两个数组</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="c1">#保存为Main.rb</span>
+</span><span class='line'><span class="nb">readlines</span><span class="o">.</span><span class="n">each</span><span class="p">{</span><span class="o">|</span><span class="n">line</span><span class="o">|</span>
+</span><span class='line'>  <span class="nb">p</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="o">.</span><span class="n">collect</span><span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="o">.</span><span class="n">to_i</span><span class="p">}</span><span class="o">.</span><span class="n">inject</span><span class="p">{</span><span class="o">|</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">|</span> <span class="n">y</span> <span class="o">+=</span> <span class="n">x</span><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>terminal中运行如下命令。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>strace -ff ruby Main.rb 2&gt;&amp;1|awk -F<span class="se">\(</span> <span class="s1">&#39;{print $1}&#39;</span>|sort -u
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>然后会产生,以access开头，write结束（也有可能是其他）的一些列标志如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>安装相关环境：Ruby，Devkit,Python(代码高亮)
-</span><span class='line'>参照 Octopress 官方文档进行操作
-</span><span class='line'>下载对应主题并修改
-</span><span class='line'>添加 Disqus 评论
-</span><span class='line'>绑定域名暂时没有做（其实很简单，但是域名暂有其他作用）</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>access
+</span><span class='line'>xxx
+</span><span class='line'>xxx
+</span><span class='line'>write
+</span></code></pre></td></tr></table></div></figure>
 
 
-<p>而且本身Wordpress并没有使用太久，所以文章很少，就手动复制了两篇过来，其他觉得没有必要保留的就抛弃了。比较麻烦的是以前使用过很多个不同类型的博客，里面的搬迁过来手动的写Markdown还是挺麻烦的，而且数量也很大，只能挑选一些放上来了。</p>
+<p>把这些标志放入如下过程，结尾是0，对应RC数组其他值为-1，结尾为0.</p>
 
-<p>以后的博客就是这个了，试用了一下还可以哟。</p>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="kt">int</span> <span class="n">LANG_RV</span><span class="p">[</span><span class="mi">256</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="n">SYS_access</span><span class="p">,</span><span class="n">SYS_write</span><span class="p">.....,</span><span class="mi">0</span><span class="p">};</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">LANG_RC</span><span class="p">[</span><span class="mi">256</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,......,</span><span class="mi">0</span><span class="p">};</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>改好之后切换到对应目录下，重新make</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nb">cd</span> ~/hustoj-read-only/core/
+</span><span class='line'>./make.sh
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>接下来就是体力活了，找到提交的runid，rejudge下，看看是不是AC了，可能还会接着RE，如果RE，就将新的callid(是一个数字)加入到数组中，也就是RV数组中，RC数组值为-1就行：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>sudo judge_client 2028 0 /home/judge/ debug Y
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>直到返回值不是10，然后再去页面提交，这下应该就可以了~~~（当然我中间还做了一堆傻事，这儿就不提了）
+偶尔可以在训练oj上做做练习了，免得以后笔试说不定都跪。</p>
+
+<p>最终结果：
+<img src="http://unkeltao.qiniudn.com/img/IMG_ruby_2.png" alt="" /></p>
 </div>
 
 
@@ -156,12 +220,12 @@
   
 
 
-<time datetime="2014-02-18T21:48:51+08:00" pubdate data-updated="true">Feb 18<span>th</span>, 2014</time>
+<time datetime="2014-03-02T22:33:16+08:00" pubdate data-updated="true">Mar 2<span>nd</span>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/octopress/'>octopress</a>, <a class='category' href='/blog/categories/sui-bi/'>随笔</a>
+    <a class='category' href='/blog/categories/acm/'>ACM</a>, <a class='category' href='/blog/categories/ruby/'>Ruby</a>
   
 </span>
 
@@ -177,10 +241,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/08/04/memsql-start/" title="Previous Post: MemSQL start">&laquo; MemSQL start</a>
+        <a class="basic-alignment left" href="/blog/2014/02/24/latex-table/" title="Previous Post: Latex 绘制跨页表格">&laquo; Latex 绘制跨页表格</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/02/20/sublime-text-for-ctex/" title="Next Post: 利用Sublime text 编写 Ctex">利用Sublime text 编写 Ctex &raquo;</a>
       
     </p>
   </footer>
@@ -316,8 +378,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://www.UnkelTao.com/blog/2014/02/18/wordpress-to-octopress/';
-        var disqus_url = 'http://www.UnkelTao.com/blog/2014/02/18/wordpress-to-octopress/';
+        var disqus_identifier = 'http://www.UnkelTao.com/blog/2014/03/02/ruby-for-hustoj/';
+        var disqus_url = 'http://www.UnkelTao.com/blog/2014/03/02/ruby-for-hustoj/';
         var disqus_script = 'embed.js';
       
     (function () {

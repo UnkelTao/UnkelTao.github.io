@@ -4,7 +4,7 @@
   <title><![CDATA[/UnkelTao]]></title>
   <link href="http://www.UnkelTao.com/atom.xml" rel="self"/>
   <link href="http://www.UnkelTao.com/"/>
-  <updated>2014-02-24T23:39:37+08:00</updated>
+  <updated>2014-03-02T23:14:23+08:00</updated>
   <id>http://www.UnkelTao.com/</id>
   <author>
     <name><![CDATA[UnkelTao]]></name>
@@ -12,6 +12,97 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[为Hustoj添加ruby支持]]></title>
+    <link href="http://www.UnkelTao.com/blog/2014/03/02/ruby-for-hustoj/"/>
+    <updated>2014-03-02T22:33:16+08:00</updated>
+    <id>http://www.UnkelTao.com/blog/2014/03/02/ruby-for-hustoj</id>
+    <content type="html"><![CDATA[<p>虽然已经不是再搞ACM了，但是算法偶尔还是要练习一下写代码，然后最近学习ruby中，打算用ruby来写写ACM题目也算熟悉ruby，免得不用就忘记了，记得Hustoj是可以支持Ruby的，于是就在我们学校的训练Oj上提交了A+B的Ruby代码：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">readlines</span><span class="o">.</span><span class="n">each</span><span class="p">{</span><span class="o">|</span><span class="n">line</span><span class="o">|</span>
+</span><span class='line'>  <span class="nb">p</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="o">.</span><span class="n">collect</span><span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="o">.</span><span class="n">to_i</span><span class="p">}</span><span class="o">.</span><span class="n">inject</span><span class="p">{</span><span class="o">|</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">|</span> <span class="n">y</span> <span class="o">+=</span> <span class="n">x</span><span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>于是华丽的给了我一个WA~~~正在想怎么可能，想起来服务器上没有装ruby，于是远程到7509的服务器上再ssh到训练oj的服务器(只能内网访问，ping不到外网地址)，将ruby装上。</p>
+
+<p>然后就开始了无止境的RE生涯，简直无情，各种call禁止：</p>
+
+<!--more-->
+
+
+<p><img src="http://unkeltao.qiniudn.com/img/IMG_ruby_1.png" alt="" /></p>
+
+<p>在hustoj的wiki页面上，终于找到了参考的添加其他<a href="http://code.google.com/p/hustoj/wiki/AddProgrammingLanguage">语言支持的方法</a></p>
+
+<p>其实主要的就是找到所有的call编号，放到数组里面去就行了，ruby对应了两个数组</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="c1">#保存为Main.rb</span>
+</span><span class='line'><span class="nb">readlines</span><span class="o">.</span><span class="n">each</span><span class="p">{</span><span class="o">|</span><span class="n">line</span><span class="o">|</span>
+</span><span class='line'>  <span class="nb">p</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="o">.</span><span class="n">collect</span><span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="o">.</span><span class="n">to_i</span><span class="p">}</span><span class="o">.</span><span class="n">inject</span><span class="p">{</span><span class="o">|</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">|</span> <span class="n">y</span> <span class="o">+=</span> <span class="n">x</span><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>terminal中运行如下命令。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>strace -ff ruby Main.rb 2&gt;&amp;1|awk -F<span class="se">\(</span> <span class="s1">&#39;{print $1}&#39;</span>|sort -u
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>然后会产生,以access开头，write结束（也有可能是其他）的一些列标志如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>access
+</span><span class='line'>xxx
+</span><span class='line'>xxx
+</span><span class='line'>write
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>把这些标志放入如下过程，结尾是0，对应RC数组其他值为-1，结尾为0.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="kt">int</span> <span class="n">LANG_RV</span><span class="p">[</span><span class="mi">256</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="n">SYS_access</span><span class="p">,</span><span class="n">SYS_write</span><span class="p">.....,</span><span class="mi">0</span><span class="p">};</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">LANG_RC</span><span class="p">[</span><span class="mi">256</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,......,</span><span class="mi">0</span><span class="p">};</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>改好之后切换到对应目录下，重新make</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nb">cd</span> ~/hustoj-read-only/core/
+</span><span class='line'>./make.sh
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>接下来就是体力活了，找到提交的runid，rejudge下，看看是不是AC了，可能还会接着RE，如果RE，就将新的callid(是一个数字)加入到数组中，也就是RV数组中，RC数组值为-1就行：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>sudo judge_client 2028 0 /home/judge/ debug Y
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>直到返回值不是10，然后再去页面提交，这下应该就可以了~~~（当然我中间还做了一堆傻事，这儿就不提了）
+偶尔可以在训练oj上做做练习了，免得以后笔试说不定都跪。</p>
+
+<p>最终结果：
+<img src="http://unkeltao.qiniudn.com/img/IMG_ruby_2.png" alt="" /></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Latex 绘制跨页表格]]></title>

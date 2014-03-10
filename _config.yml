@@ -98,3 +98,8 @@ google_analytics_tracking_id: UA-48154170-1
 
 # Facebook Like
 facebook_like: false
+
+
+# 多说评论
+duoshuo_comments: true
+duoshuo_short_name: unkeltao

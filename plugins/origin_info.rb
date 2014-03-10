@@ -1,4 +1,4 @@
-#
+﻿#
 # post_footer_filter.rb
 # Append every post some footer infomation like original url 
 # Kevin Lynx
@@ -11,7 +11,7 @@ module AppendFooterFilter
      author = post.site.config['author']
      url = post.site.config['url']
      pre = post.site.config['original_url_pre']
-     post.content + %Q[<p class='post-footer'>#{pre or "original link:"}:&nbsp;<a href='#{post.full_url}'>#{post.full_url}</a><br/><br/>&nbsp;written by <a href='#{url}'>#{author}</a>&nbsp;posted at <a href='#{url}'>#{url}</a></p>]
+     post.content + %Q[<p class='post-footer'>#{pre or "original link:"}:&nbsp;<a href='#{post.full_url}'>#{post.full_url}</a><br/><br/>&nbsp;由 <a href='#{url}'>#{author}</a>&nbsp;撰写并发表于 <a href='#{url}'>#{url}</a></p>]
   end 
 end
 

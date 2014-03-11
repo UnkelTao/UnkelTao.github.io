@@ -92,6 +92,67 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2014/03/11/codeforce-235/">Codeforce 235</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-11T14:02:19+08:00" pubdate data-updated="true">Mar 11<span>th</span>, 2014</time>
+        
+        
+          | <a href="/blog/2014/03/11/codeforce-235/#comments">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>好久没做CF了，觉得再不做估计以后笔试都过不鸟，于是还得经常做一做。</p>
+
+<p>CF的回滚对我木有影响阿，我已经好久没做了似乎。</p>
+
+<p>这次的DIV2似乎比以前的简单一点。</p>
+
+<h2><a href="http://codeforces.com/contest/401/problem/A">A. Vanya and Cards</a></h2>
+
+<p>送分,大概给你一堆数，问你最少还需要几个绝对值不超过X的数能够让他们的和为0.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">n</span><span class="p">,</span><span class="n">x</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp!</span><span class="o">.</span><span class="n">split</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">e</span><span class="o">|</span>  <span class="n">e</span><span class="o">.</span><span class="n">to_i</span><span class="p">}</span>
+</span><span class='line'><span class="n">sum</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">split</span><span class="o">.</span><span class="n">collect</span><span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="o">.</span><span class="n">to_i</span><span class="p">}</span><span class="o">.</span><span class="n">inject</span><span class="p">{</span><span class="o">|</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">|</span> <span class="n">y</span> <span class="o">+=</span> <span class="n">x</span><span class="p">}</span>
+</span><span class='line'><span class="nb">p</span> <span class="p">(</span><span class="n">sum</span><span class="o">.</span><span class="n">abs</span> <span class="o">+</span> <span class="n">x</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">x</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/03/11/codeforce-235/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2014/03/02/ruby-for-hustoj/">为Hustoj添加ruby支持</a></h1>
     
     
@@ -578,6 +639,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/03/11/codeforce-235/">codeforce 235</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/03/02/ruby-for-hustoj/">为Hustoj添加ruby支持</a>
       </li>
     
@@ -593,19 +658,15 @@
         <a href="/blog/2014/02/18/wordpress-to-octopress/">从 Wordpress 搬迁到 Octopress</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2013/08/04/memsql-start/">MemSQL start</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
   <ul id="categories">
-    <li class='category'><a href='/blog/categories/acm/'>ACM (4)</a></li>
+    <li class='category'><a href='/blog/categories/acm/'>ACM (5)</a></li>
 <li class='category'><a href='/blog/categories/c-c-/'>C/C++ (2)</a></li>
-<li class='category'><a href='/blog/categories/cf/'>CF (1)</a></li>
-<li class='category'><a href='/blog/categories/ruby/'>Ruby (1)</a></li>
+<li class='category'><a href='/blog/categories/cf/'>CF (2)</a></li>
+<li class='category'><a href='/blog/categories/ruby/'>Ruby (2)</a></li>
 <li class='category'><a href='/blog/categories/sublime-text/'>Sublime Text (1)</a></li>
 <li class='category'><a href='/blog/categories/ubuntu/'>Ubuntu (1)</a></li>
 <li class='category'><a href='/blog/categories/latex/'>latex (2)</a></li>
@@ -617,7 +678,7 @@
 </section>
 <section>
   <h1>Tag Cloud</h1>
-    <span id="tag-cloud"><a href='/blog/categories/acm' style='font-size: 160.0%'>ACM</a> <a href='/blog/categories/c-slash-c-plus-plus' style='font-size: 130.0%'>C/C++</a> <a href='/blog/categories/cf' style='font-size: 115.0%'>CF</a> <a href='/blog/categories/latex' style='font-size: 130.0%'>latex</a> <a href='/blog/categories/octopress' style='font-size: 115.0%'>octopress</a> <a href='/blog/categories/ruby' style='font-size: 115.0%'>Ruby</a> <a href='/blog/categories/sublime-text' style='font-size: 115.0%'>Sublime Text</a> <a href='/blog/categories/ubuntu' style='font-size: 115.0%'>Ubuntu</a> <a href='/blog/categories/xin-qing-bi-ji' style='font-size: 115.0%'>心情笔记</a> <a href='/blog/categories/sui-bi' style='font-size: 115.0%'>随笔</a> </span>
+    <span id="tag-cloud"><a href='/blog/categories/acm' style='font-size: 160.0%'>ACM</a> <a href='/blog/categories/c-slash-c-plus-plus' style='font-size: 124.0%'>C/C++</a> <a href='/blog/categories/cf' style='font-size: 124.0%'>CF</a> <a href='/blog/categories/latex' style='font-size: 124.0%'>latex</a> <a href='/blog/categories/octopress' style='font-size: 112.0%'>octopress</a> <a href='/blog/categories/ruby' style='font-size: 124.0%'>Ruby</a> <a href='/blog/categories/sublime-text' style='font-size: 112.0%'>Sublime Text</a> <a href='/blog/categories/ubuntu' style='font-size: 112.0%'>Ubuntu</a> <a href='/blog/categories/xin-qing-bi-ji' style='font-size: 112.0%'>心情笔记</a> <a href='/blog/categories/sui-bi' style='font-size: 112.0%'>随笔</a> </span>
 </section>
 <section>
 	<h1>个人微博</h1>

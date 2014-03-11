@@ -1,0 +1,118 @@
+---
+layout: post
+title: "codeforce 235"
+date: 2014-03-11 14:02:19 +0800
+comments: true
+categories: [CF,Ruby,ACM]
+keywords: CF,Ruby,ACM 
+description: "codeforce 235" 
+---
+
+好久没做CF了，觉得再不做估计以后笔试都过不鸟，于是还得经常做一做。 
+
+CF的回滚对我木有影响阿，我已经好久没做了似乎。 
+
+这次的DIV2似乎比以前的简单一点。 
+
+##[A. Vanya and Cards](http://codeforces.com/contest/401/problem/A)
+送分,大概给你一堆数，问你最少还需要几个绝对值不超过X的数能够让他们的和为0.
+
+```ruby
+n,x = gets.chomp!.split.map { |e|  e.to_i}
+sum = gets.split.collect{|x| x.to_i}.inject{|y, x| y += x}
+p (sum.abs + x -1)/x
+```
+<!--more-->
+##[B. Sereja and Contests](http://codeforces.com/contest/401/problem/B)
+模拟题
+```ruby
+n,k = gets.chomp!.split.map { |e|  e.to_i}
+A = Array.new(n) { |i|  0}
+k.times {  
+   c,d1,d2 =  gets.chomp!.split.map { |e|  e.to_i}
+   A[d1-1] = 1
+   if d2 != nil
+     A[d2-1] = 1
+   end
+}
+
+mx=0
+mi=0
+cur=0
+(n-1).times do |i|
+   if A[i] == 0
+        cur += 1
+   else
+       mx += cur
+       mi += (cur+1)/2
+       cur = 0  
+   end  
+end
+
+mx += cur
+mi += (cur+1)/2
+puts "#{mi} #{mx}"
+```
+
+##[C. Team](http://codeforces.com/contest/401/problem/C)
+也是模拟题，给你n个1，m个0，让你给出一种排列，不能有3个1连在一起，不能有两个0连在一起，给出任意一种方案即可，不能则输出-1
+```ruby
+m,n = gets.chomp!.split.map { |e|  e.to_i}
+if n+1 < m 
+    p -1
+    exit
+elsif (m+1)*2 < n
+    p -1
+    exit
+end
+
+if n == m
+    n.times{printf "10" }
+    puts ""
+elsif m == n+1
+    n.times{print "01"}
+    puts 0
+elsif (m+1)*2 == n
+    m.times{printf "110"}
+    puts "11"
+elsif m*2 == n
+    m.times{print "110"}
+    puts ""
+else
+    k = n - 1 - m
+    (k).times {print "110"}
+    (m-k).times{print "10"}
+    puts "1"
+end
+```
+
+##[D. Roman and Numbers](http://codeforces.com/contest/401/problem/D)
+暴力+状态压缩。 
+题意：给你一个不超过18位的数n,和不超过100的m,将n进行重排(改变里面的位置，当然0不能排在最前面)，问有多少个数是m的倍数。 
+ruby似乎跑的很慢，不幸TLE的，C++可以过 
+
+```ruby
+n,m = gets.chomp!.split
+m = m.to_i
+len = n.size
+dp = Array.new((1<<len)+2) {Array.new(m+5,0)} 
+dp[0][0] = 1
+
+(1<<len).times do |i|
+    m.times { |j|  
+        tp = Array.new(20,0)
+        len.times{|k|
+            t = n[k].chr.to_i
+            if i&(1<<k) != 0 || (i==0 && t==0) || tp[t] !=0 
+                next
+            end
+            tp[t] = 1
+            dp[i|(1<<k)][(j*10+t)%m] +=dp[i][j]
+        }   
+    }
+end
+p dp[(1<<len)-1][0]
+``` 
+
+##[E. Olympic Games](http://codeforces.com/contest/401/problem/E)
+略难，暂时不会

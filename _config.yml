@@ -7,7 +7,8 @@ title: /UnkelTao
 subtitle: 一个还未开始搬砖的程序猿。
 author: UnkelTao
 simple_search: http://google.com/search
-description: 
+description: UnkelTao个人博客记录
+keywords: c/c++, ruby, latex, linux, java, web development, hadoop, MapReduce
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in

@@ -92,6 +92,56 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2014/03/14/kindlebi-ji-zhuan-huan/">Kindle笔记转换</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-14T22:59:13+08:00" pubdate data-updated="true">Mar 14<span>th</span>, 2014</time>
+        
+        
+          | <a href="/blog/2014/03/14/kindlebi-ji-zhuan-huan/#comments">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>使用kindle-format导出笔记，标注和剪贴文章。</p>
+
+<h2>源文件</h2>
+
+<p>源文件是在使用kindle阅读书籍的时候产生的一个记录用户的标注，笔记，剪贴和标签信息的文档，但是源文件在共享的时候格式往往需要修改，于是提供一个脚本，将其格式化。
+脚本参考于<a href="http://minejo.github.io/blog/2014/02/18/shi-yong-kindlebi-ji-lai-zuo-fortuneming-yan/">李超同学</a>的python脚本（没有学过python &ndash;_-），重构了ruby脚本，也算是我的的第一个脚本.<br/>
+源文件共有四种格式:</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/03/14/kindlebi-ji-zhuan-huan/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2014/03/14/bei-dao-shi-bai-zhi-shu-du-shu-bi-ji/">北岛.失败之书 读书笔记</a></h1>
     
     
@@ -533,72 +583,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/02/19/ubuntu-problem/">Ubuntu Problem</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-02-19T00:00:07+08:00" pubdate data-updated="true">Feb 19<span>th</span>, 2011</time>
-        
-        
-          | <a href="/blog/2011/02/19/ubuntu-problem/#comments">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>问题：</p>
-
-<p><img src="http://unkeltao.qiniudn.com/IMG_002.jpg" alt="" />
-<img src="http://unkeltao.qiniudn.com/IMG_003.jpg" alt="" /></p>
-
-<p>解决代码：
-法1：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>sudo apt-get install dkms build-essential linux-headers-<span class="k">$(</span>uname -r<span class="k">)</span>
-</span><span class='line'>sudo /etc/init.d/vboxdrv setup
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>法2：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>sudo apt-get install module-assistant
-</span><span class='line'>sudo modprobe vboxnetflt
-</span><span class='line'>sudo modprobe vboxdrv
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p class='post-footer'>原文地址:&nbsp;<a href='http://www.UnkelTao.com/blog/2011/02/19/ubuntu-problem/'>http://www.UnkelTao.com/blog/2011/02/19/ubuntu-problem/</a><br/><br/>&nbsp;由 <a href='http://www.UnkelTao.com'>UnkelTao</a>&nbsp;撰写并发表于 <a href='http://www.UnkelTao.com'>http://www.UnkelTao.com</a></p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -650,6 +634,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/03/14/kindlebi-ji-zhuan-huan/">kindle笔记转换</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/03/14/bei-dao-shi-bai-zhi-shu-du-shu-bi-ji/">北岛.失败之书 读书笔记</a>
       </li>
     
@@ -665,10 +653,6 @@
         <a href="/blog/2014/02/24/latex-table/">Latex 绘制跨页表格</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2014/02/20/sublime-text-for-ctex/">利用Sublime text 编写 Ctex</a>
-      </li>
-    
   </ul>
 </section>
 <section>
@@ -680,9 +664,10 @@
 <li class='category'><a href='/blog/categories/ruby/'>Ruby (2)</a></li>
 <li class='category'><a href='/blog/categories/sublime-text/'>Sublime Text (1)</a></li>
 <li class='category'><a href='/blog/categories/ubuntu/'>Ubuntu (1)</a></li>
-<li class='category'><a href='/blog/categories/kindle/'>kindle (1)</a></li>
+<li class='category'><a href='/blog/categories/kindle/'>kindle (2)</a></li>
 <li class='category'><a href='/blog/categories/latex/'>latex (2)</a></li>
 <li class='category'><a href='/blog/categories/octopress/'>octopress (1)</a></li>
+<li class='category'><a href='/blog/categories/ruby/'>ruby (1)</a></li>
 <li class='category'><a href='/blog/categories/心情笔记/'>心情笔记 (1)</a></li>
 <li class='category'><a href='/blog/categories/读书笔记/'>读书笔记 (1)</a></li>
 <li class='category'><a href='/blog/categories/随笔/'>随笔 (1)</a></li>
@@ -691,7 +676,7 @@
 </section>
 <section>
   <h1>Tag Cloud</h1>
-    <span id="tag-cloud"><a href='/blog/categories/acm' style='font-size: 160.0%'>ACM</a> <a href='/blog/categories/c-slash-c-plus-plus' style='font-size: 124.0%'>C/C++</a> <a href='/blog/categories/cf' style='font-size: 124.0%'>CF</a> <a href='/blog/categories/kindle' style='font-size: 112.0%'>kindle</a> <a href='/blog/categories/latex' style='font-size: 124.0%'>latex</a> <a href='/blog/categories/octopress' style='font-size: 112.0%'>octopress</a> <a href='/blog/categories/ruby' style='font-size: 124.0%'>Ruby</a> <a href='/blog/categories/sublime-text' style='font-size: 112.0%'>Sublime Text</a> <a href='/blog/categories/ubuntu' style='font-size: 112.0%'>Ubuntu</a> <a href='/blog/categories/xin-qing-bi-ji' style='font-size: 112.0%'>心情笔记</a> <a href='/blog/categories/du-shu-bi-ji' style='font-size: 112.0%'>读书笔记</a> <a href='/blog/categories/sui-bi' style='font-size: 112.0%'>随笔</a> </span>
+    <span id="tag-cloud"><a href='/blog/categories/acm' style='font-size: 160.0%'>ACM</a> <a href='/blog/categories/c-slash-c-plus-plus' style='font-size: 124.0%'>C/C++</a> <a href='/blog/categories/cf' style='font-size: 124.0%'>CF</a> <a href='/blog/categories/kindle' style='font-size: 124.0%'>kindle</a> <a href='/blog/categories/latex' style='font-size: 124.0%'>latex</a> <a href='/blog/categories/octopress' style='font-size: 112.0%'>octopress</a> <a href='/blog/categories/ruby' style='font-size: 112.0%'>ruby</a> <a href='/blog/categories/ruby' style='font-size: 124.0%'>Ruby</a> <a href='/blog/categories/sublime-text' style='font-size: 112.0%'>Sublime Text</a> <a href='/blog/categories/ubuntu' style='font-size: 112.0%'>Ubuntu</a> <a href='/blog/categories/xin-qing-bi-ji' style='font-size: 112.0%'>心情笔记</a> <a href='/blog/categories/du-shu-bi-ji' style='font-size: 112.0%'>读书笔记</a> <a href='/blog/categories/sui-bi' style='font-size: 112.0%'>随笔</a> </span>
 </section>
 <section>
 	<h1>个人微博</h1>

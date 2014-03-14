@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ruby | /UnkelTao]]></title>
   <link href="http://www.UnkelTao.com/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://www.UnkelTao.com/"/>
-  <updated>2014-03-14T23:02:19+08:00</updated>
+  <updated>2014-03-14T23:04:32+08:00</updated>
   <id>http://www.UnkelTao.com/</id>
   <author>
     <name><![CDATA[UnkelTao]]></name>
@@ -19,6 +19,8 @@
     <updated>2014-03-14T22:59:13+08:00</updated>
     <id>http://www.UnkelTao.com/blog/2014/03/14/kindlebi-ji-zhuan-huan</id>
     <content type="html"><![CDATA[<p>使用kindle-format导出笔记，标注和剪贴文章。</p>
+
+<h2><a href="https://github.com/UnkelTao/kindle-note-format">脚本地址</a></h2>
 
 <h2>源文件</h2>
 

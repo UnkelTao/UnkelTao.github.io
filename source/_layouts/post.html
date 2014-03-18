@@ -3,7 +3,7 @@ layout: default
 single: true
 ---
 
-<div>
+<div data-no-instant>
 <article class="hentry" role="article">
   {% include article.html %}
   <footer>
@@ -29,13 +29,13 @@ single: true
 
 
 {% if site.disqus_short_name and page.comments == true and false%}
-  <section>
+  <section >
     <h1>Comments</h1>
     <div id="disqus_thread" aria-live="polite">{% include post/disqus_thread.html %}</div>
   </section>
 {% endif %}
 {% if site.duoshuo_short_name and site.duoshuo_comments == true and page.comments == true %}
-  <section>
+  <section data-no-instant>
     <h1>Comments</h1>
     <div id="comments" aria-live="polite">{% include post/duoshuo.html %}</div>
   </section>

@@ -3,9 +3,9 @@ layout: post
 title: "回文判断 Hash+线段树"
 date: 2012-12-18 17:14:12 +0800
 comments: true
-categories: [ACM,C/C++]
+categories: [ACM,Cpp]
 description: "回文判断 Hash+线段树" 
-keywords: ACM,C/C++
+keywords: ACM,C++
 ---
 
 比赛的一道题,一直没时间写.最近空了，继续写写水题。

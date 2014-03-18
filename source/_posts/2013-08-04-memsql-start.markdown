@@ -3,9 +3,9 @@ layout: post
 title: "MemSQL start"
 date: 2013-08-04 20:13:34 +0800
 comments: true
-categories: [ACM,CF]
+categories: [ACM,CF,Cpp]
 description: "MemSQL start" 
-keywords: ACM,CF,C/C++
+keywords: ACM,CF,C++
 ---
 
 【测试代码】

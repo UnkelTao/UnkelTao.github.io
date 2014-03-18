@@ -3,9 +3,9 @@ layout: post
 title: "The 9th SWJTU Collegiate Programming Contest Qualification Round"
 date: 2013-04-13 22:16:28| +0800
 comments: true
-categories: [ACM,C/C++]
+categories: [ACM,Cpp]
 description: "The 9th SWJTU Collegiate Programming Contest Qualification Round" 
-keywords: ACM,C/C++
+keywords: ACM,C++
 ---
 
 **比赛链接：**  [第九届ACM校赛资格赛](http://acm.swjtu.edu.cn/JudgeOnline/showcontest?contest_id=1135 "第九届ACM校赛资格赛")  

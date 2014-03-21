@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "codeforce 235"
+title: "Codeforces Round #235 (Div. 2) "
 date: 2014-03-11 14:02:19 +0800
 comments: true
 categories: [CF,Ruby,ACM]

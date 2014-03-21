@@ -8,8 +8,6 @@ keywords: CF,Ruby,ACM,C++,237
 description: "Codeforces Round #237 (Div. 2)" 
 ---
 
-##Codeforces Round #237 (Div. 2)
-
 群中看到学第们发的比赛链接，于是又做了一场，结果悲惨。再也不在windows下做比赛了，电脑现在不知道出了啥问题，每次00：16都要自动关机。结果敲完的题没保存，又得重新敲一遍。  
 
 ###[A - Valera and X](http://codeforces.com/contest/404/problem/A)

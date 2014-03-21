@@ -4,7 +4,7 @@
   <title><![CDATA[/UnkelTao]]></title>
   <link href="http://www.UnkelTao.com/atom.xml" rel="self"/>
   <link href="http://www.UnkelTao.com/"/>
-  <updated>2014-03-21T12:47:47+08:00</updated>
+  <updated>2014-03-21T12:48:25+08:00</updated>
   <id>http://www.UnkelTao.com/</id>
   <author>
     <name><![CDATA[UnkelTao]]></name>
@@ -887,7 +887,7 @@ Book Title\r\n
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[codeforce 235]]></title>
+    <title type="html"><![CDATA[Codeforces Round #235 (Div. 2) ]]></title>
     <link href="http://www.UnkelTao.com/blog/2014/03/11/codeforce-235/"/>
     <updated>2014-03-11T14:02:19+08:00</updated>
     <id>http://www.UnkelTao.com/blog/2014/03/11/codeforce-235</id>

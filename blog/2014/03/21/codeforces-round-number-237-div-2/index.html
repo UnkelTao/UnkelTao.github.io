@@ -1,0 +1,1002 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Codeforces Round #237 (Div. 2)  - /UnkelTao</title>
+  <meta name="author" content="UnkelTao">
+
+  
+  <meta name="description" content="Codeforces Round #237 (Div. 2)">
+  <meta name="keywords" content="CF,Ruby,ACM,C++,237">
+   <meta name="keywords" content="c/c++, ruby, latex, linux, java, web development, hadoop, MapReduce">
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.UnkelTao.com/blog/2014/03/21/codeforces-round-number-237-div-2/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+   <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <script src="/javascripts/costem.js" type="text/javascript"></script>
+  <!-- <script src="/javascripts/instantclick.min.js" type="text/javascript"></script> -->
+  <link href="/atom.xml" rel="alternate" title="/UnkelTao" type="application/atom+xml">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lora:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700,900' rel='stylesheet' type='text/css'>
+
+
+ 
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-48154170-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+  
+  <style type="text/css">
+   html{background: url("/images/IMG_background.png") no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;
+   }
+  </style>
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+</hgroup>
+
+</header>
+  <!-- <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.UnkelTao.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/blog/archives">About</a></li>
+</ul>
+
+</nav> -->
+  <div id="main">
+    <div id="content" data-no-instant>
+      <div data-no-instant>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Codeforces Round #237 (Div. 2)</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-21T11:03:13+08:00" pubdate data-updated="true">Mar 21<span>st</span>, 2014</time>
+        
+        
+          | <a href="#comments">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2>Codeforces Round #237 (Div. 2)</h2>
+
+<p>群中看到学第们发的比赛链接，于是又做了一场，结果悲惨。再也不在windows下做比赛了，电脑现在不知道出了啥问题，每次00：16都要自动关机。结果敲完的题没保存，又得重新敲一遍。</p>
+
+<h3><a href="http://codeforces.com/contest/404/problem/A">A &ndash; Valera and X</a></h3>
+
+<p><strong>题意</strong>： 给你一个矩阵，问你是不是恰好有2种字母，对角线字母一样，非对角线字母一样。<br/>
+<strong>key</strong>:   模拟</p>
+
+<!--more-->
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">n</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp!</span><span class="o">.</span><span class="n">to_i</span>
+</span><span class='line'><span class="n">a</span> <span class="o">=</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">n</span><span class="o">.</span><span class="n">times</span><span class="p">{</span><span class="o">|</span><span class="n">i</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp!</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">if</span> <span class="n">n</span><span class="o">==</span><span class="mi">1</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;YES&quot;</span>
+</span><span class='line'>    <span class="nb">exit</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">x</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span>
+</span><span class='line'><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">b</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;NO&quot;</span>
+</span><span class='line'>    <span class="nb">exit</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'><span class="n">n</span><span class="o">.</span><span class="n">times</span> <span class="p">{</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">n</span><span class="o">.</span><span class="n">times</span> <span class="p">{</span> <span class="o">|</span><span class="n">j</span><span class="o">|</span>
+</span><span class='line'>        <span class="k">if</span> <span class="n">i</span><span class="o">==</span><span class="n">j</span> <span class="o">||</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="o">==</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'>            <span class="k">if</span> <span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">!=</span> <span class="n">x</span>
+</span><span class='line'>                <span class="nb">puts</span> <span class="s2">&quot;NO&quot;</span>
+</span><span class='line'>                <span class="nb">exit</span>
+</span><span class='line'>            <span class="k">end</span>
+</span><span class='line'>        <span class="k">else</span>
+</span><span class='line'>             <span class="k">if</span> <span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">!=</span> <span class="n">b</span>
+</span><span class='line'>                <span class="nb">puts</span> <span class="s2">&quot;NO&quot;</span>
+</span><span class='line'>                <span class="nb">exit</span>
+</span><span class='line'>            <span class="k">end</span>
+</span><span class='line'>        <span class="k">end</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;YES&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2><a href="http://codeforces.com/contest/404/problem/B">B &ndash; Marathon</a></h2>
+
+<p><strong>题意</strong>:  给你一个a*a的正方形，从(0,0)出发，沿边线逆时针行走，走n次，每次走d的距离，输出每次行走后的坐标。</p>
+
+<p><strong>key</strong>:   模拟题，注意精度就好。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">eps</span> <span class="o">=</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">5</span>
+</span><span class='line'><span class="n">a</span><span class="p">,</span><span class="n">d</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp!</span><span class="o">.</span><span class="n">split</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">e</span><span class="o">|</span>  <span class="n">e</span><span class="o">.</span><span class="n">to_f</span><span class="p">}</span>
+</span><span class='line'><span class="n">n</span> <span class="o">=</span><span class="nb">gets</span><span class="o">.</span><span class="n">chomp!</span><span class="o">.</span><span class="n">to_i</span>
+</span><span class='line'><span class="n">cur_x</span><span class="o">=</span><span class="mi">0</span><span class="o">.</span><span class="mo">00</span>
+</span><span class='line'><span class="n">cur_y</span><span class="o">=</span><span class="mi">0</span><span class="o">.</span><span class="mo">00</span>
+</span><span class='line'><span class="n">pp</span><span class="o">=</span><span class="mi">0</span><span class="o">.</span><span class="mo">00</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">n</span><span class="o">.</span><span class="n">times</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">if</span> <span class="n">cur_y</span> <span class="o">&lt;=</span> <span class="n">eps</span>
+</span><span class='line'>      <span class="n">pp</span> <span class="o">=</span> <span class="n">cur_x</span> 
+</span><span class='line'>  <span class="k">elsif</span> <span class="n">a</span><span class="o">-</span><span class="n">cur_x</span> <span class="o">&lt;=</span> <span class="n">eps</span>
+</span><span class='line'>      <span class="n">pp</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">cur_y</span>
+</span><span class='line'>  <span class="k">elsif</span> <span class="n">a</span><span class="o">-</span><span class="n">cur_y</span> <span class="o">&lt;=</span> <span class="n">eps</span>
+</span><span class='line'>      <span class="n">pp</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="mi">3</span> <span class="o">-</span><span class="n">cur_x</span>   
+</span><span class='line'>  <span class="k">else</span>
+</span><span class='line'>      <span class="n">pp</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="mi">4</span> <span class="o">-</span><span class="n">cur_y</span>
+</span><span class='line'>  <span class="k">end</span>  
+</span><span class='line'>  <span class="n">pp</span> <span class="o">+=</span><span class="n">d</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">t</span><span class="o">=</span> <span class="p">(</span><span class="n">pp</span><span class="o">/</span><span class="n">a</span><span class="p">)</span><span class="o">.</span><span class="n">floor</span>
+</span><span class='line'>  <span class="n">pp</span> <span class="o">-=</span> <span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="o">*</span><span class="n">t</span><span class="o">*</span><span class="n">a</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">case</span> <span class="n">t</span><span class="o">%</span><span class="mi">4</span>
+</span><span class='line'>  <span class="k">when</span> <span class="mi">0</span>
+</span><span class='line'>      <span class="n">cur_x</span><span class="o">=</span><span class="n">pp</span>
+</span><span class='line'>      <span class="n">cur_y</span><span class="o">=</span><span class="mi">0</span>
+</span><span class='line'>  <span class="k">when</span> <span class="mi">1</span>
+</span><span class='line'>      <span class="n">cur_x</span><span class="o">=</span><span class="n">a</span>
+</span><span class='line'>      <span class="n">cur_y</span><span class="o">=</span><span class="n">pp</span>
+</span><span class='line'>  <span class="k">when</span> <span class="mi">2</span>
+</span><span class='line'>      <span class="n">cur_x</span><span class="o">=</span><span class="n">a</span><span class="o">-</span><span class="n">pp</span>
+</span><span class='line'>      <span class="n">cur_y</span><span class="o">=</span><span class="n">a</span>
+</span><span class='line'>  <span class="k">when</span> <span class="mi">3</span>
+</span><span class='line'>      <span class="n">cur_x</span><span class="o">=</span><span class="mi">0</span>
+</span><span class='line'>      <span class="n">cur_y</span><span class="o">=</span><span class="n">a</span><span class="o">-</span><span class="n">pp</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  <span class="nb">printf</span><span class="p">(</span><span class="s2">&quot;%.8f %.8f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">cur_x</span><span class="p">,</span><span class="n">cur_y</span><span class="p">)</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<h2><a href="http://codeforces.com/contest/404/problem/C">C &ndash; Restore Graph</a></h2>
+
+<p><strong>题意</strong>:  给你一个无向无子环的图，告诉你所有点到某一个选取的点的距离的矩阵d,问你能不能修复出满足条件的原图，其中一个点最多能够连接k条边。</p>
+
+<p><strong>key</strong>:  首先d中肯定只有一个0，并且该点就是选取的点。否则肯定不存在。 对d进行排序，一条边一条边的修复模拟即可，注意满足每个点连接的边不能超过k个。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">n</span><span class="p">,</span><span class="n">k</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp!</span><span class="o">.</span><span class="n">split</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span><span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span><span class="o">.</span><span class="n">to_i</span><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">D</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp!</span><span class="o">.</span><span class="n">split</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span><span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="o">[</span><span class="n">e</span><span class="o">.</span><span class="n">to_i</span><span class="p">,</span><span class="mi">0</span><span class="o">]</span><span class="p">}</span>
+</span><span class='line'><span class="n">flag</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class='line'><span class="n">n</span><span class="o">.</span><span class="n">times</span> <span class="p">{</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">D</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">]=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span>
+</span><span class='line'>    <span class="k">if</span> <span class="n">D</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span>
+</span><span class='line'>        <span class="n">flag</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="k">if</span> <span class="n">flag</span> <span class="o">!=</span> <span class="mi">1</span>
+</span><span class='line'>    <span class="nb">p</span> <span class="o">-</span><span class="mi">1</span>
+</span><span class='line'>    <span class="nb">exit</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">D</span><span class="o">.</span><span class="n">sort!</span>
+</span><span class='line'><span class="n">b</span> <span class="o">=</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="p">)</span>
+</span><span class='line'><span class="n">e</span> <span class="o">=</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="p">)</span>
+</span><span class='line'><span class="n">l</span><span class="o">=</span><span class="mi">0</span>
+</span><span class='line'><span class="n">f</span><span class="o">=</span><span class="mi">0</span>
+</span><span class='line'><span class="n">t</span><span class="o">=</span><span class="mi">1</span>
+</span><span class='line'><span class="k">while</span> <span class="n">t</span><span class="o">&lt;</span><span class="n">n</span>
+</span><span class='line'>    <span class="k">if</span> <span class="n">f</span><span class="o">==</span><span class="mi">1</span>
+</span><span class='line'>        <span class="n">k</span> <span class="o">-=</span> <span class="mi">1</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>    <span class="k">if</span> <span class="n">D</span><span class="o">[</span><span class="n">t</span><span class="o">].</span><span class="n">first!</span><span class="o">=</span> <span class="p">(</span><span class="n">D</span><span class="o">[</span><span class="n">f</span><span class="o">].</span><span class="n">first</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'>        <span class="nb">puts</span> <span class="s2">&quot;-1&quot;</span>
+</span><span class='line'>        <span class="nb">exit</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>    <span class="nb">p</span><span class="o">=</span><span class="n">k</span>
+</span><span class='line'>    <span class="n">i</span> <span class="o">=</span> <span class="n">t</span>
+</span><span class='line'>    <span class="k">while</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span>
+</span><span class='line'>        <span class="k">break</span> <span class="k">if</span> <span class="n">D</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="n">first!</span><span class="o">=</span><span class="n">D</span><span class="o">[</span><span class="n">t</span><span class="o">].</span><span class="n">first</span>
+</span><span class='line'>        <span class="k">if</span><span class="p">(</span><span class="nb">p</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
+</span><span class='line'>            <span class="n">f</span> <span class="o">+=</span><span class="mi">1</span>
+</span><span class='line'>            <span class="nb">p</span><span class="o">=</span><span class="n">k</span>
+</span><span class='line'>        <span class="k">end</span>
+</span><span class='line'>        <span class="k">if</span><span class="p">(</span><span class="nb">p</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
+</span><span class='line'>            <span class="nb">puts</span><span class="p">(</span><span class="s2">&quot;-1&quot;</span><span class="p">)</span>
+</span><span class='line'>            <span class="nb">exit</span>
+</span><span class='line'>        <span class="k">end</span>
+</span><span class='line'>        <span class="nb">p</span> <span class="o">-=</span> <span class="mi">1</span>
+</span><span class='line'>        <span class="k">if</span><span class="p">(</span><span class="n">f</span><span class="o">==</span><span class="n">t</span><span class="p">)</span>
+</span><span class='line'>            <span class="nb">puts</span><span class="p">(</span><span class="s2">&quot;-1&quot;</span><span class="p">)</span>
+</span><span class='line'>            <span class="nb">exit</span>
+</span><span class='line'>        <span class="k">end</span>
+</span><span class='line'>        <span class="n">b</span><span class="o">[</span><span class="n">l</span><span class="o">]=</span><span class="n">D</span><span class="o">[</span><span class="n">f</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+</span><span class='line'>        <span class="n">e</span><span class="o">[</span><span class="n">l</span><span class="o">]=</span><span class="n">D</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+</span><span class='line'>        <span class="n">l</span><span class="o">+=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">+=</span><span class="mi">1</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>    <span class="n">f</span><span class="o">=</span><span class="n">t</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">t</span><span class="o">=</span><span class="n">i</span><span class="p">;</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="nb">p</span> <span class="n">l</span>
+</span><span class='line'><span class="n">l</span><span class="o">.</span><span class="n">times</span> <span class="p">{</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">b</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">e</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<h2><a href="http://codeforces.com/contest/404/problem/D">D &ndash; Minesweeper 1D</a></h2>
+
+<p><strong>题意</strong>: 给你一个1<em>n的地雷图，0表示左右都没有地雷，1表示左右共有1个雷，2表示左右都是雷，</em>表示该点是雷，？表示该点未知，求有多少种合法的方案。</p>
+
+<p><strong>key</strong>: DP,<code>dp[i][0]表示i点是0的方案数，dp[i][1]表示i点是1的方案数，dp[i][2]表示该点是雷的方案数</code>，其中1可以转化为0，2可以转化为1。 因为“<em>1”的话后面肯定不会是雷，那么变成0的方案数，如果是&#8221;01&#8221;或“11”的话，后面肯定是雷，保持1不动，&#8221;</em>2&#8221;的话后面肯定是雷。<br/>
+<strong>转移方程见代码</strong></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">s</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp!</span>
+</span><span class='line'><span class="n">mods</span> <span class="o">=</span> <span class="mi">1000000007</span>
+</span><span class='line'><span class="n">dp</span> <span class="o">=</span> <span class="o">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="o">]]</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">len</span> <span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="n">size</span>
+</span><span class='line'><span class="n">cur</span> <span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">nxt</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">dp</span><span class="o">[</span><span class="n">cur</span><span class="o">][</span><span class="mi">0</span><span class="o">]=</span><span class="n">dp</span><span class="o">[</span><span class="n">cur</span><span class="o">][</span><span class="mi">1</span><span class="o">]=</span><span class="mi">1</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">0</span><span class="o">.</span><span class="n">.</span><span class="o">.</span><span class="n">len</span>
+</span><span class='line'>  <span class="k">case</span> <span class="n">s</span><span class="o">[</span><span class="n">i</span><span class="o">]</span>
+</span><span class='line'>  <span class="k">when</span> <span class="s1">&#39;0&#39;</span>
+</span><span class='line'>      <span class="n">dp</span><span class="o">[</span><span class="n">nxt</span><span class="o">][</span><span class="mi">0</span><span class="o">]=</span><span class="n">dp</span><span class="o">[</span><span class="n">cur</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span>
+</span><span class='line'>  <span class="k">when</span> <span class="s1">&#39;1&#39;</span>
+</span><span class='line'>      <span class="n">dp</span><span class="o">[</span><span class="n">nxt</span><span class="o">][</span><span class="mi">1</span><span class="o">]=</span> <span class="n">dp</span><span class="o">[</span><span class="n">cur</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span>
+</span><span class='line'>      <span class="n">dp</span><span class="o">[</span><span class="n">nxt</span><span class="o">][</span><span class="mi">0</span><span class="o">]=</span> <span class="n">dp</span><span class="o">[</span><span class="n">cur</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span>
+</span><span class='line'>  <span class="k">when</span> <span class="s1">&#39;2&#39;</span>
+</span><span class='line'>      <span class="n">dp</span><span class="o">[</span><span class="n">nxt</span><span class="o">][</span><span class="mi">1</span><span class="o">]=</span><span class="n">dp</span><span class="o">[</span><span class="n">cur</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span>
+</span><span class='line'>  <span class="k">when</span> <span class="s1">&#39;*&#39;</span>
+</span><span class='line'>      <span class="n">dp</span><span class="o">[</span><span class="n">nxt</span><span class="o">][</span><span class="mi">2</span><span class="o">]=</span> <span class="p">(</span><span class="n">dp</span><span class="o">[</span><span class="n">cur</span><span class="o">][</span><span class="mi">1</span><span class="o">]+</span><span class="n">dp</span><span class="o">[</span><span class="n">cur</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span><span class="p">)</span><span class="o">%</span><span class="n">mods</span>
+</span><span class='line'>  <span class="k">when</span> <span class="s1">&#39;?&#39;</span>
+</span><span class='line'>      <span class="n">dp</span><span class="o">[</span><span class="n">nxt</span><span class="o">][</span><span class="mi">1</span><span class="o">]=</span> <span class="p">(</span><span class="n">dp</span><span class="o">[</span><span class="n">cur</span><span class="o">][</span><span class="mi">2</span><span class="o">]+</span><span class="n">dp</span><span class="o">[</span><span class="n">cur</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span><span class="p">)</span><span class="o">%</span><span class="n">mods</span>
+</span><span class='line'>      <span class="n">dp</span><span class="o">[</span><span class="n">nxt</span><span class="o">][</span><span class="mi">0</span><span class="o">]=</span> <span class="p">(</span><span class="n">dp</span><span class="o">[</span><span class="n">cur</span><span class="o">][</span><span class="mi">0</span><span class="o">]+</span><span class="n">dp</span><span class="o">[</span><span class="n">cur</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span><span class="p">)</span><span class="o">%</span><span class="n">mods</span>
+</span><span class='line'>      <span class="n">dp</span><span class="o">[</span><span class="n">nxt</span><span class="o">][</span><span class="mi">2</span><span class="o">]=</span> <span class="p">(</span><span class="n">dp</span><span class="o">[</span><span class="n">cur</span><span class="o">][</span><span class="mi">1</span><span class="o">]+</span><span class="n">dp</span><span class="o">[</span><span class="n">cur</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span><span class="p">)</span><span class="o">%</span><span class="n">mods</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  <span class="n">cur</span> <span class="o">=</span> <span class="n">nxt</span>
+</span><span class='line'>  <span class="n">nxt</span> <span class="o">=</span> <span class="n">cur</span><span class="o">==</span><span class="mi">0</span><span class="o">?</span><span class="mi">1</span><span class="p">:</span><span class="mi">0</span>
+</span><span class='line'>  <span class="n">dp</span><span class="o">[</span><span class="n">nxt</span><span class="o">]</span> <span class="o">=</span> <span class="o">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="o">]</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="p">(</span><span class="n">dp</span><span class="o">[</span><span class="n">cur</span><span class="o">][</span><span class="mi">0</span><span class="o">]+</span><span class="n">dp</span><span class="o">[</span><span class="n">cur</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span><span class="p">)</span><span class="o">%</span><span class="n">mods</span><span class="si">}</span><span class="s2">&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<h2><a href="http://codeforces.com/contest/404/problem/E">E &ndash; Maze 1D</a></h2>
+
+<p><strong>题意</strong>: 题意真是难读,大概就是机器人会左右移动，但是如果前面的点是障碍点的话他就不会向前进忽略这次移动，问在设置最少障碍点的情况下能够使得机器人最后停下的位置是以前没有走过的。 问这样的设置方案数有多少个（在障碍点最少的情况下）。</p>
+
+<p><strong>key</strong>: 二分+枚举。</p>
+
+<ul>
+<li>首先我们可以确定，如果不加障碍点他最后停留的位置只走过一次的话，那么方案数肯定是1。</li>
+<li>最多设置一个障碍点，如果一个障碍点不能满足情况，再多的障碍点也没用。</li>
+<li>如果i点可以是障碍点，那么<code>(0,i]</code>的点都可以是障碍点，同理-i是障碍点，<code>[-1,0)</code>都可以是障碍点。</li>
+</ul>
+
+
+<p>有了这样的理解，那么遍可以2分来判断最大的i点是不是可以为障碍点了，判断方法模拟就可以了。<br/>
+<strong>(ruby跑的太慢，TLE了，囧RZ，C++可以AC)</strong></p>
+
+<p><strong>ruby代码</strong></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#TLE 代码</span>
+</span><span class='line'><span class="vg">$s</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp!</span>
+</span><span class='line'><span class="vg">$fg</span> <span class="o">=</span> <span class="mi">2</span>
+</span><span class='line'><span class="vg">$len</span> <span class="o">=</span> <span class="vg">$s</span><span class="o">.</span><span class="n">size</span>
+</span><span class='line'><span class="vg">$mods</span> <span class="o">=</span> <span class="vg">$len</span><span class="o">+</span><span class="mi">7</span>
+</span><span class='line'><span class="vg">$vis</span> <span class="o">=</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">((</span><span class="mi">5</span><span class="o">*</span><span class="vg">$mods</span><span class="p">))</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">Judge</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="vg">$fg</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span class='line'>  <span class="n">pos</span> <span class="o">=</span> <span class="vg">$mods</span> <span class="o">+</span> <span class="mi">100</span>
+</span><span class='line'>  <span class="n">k</span> <span class="o">+=</span> <span class="n">pos</span>
+</span><span class='line'>  <span class="vg">$vis</span><span class="o">[</span><span class="n">pos</span><span class="o">]</span> <span class="o">=</span> <span class="vg">$fg</span>
+</span><span class='line'>  <span class="vg">$len</span><span class="o">.</span><span class="n">times</span> <span class="p">{</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+</span><span class='line'>      <span class="k">if</span> <span class="vg">$s</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="n">chr</span><span class="o">==</span><span class="s1">&#39;R&#39;</span> <span class="ow">and</span> <span class="n">pos</span><span class="o">+</span><span class="mi">1</span> <span class="o">!=</span><span class="n">k</span>
+</span><span class='line'>          <span class="n">pos</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span class='line'>          <span class="c1"># p 111111111111</span>
+</span><span class='line'>      <span class="k">elsif</span> <span class="vg">$s</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="n">chr</span><span class="o">==</span><span class="s1">&#39;L&#39;</span> <span class="ow">and</span> <span class="n">pos</span><span class="o">-</span><span class="mi">1</span> <span class="o">!=</span> <span class="n">k</span>
+</span><span class='line'>          <span class="n">pos</span> <span class="o">-=</span> <span class="mi">1</span>
+</span><span class='line'>          <span class="c1"># p 222222222222</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>      <span class="k">if</span> <span class="n">i</span><span class="o">==</span><span class="vg">$len</span><span class="o">-</span><span class="mi">1</span>
+</span><span class='line'>          <span class="c1"># puts &quot;b:&quot;</span>
+</span><span class='line'>          <span class="c1"># p $vis[pos]</span>
+</span><span class='line'>          <span class="c1"># p pos </span>
+</span><span class='line'>          <span class="c1"># p $fg</span>
+</span><span class='line'>          <span class="k">return</span> <span class="vg">$vis</span><span class="o">[</span><span class="n">pos</span><span class="o">]</span> <span class="o">!=</span> <span class="vg">$fg</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>      <span class="vg">$vis</span><span class="o">[</span><span class="n">pos</span><span class="o">]</span> <span class="o">=</span> <span class="vg">$fg</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">if</span> <span class="no">Judge</span><span class="p">(</span><span class="vg">$mods</span><span class="o">+</span><span class="mi">300</span><span class="p">)</span>
+</span><span class='line'>  <span class="nb">p</span> <span class="mi">1</span>
+</span><span class='line'>  <span class="nb">exit</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class='line'><span class="n">l</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span class='line'><span class="n">r</span><span class="o">=</span><span class="vg">$len</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">if</span> <span class="no">Judge</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">while</span> <span class="n">l</span><span class="o">&lt;</span><span class="n">r</span>
+</span><span class='line'>      <span class="n">mid</span> <span class="o">=</span> <span class="p">((</span><span class="n">l</span><span class="o">+</span><span class="n">r</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">floor</span>
+</span><span class='line'>      <span class="k">if</span> <span class="no">Judge</span><span class="p">(</span><span class="n">mid</span><span class="p">)</span>
+</span><span class='line'>          <span class="n">l</span> <span class="o">=</span> <span class="n">mid</span>
+</span><span class='line'>      <span class="k">else</span>
+</span><span class='line'>          <span class="n">r</span> <span class="o">=</span><span class="n">mid</span> <span class="o">-</span><span class="mi">1</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  <span class="n">res</span> <span class="o">+=</span> <span class="n">l</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">l</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span class='line'><span class="n">r</span><span class="o">=</span><span class="vg">$len</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">if</span> <span class="no">Judge</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">while</span> <span class="n">l</span><span class="o">&lt;</span><span class="n">r</span>
+</span><span class='line'>      <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="n">r</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+</span><span class='line'>      <span class="k">if</span> <span class="no">Judge</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">mid</span><span class="p">)</span>
+</span><span class='line'>          <span class="n">l</span> <span class="o">=</span> <span class="n">mid</span>
+</span><span class='line'>      <span class="k">else</span>
+</span><span class='line'>          <span class="n">r</span> <span class="o">=</span><span class="n">mid</span> <span class="o">-</span><span class="mi">1</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  <span class="n">res</span> <span class="o">+=</span> <span class="n">l</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">p</span> <span class="n">res</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>c++代码</strong></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="kt">char</span> <span class="n">str</span><span class="p">[</span><span class="n">MaxN</span><span class="p">];</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">fg</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">len</span><span class="p">;</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">vis</span><span class="p">[</span><span class="mi">5</span><span class="o">*</span><span class="n">MaxN</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">bool</span> <span class="n">Judge</span><span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="p">){</span>
+</span><span class='line'>   <span class="n">fg</span><span class="o">++</span><span class="p">;</span>
+</span><span class='line'>   <span class="kt">int</span> <span class="n">pos</span><span class="o">=</span><span class="mf">1e6</span><span class="o">+</span><span class="mi">10</span><span class="p">;</span>
+</span><span class='line'>   <span class="n">k</span><span class="o">+=</span><span class="n">pos</span><span class="p">;</span>
+</span><span class='line'>   <span class="n">vis</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="n">fg</span><span class="p">;</span>
+</span><span class='line'>   <span class="c1">// printf(&quot;%d %d %d\n&quot;, fg,pos,k);</span>
+</span><span class='line'>   <span class="n">rep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">len</span><span class="p">){</span>
+</span><span class='line'>        <span class="k">if</span><span class="p">(</span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="sc">&#39;R&#39;</span><span class="o">&amp;&amp;</span><span class="n">pos</span><span class="o">+</span><span class="mi">1</span><span class="o">!=</span><span class="n">k</span><span class="p">)</span> <span class="n">pos</span><span class="o">++</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">if</span><span class="p">(</span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="sc">&#39;L&#39;</span><span class="o">&amp;&amp;</span><span class="n">pos</span><span class="o">-</span><span class="mi">1</span><span class="o">!=</span><span class="n">k</span><span class="p">)</span> <span class="n">pos</span><span class="o">--</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="n">len</span><span class="o">-</span><span class="mi">1</span><span class="p">){</span>
+</span><span class='line'>          <span class="c1">// printf(&quot;ans %d  %d %d\n&quot;, vis[pos],fg,pos);</span>
+</span><span class='line'>          <span class="k">return</span> <span class="n">vis</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">!=</span> <span class="n">fg</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="n">vis</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="n">fg</span><span class="p">;</span>
+</span><span class='line'>   <span class="p">}</span>   
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="k">while</span><span class="p">(</span><span class="o">~</span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="n">str</span><span class="p">)){</span>
+</span><span class='line'>      <span class="n">len</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
+</span><span class='line'>      <span class="n">memset</span><span class="p">(</span><span class="n">vis</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="n">vis</span><span class="p">));</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="k">if</span><span class="p">(</span><span class="n">Judge</span><span class="p">(</span><span class="mf">1e6</span><span class="o">+</span><span class="mi">200</span><span class="p">)){</span>
+</span><span class='line'>          <span class="n">printf</span><span class="p">(</span><span class="s">&quot;1</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</span><span class='line'>          <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="n">ll</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>      <span class="kt">int</span> <span class="n">l</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">r</span><span class="o">=</span><span class="n">len</span><span class="p">,</span><span class="n">mid</span><span class="p">;</span>
+</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="n">Judge</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</span><span class='line'>      <span class="p">{</span>
+</span><span class='line'>          <span class="k">while</span><span class="p">(</span><span class="n">l</span><span class="o">&lt;</span><span class="n">r</span><span class="p">){</span>
+</span><span class='line'>              <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="n">r</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+</span><span class='line'>              <span class="k">if</span><span class="p">(</span><span class="n">Judge</span><span class="p">(</span><span class="n">mid</span><span class="p">))</span> <span class="n">l</span><span class="o">=</span><span class="n">mid</span><span class="p">;</span>
+</span><span class='line'>              <span class="k">else</span> <span class="n">r</span><span class="o">=</span><span class="n">mid</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span><span class='line'>          <span class="p">}</span>
+</span><span class='line'>          <span class="n">res</span> <span class="o">+=</span> <span class="n">l</span><span class="p">;</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="n">Judge</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+</span><span class='line'>      <span class="p">{</span>
+</span><span class='line'>          <span class="n">l</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">r</span><span class="o">=</span><span class="n">len</span><span class="p">,</span><span class="n">mid</span><span class="p">;</span>
+</span><span class='line'>          <span class="k">while</span><span class="p">(</span><span class="n">l</span><span class="o">&lt;</span><span class="n">r</span><span class="p">){</span>
+</span><span class='line'>              <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="n">r</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+</span><span class='line'>              <span class="k">if</span><span class="p">(</span><span class="n">Judge</span><span class="p">(</span><span class="o">-</span><span class="n">mid</span><span class="p">))</span> <span class="n">l</span><span class="o">=</span><span class="n">mid</span><span class="p">;</span>
+</span><span class='line'>              <span class="k">else</span> <span class="n">r</span><span class="o">=</span><span class="n">mid</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span><span class='line'>          <span class="p">}</span>
+</span><span class='line'>          <span class="n">res</span> <span class="o">+=</span> <span class="n">l</span><span class="p">;</span>           
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>      <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">res</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>    
+</span><span class='line'>  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<p class='post-footer'>原文地址:&nbsp;<a href='http://www.UnkelTao.com/blog/2014/03/21/codeforces-round-number-237-div-2/'>http://www.UnkelTao.com/blog/2014/03/21/codeforces-round-number-237-div-2/</a><br/><br/>&nbsp;由 <a href='http://www.UnkelTao.com'>UnkelTao</a>&nbsp;撰写并发表于 <a href='http://www.UnkelTao.com'>http://www.UnkelTao.com</a></p>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+
+<span class="byline author vcard"></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-21T11:03:13+08:00" pubdate data-updated="true">Mar 21<span>st</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/acm/'>ACM</a>, <a class='category' href='/blog/categories/c-plus-plus/'>C++</a>, <a class='category' href='/blog/categories/cf/'>CF</a>, <a class='category' href='/blog/categories/ruby/'>Ruby</a>
+  
+</span>
+
+
+    </p>
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/03/16/2048-gai-ban-you-xi/" title="Previous Post: 2048 改版游戏">&laquo; 2048 改版游戏</a>
+      
+      
+    </p>
+      
+          <!-- <div class="sharing">
+  
+  
+  
+<!-- -->
+<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分享到：</span>
+		<a class="jiathis_button_qzone">QQ空间</a>
+		<a class="jiathis_button_tsina">新浪微博</a>
+		<a class="jiathis_button_tqq">腾讯微博</a>
+		<a class="jiathis_button_weixin">微信</a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+		<a class="jiathis_counter_style"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1394031070305331" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+<!--  </div> <!-- -->
+
+      
+  </footer>
+</article>
+
+
+
+
+
+  <section data-no-instant>
+    <h1>Comments</h1>
+    <div id="comments" aria-live="polite"><!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"unkeltao"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END --></div>
+  </section>
+
+
+</div>
+
+
+
+<aside class="sidebar">
+  
+    <section id="titles">
+  <h1 id="site_title"><a href="http://www.UnkelTao.com" title="/UnkelTao">/UnkelTao</a></h1>
+  <h3 id="site_subtitle">一个还未开始搬砖的程序猿。</h3>
+</section>
+
+<section id="menu">
+  <ul>
+    <li><i class="fa fa-home fa-lg"></i><a href="/"> Home </a></li>
+    <li><i class="fa fa-calendar fa-lg"></i><a href="/blog/archives/"> Archives </a></li>
+    <li><i class="fa fa-user fa-lg"></i><a href="/about/"> About </a></li>
+    <li data-no-instant><i class="fa fa-rss fa-lg"></i><a href="/atom.xml"> Feed </a></li>
+  </ul>
+</section>
+
+<section id="social">
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+
+<section>
+	<h1>Friends Link</h1>
+	<ul>
+		<li><a href="http://blog.163.com/xuyanconnie@126"  target="_blank" >徐小嘉</a></li>
+    <li><a href="http://songjiayang.github.io/"  target="_blank" >songjiayang</a></li>
+    <li><a href="http://herechen.github.io/" target="_blank">HereChen</a></li>
+	</ul>
+</section>
+<section >
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/21/codeforces-round-number-237-div-2/">Codeforces Round #237 (Div. 2) </a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/16/2048-gai-ban-you-xi/">2048 改版游戏</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/14/kindlebi-ji-zhuan-huan/">kindle笔记转换</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/14/bei-dao-shi-bai-zhi-shu-du-shu-bi-ji/">北岛.失败之书 读书笔记</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/11/codeforce-235/">codeforce 235</a>
+      </li>
+    
+  </ul>
+</section>
+<section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/acm/'>ACM (6)</a></li>
+<li class='category'><a href='/blog/categories/c-/'>C++ (1)</a></li>
+<li class='category'><a href='/blog/categories/cf/'>CF (3)</a></li>
+<li class='category'><a href='/blog/categories/cpp/'>Cpp (3)</a></li>
+<li class='category'><a href='/blog/categories/ruby/'>Ruby (3)</a></li>
+<li class='category'><a href='/blog/categories/sublime-text/'>Sublime Text (1)</a></li>
+<li class='category'><a href='/blog/categories/ubuntu/'>Ubuntu (1)</a></li>
+<li class='category'><a href='/blog/categories/kindle/'>kindle (2)</a></li>
+<li class='category'><a href='/blog/categories/latex/'>latex (2)</a></li>
+<li class='category'><a href='/blog/categories/octopress/'>octopress (1)</a></li>
+<li class='category'><a href='/blog/categories/ruby/'>ruby (1)</a></li>
+<li class='category'><a href='/blog/categories/心情笔记/'>心情笔记 (1)</a></li>
+<li class='category'><a href='/blog/categories/读书笔记/'>读书笔记 (1)</a></li>
+<li class='category'><a href='/blog/categories/随笔/'>随笔 (1)</a></li>
+
+  </ul>
+</section>
+<section>
+  <h1>Tag Cloud</h1>
+    <span id="tag-cloud"><a href='/blog/categories/acm' style='font-size: 160.0%'>ACM</a> <a href='/blog/categories/c-plus-plus' style='font-size: 110.0%'>C++</a> <a href='/blog/categories/cf' style='font-size: 130.0%'>CF</a> <a href='/blog/categories/cpp' style='font-size: 130.0%'>Cpp</a> <a href='/blog/categories/kindle' style='font-size: 120.0%'>kindle</a> <a href='/blog/categories/latex' style='font-size: 120.0%'>latex</a> <a href='/blog/categories/octopress' style='font-size: 110.0%'>octopress</a> <a href='/blog/categories/ruby' style='font-size: 130.0%'>Ruby</a> <a href='/blog/categories/ruby' style='font-size: 110.0%'>ruby</a> <a href='/blog/categories/sublime-text' style='font-size: 110.0%'>Sublime Text</a> <a href='/blog/categories/ubuntu' style='font-size: 110.0%'>Ubuntu</a> <a href='/blog/categories/xin-qing-bi-ji' style='font-size: 110.0%'>心情笔记</a> <a href='/blog/categories/du-shu-bi-ji' style='font-size: 110.0%'>读书笔记</a> <a href='/blog/categories/sui-bi' style='font-size: 110.0%'>随笔</a> </span>
+</section>
+<section>
+	<h1>个人微博</h1>
+		<iframe width="100%" height="450" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=450&fansRow=2&ptype=1&speed=300&skin=2&isTitle=0&noborder=0&isWeibo=1&isFans=0&uid=3303041202&verifier=6ee45e11&colors=f2f2f2,f2f2f2,666666,0082cb,ecfbfd&dpc=1"></iframe>
+</section>
+
+<!--
+<div style="display:none;">
+	<audio controls="controls" autoplay="autoplay" loop="loop">
+		<source src="http://unkeltao.qiniudn.com/mp3mowenwei.mp3" type="audio/mpeg">
+	</audio>
+</div> <!-- -->
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - UnkelTao -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+  <!--<script type="text/javascript">
+   RandomBackground(2);
+
+  </script> -->
+<!-- <script data-no-instant>InstantClick.init();</script> -->
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+</body>
+</html>

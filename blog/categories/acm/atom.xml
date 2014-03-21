@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ACM | /UnkelTao]]></title>
   <link href="http://www.UnkelTao.com/blog/categories/acm/atom.xml" rel="self"/>
   <link href="http://www.UnkelTao.com/"/>
-  <updated>2014-03-19T01:25:58+08:00</updated>
+  <updated>2014-03-21T12:44:44+08:00</updated>
   <id>http://www.UnkelTao.com/</id>
   <author>
     <name><![CDATA[UnkelTao]]></name>
@@ -12,6 +12,420 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Codeforces Round #237 (Div. 2) ]]></title>
+    <link href="http://www.UnkelTao.com/blog/2014/03/21/codeforces-round-number-237-div-2/"/>
+    <updated>2014-03-21T11:03:13+08:00</updated>
+    <id>http://www.UnkelTao.com/blog/2014/03/21/codeforces-round-number-237-div-2</id>
+    <content type="html"><![CDATA[<h2>Codeforces Round #237 (Div. 2)</h2>
+
+<p>群中看到学第们发的比赛链接，于是又做了一场，结果悲惨。再也不在windows下做比赛了，电脑现在不知道出了啥问题，每次00：16都要自动关机。结果敲完的题没保存，又得重新敲一遍。</p>
+
+<h3><a href="http://codeforces.com/contest/404/problem/A">A &ndash; Valera and X</a></h3>
+
+<p><strong>题意</strong>： 给你一个矩阵，问你是不是恰好有2种字母，对角线字母一样，非对角线字母一样。<br/>
+<strong>key</strong>:   模拟</p>
+
+<!--more-->
+
+
+<p>```ruby</p>
+
+<p>n = gets.chomp!.to_i
+a = Array.new(n)</p>
+
+<p>n.times{|i|</p>
+
+<pre><code>a[i] = gets.chomp!
+</code></pre>
+
+<p>}</p>
+
+<p>if n==1</p>
+
+<pre><code>puts "YES"
+exit
+</code></pre>
+
+<p>end</p>
+
+<p>x = a[0][0]
+b = a[0][1]</p>
+
+<p>if x == b</p>
+
+<pre><code>puts "NO"
+exit
+</code></pre>
+
+<p>end<br/>
+n.times { |i|</p>
+
+<pre><code>n.times { |j|  
+    if i==j || (i+j==n-1)
+        if a[i][j] != x
+            puts "NO"
+            exit
+        end
+    else
+         if a[i][j] != b
+            puts "NO"
+            exit
+        end
+    end
+}
+</code></pre>
+
+<p>}</p>
+
+<p>puts &ldquo;YES&rdquo;</p>
+
+<p>```</p>
+
+<h2><a href="http://codeforces.com/contest/404/problem/B">B &ndash; Marathon</a></h2>
+
+<p><strong>题意</strong>:  给你一个a*a的正方形，从(0,0)出发，沿边线逆时针行走，走n次，每次走d的距离，输出每次行走后的坐标。</p>
+
+<p><strong>key</strong>:   模拟题，注意精度就好。</p>
+
+<p>```ruby<br/>
+eps = 1e-5
+a,d = gets.chomp!.split.map { |e|  e.to_f}
+n =gets.chomp!.to_i
+cur_x=0.00
+cur_y=0.00
+pp=0.00</p>
+
+<p>n.times {</p>
+
+<pre><code>if cur_y &lt;= eps
+    pp = cur_x  
+elsif a-cur_x &lt;= eps
+    pp = a + cur_y
+elsif a-cur_y &lt;= eps
+    pp = a*3 -cur_x 
+else
+    pp = a*4 -cur_y
+end 
+pp +=d;
+t= (pp/a).floor
+pp -= 1.0*t*a;
+case t%4
+when 0
+    cur_x=pp
+    cur_y=0
+when 1
+    cur_x=a
+    cur_y=pp
+when 2
+    cur_x=a-pp
+    cur_y=a
+when 3
+    cur_x=0
+    cur_y=a-pp
+end
+printf("%.8f %.8f\n",cur_x,cur_y)
+</code></pre>
+
+<p>}
+```</p>
+
+<h2><a href="http://codeforces.com/contest/404/problem/C">C &ndash; Restore Graph</a></h2>
+
+<p><strong>题意</strong>:  给你一个无向无子环的图，告诉你所有点到某一个选取的点的距离的矩阵d,问你能不能修复出满足条件的原图，其中一个点最多能够连接k条边。</p>
+
+<p><strong>key</strong>:  首先d中肯定只有一个0，并且该点就是选取的点。否则肯定不存在。 对d进行排序，一条边一条边的修复模拟即可，注意满足每个点连接的边不能超过k个。</p>
+
+<p>```ruby</p>
+
+<p>n,k = gets.chomp!.split.map {|e| e.to_i}</p>
+
+<p>D = gets.chomp!.split.map {|e| [e.to_i,0]}
+flag = 0
+n.times { |i|</p>
+
+<pre><code>D[i][1]=i+1
+if D[i][0] == 0
+    flag += 1
+end
+</code></pre>
+
+<p>}
+if flag != 1</p>
+
+<pre><code>p -1
+exit
+</code></pre>
+
+<p>end</p>
+
+<p>D.sort!
+b = Array.new(2<em>n)
+e = Array.new(2</em>n)
+l=0
+f=0
+t=1
+while t&lt;n</p>
+
+<pre><code>if f==1 
+    k -= 1 
+end
+if D[t].first!= (D[f].first+1) 
+    puts "-1" 
+    exit 
+end
+p=k
+i = t
+while i&lt;n
+    break if D[i].first!=D[t].first
+    if(p==0) 
+        f +=1
+        p=k 
+    end
+    if(p==0)  
+        puts("-1") 
+        exit 
+    end
+    p -= 1
+    if(f==t)  
+        puts("-1") 
+        exit 
+    end
+    b[l]=D[f][1];
+    e[l]=D[i][1];
+    l+=1;i+=1;
+end
+f=t;
+t=i;
+</code></pre>
+
+<p>end</p>
+
+<p>p l
+l.times { |i|</p>
+
+<pre><code>puts "#{b[i]} #{e[i]}"
+</code></pre>
+
+<p>}
+```</p>
+
+<h2><a href="http://codeforces.com/contest/404/problem/D">D &ndash; Minesweeper 1D</a></h2>
+
+<p><strong>题意</strong>: 给你一个1<em>n的地雷图，0表示左右都没有地雷，1表示左右共有1个雷，2表示左右都是雷，</em>表示该点是雷，？表示该点未知，求有多少种合法的方案。</p>
+
+<p><strong>key</strong>: DP,<code>dp[i][0]表示i点是0的方案数，dp[i][1]表示i点是1的方案数，dp[i][2]表示该点是雷的方案数</code>，其中1可以转化为0，2可以转化为1。 因为“<em>1”的话后面肯定不会是雷，那么变成0的方案数，如果是"01"或“11”的话，后面肯定是雷，保持1不动，"</em>2"的话后面肯定是雷。<br/>
+<strong>转移方程见代码</strong></p>
+
+<p>```ruby
+s = gets.chomp!
+mods = 1000000007
+dp = [[0,0,0],[0,0,0]]</p>
+
+<p>len =s.size
+cur =0;nxt=1;</p>
+
+<p>dp[cur][0]=dp[cur][1]=1</p>
+
+<p>for i in 0&hellip;len</p>
+
+<pre><code>case s[i]
+when '0'
+    dp[nxt][0]=dp[cur][0]
+when '1'
+    dp[nxt][1]= dp[cur][0]
+    dp[nxt][0]= dp[cur][2]
+when '2'
+    dp[nxt][1]=dp[cur][2]
+when '*'
+    dp[nxt][2]= (dp[cur][1]+dp[cur][2])%mods
+when '?'
+    dp[nxt][1]= (dp[cur][2]+dp[cur][0])%mods
+    dp[nxt][0]= (dp[cur][0]+dp[cur][2])%mods
+    dp[nxt][2]= (dp[cur][1]+dp[cur][2])%mods
+end
+cur = nxt
+nxt = cur==0?1:0
+dp[nxt] = [0,0,0]
+</code></pre>
+
+<p>end</p>
+
+<p>puts &ldquo;#{(dp[cur][0]+dp[cur][2])%mods}&rdquo;
+```</p>
+
+<h2><a href="http://codeforces.com/contest/404/problem/E">E &ndash; Maze 1D</a></h2>
+
+<p><strong>题意</strong>: 题意真是难读,大概就是机器人会左右移动，但是如果前面的点是障碍点的话他就不会向前进忽略这次移动，问在设置最少障碍点的情况下能够使得机器人最后停下的位置是以前没有走过的。 问这样的设置方案数有多少个（在障碍点最少的情况下）。</p>
+
+<p><strong>key</strong>: 二分+枚举。</p>
+
+<ul>
+<li>首先我们可以确定，如果不加障碍点他最后停留的位置只走过一次的话，那么方案数肯定是1。</li>
+<li>最多设置一个障碍点，如果一个障碍点不能满足情况，再多的障碍点也没用。</li>
+<li>如果i点可以是障碍点，那么<code>(0,i]</code>的点都可以是障碍点，同理-i是障碍点，<code>[-1,0)</code>都可以是障碍点。</li>
+</ul>
+
+
+<p>有了这样的理解，那么遍可以2分来判断最大的i点是不是可以为障碍点了，判断方法模拟就可以了。<br/>
+<strong>(ruby跑的太慢，TLE了，囧RZ，C++可以AC)</strong></p>
+
+<p><strong>ruby代码</strong>
+```ruby</p>
+
+<h1>TLE 代码</h1>
+
+<p>$s = gets.chomp!
+$fg = 2
+$len = $s.size
+$mods = $len+7
+$vis = Array.new((5*$mods))
+def Judge(k)</p>
+
+<pre><code>$fg += 1
+pos = $mods + 100
+k += pos
+$vis[pos] = $fg
+$len.times { |i|  
+    if $s[i].chr=='R' and pos+1 !=k
+        pos += 1
+        # p 111111111111
+    elsif $s[i].chr=='L' and pos-1 != k
+        pos -= 1
+        # p 222222222222
+    end
+    if i==$len-1
+        # puts "b:"
+        # p $vis[pos]
+        # p pos 
+        # p $fg
+        return $vis[pos] != $fg
+    end
+    $vis[pos] = $fg
+}
+</code></pre>
+
+<p>end</p>
+
+<p>if Judge($mods+300)</p>
+
+<pre><code>p 1
+exit
+</code></pre>
+
+<p>end</p>
+
+<p>res = 0
+l = 1
+r=$len</p>
+
+<p>if Judge(1)</p>
+
+<pre><code>while l&lt;r
+    mid = ((l+r+1)/2).floor
+    if Judge(mid)
+        l = mid
+    else
+        r =mid -1
+    end
+end
+res += l
+</code></pre>
+
+<p>end</p>
+
+<p>l = 1
+r=$len</p>
+
+<p>if Judge(-1)</p>
+
+<pre><code>while l&lt;r
+    mid = (l+r+1)/2
+    if Judge(-1*mid)
+        l = mid
+    else
+        r =mid -1
+    end
+end
+res += l
+</code></pre>
+
+<p>end</p>
+
+<p>p res
+```</p>
+
+<p><strong>c++代码</strong><br/>
+```c++
+char str[MaxN];
+int fg=2,len;
+int vis[5*MaxN];</p>
+
+<p>bool Judge(int k){
+   fg++;
+   int pos=1e6+10;
+   k+=pos;
+   vis[pos] = fg;
+   // printf(&ldquo;%d %d %d\n&rdquo;, fg,pos,k);
+   rep(i,len){</p>
+
+<pre><code>  if(str[i]=='R'&amp;&amp;pos+1!=k) pos++;
+  if(str[i]=='L'&amp;&amp;pos-1!=k) pos--;
+  if(i==len-1){
+    // printf("ans %d  %d %d\n", vis[pos],fg,pos);
+    return vis[pos] != fg;
+  }
+  vis[pos] = fg;
+</code></pre>
+
+<p>   }  <br/>
+}</p>
+
+<p>int main()
+{</p>
+
+<pre><code>while(~scanf("%s",str)){
+    len = strlen(str);
+    memset(vis,0,sizeof(vis));
+
+    if(Judge(1e6+200)){
+        printf("1\n");
+        return 0;
+    }
+
+    ll res = 0;
+    int l=1,r=len,mid;
+    if (Judge(1))
+    {
+        while(l&lt;r){
+            mid = (l+r+1)/2;
+            if(Judge(mid)) l=mid;
+            else r=mid-1;
+        }
+        res += l;
+    }
+
+    if (Judge(-1))
+    {
+        l=1,r=len,mid;
+        while(l&lt;r){
+            mid = (l+r+1)/2;
+            if(Judge(-mid)) l=mid;
+            else r=mid-1;
+        }
+        res += l;           
+    }
+    cout&lt;&lt;res&lt;&lt;endl;
+}   
+return 0;
+</code></pre>
+
+<p>}</p>
+
+<p>```</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[codeforce 235]]></title>
@@ -900,173 +1314,6 @@ return 0;
 ```</p>
 
 <p>以上题目均为过测试数据的程序，不保证程序完全正确无误，欢迎指正,预赛题目难度很明显会增大很多，大家加油。 3Q</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[回文判断 Hash+线段树]]></title>
-    <link href="http://www.UnkelTao.com/blog/2012/12/18/huiwen-hash/"/>
-    <updated>2012-12-18T17:14:12+08:00</updated>
-    <id>http://www.UnkelTao.com/blog/2012/12/18/huiwen-hash</id>
-    <content type="html"><![CDATA[<p>比赛的一道题,一直没时间写.最近空了，继续写写水题。</p>
-
-<p>题目描述：</p>
-
-<!--more-->
-
-
-<h2>Description</h2>
-
-<p>Now we have a long long string, and we will have two kinds of operation on it.<br/>
-C i y: change the ith letter to y;<br/>
-Q i j: check whether the substring from ith letter to jth letter is a palindrome.</p>
-
-<h2>Input</h2>
-
-<p>There are multiple test cases.<br/>
-The first line contains a string whose length is not large than 1,000,000.<br/>
-The next line contains a integer N indicating the number of operations.<br/>
-The next N lines each lines contains a operation.<br/>
-All letters in the input are lower-case.</p>
-
-<h2>Output</h2>
-
-<p>For each query operation, output &ldquo;yes&rdquo; if the corresponding substring is a palindrome, otherwise output &ldquo;no&rdquo;.</p>
-
-<h2>Sample Input</h2>
-
-<p>aaaaa <br/>
-4<br/>
-Q 1 5 <br/>
-C 2 b <br/>
-Q 1 5 <br/>
-Q 1 3</p>
-
-<h2>Sample Output</h2>
-
-<p>yes <br/>
-no <br/>
-yes</p>
-
-<p><strong>题意：</strong>给你一串字符串~然后有两种操作：Q a b 询问a到b之间的子串是否是回文 ；C i y 将第i个字母变成y</p>
-
-<p>水题，比赛的时候没有写完,
-在学妹的提示下，知道了判断回文可以用hash，正反hash相等的子串就是回文;于是再套上线段树来维护区间的hash值.</p>
-
-<p>```c++</p>
-
-<h1>include<iostream></h1>
-
-<h1>include <cstdio></h1>
-
-<h1>include <cstdlib></h1>
-
-<h1>include <cstring></h1>
-
-<h1>include<algorithm></h1>
-
-<h1>include<cmath></h1>
-
-<h1>define N 1100010</h1>
-
-<h1>define mod 1000000007</h1>
-
-<h1>define ll long long</h1>
-
-<p>using namespace std;</p>
-
-<p>struct Tree
-{
-   int l;
-   int r;
-   ll left;
-   ll right;  <br/>
-};</p>
-
-<p>Tree T[N*2];
-char str[N];
-int kk[N];</p>
-
-<p>void hashinit(){kk[0]=1; for(int i=1;i&lt;N;i++) kk[i]=kk[i-1]*2%mod;}
-Tree cnt(Tree tmp1,Tree tmp2)
-{   Tree ans;</p>
-
-<pre><code> ans.l=tmp1.l;
- ans.r=tmp2.r;    
- ans.left=(kk[tmp2.r-tmp2.l+1]*tmp1.left+tmp2.left)%mod;
- ans.right=(kk[tmp1.r-tmp1.l+1]*tmp2.right+tmp1.right)%mod;  
- return ans; 
-</code></pre>
-
-<p>}
-void init(int i,int l,int r)
-{</p>
-
-<pre><code> T[i].l=l;
- T[i].r=r; 
- if(l==r){
-    T[i].right=T[i].left=str[l-1]-'a';
-    return ;
- }
- init(i&lt;&lt;1,l,(l+r)&gt;&gt;1);
- init(i&lt;&lt;1|1,((l+r)&gt;&gt;1)+1,r);  
- T[i]=cnt(T[i&lt;&lt;1],T[i&lt;&lt;1|1]);
-</code></pre>
-
-<p>}
-void update(int i,int k,int w)
-{</p>
-
-<pre><code> int ans;
- if(T[i].l==T[i].r){                                      
-   if(T[i].l==k)T[i].left=T[i].right=w;          
-   return ;                                     
- }
-
- if(T[i&lt;&lt;1].l&lt;=k&amp;&amp;T[i&lt;&lt;1].r&gt;=k) update(i&lt;&lt;1,k,w);                                 
- if(T[i&lt;&lt;1|1].l&lt;=k&amp;&amp;T[i&lt;&lt;1|1].r&gt;=k)update(i&lt;&lt;1|1,k,w);    
- T[i]=cnt(T[i&lt;&lt;1],T[i&lt;&lt;1|1]);
-</code></pre>
-
-<p>}
-Tree querry(int i,int l,int r)
-{</p>
-
-<pre><code> Tree ans;
- if(T[i].l&gt;=l&amp;&amp;T[i].r&lt;=r)return T[i];                                     
- if(T[i&lt;&lt;1].r&gt;=r)return querry(i&lt;&lt;1,l,r);                                 
- if(T[i&lt;&lt;1|1].l&lt;=l)return querry(i&lt;&lt;1|1,l,r);                                               
- return cnt(querry(i&lt;&lt;1,l,T[i&lt;&lt;1].r),querry(i&lt;&lt;1|1,T[i&lt;&lt;1|1].l,r));
-</code></pre>
-
-<p>}
-int main()
-{</p>
-
-<pre><code>int q,k,a,b;
-char qt[2],ch[2];
-Tree ans; 
-hashinit();
-while(~scanf("%s",str)){   
-    init(1,1,strlen(str));       
-    scanf("%d",&amp;q);
-   while(q--){ 
-       scanf("%s",&amp;qt);
-       if(qt[0]=='C'){
-        scanf("%d%s",&amp;k,&amp;ch);
-        update(1,k,ch[0]);
-       }else{
-        scanf("%d%d",&amp;a,&amp;b);
-        ans=querry(1,a,b);
-        printf("%s\n",ans.right==ans.left?"yes":"no");
-       }
-   }
-}
-return 0;
-</code></pre>
-
-<p>}
-```</p>
 ]]></content>
   </entry>
   

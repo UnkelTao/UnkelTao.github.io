@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Cpp | /UnkelTao]]></title>
   <link href="http://www.UnkelTao.com/blog/categories/cpp/atom.xml" rel="self"/>
   <link href="http://www.UnkelTao.com/"/>
-  <updated>2014-03-23T12:09:06+08:00</updated>
+  <updated>2014-03-23T20:45:43+08:00</updated>
   <id>http://www.UnkelTao.com/</id>
   <author>
     <name><![CDATA[UnkelTao]]></name>
@@ -12,6 +12,488 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Codeforces #238 (Div.1 AB)]]></title>
+    <link href="http://www.UnkelTao.com/blog/2014/03/23/codeforces-round-number-238-div-dot-1-a/"/>
+    <updated>2014-03-23T19:51:37+08:00</updated>
+    <id>http://www.UnkelTao.com/blog/2014/03/23/codeforces-round-number-238-div-dot-1-a</id>
+    <content type="html"><![CDATA[<p>rating 居然涨了，简直不科学。 <br/>
+<a href="http://codeforces.com/profile/UnkelTao">弱弱的求个关注:http://codeforces.com/profile/UnkelTao</a></p>
+
+<h2><a href="http://codeforces.com/contest/406/problem/A">A. Unusual Product</a></h2>
+
+<p><strong>题意</strong>: 给你一个矩阵，定义了unusual值，类似与矩阵乘法，但是做的与，对应所有Aij&amp;Aji的值再异或，然后你可以对矩阵的一行或者一列进行反转（0变1，1变0）查询则输出Unusual值。<br/>
+<strong>key</strong>: 我们可以发现，Unusual值其实就是主对角线的值进行异或，跟周围的元素完全没有关系，因为： Aij&amp;Aji,但是Aji又会与Aij，这样等于 <code>（Aij&amp;Aji）^（Aji&amp;Aij）=0 (i!=j)</code>,那么操作一次，结果便会由0变1或者由1变0，不管怎么操作。</p>
+
+<!--more-->
+
+
+<p>```c++</p>
+
+<h1>include <cstdio></h1>
+
+<h1>include <iostream></h1>
+
+<h1>define rep(i, n) for (int i=0; i&lt;(n); ++i)</h1>
+
+<p>using namespace std;
+void data(){
+   freopen(&ldquo;data.in&rdquo;,&ldquo;r&rdquo;,stdin);
+   freopen(&ldquo;data.out&rdquo;,&ldquo;w&rdquo;,stdout);
+}
+int a[1002][1002],n;
+int main(){</p>
+
+<pre><code>//data();
+</code></pre>
+
+<p>   scanf(&ldquo;%d&rdquo;,&amp;n);
+   rep(i,n)rep(j,n) scanf(&ldquo;%d&rdquo;,&amp;a[i][j]);
+   int ans=0;
+   for(int i=0;i&lt;n;i++)
+   for(int j=0;j&lt;n;j++)
+   ans+=a[i][j]*a[j][i];</p>
+
+<p>   ans%=2;
+   int m;
+   scanf(&ldquo;%d&rdquo;,&amp;m);
+   rep(i,m){</p>
+
+<pre><code>  int a,b;
+     scanf("%d",&amp;a);
+     if(a==3) printf("%d",ans);
+     else {scanf("%d",&amp;b); ans=1-ans;}      
+</code></pre>
+
+<p>   }
+   printf(&ldquo;\n&rdquo;);</p>
+
+<p>   return 0;
+}
+```</p>
+
+<h2><a href="http://codeforces.com/contest/406/problem/B">B. Toy Sum</a></h2>
+
+<p><strong>题意</strong>: 给你1，2&hellip;10<sup>6</sup>个数，从中已经选出了其中的n个作为X，让你再挑选出m个作为另外一组Y，要求满足题目给出的公式。<br/>
+<strong>key</strong>:  我们稍微观察一下公式就会发现，  <code>a- 1 == s-(s+1-a)</code> ; 这样，我们就可以贪心了，如果X中选了a,那么看(s+1-a)被选没，没北选，那么我们便把(s+1-a)选入Y，如果选了，那么我们相当于X得了个s,我们便寻找一组都没被选入X的b和（s+1-b）,肯定可以找到的，因为<code>n&lt;=10<sup>5</sup>&lt;=s/2</code>; 这样便可以得出一个可行解。</p>
+
+<p>```c++</p>
+
+<h1>include <cstdio></h1>
+
+<h1>include <cstdlib></h1>
+
+<h1>include <cstring></h1>
+
+<h1>include <cmath></h1>
+
+<h1>include <climits></h1>
+
+<h1>include <cctype></h1>
+
+<h1>include <ctime></h1>
+
+<h1>include <algorithm></h1>
+
+<h1>include <iostream></h1>
+
+<h1>include <queue></h1>
+
+<h1>include <vector></h1>
+
+<h1>include <set></h1>
+
+<h1>include <map></h1>
+
+<h1>include <stack></h1>
+
+<h1>define SQR(x) ((x)*(x))</h1>
+
+<h1>define rep(i, n) for (int i=0; i&lt;(n); ++i)</h1>
+
+<h1>define repd(i,n)  for(int i=1;i&lt;=(n);++i)</h1>
+
+<h1>define repf(i, a, b) for (int i=(a); i&lt;=(b); ++i)</h1>
+
+<h1>define reps(i, a, b) for (int i=(a); i>=(b); &mdash;i)</h1>
+
+<h1>define PB push_back</h1>
+
+<h1>define MP(A, B) make_pair(A, B)</h1>
+
+<h1>define pow2(n) (1&lt;&lt;(n))</h1>
+
+<h1>define pi acos(-1)</h1>
+
+<h1>define eps 0.00000001</h1>
+
+<h1>define lg(n) log10((n)*1.0)</h1>
+
+<h1>define MaxN  1000000</h1>
+
+<h1>define mod 1000000007</h1>
+
+<h1>define mod2 1000000009</h1>
+
+<h1>define mod3 1000007</h1>
+
+<h1>define md(x) (((x)%mod+mod)%mod)</h1>
+
+<h1>define inf 2147483647</h1>
+
+<h1>define inf2 0x7fffffffffffffff</h1>
+
+<h1>define ll long long</h1>
+
+<h1>define typed int</h1>
+
+<p>using namespace std;
+void data(){
+   freopen(&ldquo;data.in&rdquo;,&ldquo;r&rdquo;,stdin);
+   freopen(&ldquo;data.out&rdquo;,&ldquo;w&rdquo;,stdout);
+}
+int kk=1000001;
+int a[1000002],n;
+int t[1000002],t2[1000002];
+int ans[1000002],m=0;
+int main(){
+   // data();
+   memset(a,0,sizeof(a));
+   memset(t2,0,sizeof(t2));
+   scanf(&ldquo;%d&rdquo;,&amp;n);</p>
+
+<p>   rep(i,n){scanf(&ldquo;%d&rdquo;,&amp;t[i]);a[t[i]]=1;}</p>
+
+<p>   int tp=0;
+   rep(i,n){</p>
+
+<pre><code>  if(a[kk-t[i]]) tp++;
+  else{
+      if(!t2[kk-t[i]]) ans[m++]=kk-t[i];
+      t2[t[i]]=1;
+      t2[kk-t[i]]=1;
+  }  
+</code></pre>
+
+<p>   }
+   tp/=2;
+   for(int i=1;i&lt;kk/2+1;i++){</p>
+
+<pre><code>  if(!tp)break;
+  if(!a[i]&amp;&amp;!a[kk-i]){ans[m++]=i;ans[m++]=kk-i;tp--;}          
+</code></pre>
+
+<p>   }</p>
+
+<p>   printf(&ldquo;%d\n&rdquo;,m);
+   printf(&ldquo;%d&rdquo;,ans[0]);
+   for(int i=1;i&lt;m;i++)</p>
+
+<pre><code>  printf(" %d",ans[i]);
+</code></pre>
+
+<p>   printf(&ldquo;\n&rdquo;);</p>
+
+<p>   return 0;
+}
+```</p>
+
+<h3>C,D,E实在做不动了。</h3>
+
+<p>PS，顺带写下今天群内学第们训练的题，我是太闲了么。。。囧</p>
+
+<h2><a href="http://acm.hust.edu.cn/vjudge/contest/view.action?cid=42652#problem/E">E Matrix</a></h2>
+
+<p><strong>题意</strong>:  给你一个数字字符串，构造一个2维的矩阵，bij = si<em>sj; 给你一个范围x,y,z,t,让所有x=&lt;i&lt;=y, z=&lt;j&lt;=t 的bij的和等于a的这样的Group有多少个。 <br/>
+<strong>key</strong>:  我们不难发现，其实所有区间的和其实可以转化为 <code>(Sx+S(x+1)&hellip;Sy)</em>(Xz+&hellip;+St)</code>（展开就能就是b了），那么相当于我们求的是连续的一段的和，和另外连续的一段的和的乘积等于a的个数，那么我们可以用O(n<sup>2</sup>)的算法枚举出所有连续子段和,并记录没种可能的个数。</p>
+
+<ul>
+<li>a=0, 那么判断有多少个连续字段和等于0的，<code> res = cnt[0]*cnt[0] + 2*cnt[0]*cnt[i](cnt[i] != 0)</code></li>
+<li>a!=0,那么我们就可以分解a为两个数的乘积， <code>res = cnt[c]*cnt[d]*2(c*d==a) (若c==d不乘以2)</code></li>
+</ul>
+
+
+<p>```c++</p>
+
+<h1>include <cstdio></h1>
+
+<h1>include <cstdlib></h1>
+
+<h1>include <cstring></h1>
+
+<h1>include <cmath></h1>
+
+<h1>include <climits></h1>
+
+<h1>include <cctype></h1>
+
+<h1>include <ctime></h1>
+
+<h1>include <algorithm></h1>
+
+<h1>include <iostream></h1>
+
+<h1>include <queue></h1>
+
+<h1>include <vector></h1>
+
+<h1>include <set></h1>
+
+<h1>include <map></h1>
+
+<h1>include <stack></h1>
+
+<h1>define SQR(x) ((x)*(x))</h1>
+
+<h1>define rep(i, n) for (int i=0; i&lt;(n); ++i)</h1>
+
+<h1>define repd(i,n)  for(int i=1;i&lt;=(n);++i)</h1>
+
+<h1>define repf(i, a, b) for (int i=(a); i&lt;=(b); ++i)</h1>
+
+<h1>define reps(i, a, b) for (int i=(a); i>=(b); &mdash;i)</h1>
+
+<h1>define PB push_back</h1>
+
+<h1>define MP(A, B) make_pair(A, B)</h1>
+
+<h1>define pow2(n) (1&lt;&lt;(n))</h1>
+
+<h1>define pi acos(-1)</h1>
+
+<h1>define eps 0.00000001</h1>
+
+<h1>define lg(n) log10((n)*1.0)</h1>
+
+<h1>define MaxN  1000000</h1>
+
+<h1>define mod 1000000007</h1>
+
+<h1>define mod2 1000000009</h1>
+
+<h1>define mod3 1000007</h1>
+
+<h1>define md(x) (((x)%mod+mod)%mod)</h1>
+
+<h1>define inf 2147483647</h1>
+
+<h1>define inf2 0x7fffffffffffffff</h1>
+
+<h1>define ll long long</h1>
+
+<h1>define typed int</h1>
+
+<p>using namespace std;
+void data(){
+   freopen(&ldquo;data.in&rdquo;,&ldquo;r&rdquo;,stdin);
+   freopen(&ldquo;data.out&rdquo;,&ldquo;w&rdquo;,stdout);
+}
+int cnt[MaxN];
+int sum[MaxN],a;
+char str[MaxN];
+int main(){</p>
+
+<pre><code>//data();
+while(~scanf("%d",&amp;a)){
+    scanf("%s",str);
+    memset(cnt,0,sizeof(cnt));                  
+    int len = strlen(str);
+    sum[0]=0;
+    rep(i,len){sum[i+1]=sum[i]+str[i]-'0';}
+    repf(i,1,len)repf(j,i,len)cnt[sum[j]-sum[i-1]]++;
+
+    ll res=0;
+    if(a==0)
+    {
+        res+=1LL*cnt[0]*cnt[0];
+        repd(i,sum[len])if(cnt[i]) res+=1LL*cnt[0]*cnt[i]*2;    
+        cout&lt;&lt;res&lt;&lt;endl;
+        continue;
+    }                   
+    for(int i=1;i*i&lt;=a;i++)
+        if(a%i==0&amp;&amp;a/i&lt;=sum[len]) 
+            if(i*i==a) res += 1LL*cnt[i]*cnt[a/i];
+            else res += 1LL*cnt[i]*cnt[a/i]*2;                      
+    cout&lt;&lt;res&lt;&lt;endl;    
+}
+</code></pre>
+
+<p>   return 0;
+}</p>
+
+<p>```</p>
+
+<h3><a href="http://acm.hust.edu.cn/vjudge/contest/view.action?cid=42652#problem/F">F &ndash; How far away ？</a></h3>
+
+<p><strong>题意</strong>:  给你一颗树，查询两个之间的距离(有且只有一条)。   <br/>
+<strong>key</strong>： 标准解放应该是LCA（最近公共祖先） ，由于查询数目极少，本题只有200，那么很明显赤裸裸的搜索也能过啊，不知道为啥木有学第写。 广搜深搜应该都可以，n比较大，需要cevtor或者邻接表存储。</p>
+
+<p>```c++</p>
+
+<h1>include <cstdio></h1>
+
+<h1>include <cstdlib></h1>
+
+<h1>include <cstring></h1>
+
+<h1>include <cmath></h1>
+
+<h1>include <climits></h1>
+
+<h1>include <cctype></h1>
+
+<h1>include <ctime></h1>
+
+<h1>include <algorithm></h1>
+
+<h1>include <iostream></h1>
+
+<h1>include <queue></h1>
+
+<h1>include <vector></h1>
+
+<h1>include <set></h1>
+
+<h1>include <map></h1>
+
+<h1>include <stack></h1>
+
+<h1>define SQR(x) ((x)*(x))</h1>
+
+<h1>define rep(i, n) for (int i=0; i&lt;(n); ++i)</h1>
+
+<h1>define repd(i,n)  for(int i=1;i&lt;=(n);++i)</h1>
+
+<h1>define repf(i, a, b) for (int i=(a); i&lt;=(b); ++i)</h1>
+
+<h1>define reps(i, a, b) for (int i=(a); i>=(b); &mdash;i)</h1>
+
+<h1>define PB push_back</h1>
+
+<h1>define MP(A, B) make_pair(A, B)</h1>
+
+<h1>define pow2(n) (1&lt;&lt;(n))</h1>
+
+<h1>define pi acos(-1)</h1>
+
+<h1>define eps 0.00000001</h1>
+
+<h1>define lg(n) log10((n)*1.0)</h1>
+
+<h1>define MaxN  100000</h1>
+
+<h1>define mod 1000000007</h1>
+
+<h1>define mod2 1000000009</h1>
+
+<h1>define mod3 1000007</h1>
+
+<h1>define md(x) (((x)%mod+mod)%mod)</h1>
+
+<h1>define inf 2147483647</h1>
+
+<h1>define inf2 0x7fffffffffffffff</h1>
+
+<h1>define ll long long</h1>
+
+<h1>define typed int</h1>
+
+<p>using namespace std;
+void data(){
+   freopen(&ldquo;data.in&rdquo;,&ldquo;r&rdquo;,stdin);
+   freopen(&ldquo;data.out&rdquo;,&ldquo;w&rdquo;,stdout);
+}
+int pnt[MaxN],nxt[MaxN],head[MaxN],len;
+bool used[MaxN];
+int w[MaxN];
+int fg,ans,n,m;</p>
+
+<p>int t,e;
+void init(){
+   len=0;
+   memset(head,-1,sizeof(head));
+   memset(used,0,sizeof(used));
+}
+void addeg(int u,int v,int k){</p>
+
+<pre><code>  pnt[len] = v;
+  w[len]= k;
+  nxt[len] = head[u]; 
+  head[u] = len++;
+</code></pre>
+
+<p>}</p>
+
+<p>void dfs(int u,int cur){
+  int v;
+  used[u]=1;
+  if(fg)return;
+  for(int i=head[u];i!=-1;i=nxt[i]){</p>
+
+<pre><code>  v=pnt[i];
+  if(v==e){fg=1;ans=cur+w[i];return;}
+  if(fg) break;
+  if(!used[v]){
+     used[v]=1;          
+     dfs(v,cur+w[i]);
+  }
+</code></pre>
+
+<p>  }</p>
+
+<p>}
+//读入外挂
+void RD(int &amp;a) {</p>
+
+<pre><code>int value = 0, s = 1; 
+char c;
+while ((c = getchar()) == ' ' || c == '\n');
+if (c == '-') s = -s; else value = c-48;
+while ((c = getchar()) &gt;= '0' &amp;&amp; c &lt;= '9')
+    value = value * 10 + c - 48;
+a = s * value;
+</code></pre>
+
+<p>}
+void RD(int &amp;a,int &amp;b){</p>
+
+<pre><code>RD(a),RD(b);
+</code></pre>
+
+<p>}
+void RD(int &amp;a,int &amp;b,int &amp;c){</p>
+
+<pre><code>RD(a),RD(b),RD(c);
+</code></pre>
+
+<p>}</p>
+
+<p>int main(){</p>
+
+<pre><code>int T,a,b,k;
+RD(T);
+while(T--){
+   init();         
+   RD(n,m);
+   rep(i,n-1){RD(a,b,k);addeg(a,b,k);addeg(b,a,k);}
+   rep(i,m){
+      RD(t,e);
+      fg=0;
+      memset(used,0,sizeof(used));
+      dfs(t,0);
+      printf("%d\n",ans);           
+   }
+}
+return 0;
+</code></pre>
+
+<p>}
+```</p>
+
+<h1>最后祝学第们加油。</h1>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Codeforces Round #237 (Div. 2) ]]></title>

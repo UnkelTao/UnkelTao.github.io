@@ -3,7 +3,7 @@ layout: post
 title: "Codeforces Round #237 (Div. 2) "
 date: 2014-03-21 11:03:13 +0800
 comments: true
-categories: [CF,Ruby,ACM,C++]
+categories: [CF,Ruby,ACM,Cpp]
 keywords: CF,Ruby,ACM,C++,237 
 description: "Codeforces Round #237 (Div. 2)" 
 ---

@@ -20,14 +20,17 @@ keywords: wiki,markown
 </div>
 <div class="neirong">
 
-  
+#
+#待完成Wiki
+
+
 <h2 id="toc_1.1">1. Programming</h2>
 <h3 id="toc_1.1.1">1.1. General Topics</h3>
 
 *   语言
     *   面试或者工作估计会从事的语言[java](#)
     *   训练算法题的[c/c++](#)
-    *   得会一本的脚步语言[ruby](#)
+    *   得会一门的脚步语言[ruby](#)
     *   微信平台用到的[php](#)
 *   操作系统[linux](#)(基本为ubuntu)
 *   云计算平台[hadoop](#)

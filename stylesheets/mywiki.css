@@ -43,7 +43,6 @@ div {
     padding-left: 1em;
     display: block;
     overflow: hidden;
-    width: 96%;
 }
 
 #navbar li {
@@ -168,6 +167,7 @@ li {
 ul {
     margin-left: 0.5em; 
     padding-left: 0.5em;
+    width: 96%;
 }
 
 dt {

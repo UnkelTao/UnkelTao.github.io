@@ -28,16 +28,19 @@ keywords: wiki,markown
 
 *   语言
     *   面试或者工作估计会从事的语言[java](./java/)     
-    *   训练算法题的[c/c++](#)
+    *   训练算法题的c/c++
     *   得会一门的脚步语言[ruby](./ruby/)
     *   微信平台用到的[php](./php/)
-*   操作系统[linux](#)(基本为ubuntu)
-*   云计算平台[hadoop](#)
-*   文档工具[Latex](#)
+*   操作系统linux(基本为ubuntu)
+*   云计算平台hadoop
+*   文档工具Latex
+*   版本管理工具
+    *   Git
+    *   SVN
 *   编辑器
-    *   [Sublime Text](#)
-    *   [Vim](#)
-    *   [MyEclipse](#)
+    *   Sublime Text
+    *   Vim
+    *   MyEclipse
 *   一些问题解决方案[plan](./zaxiang/solve.html)
 
 <h3 id="toc_1.1.2">1.2. 笔记(书籍、论文、教程、源代码等等)</h3>
@@ -46,15 +49,15 @@ keywords: wiki,markown
 <h3 id="toc_1.1.3">1.3. 收集箱</h3>
 
 *   [一些问题解决方案](./zaxiang/solve.html)
-*   [读XXX的心得]() 
+*   读XXX的心得 
 *   <span class="todo">TODO: 
 
 
 <h2 id="toc_1.2">2. 生活</h2>
 
 *   读书
-    *   [读书计划](#)
+    *   读书计划
     *   [读书笔记](http://www.unkeltao.com/blog/categories/du-shu-bi-ji/)
-*   [旅游](#)
-*   [计划](#)
+*   旅游
+*   计划
 

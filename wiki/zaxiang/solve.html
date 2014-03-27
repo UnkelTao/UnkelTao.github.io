@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+<title>问题解决方案 - /UnkelTao</title>
+<link href="/stylesheets/mywiki.css" media="screen, projection" rel="stylesheet" type="text/css">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+</head> 
+<body style="background-image: url(/images/haoluo_bg3.jpg);">
+	<div id="navbar">
+    	<ul>
+    		<li> <a class="activated" href="/wiki/"> 首页 </a></li>
+    		<li> <a href="/">博客</a> </li>
+    		<li> <a href="#">TODO</a> </li>
+    		<li> <a href="">GITHUB</a> </li>
+		</ul>
+    </div>
+    <div id="content">
+    <h1 id="toc1" class="justcenter">问题解决方案 </h1>
+    <div class="toc">
+    	<ul>
+<li><a href="#toc1">问题解决方案</a>
+
+<ul>
+<li><a href="#toc_1.1">1. windows</a>
+
+<ul>
+<li><a href="#toc_1.1.1">1.1. 无法访问自定义操作的vbscript运行时间</a></li>
+<li><a href="#toc_1.1.2">1.2. 递归删除目录下的exe</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<p></div></p>
+
+<p><div class="neirong"></p>
+
+<p><h2 id="toc_1.1">1. windows</h2>
+<h3 id="toc_1.1.1">1.1. 无法访问自定义操作的vbscript运行时间</h3></p>
+
+<ul>
+<li><p>问题描述：
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>无法访问自定义操作的vbscript运行时间
+</span><span class='line'>Could not access VBScript run time for custom action.</span></code></pre></td></tr></table></div></figure></p></li>
+<li><p>解决方案:</p>
+
+<ul>
+<li>64-bit
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>reg delete &ldquo;HKCU\SOFTWARE\Classes\Wow6432Node\CLSID\{B54F3741-5B07-11CF-A4B0-00AA004A55E8}&rdquo; /f
+</span><span class='line'>c:\windows\syswow64\regsvr32 vbscript.dll</span></code></pre></td></tr></table></div></figure></li>
+<li>32-bit
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>reg delete &ldquo;HKCU\SOFTWARE\Classes\CLSID\{B54F3741-5B07-11CF-A4B0-00AA004A55E8}&rdquo; /f
+</span><span class='line'>c:\windows\system32\regsvr32 vbscript.dll </span></code></pre></td></tr></table></div></figure></li>
+</ul>
+</li>
+</ul>
+
+
+<p><h3 id="toc_1.1.2">1.2. 递归删除目录下的exe文件</h3></p>
+
+<ul>
+<li>sh
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ls | xargs -i% find %  -name &lsquo;*.exe&rsquo; -type f -print0 | xargs -0 rm -rf</span></code></pre></td></tr></table></div></figure></li>
+</ul>
+
+
+    </div>
+</body>
+</html>

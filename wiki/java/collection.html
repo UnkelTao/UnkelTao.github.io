@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+<title>集合 - /UnkelTao</title>
+<link href="/stylesheets/mywiki.css" media="screen, projection" rel="stylesheet" type="text/css">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+</head> 
+<body style="background-image: url(/images/haoluo_bg3.jpg);">
+	<div id="navbar">
+    	<ul>
+    		<li> <a class="activated" href="/wiki/"> 首页 </a></li>
+    		<li> <a href="/">博客</a> </li>
+    		<li> <a href="#">TODO</a> </li>
+    		<li> <a href="">GITHUB</a> </li>
+		</ul>
+    </div>
+    <div id="content">
+    <h1 id="toc1" class="justcenter">集合 </h1>
+    <div class="toc">
+    	<ul>
+<li><a href="#toc1">集合</a>
+
+<ul>
+<li><a href="#toc_1.1">1. Set 与 List</a></li>
+<li><a href="#toc_1.2">2. 常用的List？</a></li>
+<li><a href="#toc_1.3">3. ArrayList与Vector</a></li>
+<li><a href="#TOC_1.4">4. HashMap 与 HashTable</a></li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<p></div></p>
+
+<p><div class="neirong"></p>
+
+<p><h2 id="toc_1.1">1. Set 与 List 的区别?</h2></p>
+
+<ul>
+<li>都是Collection接口的子接口。</li>
+<li>Set是不重复的集合类，Set中的元素都是唯一的。但是Set中的元素是无序的，不能通过下标访问。</li>
+<li>List中的元素是可以重复的，同时也是有序的。</li>
+</ul>
+
+
+<p><h2 id="toc_1.2">2. 常用的List?</h2></p>
+
+<ul>
+<li>ArrayList，LinkedList，Vector，Stack</li>
+<li>ArrayList底层是数组实现的，是一个动态数组，随机访问快。</li>
+<li>LinkedList底层是链表，插入删除较快。</li>
+</ul>
+
+
+<p><h2 id="toc_1.3">3. ArrayList与Vector区别?</h2></p>
+
+<ul>
+<li>基本相同，都是List的实现类。底层都是动态数组。</li>
+<li>其中Vector是线程同步的，ArrayList默认不是线程同步的。</li>
+<li>让Array线程同步。</li>
+<li>List list = Collection.synchronizedList(new ArrayList(&hellip;));  //线程同步，也就是一个时刻只有一个线程去访问。</li>
+</ul>
+
+
+<p><h2 id="toc_1.1">4.HashMap 与 HashTable的区别?</h2></p>
+
+<ul>
+<li>都是Map接口的实现类</li>
+<li>HashTable线程同步，HashMap不是线程同步。
+
+<ul>
+<li>让HashMap线程同步方法：</li>
+</ul>
+</li>
+</ul>
+
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Map m = Collection.synchronizedMap(new HashMap(&hellip;));</span></code></pre></td></tr></table></div></figure></p>
+
+<ul>
+<li>HashTable 的key和value都不允许为空。</li>
+</ul>
+
+
+    </div>
+</body>
+</html>

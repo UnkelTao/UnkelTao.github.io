@@ -27,10 +27,10 @@ keywords: wiki,markown
 <h3 id="toc_1.1.1">1.1. General Topics</h3>
 
 *   语言
-    *   面试或者工作估计会从事的语言[java](#)     
+    *   面试或者工作估计会从事的语言[java](./java/)     
     *   训练算法题的[c/c++](#)
-    *   得会一门的脚步语言[ruby](./ruby)
-    *   微信平台用到的[php](#)
+    *   得会一门的脚步语言[ruby](./ruby/)
+    *   微信平台用到的[php](./php/)
 *   操作系统[linux](#)(基本为ubuntu)
 *   云计算平台[hadoop](#)
 *   文档工具[Latex](#)
@@ -38,13 +38,14 @@ keywords: wiki,markown
     *   [Sublime Text](#)
     *   [Vim](#)
     *   [MyEclipse](#)
-
+*   一些问题解决方案[plan](./zaxiang/solve.html)
 
 <h3 id="toc_1.1.2">1.2. 笔记(书籍、论文、教程、源代码等等)</h3>
 
 
 <h3 id="toc_1.1.3">1.3. 收集箱</h3>
 
+*   [一些问题解决方案](./zaxiang/solve.html)
 *   [读XXX的心得]() 
 *   <span class="todo">TODO: 
 

@@ -21,8 +21,8 @@ keywords: wiki,markown
 
 <h3 id="toc1.1"></h3>
 
-*   [3月26日会议记录](./huiyijilu/3-26.html)
+*   [3月26日会议记录](./3-26.html)
 
 <h3 id="toc1.2"></h3>   
 
-*   [4月02日会议记录](./huiyijilu/4-2.html)
+*   [4月02日会议记录](./4-2)

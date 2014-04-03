@@ -45,6 +45,7 @@ keywords: wiki,markown
 
 <h3 id="toc_1.1.2">1.2. 笔记(书籍、论文、教程、源代码等等)</h3>
 
+*   [小组会议记录](./huiyijilu/)
 
 <h3 id="toc_1.1.3">1.3. 收集箱</h3>
 

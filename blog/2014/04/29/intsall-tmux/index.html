@@ -1,0 +1,456 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Linux 下安装 Tmux - /UnkelTao</title>
+  <meta name="author" content="UnkelTao">
+
+  
+  <meta name="description" content="RedHat 安装Tmux软件">
+  <meta name="keywords" content="linux,ubuntu,archlinux,redhat,tmux">
+   <meta name="keywords" content="c/c++, ruby, latex, linux, java, web development, hadoop, MapReduce">
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.UnkelTao.com/blog/2014/04/29/intsall-tmux/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+   <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <script src="/javascripts/costem.js" type="text/javascript"></script>
+  <!-- <script src="/javascripts/instantclick.min.js" type="text/javascript"></script> -->
+  <link href="/atom.xml" rel="alternate" title="/UnkelTao" type="application/atom+xml">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lora:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700,900' rel='stylesheet' type='text/css'>
+
+
+ 
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-48154170-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+  
+  <style type="text/css">
+   html{background: url("http://unkeltao.qiniudn.com/bg/IMG_background.png") no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;
+   }
+  </style>
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+</hgroup>
+
+</header>
+  <!-- <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.UnkelTao.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/blog/archives">About</a></li>
+</ul>
+
+</nav> -->
+  <div id="main">
+    <div id="content" data-no-instant>
+      <div data-no-instant>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Linux 下安装 Tmux</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-29T23:29:54+08:00" pubdate data-updated="true">Apr 29<span>th</span>, 2014</time>
+        
+        
+          | <a href="#comments">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Tmux(terminal multiplexer), 远程必备的终端复用软件。</p>
+
+<h2>安装</h2>
+
+<h3>ubuntu</h3>
+
+<p>用了很长一段时间的Ubuntu,绝大部分原因是其强大的软件源。</p>
+
+<blockquote><p>  #安装命令<br/>
+sudo apt-get install tmux</p></blockquote>
+
+<h3>Archlinux</h3>
+
+<p>前一段时间切换到了archlinux下面。 arch里面也有类似于apt-get的。它就是pacman,所以安装仍然很简单。</p>
+
+<blockquote><p>  #安装命令  <br/>
+pacman -S tmux</p></blockquote>
+
+<h3>RedHat</h3>
+
+<p>实验室服务器使用的是Redhat,最近需要在服务器做实验，而服务器上是没有图形界面的，为了保护我的终端现场，这就更得使用Tmux了。 服务器没有外网(似乎有(O.O))。所以采用源码安装的形式。</p>
+
+<!-- more -->
+
+
+<ul>
+<li>首先从<strong><a href="http://tmux.sourceforge.net/">官网</a></strong>上下载tmux和libevent(因为tmux源码安装依赖于libevent,不安装make会报错)</li>
+<li>安装libevent.</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>tar zxvf libevent-2.0.21-stable.tar.gz  #解压  
+</span><span class='line'>cd libevent-2.0.21-stable  
+</span><span class='line'>./configure --prefix=你的安装目录  #如 /etc/pro/libevent2  
+</span><span class='line'>make  
+</span><span class='line'>make install</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>安装tmux.</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>tar zxvf tmux-1.9a.tar.gz
+</span><span class='line'>cd tmux-1.9a.tar.gz
+</span><span class='line'>CFLAGS="-I libevent安装目录/include" LDFLAGS="-L/usr/local/libevent安装目录/lib" ./configure --prefix=tmux安装目录
+</span><span class='line'>#eg:  CFLAGS="-I/usr/pro/libevent2/include" LDFLAGS="-L/usr/pro/libevent2/lib" ./configure --prefix=/usr/pro/tmux
+</span><span class='line'>make
+</span><span class='line'>make install</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>链接.so</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#32位
+</span><span class='line'>sudo cp /usr/pro/libevent2/lib/libevent-2.0.so.5 /usr/lib
+</span><span class='line'>#64位
+</span><span class='line'>sudo cp /usr/pro/libevent2/lib/libevent-2.0.so.5 /usr/lib64</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>将tmux安装目录加入到环境变量PATH中</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vim /etc/profile</span></code></pre></td></tr></table></div></figure>
+
+
+<blockquote><p>  export TMUX_HOME=/usr/pro/tmux<br/>
+export PATH=$TMUX_HOME/bin:$PATH</p></blockquote>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>source /etc/profile</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这样便可以使用了。</p>
+
+<h2>简单配置</h2>
+
+<p>配置文件在 ~/.tmux.conf 下，没有可以新建一个。<br/>
+因为tmux的prefix键默认为&#8221;Ctrl+b&#8221;,但是他们隔得有点远，所以修改为&#8221;Ctrl+a&#8221;。</p>
+
+<blockquote><p>  # remap prefix to Control + a <br/>
+set -g prefix C-a<br/>
+unbind C-b<br/>
+bind C-a send-prefix</p></blockquote>
+
+<h2>使用</h2>
+
+<p><a href="https://wiki.freebsdchina.org/software/t/tmux">使用tmux——freebsdchina</a></p>
+
+<p class='post-footer'>原文地址:&nbsp;<a href='http://www.UnkelTao.com/blog/2014/04/29/intsall-tmux/'>http://www.UnkelTao.com/blog/2014/04/29/intsall-tmux/</a><br/><br/>&nbsp;由 <a href='http://www.UnkelTao.com'>UnkelTao</a>&nbsp;撰写并发表于 <a href='http://www.UnkelTao.com'>http://www.UnkelTao.com</a></p>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+
+<span class="byline author vcard"></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-29T23:29:54+08:00" pubdate data-updated="true">Apr 29<span>th</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/tmux/'>tmux</a>
+  
+</span>
+
+
+    </p>
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/03/25/lao-ren-yu-hai-hai-ming-wei-du-shu-bi-ji/" title="Previous Post: <老人与海 (海明威)> 读书笔记">&laquo; <老人与海 (海明威)> 读书笔记</a>
+      
+      
+    </p>
+      
+          <!-- <div class="sharing">
+  
+  
+  
+<!-- -->
+<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分享到：</span>
+		<a class="jiathis_button_qzone">QQ空间</a>
+		<a class="jiathis_button_tsina">新浪微博</a>
+		<a class="jiathis_button_tqq">腾讯微博</a>
+		<a class="jiathis_button_weixin">微信</a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+		<a class="jiathis_counter_style"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1394031070305331" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+<!--  </div> <!-- -->
+
+      
+  </footer>
+</article>
+
+
+
+
+
+  <section data-no-instant>
+    <h1>Comments</h1>
+    <div id="comments" aria-live="polite"><!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"unkeltao"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END --></div>
+  </section>
+
+
+</div>
+
+
+
+<aside class="sidebar">
+  
+    <section id="titles">
+  <h1 id="site_title"><a href="http://www.UnkelTao.com" title="/UnkelTao">/UnkelTao</a></h1>
+  <h3 id="site_subtitle">一个还未开始搬砖的程序猿。</h3>
+</section>
+
+<section id="menu">
+  <ul>
+    <li><i class="fa fa-home fa-lg"></i><a href="/"> Home </a></li>
+    <li><i class="fa fa-calendar fa-lg"></i><a href="/blog/archives/"> Archives </a></li>
+    <li><i class="fa fa-user fa-lg"></i><a href="/about/"> About </a></li>
+    <li data-no-instant><i class="fa fa-rss fa-lg"></i><a href="/wiki/"> Wiki </a></li>
+  </ul>
+</section>
+
+<section id="social">
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+
+<section>
+	<h1>Friends Link</h1>
+	<ul>
+		<li><a href="http://blog.163.com/xuyanconnie@126"  target="_blank" >徐小嘉</a></li>
+    <li><a href="http://songjiayang.github.io/"  target="_blank" >songjiayang</a></li>
+    <li><a href="http://herechen.github.io/" target="_blank">HereChen</a></li>
+	</ul>
+</section>
+<section >
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/04/29/intsall-tmux/">Linux 下安装 Tmux</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/25/lao-ren-yu-hai-hai-ming-wei-du-shu-bi-ji/"><老人与海 (海明威)> 读书笔记</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/23/codeforces-round-number-238-div-dot-1-a/">Codeforces #238 (Div.1 AB)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/23/ren-sheng-ruo-zhi-ru-chu-jian-an-yi-ru-du-shu-bi-ji/"><人生若只如初见 (安意如)>读书笔记</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/21/codeforces-round-number-237-div-2/">Codeforces Round #237 (Div. 2) </a>
+      </li>
+    
+  </ul>
+</section>
+<section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/acm/'>ACM (6)</a></li>
+<li class='category'><a href='/blog/categories/cf/'>CF (4)</a></li>
+<li class='category'><a href='/blog/categories/cpp/'>Cpp (5)</a></li>
+<li class='category'><a href='/blog/categories/ruby/'>Ruby (3)</a></li>
+<li class='category'><a href='/blog/categories/sublime-text/'>Sublime Text (1)</a></li>
+<li class='category'><a href='/blog/categories/ubuntu/'>Ubuntu (1)</a></li>
+<li class='category'><a href='/blog/categories/kindle/'>kindle (2)</a></li>
+<li class='category'><a href='/blog/categories/latex/'>latex (2)</a></li>
+<li class='category'><a href='/blog/categories/octopress/'>octopress (1)</a></li>
+<li class='category'><a href='/blog/categories/ruby/'>ruby (1)</a></li>
+<li class='category'><a href='/blog/categories/tmux/'>tmux (1)</a></li>
+<li class='category'><a href='/blog/categories/xin-qing-bi-ji/'>心情笔记 (1)</a></li>
+<li class='category'><a href='/blog/categories/du-shu-bi-ji/'>读书笔记 (3)</a></li>
+<li class='category'><a href='/blog/categories/sui-bi/'>随笔 (1)</a></li>
+
+  </ul>
+</section>
+<section>
+  <h1>Tag Cloud</h1>
+    <span id="tag-cloud"><a href='/blog/categories/acm' style='font-size: 160.0%'>ACM</a> <a href='/blog/categories/cf' style='font-size: 140.0%'>CF</a> <a href='/blog/categories/cpp' style='font-size: 150.0%'>Cpp</a> <a href='/blog/categories/kindle' style='font-size: 120.0%'>kindle</a> <a href='/blog/categories/latex' style='font-size: 120.0%'>latex</a> <a href='/blog/categories/octopress' style='font-size: 110.0%'>octopress</a> <a href='/blog/categories/ruby' style='font-size: 130.0%'>Ruby</a> <a href='/blog/categories/ruby' style='font-size: 110.0%'>ruby</a> <a href='/blog/categories/sublime-text' style='font-size: 110.0%'>Sublime Text</a> <a href='/blog/categories/tmux' style='font-size: 110.0%'>tmux</a> <a href='/blog/categories/ubuntu' style='font-size: 110.0%'>Ubuntu</a> <a href='/blog/categories/xin-qing-bi-ji' style='font-size: 110.0%'>心情笔记</a> <a href='/blog/categories/du-shu-bi-ji' style='font-size: 130.0%'>读书笔记</a> <a href='/blog/categories/sui-bi' style='font-size: 110.0%'>随笔</a> </span>
+</section>
+<section>
+	<h1>个人微博</h1>
+		<iframe width="100%" height="450" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=450&fansRow=2&ptype=1&speed=300&skin=2&isTitle=0&noborder=0&isWeibo=1&isFans=0&uid=3303041202&verifier=6ee45e11&colors=f2f2f2,f2f2f2,666666,0082cb,ecfbfd&dpc=1"></iframe>
+</section>
+
+<!--
+<div style="display:none;">
+	<audio controls="controls" autoplay="autoplay" loop="loop">
+		<source src="http://unkeltao.qiniudn.com/mp3mowenwei.mp3" type="audio/mpeg">
+	</audio>
+</div> <!-- -->
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - UnkelTao -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+  <!--<script type="text/javascript">
+   RandomBackground(2);
+
+  </script> -->
+<!-- <script data-no-instant>InstantClick.init();</script> -->
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+</body>
+</html>

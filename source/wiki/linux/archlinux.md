@@ -8,7 +8,6 @@ keywords: wiki,markown
 
 *   [Archlinux](#toc1)
     *   [1. 参考](#toc_1.1)
-* * *
 
 </div>
 <div class="neirong">

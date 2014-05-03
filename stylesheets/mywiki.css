@@ -220,6 +220,7 @@ del {
     float: left;
     width: 15%;
     /* height: 100%; */
+    min-height: 500px;
     position: fixed;
 }
 

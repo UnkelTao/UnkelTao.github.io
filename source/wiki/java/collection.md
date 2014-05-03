@@ -11,7 +11,6 @@ keywords: wiki,markown
     *	[2. 常用的List？](#toc_1.2)
     *	[3. ArrayList与Vector](#toc_1.3)
     *	[4. HashMap 与 HashTable](#TOC_1.4)
-* * *
 
 </div>
 <div class="neirong">

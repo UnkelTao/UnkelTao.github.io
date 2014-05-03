@@ -8,7 +8,6 @@ keywords: wiki,markown
 
 *   [Java](#toc1)
     *   [1. 面试笔试题](#toc_1.1)
-* * *
 
 </div>
 <div class="neirong">

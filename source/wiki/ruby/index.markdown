@@ -10,7 +10,8 @@ keywords: wiki,markown
     *   [1. 问题杂记](#toc_1.1)
         *   [1.1. Windows编码问题](#toc_1.1.1)
         *   [1.2. Ruby 创建文件](#toc_1.1.2)
-* * *
+
+
 </div>
 <div class="neirong">
 

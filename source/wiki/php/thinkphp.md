@@ -9,7 +9,6 @@ keywords: wiki,markown
 *   [Think PHP](#toc1)
     *   [1. 常量](#toc_1.1)
     *	[2. 字段隐藏，模型映射](#toc_1.2)
-* * *
 
 
 </div>

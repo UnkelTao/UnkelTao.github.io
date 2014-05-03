@@ -13,7 +13,6 @@ keywords: wiki,markown
     	*	[   undefined function imagecreate](#toc_1.2.1)
     *	[3. 框架](#toc_1.3)
     	*	[Think PHP](#toc_1.3.1)
-* * *
 
 </div>
 <div class="neirong">

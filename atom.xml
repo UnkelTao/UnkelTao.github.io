@@ -4,7 +4,7 @@
   <title><![CDATA[/UnkelTao]]></title>
   <link href="http://www.UnkelTao.com/atom.xml" rel="self"/>
   <link href="http://www.UnkelTao.com/"/>
-  <updated>2014-05-03T23:59:37+08:00</updated>
+  <updated>2014-05-03T17:30:28+01:00</updated>
   <id>http://www.UnkelTao.com/</id>
   <author>
     <name><![CDATA[UnkelTao]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Linux 下安装 Tmux]]></title>
     <link href="http://www.UnkelTao.com/blog/2014/04/29/intsall-tmux/"/>
-    <updated>2014-04-29T23:29:54+08:00</updated>
+    <updated>2014-04-29T16:29:54+01:00</updated>
     <id>http://www.UnkelTao.com/blog/2014/04/29/intsall-tmux</id>
     <content type="html"><![CDATA[<p>Tmux(terminal multiplexer), 远程必备的终端复用软件。</p>
 
@@ -135,7 +135,7 @@ bind C-a send-prefix</p></blockquote>
   <entry>
     <title type="html"><![CDATA[<老人与海 (海明威)> 读书笔记]]></title>
     <link href="http://www.UnkelTao.com/blog/2014/03/25/lao-ren-yu-hai-hai-ming-wei-du-shu-bi-ji/"/>
-    <updated>2014-03-25T10:59:52+08:00</updated>
+    <updated>2014-03-25T03:59:52+01:00</updated>
     <id>http://www.UnkelTao.com/blog/2014/03/25/lao-ren-yu-hai-hai-ming-wei-du-shu-bi-ji</id>
     <content type="html"><![CDATA[<p>语文书的内容，重温了下下。</p>
 
@@ -180,7 +180,7 @@ bind C-a send-prefix</p></blockquote>
   <entry>
     <title type="html"><![CDATA[Codeforces #238 (Div.1 AB)]]></title>
     <link href="http://www.UnkelTao.com/blog/2014/03/23/codeforces-round-number-238-div-dot-1-a/"/>
-    <updated>2014-03-23T19:51:37+08:00</updated>
+    <updated>2014-03-23T12:51:37+01:00</updated>
     <id>http://www.UnkelTao.com/blog/2014/03/23/codeforces-round-number-238-div-dot-1-a</id>
     <content type="html"><![CDATA[<p>rating 居然涨了，简直不科学。 <br/>
 <a href="http://codeforces.com/profile/UnkelTao">弱弱的求个关注:http://codeforces.com/profile/UnkelTao</a></p>
@@ -814,7 +814,7 @@ bind C-a send-prefix</p></blockquote>
   <entry>
     <title type="html"><![CDATA[<人生若只如初见 (安意如)>读书笔记]]></title>
     <link href="http://www.UnkelTao.com/blog/2014/03/23/ren-sheng-ruo-zhi-ru-chu-jian-an-yi-ru-du-shu-bi-ji/"/>
-    <updated>2014-03-23T11:54:52+08:00</updated>
+    <updated>2014-03-23T04:54:52+01:00</updated>
     <id>http://www.UnkelTao.com/blog/2014/03/23/ren-sheng-ruo-zhi-ru-chu-jian-an-yi-ru-du-shu-bi-ji</id>
     <content type="html"><![CDATA[<p>这样的书略微不太适合我读的样子，不过里面倒是好多不错的诗。</p>
 
@@ -895,7 +895,7 @@ bind C-a send-prefix</p></blockquote>
   <entry>
     <title type="html"><![CDATA[Codeforces Round #237 (Div. 2) ]]></title>
     <link href="http://www.UnkelTao.com/blog/2014/03/21/codeforces-round-number-237-div-2/"/>
-    <updated>2014-03-21T11:03:13+08:00</updated>
+    <updated>2014-03-21T04:03:13+01:00</updated>
     <id>http://www.UnkelTao.com/blog/2014/03/21/codeforces-round-number-237-div-2</id>
     <content type="html"><![CDATA[<p>群中看到学第们发的比赛链接，于是又做了一场，结果悲惨。再也不在windows下做比赛了，电脑现在不知道出了啥问题，每次00：16都要自动关机。结果敲完的题没保存，又得重新敲一遍。</p>
 
@@ -1558,7 +1558,7 @@ bind C-a send-prefix</p></blockquote>
   <entry>
     <title type="html"><![CDATA[2048 改版游戏]]></title>
     <link href="http://www.UnkelTao.com/blog/2014/03/16/2048-gai-ban-you-xi/"/>
-    <updated>2014-03-16T13:10:16+08:00</updated>
+    <updated>2014-03-16T06:10:16+01:00</updated>
     <id>http://www.UnkelTao.com/blog/2014/03/16/2048-gai-ban-you-xi</id>
     <content type="html"><![CDATA[<p>2048这个游戏简直停不下来，已经玩了各种各样的版本了，群里7K+ 大神说可以做这么一个版本，想了想反正也闲着，就Fork了源代码出来改了这样一个版本。</p>
 
@@ -1592,7 +1592,7 @@ bind C-a send-prefix</p></blockquote>
   <entry>
     <title type="html"><![CDATA[kindle笔记转换]]></title>
     <link href="http://www.UnkelTao.com/blog/2014/03/14/kindlebi-ji-zhuan-huan/"/>
-    <updated>2014-03-14T22:59:13+08:00</updated>
+    <updated>2014-03-14T15:59:13+01:00</updated>
     <id>http://www.UnkelTao.com/blog/2014/03/14/kindlebi-ji-zhuan-huan</id>
     <content type="html"><![CDATA[<p>使用kindle-format导出笔记，标注和剪贴文章。</p>
 
@@ -1701,7 +1701,7 @@ Book Title\r\n
   <entry>
     <title type="html"><![CDATA[北岛.失败之书 读书笔记]]></title>
     <link href="http://www.UnkelTao.com/blog/2014/03/14/bei-dao-shi-bai-zhi-shu-du-shu-bi-ji/"/>
-    <updated>2014-03-14T22:03:25+08:00</updated>
+    <updated>2014-03-14T15:03:25+01:00</updated>
     <id>http://www.UnkelTao.com/blog/2014/03/14/bei-dao-shi-bai-zhi-shu-du-shu-bi-ji</id>
     <content type="html"><![CDATA[<blockquote><p>话说回来了，那时我们有梦，关于文学，关于爱情，关于穿越世界的旅行。如今我们深夜饮酒，杯子碰到一起，都是梦破碎的声音。</p></blockquote>
 
@@ -1769,7 +1769,7 @@ Book Title\r\n
   <entry>
     <title type="html"><![CDATA[Codeforces Round #235 (Div. 2) ]]></title>
     <link href="http://www.UnkelTao.com/blog/2014/03/11/codeforce-235/"/>
-    <updated>2014-03-11T14:02:19+08:00</updated>
+    <updated>2014-03-11T07:02:19+01:00</updated>
     <id>http://www.UnkelTao.com/blog/2014/03/11/codeforce-235</id>
     <content type="html"><![CDATA[<p>好久没做CF了，觉得再不做估计以后笔试都过不鸟，于是还得经常做一做。</p>
 
@@ -1973,7 +1973,7 @@ ruby似乎跑的很慢，不幸TLE的，C++可以过</p>
   <entry>
     <title type="html"><![CDATA[为Hustoj添加ruby支持]]></title>
     <link href="http://www.UnkelTao.com/blog/2014/03/02/ruby-for-hustoj/"/>
-    <updated>2014-03-02T22:33:16+08:00</updated>
+    <updated>2014-03-02T14:33:16+00:00</updated>
     <id>http://www.UnkelTao.com/blog/2014/03/02/ruby-for-hustoj</id>
     <content type="html"><![CDATA[<p>虽然已经不是再搞ACM了，但是算法偶尔还是要练习一下写代码，然后最近学习ruby中，打算用ruby来写写ACM题目也算熟悉ruby，免得不用就忘记了，记得Hustoj是可以支持Ruby的，于是就在我们学校的训练Oj上提交了A+B的Ruby代码：</p>
 
@@ -2067,7 +2067,7 @@ ruby似乎跑的很慢，不幸TLE的，C++可以过</p>
   <entry>
     <title type="html"><![CDATA[Latex 绘制跨页表格]]></title>
     <link href="http://www.UnkelTao.com/blog/2014/02/24/latex-table/"/>
-    <updated>2014-02-24T19:16:26+08:00</updated>
+    <updated>2014-02-24T11:16:26+00:00</updated>
     <id>http://www.UnkelTao.com/blog/2014/02/24/latex-table</id>
     <content type="html"><![CDATA[<p>使用latex绘制表格或多或少都会遇到这样的问题，一个表格过长超过一页应该如何处理，latex提供了一些宏包，如longtable和supertabular;这里介绍如何用supertabular绘制跨页表格。</p>
 
@@ -2198,7 +2198,7 @@ ruby似乎跑的很慢，不幸TLE的，C++可以过</p>
   <entry>
     <title type="html"><![CDATA[利用Sublime text 编写 Ctex]]></title>
     <link href="http://www.UnkelTao.com/blog/2014/02/20/sublime-text-for-ctex/"/>
-    <updated>2014-02-20T16:29:21+08:00</updated>
+    <updated>2014-02-20T08:29:21+00:00</updated>
     <id>http://www.UnkelTao.com/blog/2014/02/20/sublime-text-for-ctex</id>
     <content type="html"><![CDATA[<p>写论文必不可少的工具当然是 Latex，但是WinEdt的界面实在是不喜欢，钟爱Sublime的当然想在Sublime上进行Latex的书写，一找，还真找到插件了<strong><a href="https://github.com/SublimeText/LaTeXTools/blob/master/README.markdown">LatexTools</a></strong>。</p>
 
@@ -2223,7 +2223,7 @@ ruby似乎跑的很慢，不幸TLE的，C++可以过</p>
   <entry>
     <title type="html"><![CDATA[从 Wordpress 搬迁到 Octopress]]></title>
     <link href="http://www.UnkelTao.com/blog/2014/02/18/wordpress-to-octopress/"/>
-    <updated>2014-02-18T21:48:51+08:00</updated>
+    <updated>2014-02-18T13:48:51+00:00</updated>
     <id>http://www.UnkelTao.com/blog/2014/02/18/wordpress-to-octopress</id>
     <content type="html"><![CDATA[<p>终于还是从 Wordpress 搬迁到 Octopress 上来了，搬迁相对还是挺容易了，毕竟以前还是接触过一些ruby，加上<a href="http://octopress.org/docs/setup/" title="官方文档">官方文档</a> ，所以环境什么的搭建的比较顺利。</p>
 
@@ -2253,7 +2253,7 @@ ruby似乎跑的很慢，不幸TLE的，C++可以过</p>
   <entry>
     <title type="html"><![CDATA[MemSQL start]]></title>
     <link href="http://www.UnkelTao.com/blog/2013/08/04/memsql-start/"/>
-    <updated>2013-08-04T20:13:34+08:00</updated>
+    <updated>2013-08-04T13:13:34+01:00</updated>
     <id>http://www.UnkelTao.com/blog/2013/08/04/memsql-start</id>
     <content type="html"><![CDATA[<p>【测试代码】</p>
 
@@ -2652,9 +2652,9 @@ ruby似乎跑的很慢，不幸TLE的，C++可以过</p>
   
   <entry>
     <title type="html"><![CDATA[The 9th SWJTU Collegiate Programming Contest Qualification Round]]></title>
-    <link href="http://www.UnkelTao.com/blog/2013/04/14/the-9th-swjtu-collegiate-programming-contest-qualification-round/"/>
-    <updated>2013-04-14T06:16:28+08:00</updated>
-    <id>http://www.UnkelTao.com/blog/2013/04/14/the-9th-swjtu-collegiate-programming-contest-qualification-round</id>
+    <link href="http://www.UnkelTao.com/blog/2013/04/13/the-9th-swjtu-collegiate-programming-contest-qualification-round/"/>
+    <updated>2013-04-13T23:16:28+01:00</updated>
+    <id>http://www.UnkelTao.com/blog/2013/04/13/the-9th-swjtu-collegiate-programming-contest-qualification-round</id>
     <content type="html"><![CDATA[<p><strong>比赛链接：</strong>  <a href="http://acm.swjtu.edu.cn/JudgeOnline/showcontest?contest_id=1135" title="第九届ACM校赛资格赛">第九届ACM校赛资格赛</a></p>
 
 <p>资格赛嘛，本着大家熟悉环境增强自信心的原则~10道题没有太难的题目~适合新手练习.本次比赛D、E、F是我出的，本着简单的想法却没想到坑了一部分人，其中E题的数据再随机的时候超出了题目描述的范围造成一些人AC的程序WA了，在此表示抱歉,致以诚挚的歉意。下面给出我对着10道题的解法，可能我的解法并不是完全正确恰好过了数据而已，欢迎大家指正。</p>
@@ -3166,14 +3166,14 @@ ruby似乎跑的很慢，不幸TLE的，C++可以过</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>以上题目均为过测试数据的程序，不保证程序完全正确无误，欢迎指正,预赛题目难度很明显会增大很多，大家加油。 3Q<p class='post-footer'>原文地址:&nbsp;<a href='http://www.UnkelTao.com/blog/2013/04/14/the-9th-swjtu-collegiate-programming-contest-qualification-round/'><a href="http://www.UnkelTao.com/blog/2013/04/14/the-9th-swjtu-collegiate-programming-contest-qualification-round/">http://www.UnkelTao.com/blog/2013/04/14/the-9th-swjtu-collegiate-programming-contest-qualification-round/</a></a><br/><br/>&nbsp;由 <a href='http://www.UnkelTao.com'>UnkelTao</a>&nbsp;撰写并发表于 <a href='http://www.UnkelTao.com'><a href="http://www.UnkelTao.com">http://www.UnkelTao.com</a></a></p></p>
+<p>以上题目均为过测试数据的程序，不保证程序完全正确无误，欢迎指正,预赛题目难度很明显会增大很多，大家加油。 3Q<p class='post-footer'>原文地址:&nbsp;<a href='http://www.UnkelTao.com/blog/2013/04/13/the-9th-swjtu-collegiate-programming-contest-qualification-round/'><a href="http://www.UnkelTao.com/blog/2013/04/13/the-9th-swjtu-collegiate-programming-contest-qualification-round/">http://www.UnkelTao.com/blog/2013/04/13/the-9th-swjtu-collegiate-programming-contest-qualification-round/</a></a><br/><br/>&nbsp;由 <a href='http://www.UnkelTao.com'>UnkelTao</a>&nbsp;撰写并发表于 <a href='http://www.UnkelTao.com'><a href="http://www.UnkelTao.com">http://www.UnkelTao.com</a></a></p></p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[回文判断 Hash+线段树]]></title>
     <link href="http://www.UnkelTao.com/blog/2012/12/18/huiwen-hash/"/>
-    <updated>2012-12-18T17:14:12+08:00</updated>
+    <updated>2012-12-18T09:14:12+00:00</updated>
     <id>http://www.UnkelTao.com/blog/2012/12/18/huiwen-hash</id>
     <content type="html"><![CDATA[<p>比赛的一道题,一直没时间写.最近空了，继续写写水题。</p>
 
@@ -3410,9 +3410,9 @@ yes</p>
   
   <entry>
     <title type="html"><![CDATA[Ubuntu problem]]></title>
-    <link href="http://www.UnkelTao.com/blog/2011/02/19/ubuntu-problem/"/>
-    <updated>2011-02-19T00:00:07+08:00</updated>
-    <id>http://www.UnkelTao.com/blog/2011/02/19/ubuntu-problem</id>
+    <link href="http://www.UnkelTao.com/blog/2011/02/18/ubuntu-problem/"/>
+    <updated>2011-02-18T16:00:07+00:00</updated>
+    <id>http://www.UnkelTao.com/blog/2011/02/18/ubuntu-problem</id>
     <content type="html"><![CDATA[<p>问题：</p>
 
 <p><img src="http://unkeltao.qiniudn.com/IMG_002.jpg" alt="" />
@@ -3439,7 +3439,7 @@ yes</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p class='post-footer'>原文地址:&nbsp;<a href='http://www.UnkelTao.com/blog/2011/02/19/ubuntu-problem/'>http://www.UnkelTao.com/blog/2011/02/19/ubuntu-problem/</a><br/><br/>&nbsp;由 <a href='http://www.UnkelTao.com'>UnkelTao</a>&nbsp;撰写并发表于 <a href='http://www.UnkelTao.com'>http://www.UnkelTao.com</a></p>
+<p class='post-footer'>原文地址:&nbsp;<a href='http://www.UnkelTao.com/blog/2011/02/18/ubuntu-problem/'>http://www.UnkelTao.com/blog/2011/02/18/ubuntu-problem/</a><br/><br/>&nbsp;由 <a href='http://www.UnkelTao.com'>UnkelTao</a>&nbsp;撰写并发表于 <a href='http://www.UnkelTao.com'>http://www.UnkelTao.com</a></p>
 
 ]]></content>
   </entry>
@@ -3447,7 +3447,7 @@ yes</p>
   <entry>
     <title type="html"><![CDATA[雨季不再来]]></title>
     <link href="http://www.UnkelTao.com/blog/2010/03/05/my-first-post/"/>
-    <updated>2010-03-05T20:10:42+08:00</updated>
+    <updated>2010-03-05T12:10:42+00:00</updated>
     <id>http://www.UnkelTao.com/blog/2010/03/05/my-first-post</id>
     <content type="html"><![CDATA[<p><img src="http://unkeltao.qiniudn.com/IMG_001.jpg" alt="" />
 人之所以悲哀，是因为我们留不住岁月，更无法不承认，青春，有一日是要这么自然地消失过去。</p>

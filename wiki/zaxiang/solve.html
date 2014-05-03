@@ -29,12 +29,16 @@
 <li><a href="#toc_1.1.2">1.2. 递归删除目录下的exe</a></li>
 </ul>
 </li>
+<li><a href="#toc_1.2">2. cygwin</a>
+
+<ul>
+<li><a href="#toc_1.2.1">2.1. rake等命令无法执行</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 
-
-<hr />
 
 <p></div></p>
 
@@ -73,6 +77,32 @@
 <li>sh
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>ls | xargs -i% find %  -name &lsquo;*.exe&rsquo; -type f -print0 | xargs -0 rm -rf</span></code></pre></td></tr></table></div></figure></li>
+</ul>
+
+
+<p><h2 id="toc_1.2">2. cygwin</h2>
+<h3 id="toc_1.2.1">2.1. rake等命令无法执行</h3></p>
+
+<ul>
+<li>问题描述
+
+<blockquote><p>  rake generate
+C:\Myprogram\huanjing\ruby\Ruby200-x64\bin\ruby.exe: No such file or directory &mdash; /cygdrive/c/Myprogram/huanjing/ruby/Ruby200-x64/bin/rake (LoadError)</p></blockquote></li>
+<li>原因
+
+<blockquote><p>  环境变量下面含有Linux下的程序，Cygwin优先执行该程序，所以没法运行。</p></blockquote></li>
+<li>姐姐方案
+
+<blockquote><p>  配置环境变量，将相关的命令别名成.bat
+alias gem=&lsquo;gem.bat&rsquo;
+alias rake=&lsquo;rake.bat&rsquo;
+alias erb=&lsquo;erb.bat&rsquo;
+alias irb=&lsquo;irb.bat&rsquo;
+alias rdoc=&lsquo;rdoc.bat&rsquo;
+alias ri=&lsquo;ri.bat&rsquo;
+alias rspec=&lsquo;rspec.bat&rsquo;
+alias cucumber=&lsquo;cucumber.bat&rsquo;
+alias bundle=&lsquo;bundle.bat&rsquo;</p></blockquote></li>
 </ul>
 
 

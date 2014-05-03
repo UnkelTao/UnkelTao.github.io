@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 随笔 | /UnkelTao]]></title>
   <link href="http://www.UnkelTao.com/blog/categories/sui-bi/atom.xml" rel="self"/>
   <link href="http://www.UnkelTao.com/"/>
-  <updated>2014-05-03T23:59:37+08:00</updated>
+  <updated>2014-05-03T17:30:28+01:00</updated>
   <id>http://www.UnkelTao.com/</id>
   <author>
     <name><![CDATA[UnkelTao]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[从 Wordpress 搬迁到 Octopress]]></title>
     <link href="http://www.UnkelTao.com/blog/2014/02/18/wordpress-to-octopress/"/>
-    <updated>2014-02-18T21:48:51+08:00</updated>
+    <updated>2014-02-18T13:48:51+00:00</updated>
     <id>http://www.UnkelTao.com/blog/2014/02/18/wordpress-to-octopress</id>
     <content type="html"><![CDATA[<p>终于还是从 Wordpress 搬迁到 Octopress 上来了，搬迁相对还是挺容易了，毕竟以前还是接触过一些ruby，加上<a href="http://octopress.org/docs/setup/" title="官方文档">官方文档</a> ，所以环境什么的搭建的比较顺利。</p>
 

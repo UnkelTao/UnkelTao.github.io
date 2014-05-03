@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ACM | /UnkelTao]]></title>
   <link href="http://www.UnkelTao.com/blog/categories/acm/atom.xml" rel="self"/>
   <link href="http://www.UnkelTao.com/"/>
-  <updated>2014-05-03T23:59:37+08:00</updated>
+  <updated>2014-05-03T17:30:28+01:00</updated>
   <id>http://www.UnkelTao.com/</id>
   <author>
     <name><![CDATA[UnkelTao]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Codeforces Round #237 (Div. 2) ]]></title>
     <link href="http://www.UnkelTao.com/blog/2014/03/21/codeforces-round-number-237-div-2/"/>
-    <updated>2014-03-21T11:03:13+08:00</updated>
+    <updated>2014-03-21T04:03:13+01:00</updated>
     <id>http://www.UnkelTao.com/blog/2014/03/21/codeforces-round-number-237-div-2</id>
     <content type="html"><![CDATA[<p>群中看到学第们发的比赛链接，于是又做了一场，结果悲惨。再也不在windows下做比赛了，电脑现在不知道出了啥问题，每次00：16都要自动关机。结果敲完的题没保存，又得重新敲一遍。</p>
 
@@ -428,7 +428,7 @@ return 0;
   <entry>
     <title type="html"><![CDATA[Codeforces Round #235 (Div. 2) ]]></title>
     <link href="http://www.UnkelTao.com/blog/2014/03/11/codeforce-235/"/>
-    <updated>2014-03-11T14:02:19+08:00</updated>
+    <updated>2014-03-11T07:02:19+01:00</updated>
     <id>http://www.UnkelTao.com/blog/2014/03/11/codeforce-235</id>
     <content type="html"><![CDATA[<p>好久没做CF了，觉得再不做估计以后笔试都过不鸟，于是还得经常做一做。</p>
 
@@ -585,7 +585,7 @@ p dp[(1&lt;&lt;len)-1][0]
   <entry>
     <title type="html"><![CDATA[为Hustoj添加ruby支持]]></title>
     <link href="http://www.UnkelTao.com/blog/2014/03/02/ruby-for-hustoj/"/>
-    <updated>2014-03-02T22:33:16+08:00</updated>
+    <updated>2014-03-02T14:33:16+00:00</updated>
     <id>http://www.UnkelTao.com/blog/2014/03/02/ruby-for-hustoj</id>
     <content type="html"><![CDATA[<p>虽然已经不是再搞ACM了，但是算法偶尔还是要练习一下写代码，然后最近学习ruby中，打算用ruby来写写ACM题目也算熟悉ruby，免得不用就忘记了，记得Hustoj是可以支持Ruby的，于是就在我们学校的训练Oj上提交了A+B的Ruby代码：
 ```ruby
@@ -665,7 +665,7 @@ sudo judge_client 2028 0 /home/judge/ debug Y
   <entry>
     <title type="html"><![CDATA[MemSQL start]]></title>
     <link href="http://www.UnkelTao.com/blog/2013/08/04/memsql-start/"/>
-    <updated>2013-08-04T20:13:34+08:00</updated>
+    <updated>2013-08-04T13:13:34+01:00</updated>
     <id>http://www.UnkelTao.com/blog/2013/08/04/memsql-start</id>
     <content type="html"><![CDATA[<p>【测试代码】</p>
 
@@ -944,9 +944,9 @@ int main(){
   
   <entry>
     <title type="html"><![CDATA[The 9th SWJTU Collegiate Programming Contest Qualification Round]]></title>
-    <link href="http://www.UnkelTao.com/blog/2013/04/14/the-9th-swjtu-collegiate-programming-contest-qualification-round/"/>
-    <updated>2013-04-14T06:16:28+08:00</updated>
-    <id>http://www.UnkelTao.com/blog/2013/04/14/the-9th-swjtu-collegiate-programming-contest-qualification-round</id>
+    <link href="http://www.UnkelTao.com/blog/2013/04/13/the-9th-swjtu-collegiate-programming-contest-qualification-round/"/>
+    <updated>2013-04-13T23:16:28+01:00</updated>
+    <id>http://www.UnkelTao.com/blog/2013/04/13/the-9th-swjtu-collegiate-programming-contest-qualification-round</id>
     <content type="html"><![CDATA[<p><strong>比赛链接：</strong>  <a href="http://acm.swjtu.edu.cn/JudgeOnline/showcontest?contest_id=1135" title="第九届ACM校赛资格赛">第九届ACM校赛资格赛</a></p>
 
 <p>资格赛嘛，本着大家熟悉环境增强自信心的原则~10道题没有太难的题目~适合新手练习.本次比赛D、E、F是我出的，本着简单的想法却没想到坑了一部分人，其中E题的数据再随机的时候超出了题目描述的范围造成一些人AC的程序WA了，在此表示抱歉,致以诚挚的歉意。下面给出我对着10道题的解法，可能我的解法并不是完全正确恰好过了数据而已，欢迎大家指正。</p>

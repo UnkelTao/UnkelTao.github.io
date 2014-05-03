@@ -91,7 +91,7 @@ C:\Myprogram\huanjing\ruby\Ruby200-x64\bin\ruby.exe: No such file or directory &
 <li>原因
 
 <blockquote><p>  环境变量下面含有Linux下的程序，Cygwin优先执行该程序，所以没法运行。</p></blockquote></li>
-<li>姐姐方案
+<li>解决方案
 
 <blockquote><p>  配置环境变量，将相关的命令别名成.bat<br/>
 alias gem=&lsquo;gem.bat&#8217;<br/>
@@ -111,12 +111,9 @@ alias bundle=&#8217;bundle.bat&rsquo;</p></blockquote></li>
 <ul>
 <li>解决方案
 
-<blockquote><ol>
-<li> ctrl + l<br/>
-\2. 如上面方法，修改.bashrc 添加 alias cls=&lsquo;echo -e &ldquo;\E[2J&rdquo;&#8217;<br/>
-\3. 在cygwind中install ncurses (in Utils) (PS: 未测试,Ctrl+L比较好使)</li>
-</ol>
-</blockquote></li>
+<blockquote><p>  1) ctrl + l<br/>
+2) 如上面方法，修改.bashrc 添加 alias cls=&lsquo;echo -e &ldquo;\E[2J&rdquo;&#8217;<br/>
+3) 在cygwind中install ncurses (in Utils) (PS: 未测试,Ctrl+L比较好使)</p></blockquote></li>
 </ul>
 
 

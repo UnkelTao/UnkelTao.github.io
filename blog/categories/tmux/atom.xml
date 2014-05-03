@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: tmux | /UnkelTao]]></title>
+  <link href="http://www.UnkelTao.com/blog/categories/tmux/atom.xml" rel="self"/>
+  <link href="http://www.UnkelTao.com/"/>
+  <updated>2014-05-03T23:49:26+08:00</updated>
+  <id>http://www.UnkelTao.com/</id>
+  <author>
+    <name><![CDATA[UnkelTao]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Linux 下安装 Tmux]]></title>
+    <link href="http://www.UnkelTao.com/blog/2014/04/29/intsall-tmux/"/>
+    <updated>2014-04-29T23:29:54+08:00</updated>
+    <id>http://www.UnkelTao.com/blog/2014/04/29/intsall-tmux</id>
+    <content type="html"><![CDATA[<p>Tmux(terminal multiplexer), 远程必备的终端复用软件。</p>
+
+<h2>安装</h2>
+
+<h3>ubuntu</h3>
+
+<p>用了很长一段时间的Ubuntu,绝大部分原因是其强大的软件源。</p>
+
+<blockquote><p>  #安装命令<br/>
+sudo apt-get install tmux</p></blockquote>
+
+<h3>Archlinux</h3>
+
+<p>前一段时间切换到了archlinux下面。 arch里面也有类似于apt-get的。它就是pacman,所以安装仍然很简单。</p>
+
+<blockquote><p>  #安装命令  <br/>
+pacman -S tmux</p></blockquote>
+
+<h3>RedHat</h3>
+
+<p>实验室服务器使用的是Redhat,最近需要在服务器做实验，而服务器上是没有图形界面的，为了保护我的终端现场，这就更得使用Tmux了。 服务器没有外网(似乎有(O.O))。所以采用源码安装的形式。</p>
+
+<!-- more -->
+
+
+<ul>
+<li>首先从<strong><a href="http://tmux.sourceforge.net/">官网</a></strong>上下载tmux和libevent(因为tmux源码安装依赖于libevent,不安装make会报错)</li>
+<li><p>安装libevent.  <br/>
+<code>
+tar zxvf libevent-2.0.21-stable.tar.gz  #解压  
+cd libevent-2.0.21-stable  
+./configure --prefix=你的安装目录  #如 /etc/pro/libevent2  
+make  
+make install
+</code></p></li>
+<li><p>安装tmux.</p></li>
+</ul>
+
+
+<p>```
+tar zxvf tmux-1.9a.tar.gz
+cd tmux-1.9a.tar.gz
+CFLAGS=&ldquo;-I libevent安装目录/include&rdquo; LDFLAGS=&ldquo;-L/usr/local/libevent安装目录/lib&rdquo; ./configure &mdash;prefix=tmux安装目录</p>
+
+<h1>eg:  CFLAGS=&ldquo;-I/usr/pro/libevent2/include&rdquo; LDFLAGS=&ldquo;-L/usr/pro/libevent2/lib&rdquo; ./configure &mdash;prefix=/usr/pro/tmux</h1>
+
+<p>make
+make install
+```</p>
+
+<ul>
+<li>链接.so<br/>
+```
+
+<h1>32位</h1>
+
+sudo cp /usr/pro/libevent2/lib/libevent-2.0.so.5 /usr/lib
+
+<h1>64位</h1>
+
+<p>sudo cp /usr/pro/libevent2/lib/libevent-2.0.so.5 /usr/lib64
+```</p></li>
+<li>将tmux安装目录加入到环境变量PATH中<br/>
+<code>
+vim /etc/profile
+</code></li>
+</ul>
+
+
+<blockquote><p>  export TMUX_HOME=/usr/pro/tmux<br/>
+export PATH=$TMUX_HOME/bin:$PATH<br/>
+<code>
+source /etc/profile
+</code></p></blockquote>
+
+<p>这样便可以使用了。</p>
+
+<h2>简单配置</h2>
+
+<p>配置文件在 ~/.tmux.conf 下，没有可以新建一个。<br/>
+因为tmux的prefix键默认为"Ctrl+b",但是他们隔得有点远，所以修改为"Ctrl+a"。</p>
+
+<blockquote><p>  # remap prefix to Control + a <br/>
+set -g prefix C-a<br/>
+unbind C-b<br/>
+bind C-a send-prefix</p></blockquote>
+
+<h2>使用</h2>
+
+<p><a href="https://wiki.freebsdchina.org/software/t/tmux">使用tmux——freebsdchina</a></p>
+]]></content>
+  </entry>
+  
+</feed>

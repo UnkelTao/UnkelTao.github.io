@@ -32,7 +32,7 @@ keywords: wiki,markown
     *   得会一门的脚步语言[ruby](./ruby/)
     *   微信平台用到的[php](./php/)
 *   操作系统[linux](./linux/)
-*   云计算平台hadoop
+*   云计算平台[hadoop](./hadoop/)
 *   文档工具Latex
 *   版本管理工具
     *   Git

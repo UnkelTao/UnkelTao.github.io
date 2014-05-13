@@ -1,6 +1,6 @@
 ---
 layout: wiki
-title: "Hadoop"
+title: "无法启动datanode"
 date: 2014-05-13 17:16:26 +0800
 keywords: wiki,markow,datanode
 description: 'datanode, 无法启动datanode'
@@ -19,6 +19,7 @@ description: 'datanode, 无法启动datanode'
 *	可能原因:   
 配置文件中配置了禁止该节点。   
 *	解决方案:   
+
 >	找到excludes文件(根据自己配置)，删除对应的节点。  
 >	在主节点中刷新节点信息:  hadoop dfsadmin -refreshNodes   
 >	在datanode节点执行如下命令: hadoop-daemon.sh start datanode

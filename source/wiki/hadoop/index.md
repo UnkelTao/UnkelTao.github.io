@@ -1,6 +1,6 @@
 ---
 layout: wiki
-title: "无法启动datanode"
+title: "Hadoop"
 date: 2014-05-13 17:16:26 +0800
 keywords: wiki,markown
 

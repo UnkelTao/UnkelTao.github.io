@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+<title>Hadoop - /UnkelTao</title>
+<link href="/stylesheets/mywiki.css" media="screen, projection" rel="stylesheet" type="text/css">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+</head> 
+<body style="background-image: url(http://unkeltao.qiniudn.com/bg/haoluo_bg3.jpg);">
+	<div id="navbar">
+    	<ul>
+    		<li> <a class="activated" href="/wiki/"> 首页 </a></li>
+    		<li> <a href="/">博客</a> </li>
+    		<li> <a href="#">TODO</a> </li>
+    		<li> <a href="">GITHUB</a> </li>
+		</ul>
+    </div>
+    <div id="content">
+    <h1 id="toc1" class="justcenter">Hadoop </h1>
+    <div class="toc">
+    	<ul>
+<li><a href="#toc1">datanode</a>
+
+<ul>
+<li><a href="#toc_1.1">1. 无法启动datanode</a></li>
+</ul>
+</li>
+</ul>
+
+
+<p></div></p>
+
+<p><div class="neirong"></p>
+
+<p><h2 id="toc_1.1">1. 无法启动datanode</h2></p>
+
+<blockquote><p>  ERROR org.apache.hadoop.hdfs.server.datanode.DataNode: org.apache.hadoop.ipc.RemoteException: java.io.IOException: verifyNodeRegistration: unknown datanode sist01:50010</p></blockquote>
+
+<ul>
+<li>可能原因: <br/>
+配置文件中配置了禁止该节点。</li>
+<li>解决方案:
+
+<blockquote><p>  找到excludes文件(根据自己配置)，删除对应的节点。<br/>
+  在主节点中刷新节点信息:  hadoop dfsadmin -refreshNodes <br/>
+  在datanode节点执行如下命令: hadoop-daemon.sh start datanode
+  或者重启集群 ： stop-all.sh  start-all.sh  #代价比较大</p></blockquote></li>
+</ul>
+
+
+    </div>
+</body>
+</html>

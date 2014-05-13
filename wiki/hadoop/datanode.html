@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head> 
-<title>Hadoop - /UnkelTao</title>
+<title>无法启动datanode - /UnkelTao</title>
 <link href="/stylesheets/mywiki.css" media="screen, projection" rel="stylesheet" type="text/css">
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
@@ -16,7 +16,7 @@
 		</ul>
     </div>
     <div id="content">
-    <h1 id="toc1" class="justcenter">Hadoop </h1>
+    <h1 id="toc1" class="justcenter">无法启动datanode </h1>
     <div class="toc">
     	<ul>
 <li><a href="#toc1">datanode</a>
@@ -39,14 +39,14 @@
 <ul>
 <li>可能原因: <br/>
 配置文件中配置了禁止该节点。</li>
-<li>解决方案:
+<li>解决方案:</li>
+</ul>
+
 
 <blockquote><p>  找到excludes文件(根据自己配置)，删除对应的节点。<br/>
   在主节点中刷新节点信息:  hadoop dfsadmin -refreshNodes <br/>
   在datanode节点执行如下命令: hadoop-daemon.sh start datanode
-  或者重启集群 ： stop-all.sh  start-all.sh  #代价比较大</p></blockquote></li>
-</ul>
-
+  或者重启集群 ： stop-all.sh  start-all.sh  #代价比较大</p></blockquote>
 
     </div>
 </body>

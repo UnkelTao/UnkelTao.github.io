@@ -57,6 +57,8 @@
    html{background: url("http://unkeltao.qiniudn.com/bg/IMG_background.png") no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;
    }
   </style>
+
+  
 </head>
 
 <body   >
@@ -118,18 +120,15 @@
 
 <div class="entry-content"><p>使用kindle-format导出笔记，标注和剪贴文章。</p>
 
-<h2><a href="https://github.com/UnkelTao/kindle-note-format">脚本地址</a></h2>
+<h2 id="httpsgithubcomunkeltaokindle-note-format"><a href="https://github.com/UnkelTao/kindle-note-format">脚本地址</a></h2>
 
-<h2>源文件</h2>
+<h2 id="section">源文件</h2>
+<p>源文件是在使用kindle阅读书籍的时候产生的一个记录用户的标注，笔记，剪贴和标签信息的文档，但是源文件在共享的时候格式往往需要修改，于是提供一个脚本，将其格式化。 
+脚本参考于<a href="http://minejo.github.io/blog/2014/02/18/shi-yong-kindlebi-ji-lai-zuo-fortuneming-yan/">李超同学</a>的python脚本（没有学过python -_-），重构了ruby脚本，也算是我的的第一个脚本.<br />
+源文件共有四种格式:
+<!-- more --></p>
 
-<p>源文件是在使用kindle阅读书籍的时候产生的一个记录用户的标注，笔记，剪贴和标签信息的文档，但是源文件在共享的时候格式往往需要修改，于是提供一个脚本，将其格式化。
-脚本参考于<a href="http://minejo.github.io/blog/2014/02/18/shi-yong-kindlebi-ji-lai-zuo-fortuneming-yan/">李超同学</a>的python脚本（没有学过python &ndash;_-），重构了ruby脚本，也算是我的的第一个脚本.<br/>
-源文件共有四种格式:</p>
-
-<!-- more -->
-
-
-<h3>书签</h3>
+<h3 id="section-1">书签</h3>
 
 <p>格式为：</p>
 
@@ -139,8 +138,7 @@
 \r\n
 </code></pre>
 
-<h3>标注</h3>
-
+<h3 id="section-2">标注</h3>
 <p>格式为：</p>
 
 <pre><code>Book Title\r\n
@@ -149,8 +147,7 @@
 标注内容\r\n
 </code></pre>
 
-<h3>笔记</h3>
-
+<h3 id="section-3">笔记</h3>
 <p>笔记比较特殊，笔记是与标注连在一起的。表示该笔记是在该标注上完成的。</p>
 
 <pre><code>Book Title\r\n
@@ -164,7 +161,7 @@ Book Title\r\n
 标注内容\r\n
 </code></pre>
 
-<h3>剪贴文章</h3>
+<h3 id="section-4">剪贴文章</h3>
 
 <pre><code>Book Title\r\n
 - 剪贴文章 位置N | 已添加至 sometime\r\n
@@ -174,49 +171,44 @@ Book Title\r\n
 
 <p>每一个摘录都用<code>==========\r\n</code>分割开。</p>
 
-<h2>脚本使用</h2>
+<h2 id="section-5">脚本使用</h2>
 
-<h3>环境</h3>
-
+<h3 id="section-6">环境</h3>
 <p>安装ruby</p>
 
-<h3>运行</h3>
+<h3 id="section-7">运行</h3>
+<blockquote>
+  <p>ruby kindle-format [-param] [path-to-sourcefile]</p>
+</blockquote>
 
-<blockquote><p>ruby kindle-format [-param] [path-to-sourcefile]</p></blockquote>
-
-<p>其中</p>
-
-<ul>
-<li>-param 有 “-h”,&ldquo;-m&rdquo; <br/>
--h 表示查看帮助 <br/>
--m 表示输出为markdown格式<br/>
--mo 表示输出支持Octopress的markdown格式</li>
-<li>path-to-sourcefile 为可选参数，默认为当前路径下的My Clippings.txt</li>
-</ul>
-
-
-<h3>输出</h3>
-
-<p>-m 会在当前目录下生成“kindle-markdown”目录，并在该目录下创建一个以运行时间为标题的markdown文件.</p>
-
-<h2>待完成</h2>
-
-<h3>支持Octopress的文档(已完成)</h3>
-
-<h3>支持其他格式的文档</h3>
-
-<h3>windows与linux下的编码的Bug</h3>
-
-<h2>参考</h2>
+<p>其中 </p>
 
 <ul>
-<li><a href="https://github.com/minejo/kindle-clips">kindle-clips</a></li>
-<li><a href="https://github.com/lxyu/kindle-clippings">lxyu-Kindle Clippings</a></li>
+  <li>-param 有 “-h”,”-m” <br />
+-h 表示查看帮助 <br />
+-m 表示输出为markdown格式<br />
+-mo 表示输出支持Octopress的markdown格式 </li>
+  <li>path-to-sourcefile 为可选参数，默认为当前路径下的My Clippings.txt   </li>
 </ul>
 
+<h3 id="section-8">输出</h3>
+<p>-m 会在当前目录下生成“kindle-markdown”目录，并在该目录下创建一个以运行时间为标题的markdown文件. </p>
 
-<p class='post-footer'>原文地址:&nbsp;<a href='http://www.UnkelTao.com/blog/2014/03/14/kindlebi-ji-zhuan-huan/'>http://www.UnkelTao.com/blog/2014/03/14/kindlebi-ji-zhuan-huan/</a><br/><br/>&nbsp;由 <a href='http://www.UnkelTao.com'>UnkelTao</a>&nbsp;撰写并发表于 <a href='http://www.UnkelTao.com'>http://www.UnkelTao.com</a></p>
+<h2 id="section-9">待完成</h2>
 
+<h3 id="octopress">支持Octopress的文档(已完成)</h3>
+
+<h3 id="section-10">支持其他格式的文档</h3>
+
+<h3 id="windowslinuxbug">windows与linux下的编码的Bug</h3>
+
+<h2 id="section-11">参考</h2>
+<ul>
+  <li><a href="https://github.com/minejo/kindle-clips">kindle-clips</a>  </li>
+  <li><a href="https://github.com/lxyu/kindle-clippings">lxyu-Kindle Clippings</a></li>
+</ul>
+
+<p class="post-footer">原文地址:&nbsp;<a href="http://www.UnkelTao.com/blog/2014/03/14/kindlebi-ji-zhuan-huan/">http://www.UnkelTao.com/blog/2014/03/14/kindlebi-ji-zhuan-huan/</a><br /><br />&nbsp;由 <a href="http://www.UnkelTao.com">UnkelTao</a>&nbsp;撰写并发表于 <a href="http://www.UnkelTao.com">http://www.UnkelTao.com</a></p>
 </div>
 
 
@@ -354,6 +346,10 @@ var duoshuoQuery = {short_name:"unkeltao"};
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/05/28/latex-test/">latex test</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/04/29/intsall-tmux/">Linux 下安装 Tmux</a>
       </li>
     
@@ -367,10 +363,6 @@ var duoshuoQuery = {short_name:"unkeltao"};
     
       <li class="post">
         <a href="/blog/2014/03/23/ren-sheng-ruo-zhi-ru-chu-jian-an-yi-ru-du-shu-bi-ji/"><人生若只如初见 (安意如)>读书笔记</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/21/codeforces-round-number-237-div-2/">Codeforces Round #237 (Div. 2) </a>
       </li>
     
   </ul>

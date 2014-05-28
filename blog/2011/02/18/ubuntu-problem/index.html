@@ -57,6 +57,8 @@
    html{background: url("http://unkeltao.qiniudn.com/bg/IMG_background.png") no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;
    }
   </style>
+
+  
 </head>
 
 <body   >
@@ -124,26 +126,23 @@
 <p>解决代码：
 法1：</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>sudo apt-get install dkms build-essential linux-headers-<span class="k">$(</span>uname -r<span class="k">)</span>
-</span><span class='line'>sudo /etc/init.d/vboxdrv setup
-</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class="sh"><span class="line">sudo apt-get install dkms build-essential linux-headers-<span class="k">$(</span>uname -r<span class="k">)</span>
+</span><span class="line">sudo /etc/init.d/vboxdrv setup
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>法2：</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>sudo apt-get install module-assistant
-</span><span class='line'>sudo modprobe vboxnetflt
-</span><span class='line'>sudo modprobe vboxdrv
-</span></code></pre></td></tr></table></div></figure>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class="sh"><span class="line">sudo apt-get install module-assistant
+</span><span class="line">sudo modprobe vboxnetflt
+</span><span class="line">sudo modprobe vboxdrv
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-
-<p class='post-footer'>原文地址:&nbsp;<a href='http://www.UnkelTao.com/blog/2011/02/18/ubuntu-problem/'>http://www.UnkelTao.com/blog/2011/02/18/ubuntu-problem/</a><br/><br/>&nbsp;由 <a href='http://www.UnkelTao.com'>UnkelTao</a>&nbsp;撰写并发表于 <a href='http://www.UnkelTao.com'>http://www.UnkelTao.com</a></p>
-
+<p class="post-footer">原文地址:&nbsp;<a href="http://www.UnkelTao.com/blog/2011/02/18/ubuntu-problem/">http://www.UnkelTao.com/blog/2011/02/18/ubuntu-problem/</a><br /><br />&nbsp;由 <a href="http://www.UnkelTao.com">UnkelTao</a>&nbsp;撰写并发表于 <a href="http://www.UnkelTao.com">http://www.UnkelTao.com</a></p>
 </div>
 
 
@@ -281,6 +280,10 @@ var duoshuoQuery = {short_name:"unkeltao"};
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/05/28/latex-test/">latex test</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/04/29/intsall-tmux/">Linux 下安装 Tmux</a>
       </li>
     
@@ -294,10 +297,6 @@ var duoshuoQuery = {short_name:"unkeltao"};
     
       <li class="post">
         <a href="/blog/2014/03/23/ren-sheng-ruo-zhi-ru-chu-jian-an-yi-ru-du-shu-bi-ji/"><人生若只如初见 (安意如)>读书笔记</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/21/codeforces-round-number-237-div-2/">Codeforces Round #237 (Div. 2) </a>
       </li>
     
   </ul>

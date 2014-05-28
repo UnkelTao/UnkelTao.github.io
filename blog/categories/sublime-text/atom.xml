@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Sublime Text | /UnkelTao]]></title>
   <link href="http://www.UnkelTao.com/blog/categories/sublime-text/atom.xml" rel="self"/>
   <link href="http://www.UnkelTao.com/"/>
-  <updated>2014-05-19T15:27:54+01:00</updated>
+  <updated>2014-05-28T14:57:49+01:00</updated>
   <id>http://www.UnkelTao.com/</id>
   <author>
     <name><![CDATA[UnkelTao]]></name>
@@ -18,20 +18,19 @@
     <link href="http://www.UnkelTao.com/blog/2014/02/20/sublime-text-for-ctex/"/>
     <updated>2014-02-20T08:29:21+00:00</updated>
     <id>http://www.UnkelTao.com/blog/2014/02/20/sublime-text-for-ctex</id>
-    <content type="html"><![CDATA[<p>写论文必不可少的工具当然是 Latex，但是WinEdt的界面实在是不喜欢，钟爱Sublime的当然想在Sublime上进行Latex的书写，一找，还真找到插件了<strong><a href="https://github.com/SublimeText/LaTeXTools/blob/master/README.markdown">LatexTools</a></strong>。</p>
+    <content type="html"><![CDATA[<p>写论文必不可少的工具当然是 Latex，但是WinEdt的界面实在是不喜欢，钟爱Sublime的当然想在Sublime上进行Latex的书写，一找，还真找到插件了<strong><a href="https://github.com/SublimeText/LaTeXTools/blob/master/README.markdown">LatexTools</a></strong>。
+<!--more--></p>
 
-<!--more-->
+<h3 id="section">安装与配置</h3>
 
-
-<h3>安装与配置</h3>
-
-<p>安装也就是Sublime Text的插件安装，这个很easy。<br/>
-配置则参考于<a href="git@github.com:LiamHuang0205/liamhuang0205.github.io.git">这篇文章</a>,讲述的很详细，我就不重复了。<br/>
-与之不同的是我并没有安装Texlive,安装的是Ctex，但是操作是一样的。</p>
+<p>安装也就是Sublime Text的插件安装，这个很easy。<br />
+配置则参考于<a href="git@github.com:LiamHuang0205/liamhuang0205.github.io.git">这篇文章</a>,讲述的很详细，我就不重复了。<br />
+与之不同的是我并没有安装Texlive,安装的是Ctex，但是操作是一样的。 </p>
 
 <p>主要的问题是注意Sublime的中文问题，我是在tex中指明UTF8编码，并且使用xelatex进行编译。</p>
 
 <p><img src="http://unkeltao.qiniudn.com/IMG_latex.png" alt="" /></p>
+
 ]]></content>
   </entry>
   

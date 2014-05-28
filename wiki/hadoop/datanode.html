@@ -17,36 +17,40 @@
     </div>
     <div id="content">
     <h1 id="toc1" class="justcenter">无法启动datanode </h1>
-    <div class="toc">
-    	<ul>
-<li><a href="#toc1">datanode</a>
 
-<ul>
-<li><a href="#toc_1.1">1. 无法启动datanode</a></li>
-</ul>
-</li>
-</ul>
+    	<div class="toc">
 
+  <ul>
+    <li><a href="#toc1">datanode</a>
+      <ul>
+        <li><a href="#toc_1.1">1. 无法启动datanode</a></li>
+      </ul>
+    </li>
+  </ul>
 
-<p></div></p>
+</div>
+<div class="neirong">
 
-<p><div class="neirong"></p>
+  <h2 id="toc_1.1">1. 无法启动datanode</h2>
 
-<p><h2 id="toc_1.1">1. 无法启动datanode</h2></p>
+  <blockquote>
+    <p>ERROR org.apache.hadoop.hdfs.server.datanode.DataNode: org.apache.hadoop.ipc.RemoteException: java.io.IOException: verifyNodeRegistration: unknown datanode sist01:50010</p>
+  </blockquote>
 
-<blockquote><p>  ERROR org.apache.hadoop.hdfs.server.datanode.DataNode: org.apache.hadoop.ipc.RemoteException: java.io.IOException: verifyNodeRegistration: unknown datanode sist01:50010</p></blockquote>
+  <ul>
+    <li>可能原因: <br />
+配置文件中配置了禁止该节点。   </li>
+    <li>解决方案:   </li>
+  </ul>
 
-<ul>
-<li>可能原因: <br/>
-配置文件中配置了禁止该节点。</li>
-<li>解决方案:</li>
-</ul>
+  <blockquote>
+    <p>找到excludes文件(根据自己配置)，删除对应的节点。 <br />
+在主节点中刷新节点信息:  hadoop dfsadmin -refreshNodes   <br />
+在datanode节点执行如下命令: hadoop-daemon.sh start datanode<br />
+或者重启集群 ： stop-all.sh  start-all.sh  #代价比较大  </p>
+  </blockquote>
 
-
-<blockquote><p>  找到excludes文件(根据自己配置)，删除对应的节点。<br/>
-  在主节点中刷新节点信息:  hadoop dfsadmin -refreshNodes <br/>
-  在datanode节点执行如下命令: hadoop-daemon.sh start datanode
-  或者重启集群 ： stop-all.sh  start-all.sh  #代价比较大</p></blockquote>
+</div>
 
     </div>
 </body>

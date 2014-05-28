@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ubuntu | /UnkelTao]]></title>
   <link href="http://www.UnkelTao.com/blog/categories/ubuntu/atom.xml" rel="self"/>
   <link href="http://www.UnkelTao.com/"/>
-  <updated>2014-05-19T15:27:54+01:00</updated>
+  <updated>2014-05-28T14:57:49+01:00</updated>
   <id>http://www.UnkelTao.com/</id>
   <author>
     <name><![CDATA[UnkelTao]]></name>
@@ -26,17 +26,19 @@
 <p>解决代码：
 法1：</p>
 
-<p><code>sh
-sudo apt-get install dkms build-essential linux-headers-$(uname -r)
+<p><code>sh 
+sudo apt-get install dkms build-essential linux-headers-$(uname -r) 
 sudo /etc/init.d/vboxdrv setup
 </code></p>
 
-<p>法2：
-<code>sh     
+<p>法2：</p>
+
+<p><code>sh     
 sudo apt-get install module-assistant
 sudo modprobe vboxnetflt
 sudo modprobe vboxdrv
 </code></p>
+
 ]]></content>
   </entry>
   

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: tmux | /UnkelTao]]></title>
   <link href="http://www.UnkelTao.com/blog/categories/tmux/atom.xml" rel="self"/>
   <link href="http://www.UnkelTao.com/"/>
-  <updated>2014-05-19T15:27:54+01:00</updated>
+  <updated>2014-05-28T14:57:49+01:00</updated>
   <id>http://www.UnkelTao.com/</id>
   <author>
     <name><![CDATA[UnkelTao]]></name>
@@ -18,96 +18,101 @@
     <link href="http://www.UnkelTao.com/blog/2014/04/29/intsall-tmux/"/>
     <updated>2014-04-29T16:29:54+01:00</updated>
     <id>http://www.UnkelTao.com/blog/2014/04/29/intsall-tmux</id>
-    <content type="html"><![CDATA[<p>Tmux(terminal multiplexer), 远程必备的终端复用软件。</p>
+    <content type="html"><![CDATA[<p>Tmux(terminal multiplexer), 远程必备的终端复用软件。  </p>
 
-<h2>安装</h2>
+<h2 id="section">安装</h2>
 
-<h3>ubuntu</h3>
+<h3 id="ubuntu">ubuntu</h3>
+<p>用了很长一段时间的Ubuntu,绝大部分原因是其强大的软件源。  </p>
 
-<p>用了很长一段时间的Ubuntu,绝大部分原因是其强大的软件源。</p>
+<blockquote>
+  <p>安装命令<br />
+sudo apt-get install tmux<br />
+d  </p>
+</blockquote>
 
-<blockquote><p>  #安装命令<br/>
-sudo apt-get install tmux</p></blockquote>
+<h3 id="archlinux">Archlinux</h3>
+<p>前一段时间切换到了archlinux下面。 arch里面也有类似于apt-get的。它就是pacman,所以安装仍然很简单。  </p>
 
-<h3>Archlinux</h3>
+<blockquote>
+  <p>#安装命令  <br />
+pacman -S tmux  </p>
+</blockquote>
 
-<p>前一段时间切换到了archlinux下面。 arch里面也有类似于apt-get的。它就是pacman,所以安装仍然很简单。</p>
-
-<blockquote><p>  #安装命令  <br/>
-pacman -S tmux</p></blockquote>
-
-<h3>RedHat</h3>
-
-<p>实验室服务器使用的是Redhat,最近需要在服务器做实验，而服务器上是没有图形界面的，为了保护我的终端现场，这就更得使用Tmux了。 服务器没有外网(似乎有(O.O))。所以采用源码安装的形式。</p>
-
-<!-- more -->
-
+<h3 id="redhat">RedHat</h3>
+<p>实验室服务器使用的是Redhat,最近需要在服务器做实验，而服务器上是没有图形界面的，为了保护我的终端现场，这就更得使用Tmux了。 服务器没有外网(似乎有(O.O))。所以采用源码安装的形式。<br />
+<!-- more --></p>
 
 <ul>
-<li>首先从<strong><a href="http://tmux.sourceforge.net/">官网</a></strong>上下载tmux和libevent(因为tmux源码安装依赖于libevent,不安装make会报错)</li>
-<li><p>安装libevent.  <br/>
-<code>
+  <li>首先从<strong><a href="http://tmux.sourceforge.net/">官网</a></strong>上下载tmux和libevent(因为tmux源码安装依赖于libevent,不安装make会报错)  </li>
+  <li>安装libevent.    </li>
+</ul>
+
+<p><code>
 tar zxvf libevent-2.0.21-stable.tar.gz  #解压  
 cd libevent-2.0.21-stable  
 ./configure --prefix=你的安装目录  #如 /etc/pro/libevent2  
 make  
 make install
-</code></p></li>
-<li><p>安装tmux.</p></li>
-</ul>
-
-
-<p>```
-tar zxvf tmux-1.9a.tar.gz
-cd tmux-1.9a.tar.gz
-CFLAGS=&ldquo;-I libevent安装目录/include&rdquo; LDFLAGS=&ldquo;-L/usr/local/libevent安装目录/lib&rdquo; ./configure &mdash;prefix=tmux安装目录</p>
-
-<h1>eg:  CFLAGS=&ldquo;-I/usr/pro/libevent2/include&rdquo; LDFLAGS=&ldquo;-L/usr/pro/libevent2/lib&rdquo; ./configure &mdash;prefix=/usr/pro/tmux</h1>
-
-<p>make
-make install
-```</p>
+</code></p>
 
 <ul>
-<li>链接.so<br/>
-```
-
-<h1>32位</h1>
-
-sudo cp /usr/pro/libevent2/lib/libevent-2.0.so.5 /usr/lib
-
-<h1>64位</h1>
-
-<p>sudo cp /usr/pro/libevent2/lib/libevent-2.0.so.5 /usr/lib64
-```</p></li>
-<li>将tmux安装目录加入到环境变量PATH中<br/>
-<code>
-vim /etc/profile
-</code></li>
+  <li>安装tmux.   </li>
 </ul>
 
+<p><code>
+tar zxvf tmux-1.9a.tar.gz
+cd tmux-1.9a.tar.gz
+CFLAGS="-I libevent安装目录/include" LDFLAGS="-L/usr/local/libevent安装目录/lib" ./configure --prefix=tmux安装目录
+#eg:  CFLAGS="-I/usr/pro/libevent2/include" LDFLAGS="-L/usr/pro/libevent2/lib" ./configure --prefix=/usr/pro/tmux
+make
+make install
+</code></p>
 
-<blockquote><p>  export TMUX_HOME=/usr/pro/tmux<br/>
-export PATH=$TMUX_HOME/bin:$PATH<br/>
-<code>
+<ul>
+  <li>链接.so  </li>
+</ul>
+
+<p><code>
+#32位
+sudo cp /usr/pro/libevent2/lib/libevent-2.0.so.5 /usr/lib
+#64位
+sudo cp /usr/pro/libevent2/lib/libevent-2.0.so.5 /usr/lib64
+</code></p>
+
+<ul>
+  <li>将tmux安装目录加入到环境变量PATH中  </li>
+</ul>
+
+<p><code>
+vim /etc/profile
+</code></p>
+
+<blockquote>
+  <p>export TMUX_HOME=/usr/pro/tmux<br />
+export PATH=$TMUX_HOME/bin:$PATH  </p>
+</blockquote>
+
+<p><code>
 source /etc/profile
-</code></p></blockquote>
+</code></p>
 
 <p>这样便可以使用了。</p>
 
-<h2>简单配置</h2>
+<h2 id="section-1">简单配置</h2>
+<p>配置文件在 ~/.tmux.conf 下，没有可以新建一个。<br />
+因为tmux的prefix键默认为”Ctrl+b”,但是他们隔得有点远，所以修改为”Ctrl+a”。  </p>
 
-<p>配置文件在 ~/.tmux.conf 下，没有可以新建一个。<br/>
-因为tmux的prefix键默认为"Ctrl+b",但是他们隔得有点远，所以修改为"Ctrl+a"。</p>
+<blockquote>
+  <p># remap prefix to Control + a <br />
+set -g prefix C-a<br />
+unbind C-b<br />
+bind C-a send-prefix  </p>
+</blockquote>
 
-<blockquote><p>  # remap prefix to Control + a <br/>
-set -g prefix C-a<br/>
-unbind C-b<br/>
-bind C-a send-prefix</p></blockquote>
+<h2 id="section-2">使用</h2>
+<p><a href="https://wiki.freebsdchina.org/software/t/tmux">使用tmux——freebsdchina</a>  </p>
 
-<h2>使用</h2>
-
-<p><a href="https://wiki.freebsdchina.org/software/t/tmux">使用tmux——freebsdchina</a></p>
 ]]></content>
   </entry>
   

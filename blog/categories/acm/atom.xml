@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ACM | /UnkelTao]]></title>
   <link href="http://www.UnkelTao.com/blog/categories/acm/atom.xml" rel="self"/>
   <link href="http://www.UnkelTao.com/"/>
-  <updated>2014-05-19T15:27:54+01:00</updated>
+  <updated>2014-05-28T14:57:49+01:00</updated>
   <id>http://www.UnkelTao.com/</id>
   <author>
     <name><![CDATA[UnkelTao]]></name>
@@ -18,76 +18,61 @@
     <link href="http://www.UnkelTao.com/blog/2014/03/21/codeforces-round-number-237-div-2/"/>
     <updated>2014-03-21T04:03:13+01:00</updated>
     <id>http://www.UnkelTao.com/blog/2014/03/21/codeforces-round-number-237-div-2</id>
-    <content type="html"><![CDATA[<p>群中看到学第们发的比赛链接，于是又做了一场，结果悲惨。再也不在windows下做比赛了，电脑现在不知道出了啥问题，每次00：16都要自动关机。结果敲完的题没保存，又得重新敲一遍。</p>
+    <content type="html"><![CDATA[<p>群中看到学第们发的比赛链接，于是又做了一场，结果悲惨。再也不在windows下做比赛了，电脑现在不知道出了啥问题，每次00：16都要自动关机。结果敲完的题没保存，又得重新敲一遍。  </p>
 
-<h3><a href="http://codeforces.com/contest/404/problem/A">A &ndash; Valera and X</a></h3>
-
-<p><strong>题意</strong>： 给你一个矩阵，问你是不是恰好有2种字母，对角线字母一样，非对角线字母一样。<br/>
-<strong>key</strong>:   模拟</p>
+<h3 id="a---valera-and-xhttpcodeforcescomcontest404problema"><a href="http://codeforces.com/contest/404/problem/A">A - Valera and X</a></h3>
+<p><strong>题意</strong>： 给你一个矩阵，问你是不是恰好有2种字母，对角线字母一样，非对角线字母一样。<br />
+<strong>key</strong>:   模拟  </p>
 
 <!--more-->
-
 
 <p>```ruby</p>
 
 <p>n = gets.chomp!.to_i
-a = Array.new(n)</p>
+a = Array.new(n) </p>
 
-<p>n.times{|i|</p>
+<p>n.times{|i|
+    a[i] = gets.chomp!
+}</p>
 
-<pre><code>a[i] = gets.chomp!
-</code></pre>
-
-<p>}</p>
-
-<p>if n==1</p>
-
-<pre><code>puts "YES"
-exit
-</code></pre>
-
-<p>end</p>
+<p>if n==1
+    puts “YES”
+    exit
+end</p>
 
 <p>x = a[0][0]
 b = a[0][1]</p>
 
-<p>if x == b</p>
-
-<pre><code>puts "NO"
-exit
-</code></pre>
-
-<p>end<br/>
-n.times { |i|</p>
-
-<pre><code>n.times { |j|  
-    if i==j || (i+j==n-1)
-        if a[i][j] != x
-            puts "NO"
-            exit
+<p>if x == b
+    puts “NO”
+    exit
+end<br />
+n.times { |i|<br />
+    n.times { |j|<br />
+        if i==j || (i+j==n-1)
+            if a[i][j] != x
+                puts “NO”
+                exit
+            end
+        else
+             if a[i][j] != b
+                puts “NO”
+                exit
+            end
         end
-    else
-         if a[i][j] != b
-            puts "NO"
-            exit
-        end
-    end
-}
-</code></pre>
+    }
+}</p>
 
-<p>}</p>
-
-<p>puts &ldquo;YES&rdquo;</p>
+<p>puts “YES”</p>
 
 <p>```</p>
 
-<h2><a href="http://codeforces.com/contest/404/problem/B">B &ndash; Marathon</a></h2>
-
+<h2 id="b---marathonhttpcodeforcescomcontest404problemb"><a href="http://codeforces.com/contest/404/problem/B">B - Marathon</a></h2>
 <p><strong>题意</strong>:  给你一个a*a的正方形，从(0,0)出发，沿边线逆时针行走，走n次，每次走d的距离，输出每次行走后的坐标。</p>
 
 <p><strong>key</strong>:   模拟题，注意精度就好。</p>
 
-<p>```ruby<br/>
+<p>```ruby<br />
 eps = 1e-5
 a,d = gets.chomp!.split.map { |e|  e.to_f}
 n =gets.chomp!.to_i
@@ -95,68 +80,66 @@ cur_x=0.00
 cur_y=0.00
 pp=0.00</p>
 
-<p>n.times {</p>
+<p>n.times {
+	if cur_y &lt;= eps
+		pp = cur_x	
+	elsif a-cur_x &lt;= eps
+		pp = a + cur_y
+	elsif a-cur_y &lt;= eps
+		pp = a<em>3 -cur_x	
+	else
+		pp = a</em>4 -cur_y
+	end	
+	pp +=d;
+	t= (pp/a).floor
+	pp -= 1.0<em>t</em>a;
+	case t%4
+	when 0
+		cur_x=pp
+		cur_y=0
+	when 1
+		cur_x=a
+		cur_y=pp
+	when 2
+		cur_x=a-pp
+		cur_y=a
+	when 3
+		cur_x=0
+		cur_y=a-pp
+	end
+	printf(“%.8f %.8f\n”,cur_x,cur_y)
+}
+```  </p>
 
-<pre><code>if cur_y &lt;= eps
-    pp = cur_x  
-elsif a-cur_x &lt;= eps
-    pp = a + cur_y
-elsif a-cur_y &lt;= eps
-    pp = a*3 -cur_x 
-else
-    pp = a*4 -cur_y
-end 
-pp +=d;
-t= (pp/a).floor
-pp -= 1.0*t*a;
-case t%4
-when 0
-    cur_x=pp
-    cur_y=0
-when 1
-    cur_x=a
-    cur_y=pp
-when 2
-    cur_x=a-pp
-    cur_y=a
-when 3
-    cur_x=0
-    cur_y=a-pp
-end
-printf("%.8f %.8f\n",cur_x,cur_y)
-</code></pre>
-
-<p>}
-```</p>
-
-<h2><a href="http://codeforces.com/contest/404/problem/C">C &ndash; Restore Graph</a></h2>
-
+<h2 id="c---restore-graphhttpcodeforcescomcontest404problemc"><a href="http://codeforces.com/contest/404/problem/C">C - Restore Graph</a></h2>
 <p><strong>题意</strong>:  给你一个无向无子环的图，告诉你所有点到某一个选取的点的距离的矩阵d,问你能不能修复出满足条件的原图，其中一个点最多能够连接k条边。</p>
 
-<p><strong>key</strong>:  首先d中肯定只有一个0，并且该点就是选取的点。否则肯定不存在。 对d进行排序，一条边一条边的修复模拟即可，注意满足每个点连接的边不能超过k个。</p>
+<p><strong>key</strong>:  首先d中肯定只有一个0，并且该点就是选取的点。否则肯定不存在。 对d进行排序，一条边一条边的修复模拟即可，注意满足每个点连接的边不能超过k个。 </p>
 
 <p>```ruby</p>
 
-<p>n,k = gets.chomp!.split.map {|e| e.to_i}</p>
+<table>
+  <tbody>
+    <tr>
+      <td>n,k = gets.chomp!.split.map {</td>
+      <td>e</td>
+      <td>e.to_i}</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>D = gets.chomp!.split.map {|e| [e.to_i,0]}
 flag = 0
-n.times { |i|</p>
-
-<pre><code>D[i][1]=i+1
-if D[i][0] == 0
-    flag += 1
-end
-</code></pre>
-
-<p>}
-if flag != 1</p>
-
-<pre><code>p -1
-exit
-</code></pre>
-
-<p>end</p>
+n.times { |i| 
+    D[i][1]=i+1
+    if D[i][0] == 0
+        flag += 1
+    end
+}
+if flag != 1
+    p -1
+    exit
+end</p>
 
 <p>D.sort!
 b = Array.new(2<em>n)
@@ -164,59 +147,52 @@ e = Array.new(2</em>n)
 l=0
 f=0
 t=1
-while t&lt;n</p>
-
-<pre><code>if f==1 
-    k -= 1 
-end
-if D[t].first!= (D[f].first+1) 
-    puts "-1" 
-    exit 
-end
-p=k
-i = t
-while i&lt;n
-    break if D[i].first!=D[t].first
-    if(p==0) 
-        f +=1
-        p=k 
+while t&lt;n 
+    if f==1 
+        k -= 1 
     end
-    if(p==0)  
-        puts("-1") 
+    if D[t].first!= (D[f].first+1) 
+        puts “-1” 
         exit 
     end
-    p -= 1
-    if(f==t)  
-        puts("-1") 
-        exit 
+    p=k
+    i = t
+    while i&lt;n
+        break if D[i].first!=D[t].first
+        if(p==0) 
+            f +=1
+            p=k 
+        end
+        if(p==0)<br />
+            puts(“-1”) 
+            exit 
+        end
+        p -= 1
+        if(f==t)<br />
+            puts(“-1”) 
+            exit 
+        end
+        b[l]=D[f][1];
+        e[l]=D[i][1];
+        l+=1;i+=1;
     end
-    b[l]=D[f][1];
-    e[l]=D[i][1];
-    l+=1;i+=1;
-end
-f=t;
-t=i;
-</code></pre>
-
-<p>end</p>
+    f=t;
+    t=i;
+end</p>
 
 <p>p l
-l.times { |i|</p>
+l.times { |i|<br />
+    puts “#{b[i]} #{e[i]}”
+}
+```  </p>
 
-<pre><code>puts "#{b[i]} #{e[i]}"
-</code></pre>
+<h2 id="d---minesweeper-1dhttpcodeforcescomcontest404problemd"><a href="http://codeforces.com/contest/404/problem/D">D - Minesweeper 1D</a></h2>
+<p><strong>题意</strong>: 给你一个1<em>n的地雷图，0表示左右都没有地雷，1表示左右共有1个雷，2表示左右都是雷，</em>表示该点是雷，？表示该点未知，求有多少种合法的方案。  </p>
 
-<p>}
-```</p>
+<p><strong>key</strong>: DP,<code>dp[i][0]表示i点是0的方案数，dp[i][1]表示i点是1的方案数，dp[i][2]表示该点是雷的方案数</code>，其中1可以转化为0，2可以转化为1。 因为“<em>1”的话后面肯定不会是雷，那么变成0的方案数，如果是”01”或“11”的话，后面肯定是雷，保持1不动，”</em>2”的话后面肯定是雷。<br />
+<strong>转移方程见代码</strong>  </p>
 
-<h2><a href="http://codeforces.com/contest/404/problem/D">D &ndash; Minesweeper 1D</a></h2>
-
-<p><strong>题意</strong>: 给你一个1<em>n的地雷图，0表示左右都没有地雷，1表示左右共有1个雷，2表示左右都是雷，</em>表示该点是雷，？表示该点未知，求有多少种合法的方案。</p>
-
-<p><strong>key</strong>: DP,<code>dp[i][0]表示i点是0的方案数，dp[i][1]表示i点是1的方案数，dp[i][2]表示该点是雷的方案数</code>，其中1可以转化为0，2可以转化为1。 因为“<em>1”的话后面肯定不会是雷，那么变成0的方案数，如果是"01"或“11”的话，后面肯定是雷，保持1不动，"</em>2"的话后面肯定是雷。<br/>
-<strong>转移方程见代码</strong></p>
-
-<p>```ruby
+<p>```ruby 
 s = gets.chomp!
 mods = 1000000007
 dp = [[0,0,0],[0,0,0]]</p>
@@ -226,55 +202,49 @@ cur =0;nxt=1;</p>
 
 <p>dp[cur][0]=dp[cur][1]=1</p>
 
-<p>for i in 0&hellip;len</p>
+<p>for i in 0…len
+	case s[i]
+	when ‘0’
+		dp[nxt][0]=dp[cur][0]
+	when ‘1’
+		dp[nxt][1]= dp[cur][0]
+		dp[nxt][0]= dp[cur][2]
+	when ‘2’
+		dp[nxt][1]=dp[cur][2]
+	when ‘*’
+		dp[nxt][2]= (dp[cur][1]+dp[cur][2])%mods
+	when ‘?’
+		dp[nxt][1]= (dp[cur][2]+dp[cur][0])%mods
+		dp[nxt][0]= (dp[cur][0]+dp[cur][2])%mods
+		dp[nxt][2]= (dp[cur][1]+dp[cur][2])%mods
+	end
+	cur = nxt
+	nxt = cur==0?1:0
+	dp[nxt] = [0,0,0]
+end</p>
 
-<pre><code>case s[i]
-when '0'
-    dp[nxt][0]=dp[cur][0]
-when '1'
-    dp[nxt][1]= dp[cur][0]
-    dp[nxt][0]= dp[cur][2]
-when '2'
-    dp[nxt][1]=dp[cur][2]
-when '*'
-    dp[nxt][2]= (dp[cur][1]+dp[cur][2])%mods
-when '?'
-    dp[nxt][1]= (dp[cur][2]+dp[cur][0])%mods
-    dp[nxt][0]= (dp[cur][0]+dp[cur][2])%mods
-    dp[nxt][2]= (dp[cur][1]+dp[cur][2])%mods
-end
-cur = nxt
-nxt = cur==0?1:0
-dp[nxt] = [0,0,0]
-</code></pre>
+<p>puts “#{(dp[cur][0]+dp[cur][2])%mods}” 
+```  </p>
 
-<p>end</p>
-
-<p>puts &ldquo;#{(dp[cur][0]+dp[cur][2])%mods}&rdquo;
-```</p>
-
-<h2><a href="http://codeforces.com/contest/404/problem/E">E &ndash; Maze 1D</a></h2>
-
+<h2 id="e---maze-1dhttpcodeforcescomcontest404probleme"><a href="http://codeforces.com/contest/404/problem/E">E - Maze 1D</a></h2>
 <p><strong>题意</strong>: 题意真是难读,大概就是机器人会左右移动，但是如果前面的点是障碍点的话他就不会向前进忽略这次移动，问在设置最少障碍点的情况下能够使得机器人最后停下的位置是以前没有走过的。 问这样的设置方案数有多少个（在障碍点最少的情况下）。</p>
 
-<p><strong>key</strong>: 二分+枚举。</p>
+<p><strong>key</strong>: 二分+枚举。   </p>
 
 <ul>
-<li>首先我们可以确定，如果不加障碍点他最后停留的位置只走过一次的话，那么方案数肯定是1。</li>
-<li>最多设置一个障碍点，如果一个障碍点不能满足情况，再多的障碍点也没用。</li>
-<li>如果i点可以是障碍点，那么<code>(0,i]</code>的点都可以是障碍点，同理-i是障碍点，<code>[-1,0)</code>都可以是障碍点。</li>
+  <li>首先我们可以确定，如果不加障碍点他最后停留的位置只走过一次的话，那么方案数肯定是1。   </li>
+  <li>最多设置一个障碍点，如果一个障碍点不能满足情况，再多的障碍点也没用。  </li>
+  <li>如果i点可以是障碍点，那么<code>(0,i]</code>的点都可以是障碍点，同理-i是障碍点，<code>[-1,0)</code>都可以是障碍点。  </li>
 </ul>
 
+<p>有了这样的理解，那么遍可以2分来判断最大的i点是不是可以为障碍点了，判断方法模拟就可以了。<br />
+<strong>(ruby跑的太慢，TLE了，囧RZ，C++可以AC)</strong>  </p>
 
-<p>有了这样的理解，那么遍可以2分来判断最大的i点是不是可以为障碍点了，判断方法模拟就可以了。<br/>
-<strong>(ruby跑的太慢，TLE了，囧RZ，C++可以AC)</strong></p>
+<p><strong>ruby代码</strong></p>
 
-<p><strong>ruby代码</strong>
-```ruby</p>
-
-<h1>TLE 代码</h1>
-
-<p>$s = gets.chomp!
+<p>```ruby
+#TLE 代码
+$s = gets.chomp!
 $fg = 2
 $len = $s.size
 $mods = $len+7
@@ -286,76 +256,66 @@ pos = $mods + 100
 k += pos
 $vis[pos] = $fg
 $len.times { |i|  
-    if $s[i].chr=='R' and pos+1 !=k
-        pos += 1
-        # p 111111111111
-    elsif $s[i].chr=='L' and pos-1 != k
-        pos -= 1
-        # p 222222222222
-    end
-    if i==$len-1
-        # puts "b:"
-        # p $vis[pos]
-        # p pos 
-        # p $fg
-        return $vis[pos] != $fg
-    end
-    $vis[pos] = $fg
-}
+	if $s[i].chr=='R' and pos+1 !=k
+		pos += 1
+		# p 111111111111
+	elsif $s[i].chr=='L' and pos-1 != k
+		pos -= 1
+		# p 222222222222
+	end
+	if i==$len-1
+		# puts "b:"
+		# p $vis[pos]
+		# p pos 
+		# p $fg
+		return $vis[pos] != $fg
+	end
+	$vis[pos] = $fg
+} end
 </code></pre>
 
-<p>end</p>
-
-<p>if Judge($mods+300)</p>
-
-<pre><code>p 1
-exit
-</code></pre>
-
-<p>end</p>
+<p>if Judge($mods+300)
+	p 1
+	exit
+end</p>
 
 <p>res = 0
 l = 1
 r=$len</p>
 
-<p>if Judge(1)</p>
-
-<pre><code>while l&lt;r
-    mid = ((l+r+1)/2).floor
-    if Judge(mid)
-        l = mid
-    else
-        r =mid -1
-    end
-end
-res += l
-</code></pre>
-
-<p>end</p>
+<p>if Judge(1)
+	while l&lt;r
+		mid = ((l+r+1)/2).floor
+		if Judge(mid)
+			l = mid
+		else
+			r =mid -1
+		end
+	end
+	res += l
+end</p>
 
 <p>l = 1
 r=$len</p>
 
-<p>if Judge(-1)</p>
-
-<pre><code>while l&lt;r
-    mid = (l+r+1)/2
-    if Judge(-1*mid)
-        l = mid
-    else
-        r =mid -1
-    end
-end
-res += l
-</code></pre>
-
-<p>end</p>
+<p>if Judge(-1)
+	while l&lt;r
+		mid = (l+r+1)/2
+		if Judge(-1*mid)
+			l = mid
+		else
+			r =mid -1
+		end
+	end
+	res += l
+end</p>
 
 <p>p res
 ```</p>
 
-<p><strong>c++代码</strong><br/>
-```c++
+<p><strong>c++代码</strong>  </p>
+
+<p>```c++
 char str[MaxN];
 int fg=2,len;
 int vis[5*MaxN];</p>
@@ -365,63 +325,58 @@ int vis[5*MaxN];</p>
    int pos=1e6+10;
    k+=pos;
    vis[pos] = fg;
-   // printf(&ldquo;%d %d %d\n&rdquo;, fg,pos,k);
-   rep(i,len){</p>
-
-<pre><code>  if(str[i]=='R'&amp;&amp;pos+1!=k) pos++;
-  if(str[i]=='L'&amp;&amp;pos-1!=k) pos--;
-  if(i==len-1){
-    // printf("ans %d  %d %d\n", vis[pos],fg,pos);
-    return vis[pos] != fg;
-  }
-  vis[pos] = fg;
-</code></pre>
-
-<p>   }  <br/>
+   // printf(“%d %d %d\n”, fg,pos,k);
+   rep(i,len){
+   	  if(str[i]==’R’&amp;&amp;pos+1!=k) pos++;
+   	  if(str[i]==’L’&amp;&amp;pos-1!=k) pos–;
+   	  if(i==len-1){
+   	  	// printf(“ans %d  %d %d\n”, vis[pos],fg,pos);
+   	  	return vis[pos] != fg;
+   	  }
+   	  vis[pos] = fg;
+   }	
 }</p>
 
 <p>int main()
-{</p>
+{
+	while(~scanf(“%s”,str)){
+		len = strlen(str);
+		memset(vis,0,sizeof(vis));</p>
 
-<pre><code>while(~scanf("%s",str)){
-    len = strlen(str);
-    memset(vis,0,sizeof(vis));
+<pre><code>	if(Judge(1e6+200)){
+		printf("1\n");
+		return 0;
+	}
 
-    if(Judge(1e6+200)){
-        printf("1\n");
-        return 0;
-    }
+	ll res = 0;
+	int l=1,r=len,mid;
+	if (Judge(1))
+	{
+		while(l&lt;r){
+			mid = (l+r+1)/2;
+			if(Judge(mid)) l=mid;
+			else r=mid-1;
+		}
+		res += l;
+	}
 
-    ll res = 0;
-    int l=1,r=len,mid;
-    if (Judge(1))
-    {
-        while(l&lt;r){
-            mid = (l+r+1)/2;
-            if(Judge(mid)) l=mid;
-            else r=mid-1;
-        }
-        res += l;
-    }
-
-    if (Judge(-1))
-    {
-        l=1,r=len,mid;
-        while(l&lt;r){
-            mid = (l+r+1)/2;
-            if(Judge(-mid)) l=mid;
-            else r=mid-1;
-        }
-        res += l;           
-    }
-    cout&lt;&lt;res&lt;&lt;endl;
-}   
-return 0;
+	if (Judge(-1))
+	{
+		l=1,r=len,mid;
+		while(l&lt;r){
+			mid = (l+r+1)/2;
+			if(Judge(-mid)) l=mid;
+			else r=mid-1;
+		}
+		res += l;			
+	}
+	cout&lt;&lt;res&lt;&lt;endl;
+}	
+return 0; }
 </code></pre>
 
-<p>}</p>
-
 <p>```</p>
+
 ]]></content>
   </entry>
   
@@ -430,155 +385,118 @@ return 0;
     <link href="http://www.UnkelTao.com/blog/2014/03/11/codeforce-235/"/>
     <updated>2014-03-11T07:02:19+01:00</updated>
     <id>http://www.UnkelTao.com/blog/2014/03/11/codeforce-235</id>
-    <content type="html"><![CDATA[<p>好久没做CF了，觉得再不做估计以后笔试都过不鸟，于是还得经常做一做。</p>
+    <content type="html"><![CDATA[<p>好久没做CF了，觉得再不做估计以后笔试都过不鸟，于是还得经常做一做。 </p>
 
-<p>CF的回滚对我木有影响阿，我已经好久没做了似乎。</p>
+<p>CF的回滚对我木有影响阿，我已经好久没做了似乎。 </p>
 
-<p>这次的DIV2似乎比以前的简单一点。</p>
+<p>这次的DIV2似乎比以前的简单一点。 </p>
 
-<h2><a href="http://codeforces.com/contest/401/problem/A">A. Vanya and Cards</a></h2>
-
+<h2 id="a-vanya-and-cardshttpcodeforcescomcontest401problema"><a href="http://codeforces.com/contest/401/problem/A">A. Vanya and Cards</a></h2>
 <p>送分,大概给你一堆数，问你最少还需要几个绝对值不超过X的数能够让他们的和为0.</p>
 
 <p><code>ruby
 n,x = gets.chomp!.split.map { |e|  e.to_i}
 sum = gets.split.collect{|x| x.to_i}.inject{|y, x| y += x}
 p (sum.abs + x -1)/x
-</code></p>
+</code>
+<!--more--></p>
 
-<!--more-->
+<h2 id="b-sereja-and-contestshttpcodeforcescomcontest401problemb"><a href="http://codeforces.com/contest/401/problem/B">B. Sereja and Contests</a></h2>
+<p>模拟题</p>
 
-
-<h2><a href="http://codeforces.com/contest/401/problem/B">B. Sereja and Contests</a></h2>
-
-<p>模拟题
-```ruby
+<p>```ruby
 n,k = gets.chomp!.split.map { |e|  e.to_i}
 A = Array.new(n) { |i|  0}
-k.times {<br/>
+k.times {<br />
    c,d1,d2 =  gets.chomp!.split.map { |e|  e.to_i}
    A[d1-1] = 1
-   if d2 != nil</p>
-
-<pre><code> A[d2-1] = 1
-</code></pre>
-
-<p>   end
+   if d2 != nil
+     A[d2-1] = 1
+   end
 }</p>
 
 <p>mx=0
 mi=0
 cur=0
 (n-1).times do |i|
-   if A[i] == 0</p>
-
-<pre><code>    cur += 1
-</code></pre>
-
-<p>   else</p>
-
-<pre><code>   mx += cur
-   mi += (cur+1)/2
-   cur = 0  
-</code></pre>
-
-<p>   end<br/>
+   if A[i] == 0
+        cur += 1
+   else
+       mx += cur
+       mi += (cur+1)/2
+       cur = 0<br />
+   end<br />
 end</p>
 
 <p>mx += cur
 mi += (cur+1)/2
-puts &ldquo;#{mi} #{mx}&rdquo;
+puts “#{mi} #{mx}”
 ```</p>
 
-<h2><a href="http://codeforces.com/contest/401/problem/C">C. Team</a></h2>
+<h2 id="c-teamhttpcodeforcescomcontest401problemc"><a href="http://codeforces.com/contest/401/problem/C">C. Team</a></h2>
+<p>也是模拟题，给你n个1，m个0，让你给出一种排列，不能有3个1连在一起，不能有两个0连在一起，给出任意一种方案即可，不能则输出-1</p>
 
-<p>也是模拟题，给你n个1，m个0，让你给出一种排列，不能有3个1连在一起，不能有两个0连在一起，给出任意一种方案即可，不能则输出-1
-```ruby
+<p>```ruby
 m,n = gets.chomp!.split.map { |e|  e.to_i}
-if n+1 &lt; m</p>
+if n+1 &lt; m 
+    p -1
+    exit
+elsif (m+1)*2 &lt; n
+    p -1
+    exit
+end</p>
 
-<pre><code>p -1
-exit
-</code></pre>
-
-<p>elsif (m+1)*2 &lt; n</p>
-
-<pre><code>p -1
-exit
-</code></pre>
-
-<p>end</p>
-
-<p>if n == m</p>
-
-<pre><code>n.times{printf "10" }
-puts ""
-</code></pre>
-
-<p>elsif m == n+1</p>
-
-<pre><code>n.times{print "01"}
-puts 0
-</code></pre>
-
-<p>elsif (m+1)*2 == n</p>
-
-<pre><code>m.times{printf "110"}
-puts "11"
-</code></pre>
-
-<p>elsif m*2 == n</p>
-
-<pre><code>m.times{print "110"}
-puts ""
-</code></pre>
-
-<p>else</p>
-
-<pre><code>k = n - 1 - m
-(k).times {print "110"}
-(m-k).times{print "10"}
-puts "1"
-</code></pre>
-
-<p>end
+<p>if n == m
+    n.times{printf “10” }
+    puts “”
+elsif m == n+1
+    n.times{print “01”}
+    puts 0
+elsif (m+1)<em>2 == n
+    m.times{printf “110”}
+    puts “11”
+elsif m</em>2 == n
+    m.times{print “110”}
+    puts “”
+else
+    k = n - 1 - m
+    (k).times {print “110”}
+    (m-k).times{print “10”}
+    puts “1”
+end
 ```</p>
 
-<h2><a href="http://codeforces.com/contest/401/problem/D">D. Roman and Numbers</a></h2>
-
-<p>暴力+状态压缩。
-题意：给你一个不超过18位的数n,和不超过100的m,将n进行重排(改变里面的位置，当然0不能排在最前面)，问有多少个数是m的倍数。
-ruby似乎跑的很慢，不幸TLE的，C++可以过</p>
+<h2 id="d-roman-and-numbershttpcodeforcescomcontest401problemd"><a href="http://codeforces.com/contest/401/problem/D">D. Roman and Numbers</a></h2>
+<p>暴力+状态压缩。 
+题意：给你一个不超过18位的数n,和不超过100的m,将n进行重排(改变里面的位置，当然0不能排在最前面)，问有多少个数是m的倍数。 
+ruby似乎跑的很慢，不幸TLE的，C++可以过 </p>
 
 <p>```ruby
 n,m = gets.chomp!.split
 m = m.to_i
 len = n.size
-dp = Array.new((1&lt;&lt;len)+2) {Array.new(m+5,0)}
+dp = Array.new((1«len)+2) {Array.new(m+5,0)} 
 dp[0][0] = 1</p>
 
-<p>(1&lt;&lt;len).times do |i|</p>
+<p>(1«len).times do |i|
+    m.times { |j|<br />
+        tp = Array.new(20,0)
+        len.times{|k|
+            t = n[k].chr.to_i
+            if i&amp;(1«k) != 0 || (i==0 &amp;&amp; t==0) || tp[t] !=0 
+                next
+            end
+            tp[t] = 1
+            dp[i|(1«k)][(j*10+t)%m] +=dp[i][j]
+        } <br />
+    }
+end
+p dp[(1«len)-1][0]
+``` </p>
 
-<pre><code>m.times { |j|  
-    tp = Array.new(20,0)
-    len.times{|k|
-        t = n[k].chr.to_i
-        if i&amp;(1&lt;&lt;k) != 0 || (i==0 &amp;&amp; t==0) || tp[t] !=0 
-            next
-        end
-        tp[t] = 1
-        dp[i|(1&lt;&lt;k)][(j*10+t)%m] +=dp[i][j]
-    }   
-}
-</code></pre>
-
-<p>end
-p dp[(1&lt;&lt;len)-1][0]
-```</p>
-
-<h2><a href="http://codeforces.com/contest/401/problem/E">E. Olympic Games</a></h2>
-
+<h2 id="e-olympic-gameshttpcodeforcescomcontest401probleme"><a href="http://codeforces.com/contest/401/problem/E">E. Olympic Games</a></h2>
 <p>略难，暂时不会</p>
+
 ]]></content>
   </entry>
   
@@ -587,38 +505,29 @@ p dp[(1&lt;&lt;len)-1][0]
     <link href="http://www.UnkelTao.com/blog/2014/03/02/ruby-for-hustoj/"/>
     <updated>2014-03-02T14:33:16+00:00</updated>
     <id>http://www.UnkelTao.com/blog/2014/03/02/ruby-for-hustoj</id>
-    <content type="html"><![CDATA[<p>虽然已经不是再搞ACM了，但是算法偶尔还是要练习一下写代码，然后最近学习ruby中，打算用ruby来写写ACM题目也算熟悉ruby，免得不用就忘记了，记得Hustoj是可以支持Ruby的，于是就在我们学校的训练Oj上提交了A+B的Ruby代码：
-```ruby
-readlines.each{|line|</p>
+    <content type="html"><![CDATA[<p>虽然已经不是再搞ACM了，但是算法偶尔还是要练习一下写代码，然后最近学习ruby中，打算用ruby来写写ACM题目也算熟悉ruby，免得不用就忘记了，记得Hustoj是可以支持Ruby的，于是就在我们学校的训练Oj上提交了A+B的Ruby代码：</p>
 
-<pre><code>p line.split.collect{|x| x.to_i}.inject{|y, x| y += x}
-</code></pre>
+<p><code>ruby
+readlines.each{|line|
+	p line.split.collect{|x| x.to_i}.inject{|y, x| y += x}
+}
+</code></p>
 
-<p>}
-```
-于是华丽的给了我一个WA~~~正在想怎么可能，想起来服务器上没有装ruby，于是远程到7509的服务器上再ssh到训练oj的服务器(只能内网访问，ping不到外网地址)，将ruby装上。</p>
+<p>于是华丽的给了我一个WA~~~正在想怎么可能，想起来服务器上没有装ruby，于是远程到7509的服务器上再ssh到训练oj的服务器(只能内网访问，ping不到外网地址)，将ruby装上。</p>
 
-<p>然后就开始了无止境的RE生涯，简直无情，各种call禁止：</p>
-
+<p>然后就开始了无止境的RE生涯，简直无情，各种call禁止：
 <!--more-->
-
-
-<p><img src="http://unkeltao.qiniudn.com/img/IMG_ruby_1.png" alt="" /></p>
+<img src="http://unkeltao.qiniudn.com/img/IMG_ruby_1.png" alt="" /></p>
 
 <p>在hustoj的wiki页面上，终于找到了参考的添加其他<a href="http://code.google.com/p/hustoj/wiki/AddProgrammingLanguage">语言支持的方法</a></p>
 
 <p>其实主要的就是找到所有的call编号，放到数组里面去就行了，ruby对应了两个数组</p>
 
-<p>```rb</p>
-
-<h1>保存为Main.rb</h1>
-
-<p>readlines.each{|line|</p>
-
-<pre><code>p line.split.collect{|x| x.to_i}.inject{|y, x| y += x}
-</code></pre>
-
-<p>```</p>
+<p><code>rb
+#保存为Main.rb
+readlines.each{|line|
+	p line.split.collect{|x| x.to_i}.inject{|y, x| y += x}
+</code></p>
 
 <p>terminal中运行如下命令。</p>
 
@@ -635,8 +544,9 @@ xxx
 write
 </code></p>
 
-<p>把这些标志放入如下过程，结尾是0，对应RC数组其他值为-1，结尾为0.
-<code>c++
+<p>把这些标志放入如下过程，结尾是0，对应RC数组其他值为-1，结尾为0.</p>
+
+<p><code>c++
 int LANG_RV[256]={SYS_access,SYS_write.....,0};
 int LANG_RC[256]={-1,-1,......,0};
 </code></p>
@@ -659,6 +569,7 @@ sudo judge_client 2028 0 /home/judge/ debug Y
 
 <p>最终结果：
 <img src="http://unkeltao.qiniudn.com/img/IMG_ruby_2.png" alt="" /></p>
+
 ]]></content>
   </entry>
   
@@ -673,81 +584,48 @@ sudo judge_client 2028 0 /home/judge/ debug Y
 
 <p>于是赤裸裸的去了，然后悲催的爆0了</p>
 
-<p>只看了A、B两题~~A题觉得挺简单的，敲了个2分交上去过了Pass，想了想B觉得没有想法就睡觉了。。。</p>
-
+<p>只看了A、B两题~~A题觉得挺简单的，敲了个2分交上去过了Pass，想了想B觉得没有想法就睡觉了。。。
 <!--more-->
-
-
-<p>早上一起洗个澡吃完早餐一看<del>WA了</del>然后看了下代码，我去，尼玛有一行特判输出没改，直接注释掉没用的特判就过了</p>
+早上一起洗个澡吃完早餐一看~~WA了~~然后看了下代码，我去，尼玛有一行特判输出没改，直接注释掉没用的特判就过了</p>
 
 <p>说说A题吧，题意大概是一串字符串，求一个长度为k的子串，是的用最少的该子串来构成源串，你可以使用子串的其中任意个字符按照你想要的方式排序拼接,输出需要的最少个数和该k子串。</p>
 
 <p>解法：数据那么弱，统计下源串每个字母的个数，直接暴力匹配从1个到(n+k-1)/k个能否拼成源串就好,写的2分,也过了.</p>
 
-<p>```c++</p>
-
-<h1>include <cstdio></h1>
-
-<h1>include <cstdlib></h1>
-
-<h1>include <cstring></h1>
-
-<h1>include <cmath></h1>
-
-<h1>include <climits></h1>
-
-<h1>include <cctype></h1>
-
-<h1>include <ctime></h1>
-
-<h1>include <algorithm></h1>
-
-<h1>include <iostream></h1>
-
-<h1>include <queue></h1>
-
-<h1>include <vector></h1>
-
-<h1>include <set></h1>
-
-<h1>include <map></h1>
-
-<h1>include <stack></h1>
-
-<h1>define SQR(x) ((x)*(x))</h1>
-
-<h1>define rep(i, n) for (int i=0; i&lt;(n); ++i)</h1>
-
-<h1>define repd(i,n)  for(int i=1;i&lt;=(n);++i)</h1>
-
-<h1>define repf(i, a, b) for (int i=(a); i&lt;=(b); ++i)</h1>
-
-<h1>define reps(i, a, b) for (int i=(a); i>=(b); &mdash;i)</h1>
-
-<h1>define PB push_back</h1>
-
-<h1>define MP(A, B) make_pair(A, B)</h1>
-
-<h1>define pow2(n) (1&lt;&lt;(n))</h1>
-
-<h1>define pi acos(-1)</h1>
-
-<h1>define eps 0.00000001</h1>
-
-<h1>define lg(n) log10((n)*1.0)</h1>
-
-<h1>define MaxN  1000000</h1>
-
-<h1>define mod 10e+7</h1>
-
-<h1>define ll long long</h1>
-
-<h1>define typed int</h1>
-
-<p>using namespace std;
+<p><code>c++ 
+#include &lt;cstdio&gt;
+#include &lt;cstdlib&gt;
+#include &lt;cstring&gt;
+#include &lt;cmath&gt;
+#include &lt;climits&gt;
+#include &lt;cctype&gt;
+#include &lt;ctime&gt;
+#include &lt;algorithm&gt;
+#include &lt;iostream&gt;
+#include &lt;queue&gt;
+#include &lt;vector&gt;
+#include &lt;set&gt;
+#include &lt;map&gt;
+#include &lt;stack&gt;
+#define SQR(x) ((x)*(x))
+#define rep(i, n) for (int i=0; i&lt;(n); ++i)
+#define repd(i,n)  for(int i=1;i&lt;=(n);++i)
+#define repf(i, a, b) for (int i=(a); i&lt;=(b); ++i)
+#define reps(i, a, b) for (int i=(a); i&gt;=(b); --i)
+#define PB push_back
+#define MP(A, B) make_pair(A, B)
+#define pow2(n) (1&lt;&lt;(n))
+#define pi acos(-1)
+#define eps 0.00000001
+#define lg(n) log10((n)*1.0)
+#define MaxN  1000000
+#define mod 10e+7
+#define ll long long
+#define typed int
+using namespace std;
 void data(){
-   freopen(&ldquo;data.in&rdquo;,&ldquo;r&rdquo;,stdin);
-   freopen(&ldquo;data.out&rdquo;,&ldquo;w&rdquo;,stdout);
+   freopen("data.in","r",stdin);
+   freopen("data.out","w",stdout);
 }
 char s[1100];
 int su[27];
@@ -756,124 +634,92 @@ int jd(int n){
    int cnt=0;
    rep(i,26){
        cnt+=(su[i]+n-1)/n;
-   }
+   } 
    if(cnt&lt;=k) return 1;
    else return 0;
 }
 void pt(int n){
- //  cout&lt;&lt;&ldquo;pt&rdquo;&lt;&lt;endl;  
-   cout&lt;&lt;n&lt;&lt;endl;   
-   string ss=&ldquo;&rdquo;;
+ //  cout&lt;&lt;"pt"&lt;&lt;endl;   
+   cout&lt;&lt;n&lt;&lt;endl;    
+   string ss="";
    int cnt=0;
    rep(i,26){
-      rep(j,(su[i]+n-1)/n){ ss+=(i+&lsquo;a&rsquo;);cnt++;}
+      rep(j,(su[i]+n-1)/n){ ss+=(i+'a');cnt++;}
    }
    cout&lt;&lt;ss;
-   rep(i,k-cnt)cout&lt;&lt;&lsquo;a&rsquo;;
+   rep(i,k-cnt)cout&lt;&lt;'a';
    cout&lt;&lt;endl;
 }
 void bit(int l,int r){
      while(l&lt;r){
      int mid=(l+r)/2;
      int kk=jd(mid);
-       if(kk>0) r=mid;
-       else l=mid+1;   
+       if(kk&gt;0) r=mid;
+       else l=mid+1;    
      }
      pt(l);
 }
  
 int main(){
-   while(cin>>s>>k){
+   while(cin&gt;&gt;s&gt;&gt;k){
      rep(i,26) su[i]=0;
-     rep(i,strlen(s))su[s[i]&ndash;&lsquo;a&rsquo;]++;
+     rep(i,strlen(s))su[s[i]-'a']++;
      int ma=0,cnt=0;
      rep(i,26)if(su[i]){cnt++;ma=max(ma,su[i]);}
      if(k&lt;cnt)cout&lt;&lt;-1&lt;&lt;endl;
      else{
        
          
-        //bit((strlen(s)+k-1)/k,ma+1); //2分
-        repd(i,strlen(s)){   //暴力
+        //bit((strlen(s)+k-1)/k,ma+1); //2分 
+        repd(i,strlen(s)){   //暴力 
            if(jd(i)){pt(i);break;}
         }
-     }
-   }       
+     } 
+   }        
    return 0;
 }
-```</p>
+</code></p>
 
-<p>B题一看最长回文子序列，能想到的方法就是2维DP出LCS<del>可是源串长度为50000，2维DP肯定挂</del>早上起来，顺带看了一眼，发现一个条件，回文最长为100（大于100输出100的就行）,这个想了下，就好搞了.一共26字母，说明在2600个字母序列里面肯定会产生回文长度至少是100的。。</p>
+<p>B题一看最长回文子序列，能想到的方法就是2维DP出LCS~~可是源串长度为50000，2维DP肯定挂~~早上起来，顺带看了一眼，发现一个条件，回文最长为100（大于100输出100的就行）,这个想了下，就好搞了.一共26字母，说明在2600个字母序列里面肯定会产生回文长度至少是100的。。</p>
 
-<p>这样超过长度2600的就可以直接DP前2600个字母就行了<del>然后就是模板题了</del>真是弱爆了~~</p>
+<p>这样超过长度2600的就可以直接DP前2600个字母就行了~~~然后就是模板题了~~~真是弱爆了~~</p>
 
-<p>```c++</p>
-
-<h1>include <cstdio></h1>
-
-<h1>include <cstdlib></h1>
-
-<h1>include <cstring></h1>
-
-<h1>include <cmath></h1>
-
-<h1>include <climits></h1>
-
-<h1>include <cctype></h1>
-
-<h1>include <ctime></h1>
-
-<p> </p>
-
-<h1>include <algorithm></h1>
-
-<h1>include <iostream></h1>
-
-<h1>include <queue></h1>
-
-<h1>include <vector></h1>
-
-<h1>include <set></h1>
-
-<h1>include <map></h1>
-
-<h1>include <stack></h1>
-
-<p> </p>
-
-<h1>define SQR(x) ((x)*(x))</h1>
-
-<h1>define rep(i, n) for (int i=0; i&lt;(n); ++i)</h1>
-
-<h1>define repd(i,n)  for(int i=1;i&lt;=(n);++i)</h1>
-
-<h1>define repf(i, a, b) for (int i=(a); i&lt;=(b); ++i)</h1>
-
-<h1>define reps(i, a, b) for (int i=(a); i>=(b); &mdash;i)</h1>
-
-<h1>define PB push_back</h1>
-
-<h1>define MP(A, B) make_pair(A, B)</h1>
-
-<h1>define pow2(n) (1&lt;&lt;(n))</h1>
-
-<h1>define pi acos(-1)</h1>
-
-<h1>define eps 0.00000001</h1>
-
-<h1>define lg(n) log10((n)*1.0)</h1>
-
-<h1>define MaxN  50000</h1>
-
-<h1>define mod 10e+7</h1>
-
-<h1>define ll long long</h1>
-
-<h1>define typed int</h1>
-
-<p>using namespace std;
+<p><code>c++ 
+#include &lt;cstdio&gt;
+#include &lt;cstdlib&gt;
+#include &lt;cstring&gt;
+#include &lt;cmath&gt;
+#include &lt;climits&gt;
+#include &lt;cctype&gt;
+#include &lt;ctime&gt;
+ 
+#include &lt;algorithm&gt;
+#include &lt;iostream&gt;
+#include &lt;queue&gt;
+#include &lt;vector&gt;
+#include &lt;set&gt;
+#include &lt;map&gt;
+#include &lt;stack&gt;
+ 
+#define SQR(x) ((x)*(x))
+#define rep(i, n) for (int i=0; i&lt;(n); ++i)
+#define repd(i,n)  for(int i=1;i&lt;=(n);++i)
+#define repf(i, a, b) for (int i=(a); i&lt;=(b); ++i)
+#define reps(i, a, b) for (int i=(a); i&gt;=(b); --i)
+#define PB push_back
+#define MP(A, B) make_pair(A, B)
+#define pow2(n) (1&lt;&lt;(n))
+#define pi acos(-1)
+#define eps 0.00000001
+#define lg(n) log10((n)*1.0)
+#define MaxN  50000
+#define mod 10e+7
+#define ll long long
+#define typed int
+using namespace std;
 void data(){
-   freopen(&ldquo;data.in&rdquo;,&ldquo;r&rdquo;,stdin);
-   freopen(&ldquo;data.out&rdquo;,&ldquo;w&rdquo;,stdout);
+   freopen("data.in","r",stdin);
+   freopen("data.out","w",stdout);
 }
 int dp[2620][2620];
 char c[MaxN+100],a[2620],b[2620];
@@ -887,17 +733,17 @@ void LCS(int len){
         {
             if(a[i]==b[j]){
                 k[i][j]=0;
-                dp[i][j]=1+dp[i-1][j-1]; 
+                dp[i][j]=1+dp[i-1][j-1];  
             }
-            else if(dp[i-1][j]>=dp[i][j-1]){
+            else if(dp[i-1][j]&gt;=dp[i][j-1]){
                 k[i][j]=1;
-                dp[i][j]=dp[i-1][j];
+                dp[i][j]=dp[i-1][j]; 
             }
             else{
                  k[i][j]=-1;
                  dp[i][j]=dp[i][j-1];
-            }        
-        }
+            }         
+        } 
 }
 char st[2610];
 int num;
@@ -907,38 +753,39 @@ void pt(int m,int n){
      pt(m-1,n-1);
      st[num++]=a[m];
    }
-   else if(k[m][n]>0) pt(m-1,n);
-   else pt(m,n-1); 
+   else if(k[m][n]&gt;0) pt(m-1,n);
+   else pt(m,n-1);  
 }
 int main(){
     //data();
-    while(~scanf(&ldquo;%s&rdquo;,c+1)){                           
+    while(~scanf("%s",c+1)){                            
      int len=strlen(c+1);
      num=0;
      bool fg=1;
      repd(i,len){
-         cnt1-&lsquo;a&rsquo;]++;
-         if(cnt1-&lsquo;a&rsquo;]>=100){
+         cnt1-'a']++;
+         if(cnt1-'a']&gt;=100){
            rep(j,100)cout&lt;&lt;c[i];
            cout&lt;&lt;endl;fg=0;break;
          }
      }
      if(!fg)continue;
-     if(len>2602) len=2602;
+     if(len&gt;2602) len=2602;
      repd(i,len){a[i]=c[i];b[len+1-i]=c[i];}
      LCS(len);
      pt(len,len);
-     if(num&lt;=100)printf(&ldquo;%s\n&rdquo;,st);
+     if(num&lt;=100)printf("%s\n",st);
      else{
-       rep(i,50)cout&lt;&lt;st[i];reps(i,49,0)cout&lt;&lt;st[i]; cout&lt;&lt;endl; 
+       rep(i,50)cout&lt;&lt;st[i];reps(i,49,0)cout&lt;&lt;st[i]; cout&lt;&lt;endl;  
      }
      
-    }          
+    }           
    return 0;
 }
-```</p>
+</code></p>
 
 <p>（效果似乎一般）</p>
+
 ]]></content>
   </entry>
   
@@ -947,301 +794,268 @@ int main(){
     <link href="http://www.UnkelTao.com/blog/2013/04/13/the-9th-swjtu-collegiate-programming-contest-qualification-round/"/>
     <updated>2013-04-13T23:16:28+01:00</updated>
     <id>http://www.UnkelTao.com/blog/2013/04/13/the-9th-swjtu-collegiate-programming-contest-qualification-round</id>
-    <content type="html"><![CDATA[<p><strong>比赛链接：</strong>  <a href="http://acm.swjtu.edu.cn/JudgeOnline/showcontest?contest_id=1135" title="第九届ACM校赛资格赛">第九届ACM校赛资格赛</a></p>
+    <content type="html"><![CDATA[<p><strong>比赛链接：</strong>  <a href="http://acm.swjtu.edu.cn/JudgeOnline/showcontest?contest_id=1135" title="第九届ACM校赛资格赛">第九届ACM校赛资格赛</a>  </p>
 
 <p>资格赛嘛，本着大家熟悉环境增强自信心的原则~10道题没有太难的题目~适合新手练习.本次比赛D、E、F是我出的，本着简单的想法却没想到坑了一部分人，其中E题的数据再随机的时候超出了题目描述的范围造成一些人AC的程序WA了，在此表示抱歉,致以诚挚的歉意。下面给出我对着10道题的解法，可能我的解法并不是完全正确恰好过了数据而已，欢迎大家指正。</p>
 
 <!--more-->
+<p>##A <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1982">A+B</a>
+完全熟悉OJ环境的题目,上面都有标程,第一次接触ACM的需要知道怎么多组输入.</p>
 
+<p><code>c++ 
+int a, b; 
+while(scanf("%d %d", &amp;a, &amp;b)==2){
+    printf("%d\n", a + b);
+}
+</code></p>
 
-<h2>A <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1982">A+B</a></h2>
-
-<p>完全熟悉OJ环境的题目,上面都有标程,第一次接触ACM的需要知道怎么多组输入.
-```c++
-int a, b;
-while(scanf(&ldquo;%d %d&rdquo;, &amp;a, &amp;b)==2){</p>
-
-<pre><code>printf("%d\n", a + b);
-</code></pre>
-
-<p>}
-```</p>
-
-<h2>B <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1986">猴子爬楼梯1</a></h2>
-
-<p>因为数据不大，可以有3中解法:</p>
+<h2 id="b-1httpacmswjtueducnjudgeonlineshowproblemproblemid1986">B <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1986">猴子爬楼梯1</a></h2>
+<p>因为数据不大，可以有3中解法:  </p>
 
 <ul>
-<li><p>原理：看 n能被被整除<code>GCD(a,b)</code>整除，推论过程略,详见大牛(<a href="http://blog.csdn.net/openspirit/article/details/8797246">大牛题解</a>)。</p></li>
-<li><p>模拟法：我们可以确定只要大于 <code>a+b-1</code>的数 我们都可以通过加上a来得到,在+a ,-b的过程中，通过模拟产生出<code>(1，a+b-1)</code>所有的可能,把n对a取模既可以。</p></li>
-<li><p>搜索或者暴力,记忆化搜索，也就1000个点而已,代码未写,参见C题。<br/>
-<code>c++
+  <li>
+    <p>原理：看 n能被被整除<code>GCD(a,b)</code>整除，推论过程略,详见大牛(<a href="http://blog.csdn.net/openspirit/article/details/8797246">大牛题解</a>)。	</p>
+  </li>
+  <li>
+    <p>模拟法：我们可以确定只要大于 <code>a+b-1</code>的数 我们都可以通过加上a来得到,在+a ,-b的过程中，通过模拟产生出<code>(1，a+b-1)</code>所有的可能,把n对a取模既可以。	</p>
+  </li>
+  <li>
+    <p>搜索或者暴力,记忆化搜索，也就1000个点而已,代码未写,参见C题。	</p>
+  </li>
+</ul>
+
+<p><code>c++ 
 //模拟法
 int s[10000];
 int cnt(int a,int b)
 {
-int tmp=a,cur=0;
-memset(s,0,sizeof(s));
-while(tmp!=0)
-{
-    s[cur++]=tmp;         
-    if(tmp&gt;=b)tmp-=b;
-    else tmp+=a;           
+    int tmp=a,cur=0;
+    memset(s,0,sizeof(s));
+    while(tmp!=0)
+    {
+        s[cur++]=tmp;         
+        if(tmp&gt;=b)tmp-=b;
+        else tmp+=a;           
+    } 
+    return cur;
 }
-return cur;
-}
-</code></p></li>
-</ul>
+</code></p>
 
+<h2 id="c-2httpacmswjtueducnjudgeonlineshowproblemproblemid1990">C <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1990">猴子爬楼梯2</a></h2>
 
-<h2>C <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1990">猴子爬楼梯2</a></h2>
-
-<p><strong>本题将我深深的伤害了</strong></p>
+<p><strong>本题将我深深的伤害了</strong>  </p>
 
 <ul>
-<li><p>模拟法:看着数据不大，于是暴力模拟,无限WA,基本思路同B题二解法，只是模拟过程中出现大于top就停止,至今未AC，未发现错误数据，回头对拍,有待考证。(<strong>忘记加特判了<code>a=0,b=0</code>时候挂掉了, 加上AC</strong>)</p></li>
-<li><p>记忆化搜索</p></li>
+  <li>
+    <p>模拟法:看着数据不大，于是暴力模拟,无限WA,基本思路同B题二解法，只是模拟过程中出现大于top就停止,至今未AC，未发现错误数据，回头对拍,有待考证。(<strong>忘记加特判了<code>a=0,b=0</code>时候挂掉了, 加上AC</strong>)	</p>
+  </li>
+  <li>
+    <p>记忆化搜索	</p>
+  </li>
 </ul>
 
-
-<p>```c++
-//模拟法</p>
-
-<h1>include<cstdio></h1>
-
-<h1>define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)</h1>
-
-<p>int gcd(int a,int b){return b?gcd(b,a%b):a;}
+<p>```c++ 
+//模拟法
+#include<cstdio>
+#define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)
+int gcd(int a,int b){return b?gcd(b,a%b):a;}
 int s[1000];
 int cnt(int a,int b)
-{</p>
-
-<pre><code>int tmp=a,cur=0;
-if(b==0){s[0]=a; return 1;}
-while(tmp!=0){s[cur++]=tmp;if(tmp&gt;=b)tmp-=b;else tmp+=a;} 
-return cur;
-</code></pre>
-
-<p>}
+{
+    int tmp=a,cur=0;
+    if(b==0){s[0]=a; return 1;}
+    while(tmp!=0){s[cur++]=tmp;if(tmp&gt;=b)tmp-=b;else tmp+=a;} 
+    return cur;
+}
 int main()
-{</p>
+{
+    //freopen("data.in","r",stdin);
+    //freopen("data2.out","w",stdout);
+    int T,a,b,n,m;
+    scanf("%d",&amp;T);
+    while(T--){
+       scanf("%d%d%d%d",&amp;a,&amp;b,&amp;n,&amp;m);
+       if(n&gt;m||a==0) printf("NO\n");
+       else {
+          if(n%a==0) printf("YES\n");
+          else {  
+               int len=cnt(a,b);
+               n=n%a; 
+               bool fg=0;
+               rep(i,0,len){
+                  if(s[i]==n) {fg=1;break;}
+                  if(s[i]&gt;m){fg=0;break;}
+               }
+               if(fg)printf("YES\n");else printf("NO\n");  </cstdio></p>
 
-<pre><code>//freopen("data.in","r",stdin);
-//freopen("data2.out","w",stdout);
-int T,a,b,n,m;
-scanf("%d",&amp;T);
-while(T--){
-   scanf("%d%d%d%d",&amp;a,&amp;b,&amp;n,&amp;m);
-   if(n&gt;m||a==0) printf("NO\n");
-   else {
-      if(n%a==0) printf("YES\n");
-      else {  
-           int len=cnt(a,b);
-           n=n%a; 
-           bool fg=0;
-           rep(i,0,len){
-              if(s[i]==n) {fg=1;break;}
-              if(s[i]&gt;m){fg=0;break;}
-           }
-           if(fg)printf("YES\n");else printf("NO\n");  
-
-      }
+<pre><code>      }
    }
 }
-return 0;
+return 0; } ```
 </code></pre>
 
-<p>}
-<code>
-</code>c++
+<p><code>c++
 //记忆化搜索
 bool used[1100];
 bool bfs(int a,int b,int n,int m)
-{</p>
-
-<pre><code>queue&lt;int&gt; q;
-memset(used,0,sizeof(used));
-if(a&gt;m) return 0;
-q.push(a);
-used[a]=1;
-int t;
-while(!q.empty())
 {
-   int tmp=q.front(); q.pop();
-   used[tmp]=1;
-   if(tmp==n) return 1;
-   if(tmp+a&lt;=m&amp;&amp;!used[tmp+a]){used[tmp+a]=1; q.push(tmp+a);}
-   if(tmp-b&gt;=0&amp;&amp;!used[tmp-b]){used[tmp-b]=1; q.push(tmp-b);}           
+    queue&lt;int&gt; q;
+    memset(used,0,sizeof(used));
+    if(a&gt;m) return 0;
+    q.push(a);
+    used[a]=1;
+    int t;
+    while(!q.empty())
+    {
+       int tmp=q.front(); q.pop();
+       used[tmp]=1;
+       if(tmp==n) return 1;
+       if(tmp+a&lt;=m&amp;&amp;!used[tmp+a]){used[tmp+a]=1; q.push(tmp+a);}
+       if(tmp-b&gt;=0&amp;&amp;!used[tmp-b]){used[tmp-b]=1; q.push(tmp-b);}           
+    }
+    return 0;
 }
-return 0;
-</code></pre>
+</code></p>
 
-<p>}
-```</p>
-
-<h2>D <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1991">统计学号</a></h2>
+<h2 id="d-httpacmswjtueducnjudgeonlineshowproblemproblemid1991">D <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1991">统计学号</a></h2>
 
 <p>排序下，扫描一遍即可，秒杀级水题一枚。不会快排的可冒泡。</p>
 
-<p>```c++</p>
-
-<h1>include<cstdio></h1>
-
-<h1>include<cstring></h1>
-
-<h1>include<iostream></h1>
-
-<h1>include<algorithm></h1>
-
-<p>using namespace std;</p>
-
-<h1>define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)</h1>
-
-<p>int a[110];
+<p><code>c++ 
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;iostream&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+#define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)
+int a[110];
 int main()
 {
- //   freopen(&ldquo;data.in&rdquo;,&ldquo;r&rdquo;,stdin);
- //   freopen(&ldquo;data.out&rdquo;,&ldquo;w&rdquo;,stdout);</p>
-
-<pre><code>int T,n;
-scanf("%d",&amp;T);
-while(T--){
-   scanf("%d",&amp;n);
-   rep(i,0,n)scanf("%d",&amp;a[i]);
-   sort(a,a+n);
-   int cnt=1;
-   rep(i,1,n) {if(a[i]!=a[i-1])cnt++;}
-   printf("%d\n",cnt);        
+ //   freopen("data.in","r",stdin);
+ //   freopen("data.out","w",stdout);
+    int T,n;
+    scanf("%d",&amp;T);
+    while(T--){
+       scanf("%d",&amp;n);
+       rep(i,0,n)scanf("%d",&amp;a[i]);
+       sort(a,a+n);
+       int cnt=1;
+       rep(i,1,n) {if(a[i]!=a[i-1])cnt++;}
+       printf("%d\n",cnt);        
+    }
+    return 0;
 }
-return 0;
-</code></pre>
+</code></p>
 
-<p>}
-```</p>
+<h2 id="e-20httpacmswjtueducnjudgeonlineshowproblemproblemid1992">E <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1992">德德的嗜好2.0</a></h2>
 
-<h2>E <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1992">德德的嗜好2.0</a></h2>
+<p>此题也是一个排序题，当然如果直接<code>strcmp</code>是不行的，考虑90 9这组数据，结果很明显应该是990而不是909。<br />
+因为我们在排序的时候只要保证<code>(a+b)&gt;(b+a)</code>即可。<br />
+<strong>再次表示对数据中出现了大于1000的数表示抱歉</strong></p>
 
-<p>此题也是一个排序题，当然如果直接<code>strcmp</code>是不行的，考虑90 9这组数据，结果很明显应该是990而不是909。<br/>
-因为我们在排序的时候只要保证<code>(a+b)>(b+a)</code>即可。<br/>
-<strong>再次表示对数据中出现了大于1000的数表示抱歉</strong>
-```c++</p>
-
-<h1>include<cstdio></h1>
-
-<h1>include<cstring></h1>
-
-<h1>include<iostream></h1>
-
-<h1>include<algorithm></h1>
-
-<p>using namespace std;</p>
-
-<h1>define rep(i, n) for (int i=0; i&lt;(n); ++i)</h1>
-
-<p>string s[81];
+<p><code>c++ 
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;iostream&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+#define rep(i, n) for (int i=0; i&lt;(n); ++i)
+string s[81];
 bool cmp(string a,string b)
-{</p>
-
-<pre><code> return (a+b)&gt;(b+a);
-</code></pre>
-
-<p>}
-int main()
-{</p>
-
-<pre><code>//freopen("data.in","r",stdin);
-//freopen("data.out","w",stdout);
-int T,n;
-cin&gt;&gt;T;
-while(T--)
 {
-  cin&gt;&gt;n;
-  rep(i,n)cin&gt;&gt;s[i];
-  sort(s,s+n,cmp);   
-  rep(i,n)cout&lt;&lt;s[i];
-  cout&lt;&lt;endl;    
+     return (a+b)&gt;(b+a);
 }
-return 0;
-</code></pre>
+int main()
+{
+    //freopen("data.in","r",stdin);
+    //freopen("data.out","w",stdout);
+    int T,n;
+    cin&gt;&gt;T;
+    while(T--)
+    {
+      cin&gt;&gt;n;
+      rep(i,n)cin&gt;&gt;s[i];
+      sort(s,s+n,cmp);   
+      rep(i,n)cout&lt;&lt;s[i];
+      cout&lt;&lt;endl;    
+    }
+    return 0;
+}
+</code></p>
 
-<p>}
-```</p>
-
-<h2>F <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1993">德德的嗜好3.0</a></h2>
-
-<p>公式题或者找规律  <code>b(8k+m)=b(m)+60k;  (k=n/8;m=n%8)</code> 打表出前8项就够了;其中<code>b(0)=-1;</code> 可以m等于1到8~这样就用不到b(0)但是计算k,m就多了几行代码。<br/>
-下面是推论：</p>
+<h2 id="f-30httpacmswjtueducnjudgeonlineshowproblemproblemid1993">F <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1993">德德的嗜好3.0</a></h2>
+<p>公式题或者找规律  <code>b(8k+m)=b(m)+60k;  (k=n/8;m=n%8)</code> 打表出前8项就够了;其中<code>b(0)=-1;</code> 可以m等于1到8~这样就用不到b(0)但是计算k,m就多了几行代码。<br />
+下面是推论：  </p>
 
 <ul>
-<li><p>由于<code>a(n+15)-a(n)=60</code>,故若<code>a(n)</code>是3或5的倍数,当且仅当<code>a(n+15)</code>是3或5的倍数.</p></li>
-<li><p>于是每15个数是一个周期，前15个3-59~所以划分区间。</p></li>
-<li><p>现将数轴正向分成一系列长为60的区间段: <code>(0,+?)＝(0,60]∪(60,120]∪(120,180]∪…,</code>注意第一个区间段中含有{a(n)}的项15个,即<code>3,7,11,15,19,23,27,31,35,39,43,47,51,55,59</code>其中属于{ }的项8个,为:<code>b(1)=7, b(2)=11, b(3)=19, b(4)=23,   b(5)=31, b(6)=43, b(7)=47, b(8)=59</code></p></li>
-<li><p>于是每个区间段中恰有15个{ }的项,8个{ }的项,且有<code>b(8k+m)-b(m)=60k;</code></p></li>
-<li><p>EG：由于<code>2006＝8×250+6</code>,而<code>b(6)=43</code>,所以<code>b(2006)=60*250+b(6)=15043</code>。</p></li>
+  <li>
+    <p>由于<code>a(n+15)-a(n)=60</code>,故若<code>a(n)</code>是3或5的倍数,当且仅当<code>a(n+15)</code>是3或5的倍数. 	</p>
+  </li>
+  <li>
+    <p>于是每15个数是一个周期，前15个3-59~所以划分区间。	</p>
+  </li>
+  <li>
+    <p>现将数轴正向分成一系列长为60的区间段: <code>(0,+?)＝(0,60]∪(60,120]∪(120,180]∪…,</code>注意第一个区间段中含有{a(n)}的项15个,即<code>3,7,11,15,19,23,27,31,35,39,43,47,51,55,59</code>其中属于{ }的项8个,为:<code>b(1)=7, b(2)=11, b(3)=19, b(4)=23,   b(5)=31, b(6)=43, b(7)=47, b(8)=59</code>	</p>
+  </li>
+  <li>
+    <p>于是每个区间段中恰有15个{ }的项,8个{ }的项,且有<code>b(8k+m)-b(m)=60k;</code>	 </p>
+  </li>
+  <li>
+    <p>EG：由于<code>2006＝8×250+6</code>,而<code>b(6)=43</code>,所以<code>b(2006)=60*250+b(6)=15043</code>。	</p>
+  </li>
 </ul>
 
-
-<p>```c++</p>
-
-<h1>include<cstdio></h1>
-
-<h1>include<cstring></h1>
-
-<h1>include<iostream></h1>
-
-<h1>include<algorithm></h1>
-
-<p>using namespace std;</p>
-
-<h1>define ll long long</h1>
-
-<h1>define rep(i, n) for (int i=0; i&lt;(n); ++i)</h1>
-
-<p>int b[8]={-1,7,11,19,23,31,43,47};</p>
+<p>```c++ 
+#include<cstdio>
+#include<cstring>
+#include<iostream>
+#include<algorithm>
+using namespace std;
+#define ll long long
+#define rep(i, n) for (int i=0; i&lt;(n); ++i)
+int b[8]={-1,7,11,19,23,31,43,47};</algorithm></iostream></cstring></cstdio></p>
 
 <p>int main()
-{</p>
-
-<pre><code>//freopen("data.in","r",stdin);
-//freopen("data.out","w",stdout);
-int T,n;
-scanf("%d",&amp;T);
-while(T--)
 {
-    scanf("%d",&amp;n);  
-    ll ans=60LL*(n/8)+b[n%8];
-    printf("%lld\n",ans);    
+    //freopen(“data.in”,”r”,stdin);
+    //freopen(“data.out”,”w”,stdout);
+    int T,n;
+    scanf(“%d”,&amp;T);
+    while(T–)
+    {
+        scanf(“%d”,&amp;n);<br />
+        ll ans=60LL*(n/8)+b[n%8];
+        printf(“%lld\n”,ans);  <br />
+    }
+    return 0;
 }
-return 0;
-</code></pre>
-
-<p>}
 ```</p>
 
-<h2>G <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1994">不知道自己不知道</a></h2>
+<h2 id="g-httpacmswjtueducnjudgeonlineshowproblemproblemid1994">G <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1994">不知道自己不知道</a></h2>
 
-<p>没什么好说的
-<code>c
+<p>没什么好说的</p>
+
+<p><code>c
 while(~scanf("%d",&amp;n)) printf("%d\n",2013-n);
 </code></p>
 
-<h2>H <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1995">知道自己不知道</a></h2>
+<h2 id="h-httpacmswjtueducnjudgeonlineshowproblemproblemid1995">H <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1995">知道自己不知道</a></h2>
 
-<p>数组求和除以M向上取整.<br/>
-<code>
+<p>数组求和除以M向上取整.  </p>
+
+<p><code>
 rep(i,0,n)  scanf("%d",&amp;a);
 sum+=a;     
 printf("%d\n",(sum+m-1)/m); //加上m-1为向上取整
 </code></p>
 
-<h2>I <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1996">不知道自己知道</a></h2>
+<h2 id="i-httpacmswjtueducnjudgeonlineshowproblemproblemid1996">I <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1996">不知道自己知道</a></h2>
 
-<p>暴力比较即可
-```c++</p>
+<p>暴力比较即可</p>
 
-<h1>define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)</h1>
-
-<p>string s[110];
+<p>```c++ 
+#define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)
+string s[110];
 int main()
 {</p>
 
@@ -1262,56 +1076,44 @@ while(t++&lt;T)
       else cout&lt;&lt;"No"&lt;&lt;endl;
     }        
 }
-return 0;
+return 0; } ```
 </code></pre>
 
-<p>}
-```</p>
+<h1 id="j-httpacmswjtueducnjudgeonlineshowproblemproblemid1997">J <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1997">知道自己知道</a></h1>
 
-<h1>J <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1997">知道自己知道</a></h1>
+<p>做一下结构体，保存i和和i出现的次数，有负数，i集体加上100，然后恢复即可。</p>
 
-<p>做一下结构体，保存i和和i出现的次数，有负数，i集体加上100，然后恢复即可。
-```c++</p>
-
-<h1>define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)</h1>
-
-<p>struct pt{</p>
-
-<pre><code>int cnt;
-int i;  
-</code></pre>
-
-<p>};
+<p><code>c++ 
+#define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)
+struct pt{     
+	int cnt;
+    int i;  
+};
 pt s[550];
-bool cmp(pt a,pt b){</p>
-
-<pre><code> if(a.cnt==b.cnt) return a.i&lt;b.i;     
- return a.cnt&gt;b.cnt;
-</code></pre>
-
-<p>}
-int main(){</p>
-
-<pre><code>int t,n,a;
-scanf("%d",&amp;t);
-while(t--){
-    rep(i,0,500){s[i].i=i-100;s[i].cnt=0;}
-    scanf("%d",&amp;n);
-    rep(i,0,n)  {  scanf("%d",&amp;a);      s[a+100].cnt++; }
-    sort(s,s+500,cmp);
-    int cnt=0;
-    rep(i,0,500){if(s[i].cnt!=0)cnt++;else break;}
-    printf("%d",cnt);
-    rep(i,0,500){  if(!s[i].cnt)break;  printf(" %d",s[i].i);   }
-    printf("\n");
+bool cmp(pt a,pt b){
+     if(a.cnt==b.cnt) return a.i&lt;b.i;     
+     return a.cnt&gt;b.cnt;
 }
-return 0;
-</code></pre>
-
-<p>}
-```</p>
+int main(){
+    int t,n,a;
+    scanf("%d",&amp;t);
+    while(t--){
+        rep(i,0,500){s[i].i=i-100;s[i].cnt=0;}
+        scanf("%d",&amp;n);
+        rep(i,0,n)  {  scanf("%d",&amp;a);      s[a+100].cnt++; }
+        sort(s,s+500,cmp);
+        int cnt=0;
+        rep(i,0,500){if(s[i].cnt!=0)cnt++;else break;}
+        printf("%d",cnt);
+        rep(i,0,500){  if(!s[i].cnt)break;  printf(" %d",s[i].i);   }
+        printf("\n");
+    }
+    return 0;
+}
+</code></p>
 
 <p>以上题目均为过测试数据的程序，不保证程序完全正确无误，欢迎指正,预赛题目难度很明显会增大很多，大家加油。 3Q</p>
+
 ]]></content>
   </entry>
   

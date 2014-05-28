@@ -57,6 +57,8 @@
    html{background: url("http://unkeltao.qiniudn.com/bg/IMG_background.png") no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;
    }
   </style>
+
+  
 </head>
 
 <body   >
@@ -93,6 +95,61 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2014/03/02/ruby-for-hustoj/">为Hustoj添加ruby支持</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-02T14:33:16+00:00" pubdate data-updated="true">Mar 2<span>nd</span>, 2014</time>
+        
+        
+          | <a href="/blog/2014/03/02/ruby-for-hustoj/#comments">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>虽然已经不是再搞ACM了，但是算法偶尔还是要练习一下写代码，然后最近学习ruby中，打算用ruby来写写ACM题目也算熟悉ruby，免得不用就忘记了，记得Hustoj是可以支持Ruby的，于是就在我们学校的训练Oj上提交了A+B的Ruby代码：</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class="ruby"><span class="line"><span class="nb">readlines</span><span class="o">.</span><span class="n">each</span><span class="p">{</span><span class="o">|</span><span class="n">line</span><span class="o">|</span>
+</span><span class="line">	<span class="nb">p</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="o">.</span><span class="n">collect</span><span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="o">.</span><span class="n">to_i</span><span class="p">}</span><span class="o">.</span><span class="n">inject</span><span class="p">{</span><span class="o">|</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">|</span> <span class="n">y</span> <span class="o">+=</span> <span class="n">x</span><span class="p">}</span>
+</span><span class="line"><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>于是华丽的给了我一个WA~~~正在想怎么可能，想起来服务器上没有装ruby，于是远程到7509的服务器上再ssh到训练oj的服务器(只能内网访问，ping不到外网地址)，将ruby装上。</p>
+
+<p>然后就开始了无止境的RE生涯，简直无情，各种call禁止：
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/03/02/ruby-for-hustoj/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2014/02/24/latex-table/">Latex 绘制跨页表格</a></h1>
     
     
@@ -119,8 +176,7 @@
   </header>
 
 
-  <div class="entry-content"><p>使用latex绘制表格或多或少都会遇到这样的问题，一个表格过长超过一页应该如何处理，latex提供了一些宏包，如longtable和supertabular;这里介绍如何用supertabular绘制跨页表格。</p>
-
+  <div class="entry-content"><p>使用latex绘制表格或多或少都会遇到这样的问题，一个表格过长超过一页应该如何处理，latex提供了一些宏包，如longtable和supertabular;这里介绍如何用supertabular绘制跨页表格。
 </div>
   
   
@@ -163,8 +219,7 @@
   </header>
 
 
-  <div class="entry-content"><p>写论文必不可少的工具当然是 Latex，但是WinEdt的界面实在是不喜欢，钟爱Sublime的当然想在Sublime上进行Latex的书写，一找，还真找到插件了<strong><a href="https://github.com/SublimeText/LaTeXTools/blob/master/README.markdown">LatexTools</a></strong>。</p>
-
+  <div class="entry-content"><p>写论文必不可少的工具当然是 Latex，但是WinEdt的界面实在是不喜欢，钟爱Sublime的当然想在Sublime上进行Latex的书写，一找，还真找到插件了<strong><a href="https://github.com/SublimeText/LaTeXTools/blob/master/README.markdown">LatexTools</a></strong>。
 </div>
   
   
@@ -207,8 +262,7 @@
   </header>
 
 
-  <div class="entry-content"><p>终于还是从 Wordpress 搬迁到 Octopress 上来了，搬迁相对还是挺容易了，毕竟以前还是接触过一些ruby，加上<a href="http://octopress.org/docs/setup/" title="官方文档">官方文档</a> ，所以环境什么的搭建的比较顺利。</p>
-
+  <div class="entry-content"><p>终于还是从 Wordpress 搬迁到 Octopress 上来了，搬迁相对还是挺容易了，毕竟以前还是接触过一些ruby，加上<a href="http://octopress.org/docs/setup/" title="官方文档">官方文档</a> ，所以环境什么的搭建的比较顺利。
 </div>
   
   
@@ -257,8 +311,7 @@
 
 <p>于是赤裸裸的去了，然后悲催的爆0了</p>
 
-<p>只看了A、B两题~~A题觉得挺简单的，敲了个2分交上去过了Pass，想了想B觉得没有想法就睡觉了。。。</p>
-
+<p>只看了A、B两题~~A题觉得挺简单的，敲了个2分交上去过了Pass，想了想B觉得没有想法就睡觉了。。。
 </div>
   
   
@@ -301,7 +354,7 @@
   </header>
 
 
-  <div class="entry-content"><p><strong>比赛链接：</strong>  <a href="http://acm.swjtu.edu.cn/JudgeOnline/showcontest?contest_id=1135" title="第九届ACM校赛资格赛">第九届ACM校赛资格赛</a></p>
+  <div class="entry-content"><p><strong>比赛链接：</strong>  <a href="http://acm.swjtu.edu.cn/JudgeOnline/showcontest?contest_id=1135" title="第九届ACM校赛资格赛">第九届ACM校赛资格赛</a>  </p>
 
 <p>资格赛嘛，本着大家熟悉环境增强自信心的原则~10道题没有太难的题目~适合新手练习.本次比赛D、E、F是我出的，本着简单的想法却没想到坑了一部分人，其中E题的数据再随机的时候超出了题目描述的范围造成一些人AC的程序WA了，在此表示抱歉,致以诚挚的歉意。下面给出我对着10道题的解法，可能我的解法并不是完全正确恰好过了数据而已，欢迎大家指正。</p>
 
@@ -349,8 +402,7 @@
 
   <div class="entry-content"><p>比赛的一道题,一直没时间写.最近空了，继续写写水题。</p>
 
-<p>题目描述：</p>
-
+<p>题目描述：
 </div>
   
   
@@ -401,26 +453,23 @@
 <p>解决代码：
 法1：</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>sudo apt-get install dkms build-essential linux-headers-<span class="k">$(</span>uname -r<span class="k">)</span>
-</span><span class='line'>sudo /etc/init.d/vboxdrv setup
-</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class="sh"><span class="line">sudo apt-get install dkms build-essential linux-headers-<span class="k">$(</span>uname -r<span class="k">)</span>
+</span><span class="line">sudo /etc/init.d/vboxdrv setup
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>法2：</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>sudo apt-get install module-assistant
-</span><span class='line'>sudo modprobe vboxnetflt
-</span><span class='line'>sudo modprobe vboxdrv
-</span></code></pre></td></tr></table></div></figure>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class="sh"><span class="line">sudo apt-get install module-assistant
+</span><span class="line">sudo modprobe vboxnetflt
+</span><span class="line">sudo modprobe vboxdrv
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-
-<p class='post-footer'>原文地址:&nbsp;<a href='http://www.UnkelTao.com/blog/2011/02/18/ubuntu-problem/'>http://www.UnkelTao.com/blog/2011/02/18/ubuntu-problem/</a><br/><br/>&nbsp;由 <a href='http://www.UnkelTao.com'>UnkelTao</a>&nbsp;撰写并发表于 <a href='http://www.UnkelTao.com'>http://www.UnkelTao.com</a></p>
-
+<p class="post-footer">原文地址:&nbsp;<a href="http://www.UnkelTao.com/blog/2011/02/18/ubuntu-problem/">http://www.UnkelTao.com/blog/2011/02/18/ubuntu-problem/</a><br /><br />&nbsp;由 <a href="http://www.UnkelTao.com">UnkelTao</a>&nbsp;撰写并发表于 <a href="http://www.UnkelTao.com">http://www.UnkelTao.com</a></p>
 </div>
   
   
@@ -525,6 +574,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/05/28/latex-test/">latex test</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/04/29/intsall-tmux/">Linux 下安装 Tmux</a>
       </li>
     
@@ -538,10 +591,6 @@
     
       <li class="post">
         <a href="/blog/2014/03/23/ren-sheng-ruo-zhi-ru-chu-jian-an-yi-ru-du-shu-bi-ji/"><人生若只如初见 (安意如)>读书笔记</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/21/codeforces-round-number-237-div-2/">Codeforces Round #237 (Div. 2) </a>
       </li>
     
   </ul>

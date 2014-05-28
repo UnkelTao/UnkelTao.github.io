@@ -17,105 +17,119 @@
     </div>
     <div id="content">
     <h1 id="toc1" class="justcenter">问题解决方案 </h1>
-    <div class="toc">
-    	<ul>
-<li><a href="#toc1">问题解决方案</a>
 
-<ul>
-<li><a href="#toc_1.1">1. windows</a>
+    	<div class="toc">
 
-<ul>
-<li><a href="#toc_1.1.1">1.1. 无法访问自定义操作的vbscript运行时间</a></li>
-<li><a href="#toc_1.1.2">1.2. 递归删除目录下的exe</a></li>
-</ul>
-</li>
-<li><a href="#toc_1.2">2. cygwin</a>
+  <ul>
+    <li><a href="#toc1">问题解决方案</a>
+      <ul>
+        <li><a href="#toc_1.1">1. windows</a>
+          <ul>
+            <li><a href="#toc_1.1.1">1.1. 无法访问自定义操作的vbscript运行时间</a></li>
+            <li><a href="#toc_1.1.2">1.2. 递归删除目录下的exe</a></li>
+          </ul>
+        </li>
+        <li><a href="#toc_1.2">2. cygwin</a>
+          <ul>
+            <li><a href="#toc_1.2.1">2.1. rake等命令无法执行</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
 
-<ul>
-<li><a href="#toc_1.2.1">2.1. rake等命令无法执行</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+</div>
+<div class="neirong">
 
+  <h2 id="toc_1.1">1. windows</h2>
+  <h3 id="toc_1.1.1">1.1. 无法访问自定义操作的vbscript运行时间</h3>
 
-<p></div></p>
+  <ul>
+    <li>问题描述：</li>
+  </ul>
 
-<p><div class="neirong"></p>
+  <div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">无法访问自定义操作的vbscript运行时间
+</span><span class="line">Could not access VBScript run time for custom action.</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-<p><h2 id="toc_1.1">1. windows</h2>
-<h3 id="toc_1.1.1">1.1. 无法访问自定义操作的vbscript运行时间</h3></p>
+  <ul>
+    <li>解决方案:</li>
+    <li>64-bit  </li>
+  </ul>
 
-<ul>
-<li><p>问题描述：
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>无法访问自定义操作的vbscript运行时间
-</span><span class='line'>Could not access VBScript run time for custom action.</span></code></pre></td></tr></table></div></figure></p></li>
-<li><p>解决方案:</p>
+  <div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">reg delete "HKCU\SOFTWARE\Classes\Wow6432Node\CLSID\\{B54F3741-5B07-11CF-A4B0-00AA004A55E8}" /f
+</span><span class="line">c:\windows\syswow64\regsvr32 vbscript.dll</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-<ul>
-<li>64-bit
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>reg delete &ldquo;HKCU\SOFTWARE\Classes\Wow6432Node\CLSID\{B54F3741-5B07-11CF-A4B0-00AA004A55E8}&rdquo; /f
-</span><span class='line'>c:\windows\syswow64\regsvr32 vbscript.dll</span></code></pre></td></tr></table></div></figure></li>
-<li>32-bit
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>reg delete &ldquo;HKCU\SOFTWARE\Classes\CLSID\{B54F3741-5B07-11CF-A4B0-00AA004A55E8}&rdquo; /f
-</span><span class='line'>c:\windows\system32\regsvr32 vbscript.dll </span></code></pre></td></tr></table></div></figure></li>
-</ul>
-</li>
-</ul>
+  <ul>
+    <li>32-bit   </li>
+  </ul>
 
+  <div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">reg delete "HKCU\SOFTWARE\Classes\CLSID\\{B54F3741-5B07-11CF-A4B0-00AA004A55E8}" /f
+</span><span class="line">c:\windows\system32\regsvr32 vbscript.dll	</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-<p><h3 id="toc_1.1.2">1.2. 递归删除目录下的exe文件</h3></p>
+  <h3 id="toc_1.1.2">1.2. 递归删除目录下的exe文件</h3>
 
-<ul>
-<li>sh
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ls | xargs -i% find %  -name &lsquo;*.exe&rsquo; -type f -print0 | xargs -0 rm -rf</span></code></pre></td></tr></table></div></figure></li>
-</ul>
+  <ul>
+    <li>sh</li>
+  </ul>
 
+  <div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">ls | xargs -i% find %  -name '*.exe' -type f -print0 | xargs -0 rm -rf</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-<p><h2 id="toc_1.2">2. cygwin</h2>
-<h3 id="toc_1.2.1">2.1. rake等命令无法执行</h3></p>
+  <h2 id="toc_1.2">2. cygwin</h2>
+  <h3 id="toc_1.2.1">2.1. rake等命令无法执行</h3>
 
-<ul>
-<li>问题描述
+  <ul>
+    <li>问题描述   </li>
+  </ul>
 
-<blockquote><p>  rake generate<br/>
-C:\Myprogram\huanjing\ruby\Ruby200-x64\bin\ruby.exe: No such file or directory &mdash; /cygdrive/c/Myprogram/huanjing/ruby/Ruby200-x64/bin/rake (LoadError)</p></blockquote></li>
-<li>原因
+  <blockquote>
+    <p>rake generate<br />
+C:\Myprogram\huanjing\ruby\Ruby200-x64\bin\ruby.exe: No such file or directory – /cygdrive/c/Myprogram/huanjing/ruby/Ruby200-x64/bin/rake (LoadError)    </p>
+  </blockquote>
 
-<blockquote><p>  环境变量下面含有Linux下的程序，Cygwin优先执行该程序，所以没法运行。</p></blockquote></li>
-<li>解决方案
+  <ul>
+    <li>原因  </li>
+  </ul>
 
-<blockquote><p>  配置环境变量，将相关的命令别名成.bat<br/>
-alias gem=&lsquo;gem.bat&#8217;<br/>
-alias rake=&#8217;rake.bat&#8217;<br/>
-alias erb=&#8217;erb.bat&#8217;<br/>
-alias irb=&#8217;irb.bat&#8217;<br/>
-alias rdoc=&#8217;rdoc.bat&#8217;<br/>
-alias ri=&#8217;ri.bat&#8217;<br/>
-alias rspec=&#8217;rspec.bat&#8217;<br/>
-alias cucumber=&#8217;cucumber.bat&#8217;<br/>
-alias bundle=&#8217;bundle.bat&rsquo;</p></blockquote></li>
-</ul>
+  <blockquote>
+    <p>环境变量下面含有Linux下的程序，Cygwin优先执行该程序，所以没法运行。  </p>
+  </blockquote>
 
+  <ul>
+    <li>解决方案  </li>
+  </ul>
 
-<p><h3 id="toc_1.2.1">2.2. clear请屏问题</h3></p>
+  <blockquote>
+    <p>配置环境变量，将相关的命令别名成.bat<br />
+alias gem=’gem.bat’<br />
+alias rake=’rake.bat’<br />
+alias erb=’erb.bat’<br />
+alias irb=’irb.bat’<br />
+alias rdoc=’rdoc.bat’<br />
+alias ri=’ri.bat’<br />
+alias rspec=’rspec.bat’<br />
+alias cucumber=’cucumber.bat’<br />
+alias bundle=’bundle.bat’   </p>
+  </blockquote>
 
-<ul>
-<li>解决方案
+  <h3 id="toc_1.2.1">2.2. clear请屏问题</h3>
 
-<blockquote><p>  1) ctrl + l<br/>
-2) 如上面方法，修改.bashrc 添加 alias cls=&lsquo;echo -e &ldquo;\E[2J&rdquo;&#8217;<br/>
-3) 在cygwind中install ncurses (in Utils) (PS: 未测试,Ctrl+L比较好使)</p></blockquote></li>
-</ul>
+  <ul>
+    <li>解决方案   </li>
+  </ul>
 
+  <blockquote>
+    <p>1) ctrl + l<br />
+2) 如上面方法，修改.bashrc 添加 alias cls=’echo -e “\E[2J”’  <br />
+3) 在cygwind中install ncurses (in Utils) (PS: 未测试,Ctrl+L比较好使)  </p>
+  </blockquote>
+</div>
 
     </div>
 </body>

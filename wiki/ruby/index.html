@@ -17,63 +17,60 @@
     </div>
     <div id="content">
     <h1 id="toc1" class="justcenter">Ruby </h1>
-    <div class="toc">
-    	<ul>
-<li><a href="#toc1">Ruby</a>
 
-<ul>
-<li><a href="#toc_1.1">1. 问题杂记</a>
+    	<div class="toc">
 
-<ul>
-<li><a href="#toc_1.1.1">1.1. Windows编码问题</a></li>
-<li><a href="#toc_1.1.2">1.2. Ruby 创建文件</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+  <ul>
+    <li><a href="#toc1">Ruby</a>
+      <ul>
+        <li><a href="#toc_1.1">1. 问题杂记</a>
+          <ul>
+            <li><a href="#toc_1.1.1">1.1. Windows编码问题</a></li>
+            <li><a href="#toc_1.1.2">1.2. Ruby 创建文件</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
 
+</div>
+<div class="neirong">
 
-<p></div></p>
+  <h2 id="toc1.1">1. 问题杂记</h2>
+  <h3 id="toc1.1.1">1.1. Windows编码问题</h3>
 
-<p><div class="neirong"></p>
+  <ul>
+    <li>在linux上面写好的代码可能在windows上面却发挥产生奇怪的错误，尤其是编码错误。当使用cmd的时候为了防止出现:</li>
+  </ul>
 
-<p><h2 id="toc1.1">1. 问题杂记</h2>
-<h3 id="toc1.1.1">1.1. Windows编码问题</h3></p>
+  <div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">Exception: invalid byte sequence in GB2312 in page</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-<ul>
-<li>在linux上面写好的代码可能在windows上面却发挥产生奇怪的错误，尤其是编码错误。当使用cmd的时候为了防止出现:</li>
-</ul>
+  <p>除了代码中设置好<code>utf-8</code>编码还应该在环境变量中设置下面两个参数：</p>
 
+  <div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">#临时方法，在CMD中敲
+</span><span class="line">set  LC_ALL=zh_CN.UTF-8 
+</span><span class="line">set  LANG=zh_CN.UTF-8
+</span><span class="line">
+</span><span class="line">#或者，在环境变量中添加这两个变量
+</span><span class="line">
+</span><span class="line">LC_ALL=zh_CN.UTF-8 
+</span><span class="line">LANG=zh_CN.UTF-8</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Exception: invalid byte sequence in GB2312 in page</span></code></pre></td></tr></table></div></figure></p>
+  <h3 id="toc1.1.2">1.2.  Ruby 创建文件</h3>
 
-<p>除了代码中设置好<code>utf-8</code>编码还应该在环境变量中设置下面两个参数：</p>
-
-<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>#临时方法，在CMD中敲
-</span><span class='line'>set  LC_ALL=zh_CN.UTF-8
-</span><span class='line'>set  LANG=zh_CN.UTF-8
-</span><span class='line'>
-</span><span class='line'>#或者，在环境变量中添加这两个变量
-</span><span class='line'>
-</span><span class='line'>LC_ALL=zh_CN.UTF-8
-</span><span class='line'>LANG=zh_CN.UTF-8</span></code></pre></td></tr></table></div></figure></p>
-
-<p><h3 id="toc1.1.2">1.2.  Ruby 创建文件</h3></p>
-
-<ul>
-<li>windows文件名中不允许有&#8221;:&ldquo;,&rdquo;&lt;&ldquo;,&rdquo;>&ldquo;等字符，在特殊化命名，尤其是以时间命名的时候注意修改，而linux下则没有该问题，所以注意跨平台代码。</li>
-</ul>
-
+  <ul>
+    <li>windows文件名中不允许有”:”,”&lt;”,”&gt;”等字符，在特殊化命名，尤其是以时间命名的时候注意修改，而linux下则没有该问题，所以注意跨平台代码。</li>
+  </ul>
+</div>
 
     </div>
 </body>

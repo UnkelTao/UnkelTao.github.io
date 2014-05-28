@@ -57,6 +57,8 @@
    html{background: url("http://unkeltao.qiniudn.com/bg/IMG_background.png") no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;
    }
   </style>
+
+  
 </head>
 
 <body   >
@@ -116,129 +118,125 @@
   </header>
 
 
-<div class="entry-content"><p>使用latex绘制表格或多或少都会遇到这样的问题，一个表格过长超过一页应该如何处理，latex提供了一些宏包，如longtable和supertabular;这里介绍如何用supertabular绘制跨页表格。</p>
-
+<div class="entry-content"><p>使用latex绘制表格或多或少都会遇到这样的问题，一个表格过长超过一页应该如何处理，latex提供了一些宏包，如longtable和supertabular;这里介绍如何用supertabular绘制跨页表格。
 <!--more-->
+##标题命令</p>
 
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>宏包相关命令</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+</pre></td><td class="code"><pre><code class="latex"><span class="line"><span class="k">\bottomcaption</span><span class="na">[目录标题]</span><span class="nb">{</span>表格标题<span class="nb">}</span>
+</span><span class="line">	 底部标题命令，指定在表格的下方生成表格标题。	
+</span><span class="line"><span class="k">\tablecaption</span><span class="na">[目录标题]</span><span class="nb">{</span>表格标题<span class="nb">}</span>
+</span><span class="line">	 表格标题命令，生成在上方，作用于<span class="k">\caption</span>类似	
+</span><span class="line"><span class="k">\tablefirsthead</span><span class="nb">{</span>首页列标题<span class="nb">}</span>
+</span><span class="line">	 用于设置第一页表格的各列标题 	
+</span><span class="line"><span class="k">\tablehead</span><span class="nb">{</span>续页列标题<span class="nb">}</span>
+</span><span class="line">	 用于设置续页列标题，可以含有多个表格行 	
+</span><span class="line"><span class="k">\tablelasttail</span><span class="nb">{</span>结束表示<span class="nb">}</span>
+</span><span class="line">	 用于表格结束时候显示的标示。 	
+</span><span class="line"><span class="k">\tabletail</span><span class="nb">{</span>分页标识<span class="nb">}</span>
+</span><span class="line">	 用于设置分页前，所显示的分页标识，如&quot;接下页&quot;。	
+</span><span class="line"><span class="k">\topcaption</span><span class="na">[目录标题]</span><span class="nb">{</span>表格标题<span class="nb">}</span>
+</span><span class="line">	 顶部标题设置，指定表格上方生成表格标题。 	
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-<h2>标题命令</h2>
+<p>再和其他一些宏包使用，便可以轻松的画出表格了。  </p>
 
-<figure class='code'><figcaption><span>宏包相关命令</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='latex'><span class='line'><span class="k">\bottomcaption</span><span class="na">[目录标题]</span><span class="nb">{</span>表格标题<span class="nb">}</span>
-</span><span class='line'>   底部标题命令，指定在表格的下方生成表格标题。 
-</span><span class='line'><span class="k">\tablecaption</span><span class="na">[目录标题]</span><span class="nb">{</span>表格标题<span class="nb">}</span>
-</span><span class='line'>   表格标题命令，生成在上方，作用于<span class="k">\caption</span>类似  
-</span><span class='line'><span class="k">\tablefirsthead</span><span class="nb">{</span>首页列标题<span class="nb">}</span>
-</span><span class='line'>   用于设置第一页表格的各列标题     
-</span><span class='line'><span class="k">\tablehead</span><span class="nb">{</span>续页列标题<span class="nb">}</span>
-</span><span class='line'>   用于设置续页列标题，可以含有多个表格行  
-</span><span class='line'><span class="k">\tablelasttail</span><span class="nb">{</span>结束表示<span class="nb">}</span>
-</span><span class='line'>   用于表格结束时候显示的标示。     
-</span><span class='line'><span class="k">\tabletail</span><span class="nb">{</span>分页标识<span class="nb">}</span>
-</span><span class='line'>   用于设置分页前，所显示的分页标识，如&quot;接下页&quot;。 
-</span><span class='line'><span class="k">\topcaption</span><span class="na">[目录标题]</span><span class="nb">{</span>表格标题<span class="nb">}</span>
-</span><span class='line'>   顶部标题设置，指定表格上方生成表格标题。   
-</span></code></pre></td></tr></table></div></figure>
+<h2 id="section">参考样例</h2>
 
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>宏包</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+</pre></td><td class="code"><pre><code class="latex"><span class="line"><span class="c">%涉及宏包</span>
+</span><span class="line"><span class="k">\usepackage</span><span class="nb">{</span>supertabular<span class="nb">}</span> <span class="c">%supertabular表格宏包</span>
+</span><span class="line"><span class="k">\usepackage</span><span class="nb">{</span>colortbl<span class="nb">}</span> <span class="c">%彩色表格宏包</span>
+</span><span class="line"><span class="k">\usepackage</span><span class="nb">{</span>booktabs<span class="nb">}</span> <span class="c">%表格线宏包</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-<p>再和其他一些宏包使用，便可以轻松的画出表格了。</p>
+<h3 id="section-1">参考代码</h3>
 
-<h2>参考样例</h2>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+<span class="line-number">22</span>
+<span class="line-number">23</span>
+<span class="line-number">24</span>
+</pre></td><td class="code"><pre><code class="latex"><span class="line"><span class="c">%跨页表格</span>
+</span><span class="line"><span class="k">\begin</span><span class="nb">{</span>center<span class="nb">}</span> <span class="k">\tablecaption</span><span class="nb">{</span>Linux 系统中的目录 <span class="k">\label</span><span class="nb">{</span>tab:super<span class="nb">}}</span>
+</span><span class="line"><span class="k">\tablefirsthead</span><span class="nb">{</span>
+</span><span class="line"><span class="k">\rowcolor</span><span class="na">[gray]</span><span class="nb">{</span>0.8<span class="nb">}</span>
+</span><span class="line"><span class="k">\multicolumn</span><span class="nb">{</span>1<span class="nb">}{</span>l<span class="nb">}{</span><span class="k">\textbf</span><span class="nb">{</span>目录<span class="nb">}}</span> <span class="nb">&amp;</span>
+</span><span class="line"><span class="k">\multicolumn</span><span class="nb">{</span>1<span class="nb">}{</span>c<span class="nb">}{</span><span class="k">\textbf</span><span class="nb">{</span>注解<span class="nb">}}</span> <span class="k">\\</span> <span class="nb">}</span>
+</span><span class="line"><span class="k">\tablehead</span><span class="nb">{</span><span class="k">\multicolumn</span><span class="nb">{</span>2<span class="nb">}{</span>c<span class="nb">}{</span>
+</span><span class="line"><span class="k">\small</span> 表 <span class="k">\ref</span><span class="nb">{</span>tab:super<span class="nb">}</span> (续) <span class="nb">}</span> <span class="k">\\</span>
+</span><span class="line"><span class="k">\rowcolor</span><span class="na">[gray]</span><span class="nb">{</span>0.8<span class="nb">}</span>
+</span><span class="line"><span class="k">\multicolumn</span><span class="nb">{</span>1<span class="nb">}{</span>l<span class="nb">}{</span><span class="k">\textbf</span><span class="nb">{</span>目录<span class="nb">}}</span> <span class="nb">&amp;</span>
+</span><span class="line"><span class="k">\multicolumn</span><span class="nb">{</span>1<span class="nb">}{</span>c<span class="nb">}{</span><span class="k">\textbf</span><span class="nb">{</span>注解<span class="nb">}}</span> <span class="k">\\</span><span class="nb">}</span>
+</span><span class="line"><span class="k">\tabletail</span><span class="nb">{</span><span class="k">\bottomrule</span>
+</span><span class="line"><span class="k">\multicolumn</span><span class="nb">{</span>2<span class="nb">}{</span>c<span class="nb">}{</span><span class="k">\small</span> 接下页<span class="nb">}</span> <span class="k">\\</span><span class="nb">}</span>
+</span><span class="line"><span class="k">\tablelasttail</span><span class="nb">{</span><span class="k">\bottomrule</span><span class="nb">}</span>
+</span><span class="line">
+</span><span class="line"><span class="k">\begin</span><span class="nb">{</span>supertabular<span class="nb">}{</span>p<span class="nb">{</span>2.cm<span class="nb">}</span>p<span class="nb">{</span>13cm<span class="nb">}}</span>
+</span><span class="line">
+</span><span class="line">/	<span class="nb">&amp;</span> 根目录，万物起源。<span class="k">\\</span>
+</span><span class="line"><span class="k">\midrule</span>
+</span><span class="line">/bin <span class="nb">&amp;</span> 包含系统启动和运行所必须的二进制程序。<span class="k">\\</span>
+</span><span class="line"><span class="c">% 以下都是类似行数据，故省略</span>
+</span><span class="line">
+</span><span class="line"><span class="k">\end</span><span class="nb">{</span>supertabular<span class="nb">}</span>
+</span><span class="line"><span class="k">\end</span><span class="nb">{</span>center<span class="nb">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-<figure class='code'><figcaption><span>宏包</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='latex'><span class='line'><span class="c">%涉及宏包</span>
-</span><span class='line'><span class="k">\usepackage</span><span class="nb">{</span>supertabular<span class="nb">}</span> <span class="c">%supertabular表格宏包</span>
-</span><span class='line'><span class="k">\usepackage</span><span class="nb">{</span>colortbl<span class="nb">}</span> <span class="c">%彩色表格宏包</span>
-</span><span class='line'><span class="k">\usepackage</span><span class="nb">{</span>booktabs<span class="nb">}</span> <span class="c">%表格线宏包</span>
-</span></code></pre></td></tr></table></div></figure>
+<h3 id="section-2">效果图</h3>
 
+<p>(太长，缩小看整体效果)  </p>
 
-<h3>参考代码</h3>
+<p><img src="http://unkeltao.qiniudn.com/img/001.png" alt="" /> </p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-</pre></td><td class='code'><pre><code class='latex'><span class='line'><span class="c">%跨页表格</span>
-</span><span class='line'><span class="k">\begin</span><span class="nb">{</span>center<span class="nb">}</span> <span class="k">\tablecaption</span><span class="nb">{</span>Linux 系统中的目录 <span class="k">\label</span><span class="nb">{</span>tab:super<span class="nb">}}</span>
-</span><span class='line'><span class="k">\tablefirsthead</span><span class="nb">{</span>
-</span><span class='line'><span class="k">\rowcolor</span><span class="na">[gray]</span><span class="nb">{</span>0.8<span class="nb">}</span>
-</span><span class='line'><span class="k">\multicolumn</span><span class="nb">{</span>1<span class="nb">}{</span>l<span class="nb">}{</span><span class="k">\textbf</span><span class="nb">{</span>目录<span class="nb">}}</span> <span class="nb">&amp;</span>
-</span><span class='line'><span class="k">\multicolumn</span><span class="nb">{</span>1<span class="nb">}{</span>c<span class="nb">}{</span><span class="k">\textbf</span><span class="nb">{</span>注解<span class="nb">}}</span> <span class="k">\\</span> <span class="nb">}</span>
-</span><span class='line'><span class="k">\tablehead</span><span class="nb">{</span><span class="k">\multicolumn</span><span class="nb">{</span>2<span class="nb">}{</span>c<span class="nb">}{</span>
-</span><span class='line'><span class="k">\small</span> 表 <span class="k">\ref</span><span class="nb">{</span>tab:super<span class="nb">}</span> (续) <span class="nb">}</span> <span class="k">\\</span>
-</span><span class='line'><span class="k">\rowcolor</span><span class="na">[gray]</span><span class="nb">{</span>0.8<span class="nb">}</span>
-</span><span class='line'><span class="k">\multicolumn</span><span class="nb">{</span>1<span class="nb">}{</span>l<span class="nb">}{</span><span class="k">\textbf</span><span class="nb">{</span>目录<span class="nb">}}</span> <span class="nb">&amp;</span>
-</span><span class='line'><span class="k">\multicolumn</span><span class="nb">{</span>1<span class="nb">}{</span>c<span class="nb">}{</span><span class="k">\textbf</span><span class="nb">{</span>注解<span class="nb">}}</span> <span class="k">\\</span><span class="nb">}</span>
-</span><span class='line'><span class="k">\tabletail</span><span class="nb">{</span><span class="k">\bottomrule</span>
-</span><span class='line'><span class="k">\multicolumn</span><span class="nb">{</span>2<span class="nb">}{</span>c<span class="nb">}{</span><span class="k">\small</span> 接下页<span class="nb">}</span> <span class="k">\\</span><span class="nb">}</span>
-</span><span class='line'><span class="k">\tablelasttail</span><span class="nb">{</span><span class="k">\bottomrule</span><span class="nb">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">\begin</span><span class="nb">{</span>supertabular<span class="nb">}{</span>p<span class="nb">{</span>2.cm<span class="nb">}</span>p<span class="nb">{</span>13cm<span class="nb">}}</span>
-</span><span class='line'>
-</span><span class='line'>/ <span class="nb">&amp;</span> 根目录，万物起源。<span class="k">\\</span>
-</span><span class='line'><span class="k">\midrule</span>
-</span><span class='line'>/bin <span class="nb">&amp;</span> 包含系统启动和运行所必须的二进制程序。<span class="k">\\</span>
-</span><span class='line'><span class="c">% 以下都是类似行数据，故省略</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">\end</span><span class="nb">{</span>supertabular<span class="nb">}</span>
-</span><span class='line'><span class="k">\end</span><span class="nb">{</span>center<span class="nb">}</span>
-</span></code></pre></td></tr></table></div></figure>
+<p>(标题)  </p>
 
+<p><img src="http://unkeltao.qiniudn.com/img/002.png" alt="" /> </p>
 
-<h3>效果图</h3>
+<p>(跨页表示)  </p>
 
-<p>(太长，缩小看整体效果)</p>
+<p><img src="http://unkeltao.qiniudn.com/img/003.png" alt="" /> </p>
 
-<p><img src="http://unkeltao.qiniudn.com/img/001.png" alt="" /></p>
+<p>(续页标题)  </p>
 
-<p>(标题)</p>
+<p><img src="http://unkeltao.qiniudn.com/img/004.png" alt="" /></p>
 
-<p><img src="http://unkeltao.qiniudn.com/img/002.png" alt="" /></p>
-
-<p>(跨页表示)</p>
-
-<p><img src="http://unkeltao.qiniudn.com/img/003.png" alt="" /></p>
-
-<p>(续页标题)</p>
-
-<p><img src="http://unkeltao.qiniudn.com/img/004.png" alt="" /><p class='post-footer'>原文地址:&nbsp;<a href='http://www.UnkelTao.com/blog/2014/02/24/latex-table/'><a href="http://www.UnkelTao.com/blog/2014/02/24/latex-table/">http://www.UnkelTao.com/blog/2014/02/24/latex-table/</a></a><br/><br/>&nbsp;由 <a href='http://www.UnkelTao.com'>UnkelTao</a>&nbsp;撰写并发表于 <a href='http://www.UnkelTao.com'><a href="http://www.UnkelTao.com">http://www.UnkelTao.com</a></a></p></p>
+<p class="post-footer">原文地址:&nbsp;<a href="http://www.UnkelTao.com/blog/2014/02/24/latex-table/">http://www.UnkelTao.com/blog/2014/02/24/latex-table/</a><br /><br />&nbsp;由 <a href="http://www.UnkelTao.com">UnkelTao</a>&nbsp;撰写并发表于 <a href="http://www.UnkelTao.com">http://www.UnkelTao.com</a></p>
 </div>
 
 
@@ -376,6 +374,10 @@ var duoshuoQuery = {short_name:"unkeltao"};
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/05/28/latex-test/">latex test</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/04/29/intsall-tmux/">Linux 下安装 Tmux</a>
       </li>
     
@@ -389,10 +391,6 @@ var duoshuoQuery = {short_name:"unkeltao"};
     
       <li class="post">
         <a href="/blog/2014/03/23/ren-sheng-ruo-zhi-ru-chu-jian-an-yi-ru-du-shu-bi-ji/"><人生若只如初见 (安意如)>读书笔记</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/21/codeforces-round-number-237-div-2/">Codeforces Round #237 (Div. 2) </a>
       </li>
     
   </ul>

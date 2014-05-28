@@ -6,13 +6,15 @@ keywords: wiki,markown
 
 ---
 
+<div class="toc" markdown="1">
+
 *   [Think PHP](#toc1)
     *   [1. 常量](#toc_1.1)
     *	[2. 字段隐藏，模型映射](#toc_1.2)
 
 
-</div>
-<div class="neirong">
+</div><div class="neirong" markdown="1">
+
 
 
 <h2 id="toc_1.1">1. 常量</h2>

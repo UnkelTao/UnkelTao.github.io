@@ -6,6 +6,8 @@ keywords: wiki,markown
 
 ---
 
+<div class="toc" markdown="1">
+
 *   [PHP](#toc1)
     *   [1. 语法](#toc_1.1)
     	*	[   include 与 require](#toc_1.1.1)
@@ -14,8 +16,8 @@ keywords: wiki,markown
     *	[3. 框架](#toc_1.3)
     	*	[Think PHP](#toc_1.3.1)
 
-</div>
-<div class="neirong">
+</div><div class="neirong" markdown="1">
+
 
 <h2 id="toc_1.1">1. 语法</h2>
 <h3 id="toc_1.1.1"> include 与 require</h3>

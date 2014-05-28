@@ -22,8 +22,11 @@ sudo /etc/init.d/vboxdrv setup
 ```
 
 法2：
+
+
 ```sh     
 sudo apt-get install module-assistant
 sudo modprobe vboxnetflt
 sudo modprobe vboxdrv
 ```
+

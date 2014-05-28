@@ -23,8 +23,10 @@ sum = gets.split.collect{|x| x.to_i}.inject{|y, x| y += x}
 p (sum.abs + x -1)/x
 ```
 <!--more-->
+
 ##[B. Sereja and Contests](http://codeforces.com/contest/401/problem/B)
 模拟题
+
 ```ruby
 n,k = gets.chomp!.split.map { |e|  e.to_i}
 A = Array.new(n) { |i|  0}
@@ -56,6 +58,7 @@ puts "#{mi} #{mx}"
 
 ##[C. Team](http://codeforces.com/contest/401/problem/C)
 也是模拟题，给你n个1，m个0，让你给出一种排列，不能有3个1连在一起，不能有两个0连在一起，给出任意一种方案即可，不能则输出-1
+
 ```ruby
 m,n = gets.chomp!.split.map { |e|  e.to_i}
 if n+1 < m 
@@ -116,3 +119,4 @@ p dp[(1<<len)-1][0]
 
 ##[E. Olympic Games](http://codeforces.com/contest/401/problem/E)
 略难，暂时不会
+

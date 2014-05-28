@@ -6,14 +6,16 @@ keywords: wiki,markown
 
 ---
 
+<div class="toc" markdown="1">
+
 *   [Ruby](#toc1)
     *   [1. 问题杂记](#toc_1.1)
         *   [1.1. Windows编码问题](#toc_1.1.1)
         *   [1.2. Ruby 创建文件](#toc_1.1.2)
 
 
-</div>
-<div class="neirong">
+</div><div class="neirong" markdown="1">
+
 
 <h2 id="toc1.1">1. 问题杂记</h2>
 <h3 id="toc1.1.1">1.1. Windows编码问题</h3>

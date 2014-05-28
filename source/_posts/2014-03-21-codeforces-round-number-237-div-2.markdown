@@ -222,6 +222,7 @@ puts "#{(dp[cur][0]+dp[cur][2])%mods}"
 **(ruby跑的太慢，TLE了，囧RZ，C++可以AC)**  
 
 **ruby代码**
+
 ```ruby
 #TLE 代码
 $s = gets.chomp!
@@ -294,6 +295,7 @@ p res
 ```
 
 **c++代码**  
+
 ```c++
 char str[MaxN];
 int fg=2,len;

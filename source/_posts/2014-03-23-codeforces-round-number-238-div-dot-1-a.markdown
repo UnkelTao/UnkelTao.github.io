@@ -14,7 +14,10 @@ rating 居然涨了，简直不科学。
 ##[A. Unusual Product](http://codeforces.com/contest/406/problem/A)
 **题意**: 给你一个矩阵，定义了unusual值，类似与矩阵乘法，但是做的与，对应所有Aij&Aji的值再异或，然后你可以对矩阵的一行或者一列进行反转（0变1，1变0）查询则输出Unusual值。  
 **key**: 我们可以发现，Unusual值其实就是主对角线的值进行异或，跟周围的元素完全没有关系，因为： Aij&Aji,但是Aji又会与Aij，这样等于 <code>（Aij&Aji）^（Aji&Aij）=0 (i!=j)</code>,那么操作一次，结果便会由0变1或者由1变0，不管怎么操作。
+
 <!--more-->
+
+
 ```c++
 #include <cstdio>
 #include <iostream>
@@ -131,6 +134,7 @@ int main(){
    return 0;
 }
 ```  
+
 ###C,D,E实在做不动了。
 
 PS，顺带写下今天群内学第们训练的题，我是太闲了么。。。囧   
@@ -333,3 +337,4 @@ int main(){
 ```
 
 #最后祝学第们加油。
+

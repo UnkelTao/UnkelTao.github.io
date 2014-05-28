@@ -6,11 +6,13 @@ keywords: wiki,markown
 
 ---
 
+<div class="toc" markdown="1">
+
 *   [Archlinux](#toc1)
     *   [1. 参考](#toc_1.1)
 
-</div>
-<div class="neirong">
+</div><div class="neirong" markdown="1">
+
 
 
 <h2 id="toc_1.1">1. 参考</h2>

@@ -17,7 +17,9 @@ description: 'kindle note,ruby'
 脚本参考于[李超同学](http://minejo.github.io/blog/2014/02/18/shi-yong-kindlebi-ji-lai-zuo-fortuneming-yan/)的python脚本（没有学过python -_-），重构了ruby脚本，也算是我的的第一个脚本.  
 源文件共有四种格式:
 <!-- more -->
+
 ### 书签 ###
+
 格式为：
 
     Book Title\r\n
@@ -71,15 +73,20 @@ description: 'kindle note,ruby'
     -mo 表示输出支持Octopress的markdown格式 
 *   path-to-sourcefile 为可选参数，默认为当前路径下的My Clippings.txt   
 
+
 ###输出###
 -m 会在当前目录下生成“kindle-markdown”目录，并在该目录下创建一个以运行时间为标题的markdown文件. 
 
-##待完成
+##待完成###
+
 ###支持Octopress的文档(已完成)###
+
 ###支持其他格式的文档###
+
 ###windows与linux下的编码的Bug###
+
 ##参考
-* [kindle-clips](https://github.com/minejo/kindle-clips)
+* [kindle-clips](https://github.com/minejo/kindle-clips)  
 * [lxyu-Kindle Clippings](https://github.com/lxyu/kindle-clippings)
 
 

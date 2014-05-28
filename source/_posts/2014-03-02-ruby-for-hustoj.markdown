@@ -8,11 +8,13 @@ categories: [ACM,Ruby]
 
 
 虽然已经不是再搞ACM了，但是算法偶尔还是要练习一下写代码，然后最近学习ruby中，打算用ruby来写写ACM题目也算熟悉ruby，免得不用就忘记了，记得Hustoj是可以支持Ruby的，于是就在我们学校的训练Oj上提交了A+B的Ruby代码：
+
 ```ruby
 readlines.each{|line|
 	p line.split.collect{|x| x.to_i}.inject{|y, x| y += x}
 }
 ```
+
 于是华丽的给了我一个WA~~~正在想怎么可能，想起来服务器上没有装ruby，于是远程到7509的服务器上再ssh到训练oj的服务器(只能内网访问，ping不到外网地址)，将ruby装上。
 
 然后就开始了无止境的RE生涯，简直无情，各种call禁止：
@@ -46,6 +48,7 @@ write
 ```
 
 把这些标志放入如下过程，结尾是0，对应RC数组其他值为-1，结尾为0.
+
 ```c++
 int LANG_RV[256]={SYS_access,SYS_write.....,0};
 int LANG_RC[256]={-1,-1,......,0};

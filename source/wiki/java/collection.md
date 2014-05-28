@@ -6,14 +6,16 @@ keywords: wiki,markown
 
 ---
 
+<div class="toc" markdown="1">
+
 *   [集合](#toc1)
     *   [1. Set 与 List](#toc_1.1)
     *	[2. 常用的List？](#toc_1.2)
     *	[3. ArrayList与Vector](#toc_1.3)
     *	[4. HashMap 与 HashTable](#TOC_1.4)
 
-</div>
-<div class="neirong">
+</div><div class="neirong" markdown="1">
+
 
 
 <h2 id="toc_1.1">1. Set 与 List 的区别?</h2>

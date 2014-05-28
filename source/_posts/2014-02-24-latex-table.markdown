@@ -11,6 +11,7 @@ keywords: Latex
 使用latex绘制表格或多或少都会遇到这样的问题，一个表格过长超过一页应该如何处理，latex提供了一些宏包，如longtable和supertabular;这里介绍如何用supertabular绘制跨页表格。
 <!--more-->
 ##标题命令
+
 ``` latex 宏包相关命令
 \bottomcaption[目录标题]{表格标题}  
 	 底部标题命令，指定在表格的下方生成表格标题。	
@@ -86,3 +87,6 @@ keywords: Latex
 (续页标题)  
 
 ![](http://unkeltao.qiniudn.com/img/004.png)
+
+
+

@@ -15,6 +15,7 @@ keywords: ACM,C++
 <!--more-->
 ##A [A+B](http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1982)
 完全熟悉OJ环境的题目,上面都有标程,第一次接触ACM的需要知道怎么多组输入.
+
 ```c++ 
 int a, b; 
 while(scanf("%d %d", &a, &b)==2){
@@ -30,6 +31,7 @@ while(scanf("%d %d", &a, &b)==2){
 * 	模拟法：我们可以确定只要大于 <code>a+b-1</code>的数 我们都可以通过加上a来得到,在+a ,-b的过程中，通过模拟产生出<code>(1，a+b-1)</code>所有的可能,把n对a取模既可以。	
 
 *	搜索或者暴力,记忆化搜索，也就1000个点而已,代码未写,参见C题。	
+
 ```c++ 
 //模拟法
 int s[10000];
@@ -95,6 +97,7 @@ int main()
     return 0;
 }
 ```
+
 ```c++
 //记忆化搜索
 bool used[1100];
@@ -117,6 +120,7 @@ bool bfs(int a,int b,int n,int m)
     return 0;
 }
 ```
+
 ##D [统计学号](http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1991) 
 
 排序下，扫描一遍即可，秒杀级水题一枚。不会快排的可冒泡。
@@ -152,6 +156,7 @@ int main()
 此题也是一个排序题，当然如果直接<code>strcmp</code>是不行的，考虑90 9这组数据，结果很明显应该是990而不是909。  
 因为我们在排序的时候只要保证<code>(a+b)>(b+a)</code>即可。  
 **再次表示对数据中出现了大于1000的数表示抱歉**
+
 ```c++ 
 #include<cstdio>
 #include<cstring>
@@ -225,6 +230,7 @@ int main()
 ##G [不知道自己不知道](http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1994)  
 
 没什么好说的
+
 ```c
 while(~scanf("%d",&n)) printf("%d\n",2013-n);
 ```
@@ -232,6 +238,7 @@ while(~scanf("%d",&n)) printf("%d\n",2013-n);
 ##H [知道自己不知道](http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1995)  
 
 数组求和除以M向上取整.  
+
 ```
 rep(i,0,n)  scanf("%d",&a);
 sum+=a;     
@@ -241,6 +248,7 @@ printf("%d\n",(sum+m-1)/m); //加上m-1为向上取整
 ##I [不知道自己知道](http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1996)  
 
 暴力比较即可
+
 ```c++ 
 #define rep(i,a,n) for (int i=(a); i<(n); ++i)
 string s[110];
@@ -271,6 +279,7 @@ int main()
 #J [知道自己知道](http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1997)  
 
 做一下结构体，保存i和和i出现的次数，有负数，i集体加上100，然后恢复即可。
+
 ```c++ 
 #define rep(i,a,n) for (int i=(a); i<(n); ++i)
 struct pt{     
@@ -301,3 +310,4 @@ int main(){
 ```
 
 以上题目均为过测试数据的程序，不保证程序完全正确无误，欢迎指正,预赛题目难度很明显会增大很多，大家加油。 3Q
+

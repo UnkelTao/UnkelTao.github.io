@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Java | /UnkelTao]]></title>
   <link href="http://www.UnkelTao.com/blog/categories/java/atom.xml" rel="self"/>
   <link href="http://www.UnkelTao.com/"/>
-  <updated>2014-07-17T15:33:22+01:00</updated>
+  <updated>2014-07-17T15:35:58+01:00</updated>
   <id>http://www.UnkelTao.com/</id>
   <author>
     <name><![CDATA[UnkelTao]]></name>
@@ -40,6 +40,15 @@
   	&lt;version&gt;3.2.0.RELEASE&lt;/version&gt;  
 &lt;/dependency&gt;  
 </code></pre>
+</blockquote>
+
+<p>s</p>
+
+<blockquote>
+  <dependency>  
+<groupid>org.springframework</groupid>  
+<artifactid>spring-test</artifactid>  
+</dependency>
 </blockquote>
 
 <ul>

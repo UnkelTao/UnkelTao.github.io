@@ -1,0 +1,1004 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>spring+springmvc+mybatis环境搭建 - /UnkelTao</title>
+  <meta name="author" content="UnkelTao">
+
+  
+  <meta name="description" content="spring+springmvc+mybatis整合，环境搭建">
+  <meta name="keywords" content="java,spring,springmvc,mybatis">
+   <meta name="keywords" content="c/c++, ruby, latex, linux, java, web development, hadoop, MapReduce">
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.UnkelTao.com/blog/2014/07/17/spring-plus-springmvc-plus-mybatis/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+   <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <script src="/javascripts/costem.js" type="text/javascript"></script>
+  <!-- <script src="/javascripts/instantclick.min.js" type="text/javascript"></script> -->
+  <link href="/atom.xml" rel="alternate" title="/UnkelTao" type="application/atom+xml">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lora:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700,900' rel='stylesheet' type='text/css'>
+
+
+ 
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-48154170-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+  
+  <style type="text/css">
+   html{background: url("http://unkeltao.qiniudn.com/bg/IMG_background.png") no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;
+   }
+  </style>
+
+  
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+</hgroup>
+
+</header>
+  <!-- <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.UnkelTao.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/blog/archives">About</a></li>
+</ul>
+
+</nav> -->
+  <div id="main">
+    <div id="content" data-no-instant>
+      <div data-no-instant>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Spring+springmvc+mybatis环境搭建</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-17T14:46:31+01:00" pubdate data-updated="true">Jul 17<span>th</span>, 2014</time>
+        
+        
+          | <a href="#comments">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>学习了一下这个框架的整合，跟SSH还是有区别的，将Struts2换成了springmvc，hibernate换成了mybatis。</p>
+
+<p>当然管理包什么的，还是Maven靠谱，IDE从MyEclipse换到了Eclipse，快了不少。不过Maven插件需要自己安装了。
+<!-- more --></p>
+
+<h2 id="section">环境搭建</h2>
+
+<h3 id="maven">Maven</h3>
+
+<ul>
+  <li>配置: 下载Maven包配置环境变量即可，配置文件中修改库的位置等相关信息  </li>
+  <li>使用： 安装Eclipse插件，将Maven安装路径配置进去  </li>
+  <li>在<strong>pom.xml</strong>中加入包的配置即可。  </li>
+</ul>
+
+<blockquote>
+  <dependency>  
+  <groupid>org.springframework</groupid>  
+  <artifactid>spring-test</artifactid>  
+  <version>3.2.0.RELEASE</version>  
+</dependency>
+</blockquote>
+
+<ul>
+  <li>其中版本号可以在<a href="http://search.maven.org/">http://search.maven.org</a> 中查询.<br />
+下面是我搭建环境中所使用到的jar包  </li>
+</ul>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+<span class="line-number">22</span>
+<span class="line-number">23</span>
+<span class="line-number">24</span>
+<span class="line-number">25</span>
+<span class="line-number">26</span>
+<span class="line-number">27</span>
+<span class="line-number">28</span>
+<span class="line-number">29</span>
+<span class="line-number">30</span>
+<span class="line-number">31</span>
+<span class="line-number">32</span>
+<span class="line-number">33</span>
+<span class="line-number">34</span>
+<span class="line-number">35</span>
+<span class="line-number">36</span>
+<span class="line-number">37</span>
+<span class="line-number">38</span>
+<span class="line-number">39</span>
+<span class="line-number">40</span>
+<span class="line-number">41</span>
+<span class="line-number">42</span>
+<span class="line-number">43</span>
+<span class="line-number">44</span>
+<span class="line-number">45</span>
+<span class="line-number">46</span>
+<span class="line-number">47</span>
+<span class="line-number">48</span>
+<span class="line-number">49</span>
+<span class="line-number">50</span>
+<span class="line-number">51</span>
+<span class="line-number">52</span>
+<span class="line-number">53</span>
+<span class="line-number">54</span>
+<span class="line-number">55</span>
+<span class="line-number">56</span>
+<span class="line-number">57</span>
+<span class="line-number">58</span>
+<span class="line-number">59</span>
+<span class="line-number">60</span>
+<span class="line-number">61</span>
+<span class="line-number">62</span>
+<span class="line-number">63</span>
+<span class="line-number">64</span>
+<span class="line-number">65</span>
+<span class="line-number">66</span>
+<span class="line-number">67</span>
+<span class="line-number">68</span>
+<span class="line-number">69</span>
+<span class="line-number">70</span>
+<span class="line-number">71</span>
+<span class="line-number">72</span>
+<span class="line-number">73</span>
+<span class="line-number">74</span>
+<span class="line-number">75</span>
+<span class="line-number">76</span>
+<span class="line-number">77</span>
+<span class="line-number">78</span>
+<span class="line-number">79</span>
+<span class="line-number">80</span>
+<span class="line-number">81</span>
+<span class="line-number">82</span>
+<span class="line-number">83</span>
+<span class="line-number">84</span>
+<span class="line-number">85</span>
+<span class="line-number">86</span>
+<span class="line-number">87</span>
+<span class="line-number">88</span>
+<span class="line-number">89</span>
+<span class="line-number">90</span>
+<span class="line-number">91</span>
+<span class="line-number">92</span>
+<span class="line-number">93</span>
+<span class="line-number">94</span>
+<span class="line-number">95</span>
+<span class="line-number">96</span>
+<span class="line-number">97</span>
+<span class="line-number">98</span>
+<span class="line-number">99</span>
+<span class="line-number">100</span>
+<span class="line-number">101</span>
+<span class="line-number">102</span>
+<span class="line-number">103</span>
+<span class="line-number">104</span>
+<span class="line-number">105</span>
+<span class="line-number">106</span>
+<span class="line-number">107</span>
+<span class="line-number">108</span>
+<span class="line-number">109</span>
+<span class="line-number">110</span>
+<span class="line-number">111</span>
+<span class="line-number">112</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">&lt;project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+</span><span class="line">	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"&gt;
+</span><span class="line">	&lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+</span><span class="line">	&lt;groupId&gt;unkeltao.testmybatis&lt;/groupId&gt;
+</span><span class="line">	&lt;artifactId&gt;testmybatis&lt;/artifactId&gt;
+</span><span class="line">	&lt;packaging&gt;war&lt;/packaging&gt;
+</span><span class="line">	&lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+</span><span class="line">	&lt;name&gt;testmybatis Maven Webapp&lt;/name&gt;
+</span><span class="line">	&lt;url&gt;http://maven.apache.org&lt;/url&gt;
+</span><span class="line">
+</span><span class="line">	&lt;dependencies&gt;
+</span><span class="line">		&lt;dependency&gt;
+</span><span class="line">			&lt;groupId&gt;org.springframework&lt;/groupId&gt;
+</span><span class="line">			&lt;artifactId&gt;spring-test&lt;/artifactId&gt;
+</span><span class="line">			&lt;version&gt;3.2.0.RELEASE&lt;/version&gt;
+</span><span class="line">		&lt;/dependency&gt;
+</span><span class="line">		&lt;dependency&gt;
+</span><span class="line">			&lt;groupId&gt;org.springframework&lt;/groupId&gt;
+</span><span class="line">			&lt;artifactId&gt;spring-webmvc&lt;/artifactId&gt;
+</span><span class="line">			&lt;version&gt;3.2.0.RELEASE&lt;/version&gt;
+</span><span class="line">		&lt;/dependency&gt;
+</span><span class="line">		&lt;dependency&gt;
+</span><span class="line">			&lt;groupId&gt;org.springframework&lt;/groupId&gt;
+</span><span class="line">			&lt;artifactId&gt;spring-core&lt;/artifactId&gt;
+</span><span class="line">			&lt;version&gt;3.2.0.RELEASE&lt;/version&gt;
+</span><span class="line">		&lt;/dependency&gt;
+</span><span class="line">		&lt;dependency&gt;
+</span><span class="line">			&lt;groupId&gt;org.mybatis&lt;/groupId&gt;
+</span><span class="line">			&lt;artifactId&gt;mybatis&lt;/artifactId&gt;
+</span><span class="line">			&lt;version&gt;3.1.1&lt;/version&gt;
+</span><span class="line">		&lt;/dependency&gt;
+</span><span class="line">		&lt;dependency&gt;
+</span><span class="line">			&lt;groupId&gt;org.mybatis&lt;/groupId&gt;
+</span><span class="line">			&lt;artifactId&gt;mybatis-spring&lt;/artifactId&gt;
+</span><span class="line">			&lt;version&gt;1.1.1&lt;/version&gt;
+</span><span class="line">		&lt;/dependency&gt;
+</span><span class="line">		&lt;dependency&gt;
+</span><span class="line">			&lt;groupId&gt;mysql&lt;/groupId&gt;
+</span><span class="line">			&lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+</span><span class="line">			&lt;version&gt;5.1.21&lt;/version&gt;
+</span><span class="line">		&lt;/dependency&gt;
+</span><span class="line">		&lt;dependency&gt;
+</span><span class="line">			&lt;groupId&gt;junit&lt;/groupId&gt;
+</span><span class="line">			&lt;artifactId&gt;junit&lt;/artifactId&gt;
+</span><span class="line">			&lt;version&gt;4.11&lt;/version&gt;
+</span><span class="line">			&lt;scope&gt;test&lt;/scope&gt;
+</span><span class="line">		&lt;/dependency&gt;
+</span><span class="line">		&lt;dependency&gt;
+</span><span class="line">			&lt;groupId&gt;com.alibaba&lt;/groupId&gt;
+</span><span class="line">			&lt;artifactId&gt;druid&lt;/artifactId&gt;
+</span><span class="line">			&lt;version&gt;0.2.9&lt;/version&gt;
+</span><span class="line">		&lt;/dependency&gt;
+</span><span class="line">		&lt;dependency&gt;
+</span><span class="line">			&lt;groupId&gt;org.aspectj&lt;/groupId&gt;
+</span><span class="line">			&lt;artifactId&gt;aspectjweaver&lt;/artifactId&gt;
+</span><span class="line">			&lt;version&gt;1.7.1&lt;/version&gt;
+</span><span class="line">		&lt;/dependency&gt;
+</span><span class="line">		&lt;dependency&gt;
+</span><span class="line">			&lt;groupId&gt;org.aspectj&lt;/groupId&gt;
+</span><span class="line">			&lt;artifactId&gt;aspectjrt&lt;/artifactId&gt;
+</span><span class="line">			&lt;version&gt;1.7.1&lt;/version&gt;
+</span><span class="line">		&lt;/dependency&gt;
+</span><span class="line">		&lt;dependency&gt;
+</span><span class="line">			&lt;groupId&gt;org.codehaus.jackson&lt;/groupId&gt;
+</span><span class="line">			&lt;artifactId&gt;jackson-mapper-asl&lt;/artifactId&gt;
+</span><span class="line">			&lt;version&gt;1.9.11&lt;/version&gt;
+</span><span class="line">		&lt;/dependency&gt;
+</span><span class="line">		&lt;dependency&gt;
+</span><span class="line">			&lt;groupId&gt;org.codehaus.jackson&lt;/groupId&gt;
+</span><span class="line">			&lt;artifactId&gt;jackson-core-asl&lt;/artifactId&gt;
+</span><span class="line">			&lt;version&gt;1.9.11&lt;/version&gt;
+</span><span class="line">		&lt;/dependency&gt;
+</span><span class="line">
+</span><span class="line">		&lt;dependency&gt;
+</span><span class="line">			&lt;groupId&gt;commons-fileupload&lt;/groupId&gt;
+</span><span class="line">			&lt;artifactId&gt;commons-fileupload&lt;/artifactId&gt;
+</span><span class="line">			&lt;version&gt;1.2.2&lt;/version&gt;
+</span><span class="line">		&lt;/dependency&gt;
+</span><span class="line">		&lt;dependency&gt;
+</span><span class="line">			&lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+</span><span class="line">			&lt;artifactId&gt;servlet-api&lt;/artifactId&gt;
+</span><span class="line">			&lt;version&gt;3.0-alpha-1&lt;/version&gt;
+</span><span class="line">		&lt;/dependency&gt;
+</span><span class="line">		&lt;dependency&gt;
+</span><span class="line">			&lt;groupId&gt;log4j&lt;/groupId&gt;
+</span><span class="line">			&lt;artifactId&gt;log4j&lt;/artifactId&gt;
+</span><span class="line">			&lt;version&gt;1.2.17&lt;/version&gt;
+</span><span class="line">		&lt;/dependency&gt;
+</span><span class="line">		&lt;dependency&gt;
+</span><span class="line">			&lt;groupId&gt;com.alibaba&lt;/groupId&gt;
+</span><span class="line">			&lt;artifactId&gt;fastjson&lt;/artifactId&gt;
+</span><span class="line">			&lt;version&gt;1.1.26&lt;/version&gt;
+</span><span class="line">		&lt;/dependency&gt;
+</span><span class="line">		&lt;dependency&gt;
+</span><span class="line">			&lt;groupId&gt;jstl&lt;/groupId&gt;
+</span><span class="line">			&lt;artifactId&gt;jstl&lt;/artifactId&gt;
+</span><span class="line">			&lt;version&gt;1.2&lt;/version&gt;
+</span><span class="line">		&lt;/dependency&gt;
+</span><span class="line">		&lt;dependency&gt;
+</span><span class="line">			&lt;groupId&gt;taglibs&lt;/groupId&gt;
+</span><span class="line">			&lt;artifactId&gt;standard&lt;/artifactId&gt;
+</span><span class="line">			&lt;version&gt;1.1.2&lt;/version&gt;
+</span><span class="line">		&lt;/dependency&gt;
+</span><span class="line">		&lt;dependency&gt;
+</span><span class="line">			&lt;groupId&gt;cglib&lt;/groupId&gt;
+</span><span class="line">			&lt;artifactId&gt;cglib-nodep&lt;/artifactId&gt;
+</span><span class="line">			&lt;version&gt;3.1&lt;/version&gt;
+</span><span class="line">		&lt;/dependency&gt;
+</span><span class="line">	&lt;/dependencies&gt;
+</span><span class="line">	&lt;build&gt;
+</span><span class="line">	&lt;/build&gt;
+</span><span class="line">&lt;/project&gt;</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h3 id="xml">相关xml配置</h3>
+
+<h4 id="springxml-spring">spring.xml 用来配置spring</h4>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+</span><span class="line">		&lt;beans xmlns="http://www.springframework.org/schema/beans" 
+</span><span class="line">		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+</span><span class="line">		xmlns:aop="http://www.springframework.org/schema/aop"      
+</span><span class="line">		xmlns:context="http://www.springframework.org/schema/context" 
+</span><span class="line">		xsi:schemaLocation="
+</span><span class="line">		http://www.springframework.org/schema/beans
+</span><span class="line">		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+</span><span class="line">		http://www.springframework.org/schema/context
+</span><span class="line">		http://www.springframework.org/schema/context/spring-context-3.0.xsd
+</span><span class="line">		http://www.springframework.org/schema/aop
+</span><span class="line">		http://www.springframework.org/schema/aop/spring-aop-3.0.xsd"
+</span><span class="line">&gt;
+</span><span class="line">	&lt;!-- 启动对@AspectJ注解的支持 --&gt;
+</span><span class="line">    &lt;aop:aspectj-autoproxy/&gt;
+</span><span class="line">	&lt;!-- 引入属性文件 --&gt;
+</span><span class="line">	&lt;context:property-placeholder location="classpath:config.properties" /&gt;
+</span><span class="line">	&lt;!-- 自动扫描(自动注入) --&gt;
+</span><span class="line">	&lt;context:component-scan base-package="unkeltao.service" /&gt;
+</span><span class="line">&lt;/beans&gt;  </span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h4 id="spring-mvcxml-springmvc">spring-mvc.xml 配置springmvc,用不到的可以删掉</h4>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+<span class="line-number">22</span>
+<span class="line-number">23</span>
+<span class="line-number">24</span>
+<span class="line-number">25</span>
+<span class="line-number">26</span>
+<span class="line-number">27</span>
+<span class="line-number">28</span>
+<span class="line-number">29</span>
+<span class="line-number">30</span>
+<span class="line-number">31</span>
+<span class="line-number">32</span>
+<span class="line-number">33</span>
+<span class="line-number">34</span>
+<span class="line-number">35</span>
+<span class="line-number">36</span>
+<span class="line-number">37</span>
+<span class="line-number">38</span>
+<span class="line-number">39</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+</span><span class="line">&lt;beans xmlns="http://www.springframework.org/schema/beans" xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="http://www.springframework.org/schema/beans 
+</span><span class="line">http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+</span><span class="line">http://www.springframework.org/schema/context 
+</span><span class="line">http://www.springframework.org/schema/context/spring-context-3.0.xsd 
+</span><span class="line">http://www.springframework.org/schema/mvc 
+</span><span class="line">http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd"&gt;
+</span><span class="line">	&lt;!-- 自动扫描controller包下的所有类，使其认为spring mvc的控制器 --&gt;
+</span><span class="line">	&lt;context:component-scan base-package="unkeltao.controller" /&gt;
+</span><span class="line">	&lt;!-- 避免IE执行AJAX时,返回JSON出现下载文件 --&gt;
+</span><span class="line">	&lt;bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"&gt;
+</span><span class="line">		&lt;property name="supportedMediaTypes"&gt;
+</span><span class="line">			&lt;list&gt;
+</span><span class="line">				&lt;value&gt;application/json;charset=UTF-8&lt;/value&gt;
+</span><span class="line">			&lt;/list&gt;
+</span><span class="line">		&lt;/property&gt;
+</span><span class="line">	&lt;/bean&gt;
+</span><span class="line">	&lt;!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射 --&gt;
+</span><span class="line">	&lt;bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"&gt;
+</span><span class="line">		&lt;property name="messageConverters"&gt;
+</span><span class="line">			&lt;list&gt;
+</span><span class="line">				&lt;ref bean="mappingJacksonHttpMessageConverter" /&gt;&lt;!-- json转换器 --&gt;
+</span><span class="line">			&lt;/list&gt;
+</span><span class="line">		&lt;/property&gt;
+</span><span class="line">	&lt;/bean&gt;
+</span><span class="line">	&lt;!-- 对模型视图名称的解析，即在模型视图名称添加前后缀 --&gt;
+</span><span class="line">	&lt;bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/" p:suffix=".jsp" /&gt;
+</span><span class="line">	&lt;bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"&gt;
+</span><span class="line">		&lt;property name="defaultEncoding"&gt;
+</span><span class="line">			&lt;value&gt;UTF-8&lt;/value&gt;
+</span><span class="line">		&lt;/property&gt;
+</span><span class="line">		&lt;property name="maxUploadSize"&gt;
+</span><span class="line">			&lt;value&gt;32505856&lt;/value&gt;&lt;!-- 上传文件大小限制为31M，31*1024*1024 --&gt;
+</span><span class="line">		&lt;/property&gt;
+</span><span class="line">		&lt;property name="maxInMemorySize"&gt;
+</span><span class="line">			&lt;value&gt;4096&lt;/value&gt;
+</span><span class="line">		&lt;/property&gt;
+</span><span class="line">	&lt;/bean&gt;
+</span><span class="line">&lt;/beans&gt;</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h4 id="spring-mybatisxmlmybatis">spring-mybatis.xml,里面为mybatis的一些配置</h4>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+<span class="line-number">22</span>
+<span class="line-number">23</span>
+<span class="line-number">24</span>
+<span class="line-number">25</span>
+<span class="line-number">26</span>
+<span class="line-number">27</span>
+<span class="line-number">28</span>
+<span class="line-number">29</span>
+<span class="line-number">30</span>
+<span class="line-number">31</span>
+<span class="line-number">32</span>
+<span class="line-number">33</span>
+<span class="line-number">34</span>
+<span class="line-number">35</span>
+<span class="line-number">36</span>
+<span class="line-number">37</span>
+<span class="line-number">38</span>
+<span class="line-number">39</span>
+<span class="line-number">40</span>
+<span class="line-number">41</span>
+<span class="line-number">42</span>
+<span class="line-number">43</span>
+<span class="line-number">44</span>
+<span class="line-number">45</span>
+<span class="line-number">46</span>
+<span class="line-number">47</span>
+<span class="line-number">48</span>
+<span class="line-number">49</span>
+<span class="line-number">50</span>
+<span class="line-number">51</span>
+<span class="line-number">52</span>
+<span class="line-number">53</span>
+<span class="line-number">54</span>
+<span class="line-number">55</span>
+<span class="line-number">56</span>
+<span class="line-number">57</span>
+<span class="line-number">58</span>
+<span class="line-number">59</span>
+<span class="line-number">60</span>
+<span class="line-number">61</span>
+<span class="line-number">62</span>
+<span class="line-number">63</span>
+<span class="line-number">64</span>
+<span class="line-number">65</span>
+<span class="line-number">66</span>
+<span class="line-number">67</span>
+<span class="line-number">68</span>
+<span class="line-number">69</span>
+<span class="line-number">70</span>
+<span class="line-number">71</span>
+<span class="line-number">72</span>
+<span class="line-number">73</span>
+<span class="line-number">74</span>
+<span class="line-number">75</span>
+<span class="line-number">76</span>
+<span class="line-number">77</span>
+<span class="line-number">78</span>
+<span class="line-number">79</span>
+<span class="line-number">80</span>
+<span class="line-number">81</span>
+<span class="line-number">82</span>
+<span class="line-number">83</span>
+<span class="line-number">84</span>
+<span class="line-number">85</span>
+<span class="line-number">86</span>
+<span class="line-number">87</span>
+<span class="line-number">88</span>
+<span class="line-number">89</span>
+<span class="line-number">90</span>
+<span class="line-number">91</span>
+<span class="line-number">92</span>
+<span class="line-number">93</span>
+<span class="line-number">94</span>
+<span class="line-number">95</span>
+<span class="line-number">96</span>
+<span class="line-number">97</span>
+<span class="line-number">98</span>
+<span class="line-number">99</span>
+<span class="line-number">100</span>
+<span class="line-number">101</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+</span><span class="line">&lt;beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop" xsi:schemaLocation="
+</span><span class="line">http://www.springframework.org/schema/beans 
+</span><span class="line">http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+</span><span class="line">http://www.springframework.org/schema/tx 
+</span><span class="line">http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+</span><span class="line">http://www.springframework.org/schema/aop 
+</span><span class="line">http://www.springframework.org/schema/aop/spring-aop-3.0.xsd"
+</span><span class="line">&gt;
+</span><span class="line">	&lt;!-- JNDI方式配置数据源 --&gt;
+</span><span class="line">	&lt;!-- &lt;bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean"&gt; &lt;property name="jndiName" value="${jndiName}"&gt;&lt;/property&gt; &lt;/bean&gt; --&gt;
+</span><span class="line">	&lt;!-- 配置数据源 --&gt;
+</span><span class="line">	&lt;bean name="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close"&gt;
+</span><span class="line">		&lt;property name="url" value="${jdbc_url}" /&gt;
+</span><span class="line">		&lt;property name="username" value="${jdbc_username}" /&gt;
+</span><span class="line">		&lt;property name="password" value="${jdbc_password}" /&gt;
+</span><span class="line">		&lt;!-- 初始化连接大小 --&gt;
+</span><span class="line">		&lt;property name="initialSize" value="0" /&gt;
+</span><span class="line">		&lt;!-- 连接池最大使用连接数量 --&gt;
+</span><span class="line">		&lt;property name="maxActive" value="20" /&gt;
+</span><span class="line">		&lt;!-- 连接池最大空闲 --&gt;
+</span><span class="line">		&lt;property name="maxIdle" value="20" /&gt;
+</span><span class="line">		&lt;!-- 连接池最小空闲 --&gt;
+</span><span class="line">		&lt;property name="minIdle" value="0" /&gt;
+</span><span class="line">		&lt;!-- 获取连接最大等待时间 --&gt;
+</span><span class="line">		&lt;property name="maxWait" value="60000" /&gt;
+</span><span class="line">		&lt;!-- &lt;property name="poolPreparedStatements" value="true" /&gt; &lt;property name="maxPoolPreparedStatementPerConnectionSize" value="33" /&gt; --&gt;
+</span><span class="line">		&lt;property name="validationQuery" value="${validationQuery}" /&gt;
+</span><span class="line">		&lt;property name="testOnBorrow" value="false" /&gt;
+</span><span class="line">		&lt;property name="testOnReturn" value="false" /&gt;
+</span><span class="line">		&lt;property name="testWhileIdle" value="true" /&gt;
+</span><span class="line">		&lt;!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 --&gt;
+</span><span class="line">		&lt;property name="timeBetweenEvictionRunsMillis" value="60000" /&gt;
+</span><span class="line">		&lt;!-- 配置一个连接在池中最小生存的时间，单位是毫秒 --&gt;
+</span><span class="line">		&lt;property name="minEvictableIdleTimeMillis" value="25200000" /&gt;
+</span><span class="line">		&lt;!-- 打开removeAbandoned功能 --&gt;
+</span><span class="line">		&lt;property name="removeAbandoned" value="true" /&gt;
+</span><span class="line">		&lt;!-- 1800秒，也就是30分钟 --&gt;
+</span><span class="line">		&lt;property name="removeAbandonedTimeout" value="1800" /&gt;
+</span><span class="line">		&lt;!-- 关闭abanded连接时输出错误日志 --&gt;
+</span><span class="line">		&lt;property name="logAbandoned" value="true" /&gt;
+</span><span class="line">		&lt;!-- 监控数据库 --&gt;
+</span><span class="line">		&lt;!-- &lt;property name="filters" value="stat" /&gt; --&gt;
+</span><span class="line">		&lt;property name="filters" value="mergeStat" /&gt;
+</span><span class="line">	&lt;/bean&gt;
+</span><span class="line">	&lt;!-- myBatis文件 --&gt;
+</span><span class="line">	&lt;bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"&gt;
+</span><span class="line">		&lt;property name="dataSource" ref="dataSource" /&gt;
+</span><span class="line">		&lt;!-- 自动扫描entity目录, 省掉Configuration.xml里的手工配置 --&gt;
+</span><span class="line">		&lt;property name="mapperLocations" value="classpath:unkeltao/mapping/*.xml" /&gt;
+</span><span class="line">	&lt;/bean&gt;
+</span><span class="line">	&lt;bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"&gt;
+</span><span class="line">		&lt;property name="basePackage" value="unkeltao.dao" /&gt;
+</span><span class="line">		&lt;property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" /&gt;
+</span><span class="line">	&lt;/bean&gt;
+</span><span class="line">	&lt;!-- 配置事务管理器 --&gt;
+</span><span class="line">	&lt;bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"&gt;
+</span><span class="line">		&lt;property name="dataSource" ref="dataSource" /&gt;
+</span><span class="line">	&lt;/bean&gt;
+</span><span class="line">	&lt;!-- 注解方式配置事物 --&gt;
+</span><span class="line">	&lt;!-- &lt;tx:annotation-driven transaction-manager="transactionManager" /&gt; --&gt;
+</span><span class="line">	&lt;!-- 拦截器方式配置事物 --&gt;
+</span><span class="line">	&lt;tx:advice id="transactionAdvice" transaction-manager="transactionManager"&gt;
+</span><span class="line">		&lt;tx:attributes&gt;
+</span><span class="line">			&lt;tx:method name="add*" propagation="REQUIRED" /&gt;
+</span><span class="line">			&lt;tx:method name="append*" propagation="REQUIRED" /&gt;
+</span><span class="line">			&lt;tx:method name="insert*" propagation="REQUIRED" /&gt;
+</span><span class="line">			&lt;tx:method name="save*" propagation="REQUIRED" /&gt;
+</span><span class="line">			&lt;tx:method name="update*" propagation="REQUIRED" /&gt;
+</span><span class="line">			&lt;tx:method name="modify*" propagation="REQUIRED" /&gt;
+</span><span class="line">			&lt;tx:method name="edit*" propagation="REQUIRED" /&gt;
+</span><span class="line">			&lt;tx:method name="delete*" propagation="REQUIRED" /&gt;
+</span><span class="line">			&lt;tx:method name="remove*" propagation="REQUIRED" /&gt;
+</span><span class="line">			&lt;tx:method name="repair" propagation="REQUIRED" /&gt;
+</span><span class="line">			&lt;tx:method name="delAndRepair" propagation="REQUIRED" /&gt;
+</span><span class="line">			&lt;tx:method name="get*" propagation="SUPPORTS" /&gt;
+</span><span class="line">			&lt;tx:method name="find*" propagation="SUPPORTS" /&gt;
+</span><span class="line">			&lt;tx:method name="load*" propagation="SUPPORTS" /&gt;
+</span><span class="line">			&lt;tx:method name="search*" propagation="SUPPORTS" /&gt;
+</span><span class="line">			&lt;tx:method name="datagrid*" propagation="SUPPORTS" /&gt;
+</span><span class="line">			&lt;tx:method name="*" propagation="SUPPORTS" /&gt;
+</span><span class="line">		&lt;/tx:attributes&gt;
+</span><span class="line">	&lt;/tx:advice&gt;
+</span><span class="line">	&lt;aop:config&gt;
+</span><span class="line">		&lt;aop:pointcut id="transactionPointcut" expression="execution(* unkeltao.service..*Impl.*(..))" /&gt;
+</span><span class="line">		&lt;aop:advisor pointcut-ref="transactionPointcut" advice-ref="transactionAdvice" /&gt;
+</span><span class="line">	&lt;/aop:config&gt;
+</span><span class="line">	&lt;!-- 配置druid监控spring jdbc --&gt;
+</span><span class="line">	&lt;bean id="druid-stat-interceptor" class="com.alibaba.druid.support.spring.stat.DruidStatInterceptor"&gt;
+</span><span class="line">	&lt;/bean&gt;
+</span><span class="line">	&lt;bean id="druid-stat-pointcut" class="org.springframework.aop.support.JdkRegexpMethodPointcut" scope="prototype"&gt;
+</span><span class="line">		&lt;property name="patterns"&gt;
+</span><span class="line">			&lt;list&gt;
+</span><span class="line">				&lt;value&gt;unkeltao.service.*&lt;/value&gt;
+</span><span class="line">			&lt;/list&gt;
+</span><span class="line">		&lt;/property&gt;
+</span><span class="line">	&lt;/bean&gt;
+</span><span class="line">	&lt;aop:config&gt;
+</span><span class="line">		&lt;aop:advisor advice-ref="druid-stat-interceptor" pointcut-ref="druid-stat-pointcut" /&gt;
+</span><span class="line">	&lt;/aop:config&gt;
+</span><span class="line">&lt;/beans&gt;</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>其中使用到了数据库的一些配置信息，可以直接写进去，但也可以从配置中读取，配置文件config.propertiew,里面写着一些相关的配置，在xml中就可以导入就可以了.</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+<span class="line-number">22</span>
+<span class="line-number">23</span>
+<span class="line-number">24</span>
+<span class="line-number">25</span>
+<span class="line-number">26</span>
+<span class="line-number">27</span>
+<span class="line-number">28</span>
+<span class="line-number">29</span>
+<span class="line-number">30</span>
+<span class="line-number">31</span>
+<span class="line-number">32</span>
+<span class="line-number">33</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">#hibernate.dialect=org.hibernate.dialect.OracleDialect
+</span><span class="line">#driverClassName=oracle.jdbc.driver.OracleDriver
+</span><span class="line">#validationQuery=SELECT 1 FROM DUAL
+</span><span class="line">#jdbc_url=jdbc:oracle:thin:@localhost:1521:orcl
+</span><span class="line">#jdbc_username=sypro
+</span><span class="line">#jdbc_password=sypro
+</span><span class="line">hibernate.dialect=org.hibernate.dialect.MySQLDialect
+</span><span class="line">driverClassName=com.mysql.jdbc.Driver
+</span><span class="line">validationQuery=SELECT 1
+</span><span class="line">jdbc_url=jdbc:mysql://localhost:3306/demo?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull
+</span><span class="line">jdbc_username=root
+</span><span class="line">jdbc_password=1qazwsx
+</span><span class="line">#hibernate.dialect=org.hibernate.dialect.SQLServerDialect
+</span><span class="line">#driverClassName=net.sourceforge.jtds.jdbc.Driver
+</span><span class="line">#validationQuery=SELECT 1
+</span><span class="line">#jdbc_url=jdbc:jtds:sqlserver://127.0.0.1:1433/sy
+</span><span class="line">#jdbc_username=sa
+</span><span class="line">#jdbc_password=123456
+</span><span class="line">#hibernate.dialect=org.hibernate.dialect.DerbyDialect
+</span><span class="line">#driverClassName=org.apache.derby.jdbc.EmbeddedDriver
+</span><span class="line">#validationQuery=SELECT 1
+</span><span class="line">#jdbc_url=jdbc:derby:sy;create=true
+</span><span class="line">#jdbc_username=sypro
+</span><span class="line">#jdbc_password=sypro
+</span><span class="line">#jndiName=java:comp/env/dataSourceName
+</span><span class="line">hibernate.hbm2ddl.auto=update
+</span><span class="line">hibernate.show_sql=false
+</span><span class="line">hibernate.format_sql=true
+</span><span class="line">sessionInfoName=sessionInfo
+</span><span class="line">uploadFieldName=filedata
+</span><span class="line">uploadFileMaxSize=20971520
+</span><span class="line">uploadFileExts=txt,rar,zip,doc,docx,xls,xlsx,jpg,jpeg,gif,png,swf,wmv,avi,wma,mp3,mid
+</span><span class="line">uploadDirectory=attached</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>这样配置就算完成了。。。可以做做简单的测试</p>
+
+<p class="post-footer">原文地址:&nbsp;<a href="http://www.UnkelTao.com/blog/2014/07/17/spring-plus-springmvc-plus-mybatis/">http://www.UnkelTao.com/blog/2014/07/17/spring-plus-springmvc-plus-mybatis/</a><br /><br />&nbsp;由 <a href="http://www.UnkelTao.com">UnkelTao</a>&nbsp;撰写并发表于 <a href="http://www.UnkelTao.com">http://www.UnkelTao.com</a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+
+<span class="byline author vcard"></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-17T14:46:31+01:00" pubdate data-updated="true">Jul 17<span>th</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/java/'>Java</a>
+  
+</span>
+
+
+    </p>
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/05/28/latex-test/" title="Previous Post: octopress 支持Latex">&laquo; octopress 支持Latex</a>
+      
+      
+    </p>
+      
+          <!-- <div class="sharing">
+  
+  
+  
+<!-- -->
+<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分享到：</span>
+		<a class="jiathis_button_qzone">QQ空间</a>
+		<a class="jiathis_button_tsina">新浪微博</a>
+		<a class="jiathis_button_tqq">腾讯微博</a>
+		<a class="jiathis_button_weixin">微信</a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+		<a class="jiathis_counter_style"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1394031070305331" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+<!--  </div> <!-- -->
+
+      
+  </footer>
+</article>
+
+
+
+
+
+  <section data-no-instant>
+    <h1>Comments</h1>
+    <div id="comments" aria-live="polite"><!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"unkeltao"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END --></div>
+  </section>
+
+
+</div>
+
+
+
+<aside class="sidebar">
+  
+    <section id="titles">
+  <h1 id="site_title"><a href="http://www.UnkelTao.com" title="/UnkelTao">/UnkelTao</a></h1>
+  <h3 id="site_subtitle">一个还未开始搬砖的程序猿。</h3>
+</section>
+
+<section id="menu">
+  <ul>
+    <li><i class="fa fa-home fa-lg"></i><a href="/"> Home </a></li>
+    <li><i class="fa fa-calendar fa-lg"></i><a href="/blog/archives/"> Archives </a></li>
+    <li><i class="fa fa-user fa-lg"></i><a href="/about/"> About </a></li>
+    <li data-no-instant><i class="fa fa-rss fa-lg"></i><a href="/wiki/"> Wiki </a></li>
+  </ul>
+</section>
+
+<section id="social">
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+
+<section>
+	<h1>Friends Link</h1>
+	<ul>
+		<li><a href="http://xuyanconnie.sinaapp.com/blog/"  target="_blank" >徐小嘉</a></li>
+    <li><a href="http://songjiayang.github.io/"  target="_blank" >songjiayang</a></li>
+    <li><a href="http://herechen.github.io/" target="_blank">HereChen</a></li>
+	</ul>
+</section>
+<section >
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/07/17/spring-plus-springmvc-plus-mybatis/">spring+springmvc+mybatis环境搭建</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/05/28/latex-test/">octopress 支持Latex</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/04/29/intsall-tmux/">Linux 下安装 Tmux</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/25/lao-ren-yu-hai-hai-ming-wei-du-shu-bi-ji/"><老人与海 (海明威)> 读书笔记</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/23/codeforces-round-number-238-div-dot-1-a/">Codeforces #238 (Div.1 AB)</a>
+      </li>
+    
+  </ul>
+</section>
+<section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/acm/'>ACM (6)</a></li>
+<li class='category'><a href='/blog/categories/cf/'>CF (4)</a></li>
+<li class='category'><a href='/blog/categories/cpp/'>Cpp (5)</a></li>
+<li class='category'><a href='/blog/categories/java/'>Java (1)</a></li>
+<li class='category'><a href='/blog/categories/ruby/'>Ruby (3)</a></li>
+<li class='category'><a href='/blog/categories/sublime-text/'>Sublime Text (1)</a></li>
+<li class='category'><a href='/blog/categories/ubuntu/'>Ubuntu (1)</a></li>
+<li class='category'><a href='/blog/categories/kindle/'>kindle (2)</a></li>
+<li class='category'><a href='/blog/categories/latex/'>latex (2)</a></li>
+<li class='category'><a href='/blog/categories/octopress/'>octopress (1)</a></li>
+<li class='category'><a href='/blog/categories/ruby/'>ruby (1)</a></li>
+<li class='category'><a href='/blog/categories/tmux/'>tmux (1)</a></li>
+<li class='category'><a href='/blog/categories/xin-qing-bi-ji/'>心情笔记 (1)</a></li>
+<li class='category'><a href='/blog/categories/du-shu-bi-ji/'>读书笔记 (3)</a></li>
+<li class='category'><a href='/blog/categories/sui-bi/'>随笔 (1)</a></li>
+
+  </ul>
+</section>
+<section>
+  <h1>Tag Cloud</h1>
+    <span id="tag-cloud"><a href='/blog/categories/acm' style='font-size: 160.0%'>ACM</a> <a href='/blog/categories/cf' style='font-size: 140.0%'>CF</a> <a href='/blog/categories/cpp' style='font-size: 150.0%'>Cpp</a> <a href='/blog/categories/java' style='font-size: 110.0%'>Java</a> <a href='/blog/categories/kindle' style='font-size: 120.0%'>kindle</a> <a href='/blog/categories/latex' style='font-size: 120.0%'>latex</a> <a href='/blog/categories/octopress' style='font-size: 110.0%'>octopress</a> <a href='/blog/categories/ruby' style='font-size: 130.0%'>Ruby</a> <a href='/blog/categories/ruby' style='font-size: 110.0%'>ruby</a> <a href='/blog/categories/sublime-text' style='font-size: 110.0%'>Sublime Text</a> <a href='/blog/categories/tmux' style='font-size: 110.0%'>tmux</a> <a href='/blog/categories/ubuntu' style='font-size: 110.0%'>Ubuntu</a> <a href='/blog/categories/xin-qing-bi-ji' style='font-size: 110.0%'>心情笔记</a> <a href='/blog/categories/du-shu-bi-ji' style='font-size: 130.0%'>读书笔记</a> <a href='/blog/categories/sui-bi' style='font-size: 110.0%'>随笔</a> </span>
+</section>
+<section>
+	<h1>个人微博</h1>
+		<iframe width="100%" height="450" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=450&fansRow=2&ptype=1&speed=300&skin=2&isTitle=0&noborder=0&isWeibo=1&isFans=0&uid=3303041202&verifier=6ee45e11&colors=f2f2f2,f2f2f2,666666,0082cb,ecfbfd&dpc=1"></iframe>
+</section>
+
+<!--
+<div style="display:none;">
+	<audio controls="controls" autoplay="autoplay" loop="loop">
+		<source src="http://unkeltao.qiniudn.com/mp3mowenwei.mp3" type="audio/mpeg">
+	</audio>
+</div> <!-- -->
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - UnkelTao -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+  <!--<script type="text/javascript">
+   RandomBackground(2);
+
+  </script> -->
+<!-- <script data-no-instant>InstantClick.init();</script> -->
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+</body>
+</html>

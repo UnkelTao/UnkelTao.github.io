@@ -95,6 +95,51 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2014/07/17/spring-plus-springmvc-plus-mybatis/">Spring+springmvc+mybatis环境搭建</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-17T14:46:31+01:00" pubdate data-updated="true">Jul 17<span>th</span>, 2014</time>
+        
+        
+          | <a href="/blog/2014/07/17/spring-plus-springmvc-plus-mybatis/#comments">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>学习了一下这个框架的整合，跟SSH还是有区别的，将Struts2换成了springmvc，hibernate换成了mybatis。</p>
+
+<p>当然管理包什么的，还是Maven靠谱，IDE从MyEclipse换到了Eclipse，快了不少。不过Maven插件需要自己安装了。
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/07/17/spring-plus-springmvc-plus-mybatis/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2014/05/28/latex-test/">Octopress 支持Latex</a></h1>
     
     
@@ -560,64 +605,6 @@ pacman -S tmux  </p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/03/11/codeforce-235/">Codeforces Round #235 (Div. 2)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-03-11T07:02:19+01:00" pubdate data-updated="true">Mar 11<span>th</span>, 2014</time>
-        
-        
-          | <a href="/blog/2014/03/11/codeforce-235/#comments">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>好久没做CF了，觉得再不做估计以后笔试都过不鸟，于是还得经常做一做。 </p>
-
-<p>CF的回滚对我木有影响阿，我已经好久没做了似乎。 </p>
-
-<p>这次的DIV2似乎比以前的简单一点。 </p>
-
-<h2 id="a-vanya-and-cardshttpcodeforcescomcontest401problema"><a href="http://codeforces.com/contest/401/problem/A">A. Vanya and Cards</a></h2>
-<p>送分,大概给你一堆数，问你最少还需要几个绝对值不超过X的数能够让他们的和为0.</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-</pre></td><td class="code"><pre><code class="ruby"><span class="line"><span class="n">n</span><span class="p">,</span><span class="n">x</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp!</span><span class="o">.</span><span class="n">split</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">e</span><span class="o">|</span>  <span class="n">e</span><span class="o">.</span><span class="n">to_i</span><span class="p">}</span>
-</span><span class="line"><span class="n">sum</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">split</span><span class="o">.</span><span class="n">collect</span><span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="o">.</span><span class="n">to_i</span><span class="p">}</span><span class="o">.</span><span class="n">inject</span><span class="p">{</span><span class="o">|</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">|</span> <span class="n">y</span> <span class="o">+=</span> <span class="n">x</span><span class="p">}</span>
-</span><span class="line"><span class="nb">p</span> <span class="p">(</span><span class="n">sum</span><span class="o">.</span><span class="n">abs</span> <span class="o">+</span> <span class="n">x</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">x</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/03/11/codeforce-235/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -670,6 +657,10 @@ pacman -S tmux  </p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/07/17/spring-plus-springmvc-plus-mybatis/">spring+springmvc+mybatis环境搭建</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/05/28/latex-test/">octopress 支持Latex</a>
       </li>
     
@@ -685,10 +676,6 @@ pacman -S tmux  </p>
         <a href="/blog/2014/03/23/codeforces-round-number-238-div-dot-1-a/">Codeforces #238 (Div.1 AB)</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2014/03/23/ren-sheng-ruo-zhi-ru-chu-jian-an-yi-ru-du-shu-bi-ji/"><人生若只如初见 (安意如)>读书笔记</a>
-      </li>
-    
   </ul>
 </section>
 <section>
@@ -697,6 +684,7 @@ pacman -S tmux  </p>
     <li class='category'><a href='/blog/categories/acm/'>ACM (6)</a></li>
 <li class='category'><a href='/blog/categories/cf/'>CF (4)</a></li>
 <li class='category'><a href='/blog/categories/cpp/'>Cpp (5)</a></li>
+<li class='category'><a href='/blog/categories/java/'>Java (1)</a></li>
 <li class='category'><a href='/blog/categories/ruby/'>Ruby (3)</a></li>
 <li class='category'><a href='/blog/categories/sublime-text/'>Sublime Text (1)</a></li>
 <li class='category'><a href='/blog/categories/ubuntu/'>Ubuntu (1)</a></li>
@@ -713,7 +701,7 @@ pacman -S tmux  </p>
 </section>
 <section>
   <h1>Tag Cloud</h1>
-    <span id="tag-cloud"><a href='/blog/categories/acm' style='font-size: 160.0%'>ACM</a> <a href='/blog/categories/cf' style='font-size: 140.0%'>CF</a> <a href='/blog/categories/cpp' style='font-size: 150.0%'>Cpp</a> <a href='/blog/categories/kindle' style='font-size: 120.0%'>kindle</a> <a href='/blog/categories/latex' style='font-size: 120.0%'>latex</a> <a href='/blog/categories/octopress' style='font-size: 110.0%'>octopress</a> <a href='/blog/categories/ruby' style='font-size: 130.0%'>Ruby</a> <a href='/blog/categories/ruby' style='font-size: 110.0%'>ruby</a> <a href='/blog/categories/sublime-text' style='font-size: 110.0%'>Sublime Text</a> <a href='/blog/categories/tmux' style='font-size: 110.0%'>tmux</a> <a href='/blog/categories/ubuntu' style='font-size: 110.0%'>Ubuntu</a> <a href='/blog/categories/xin-qing-bi-ji' style='font-size: 110.0%'>心情笔记</a> <a href='/blog/categories/du-shu-bi-ji' style='font-size: 130.0%'>读书笔记</a> <a href='/blog/categories/sui-bi' style='font-size: 110.0%'>随笔</a> </span>
+    <span id="tag-cloud"><a href='/blog/categories/acm' style='font-size: 160.0%'>ACM</a> <a href='/blog/categories/cf' style='font-size: 140.0%'>CF</a> <a href='/blog/categories/cpp' style='font-size: 150.0%'>Cpp</a> <a href='/blog/categories/java' style='font-size: 110.0%'>Java</a> <a href='/blog/categories/kindle' style='font-size: 120.0%'>kindle</a> <a href='/blog/categories/latex' style='font-size: 120.0%'>latex</a> <a href='/blog/categories/octopress' style='font-size: 110.0%'>octopress</a> <a href='/blog/categories/ruby' style='font-size: 130.0%'>Ruby</a> <a href='/blog/categories/ruby' style='font-size: 110.0%'>ruby</a> <a href='/blog/categories/sublime-text' style='font-size: 110.0%'>Sublime Text</a> <a href='/blog/categories/tmux' style='font-size: 110.0%'>tmux</a> <a href='/blog/categories/ubuntu' style='font-size: 110.0%'>Ubuntu</a> <a href='/blog/categories/xin-qing-bi-ji' style='font-size: 110.0%'>心情笔记</a> <a href='/blog/categories/du-shu-bi-ji' style='font-size: 130.0%'>读书笔记</a> <a href='/blog/categories/sui-bi' style='font-size: 110.0%'>随笔</a> </span>
 </section>
 <section>
 	<h1>个人微博</h1>

@@ -3,7 +3,7 @@ layout: post
 title: "spring+springmvc+mybatis环境搭建"
 date: 2014-07-17 14:46:31 +0100
 comments: true
-categories: [Java]
+categories: [Java,Spring]
 keywords: java,spring,springmvc,mybatis
 description: 'spring+springmvc+mybatis整合，环境搭建' 
 ---
@@ -22,12 +22,14 @@ description: 'spring+springmvc+mybatis整合，环境搭建'
 *	使用： 安装Eclipse插件，将Maven安装路径配置进去  
 *	在**pom.xml**中加入包的配置即可。  
 
-> <dependency>  
->   <groupId>org.springframework</groupId>  
->   <artifactId>spring-test</artifactId>  
->   <version>3.2.0.RELEASE</version>  
-> </dependency>  
-            
+>	<dependency>  
+>		<groupId>org.springframework</groupId>  
+>		<artifactId>spring-test</artifactId>  
+>   	<version>3.2.0.RELEASE</version>  
+> 	</dependency>  
+  
+
+
 *	其中版本号可以在[http://search.maven.org](http://search.maven.org/) 中查询.  
 下面是我搭建环境中所使用到的jar包  
 

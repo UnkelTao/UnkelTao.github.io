@@ -4,7 +4,7 @@
   <title><![CDATA[/UnkelTao]]></title>
   <link href="http://www.UnkelTao.com/atom.xml" rel="self"/>
   <link href="http://www.UnkelTao.com/"/>
-  <updated>2014-07-17T15:37:37+01:00</updated>
+  <updated>2014-07-22T10:14:54+01:00</updated>
   <id>http://www.UnkelTao.com/</id>
   <author>
     <name><![CDATA[UnkelTao]]></name>
@@ -12,6 +12,358 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Spring+SpringMVC+Mybatis  利用AOP自定义注解实现可配置日志快照记录]]></title>
+    <link href="http://www.UnkelTao.com/blog/2014/07/22/spring-plus-springmvc-plus-mybatis-aop/"/>
+    <updated>2014-07-22T10:05:38+01:00</updated>
+    <id>http://www.UnkelTao.com/blog/2014/07/22/spring-plus-springmvc-plus-mybatis-aop</id>
+    <content type="html"><![CDATA[<h2 id="section">目的：</h2>
+<p>需要对一些事物的操作进行日志记录，如果在service内进行记录，大量的代码重复，并且维护比较麻烦。所以采用AOP的方式对service进行拦截。使用自定义注解的目的则是判断是否需要记录日志和传递额外的信息。</p>
+
+<h2 id="section-1">方式</h2>
+<p>本次解决方案十分感谢<a href="http://www.cnblogs.com/shipengzhi/articles/2716004.html">博主-跳刀的兔子的博文</a> 本文绝大部分参考与本文，略有不同，所以做一些整理，<a href="http://www.cnblogs.com/shipengzhi/articles/2716004.html">博主</a>的文章更详细一些。</p>
+
+<!-- more -->
+
+<h3 id="section-2">1.首先新建自定义注解</h3>
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">@Target({ElementType.METHOD})
+</span><span class="line">@Retention(RetentionPolicy.RUNTIME)
+</span><span class="line">@Documented  
+</span><span class="line">@Inherited
+</span><span class="line">public @interface LogWrite {
+</span><span class="line">    /**
+</span><span class="line">     *@param 模块名字 
+</span><span class="line">     */
+</span><span class="line">    String modelName() default "";
+</span><span class="line">    
+</span><span class="line">    /**
+</span><span class="line">     *@param 操作类型 
+</span><span class="line">     */
+</span><span class="line">    String option();
+</span><span class="line">}</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<ul>
+  <li>其中@Target注解用于描述该注解的范围，我们需要注解的方法，所以值为METHOD，相关含义如下表：  </li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>取值</th>
+      <th>含义</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CONSTRUCTOR</td>
+      <td>描述构造器</td>
+    </tr>
+    <tr>
+      <td>FIELD</td>
+      <td>描述域</td>
+    </tr>
+    <tr>
+      <td>LOCAL_VARIABLE</td>
+      <td>用于描述局部变量</td>
+    </tr>
+    <tr>
+      <td>METHOD</td>
+      <td>用于描述方法</td>
+    </tr>
+    <tr>
+      <td>PACKAGE</td>
+      <td>用于描述包</td>
+    </tr>
+    <tr>
+      <td>PARAMETER</td>
+      <td>用于描述参数</td>
+    </tr>
+    <tr>
+      <td>TYPE</td>
+      <td>用于描述类或接口</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>@Retention 用于描述注解的生命周期（即：被描述的注解在什么范围内有效），其取值有：  </li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>取值</th>
+      <th>含义</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SOURCE</td>
+      <td>在源文件中有效（即源文件保留）</td>
+    </tr>
+    <tr>
+      <td>CLASS</td>
+      <td>在 class 文件中有效（即 class 保留）</td>
+    </tr>
+    <tr>
+      <td>RUNTIME</td>
+      <td>在运行时有效(即运行时保留)</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>
+    <p>@Documented 在默认的情况下javadoc命令不会将我们的annotation生成再doc中去的，所以使用该标记就是告诉jdk让它也将annotation生成到doc中去  </p>
+  </li>
+  <li>
+    <p>@Inherited 比如有一个类A，在他上面有一个标记annotation，那么A的子类B是否不用再次标记annotation就可以继承得到呢，答案是肯定的  </p>
+  </li>
+</ul>
+
+<h3 id="aop">2.利用AOP方式拦截</h3>
+<ul>
+  <li>配置AOP，我使用的是利用注解的方式来配置AOP，方法有很多，就不详细说了。</li>
+  <li>使用的是@Around 环绕通知，因为需要记录该方法是否被执行成功了。</li>
+  <li>实现@Around方法中，记录日志：  获取拦截的方法，判断该方法是否含有自定义注解，如果没有的则不进行记录，否则，按照自己的方式进行记录。 我主要记录的是操作的方法，所属模块，以及所有参数所构成的Json字符串。  </li>
+</ul>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+<span class="line-number">22</span>
+<span class="line-number">23</span>
+<span class="line-number">24</span>
+<span class="line-number">25</span>
+<span class="line-number">26</span>
+<span class="line-number">27</span>
+<span class="line-number">28</span>
+<span class="line-number">29</span>
+<span class="line-number">30</span>
+<span class="line-number">31</span>
+<span class="line-number">32</span>
+<span class="line-number">33</span>
+<span class="line-number">34</span>
+<span class="line-number">35</span>
+<span class="line-number">36</span>
+<span class="line-number">37</span>
+<span class="line-number">38</span>
+<span class="line-number">39</span>
+<span class="line-number">40</span>
+<span class="line-number">41</span>
+<span class="line-number">42</span>
+<span class="line-number">43</span>
+<span class="line-number">44</span>
+<span class="line-number">45</span>
+<span class="line-number">46</span>
+<span class="line-number">47</span>
+<span class="line-number">48</span>
+<span class="line-number">49</span>
+<span class="line-number">50</span>
+<span class="line-number">51</span>
+<span class="line-number">52</span>
+<span class="line-number">53</span>
+<span class="line-number">54</span>
+<span class="line-number">55</span>
+<span class="line-number">56</span>
+<span class="line-number">57</span>
+<span class="line-number">58</span>
+<span class="line-number">59</span>
+<span class="line-number">60</span>
+<span class="line-number">61</span>
+<span class="line-number">62</span>
+<span class="line-number">63</span>
+<span class="line-number">64</span>
+<span class="line-number">65</span>
+<span class="line-number">66</span>
+<span class="line-number">67</span>
+<span class="line-number">68</span>
+<span class="line-number">69</span>
+<span class="line-number">70</span>
+<span class="line-number">71</span>
+<span class="line-number">72</span>
+<span class="line-number">73</span>
+<span class="line-number">74</span>
+<span class="line-number">75</span>
+<span class="line-number">76</span>
+<span class="line-number">77</span>
+<span class="line-number">78</span>
+<span class="line-number">79</span>
+<span class="line-number">80</span>
+<span class="line-number">81</span>
+<span class="line-number">82</span>
+<span class="line-number">83</span>
+<span class="line-number">84</span>
+<span class="line-number">85</span>
+<span class="line-number">86</span>
+<span class="line-number">87</span>
+<span class="line-number">88</span>
+<span class="line-number">89</span>
+<span class="line-number">90</span>
+<span class="line-number">91</span>
+<span class="line-number">92</span>
+<span class="line-number">93</span>
+<span class="line-number">94</span>
+<span class="line-number">95</span>
+<span class="line-number">96</span>
+<span class="line-number">97</span>
+<span class="line-number">98</span>
+<span class="line-number">99</span>
+<span class="line-number">100</span>
+<span class="line-number">101</span>
+<span class="line-number">102</span>
+<span class="line-number">103</span>
+<span class="line-number">104</span>
+<span class="line-number">105</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">@Aspect
+</span><span class="line">@Component
+</span><span class="line">public class SnapshotLogWriteService {
+</span><span class="line">	private LogService logService;
+</span><span class="line">	public LogService getLogService() {
+</span><span class="line">		return logService;
+</span><span class="line">	}
+</span><span class="line">
+</span><span class="line">	//自动注入日志记录service
+</span><span class="line">	@Autowired
+</span><span class="line">	public void setLogService(LogService logService) {
+</span><span class="line">		this.logService = logService;
+</span><span class="line">	}
+</span><span class="line">	//环绕通知方法
+</span><span class="line">	@Around("execution(* unkeltao.service.*.*(..))")
+</span><span class="line">	public Object doWriteLog(ProceedingJoinPoint pjp) throws Throwable {
+</span><span class="line">		System.err.println("拦截方法,进入日志记录");
+</span><span class="line">		// 拦截的实体类
+</span><span class="line">		Object target = pjp.getTarget();
+</span><span class="line">		// 拦截的方法名称
+</span><span class="line">		String methodName = pjp.getSignature().getName();
+</span><span class="line">		// 拦截的方法参数
+</span><span class="line">		Object[] args = pjp.getArgs();
+</span><span class="line">		
+</span><span class="line">		// 拦截的放参数类型
+</span><span class="line">		Class[] parameterTypes = ((MethodSignature) pjp.getSignature())
+</span><span class="line">				.getMethod().getParameterTypes();
+</span><span class="line">
+</span><span class="line">		Object object = null;
+</span><span class="line">		
+</span><span class="line">		//需要转换成Json的HashMap
+</span><span class="line">		Map&lt;String, Object&gt; maps = new HashMap&lt;String, Object&gt;();
+</span><span class="line">		Map&lt;String, Object&gt; parammaps = new HashMap&lt;String, Object&gt;();
+</span><span class="line">		// 获得被拦截的方法
+</span><span class="line">		Method method = target.getClass().getMethod(methodName, parameterTypes);
+</span><span class="line">		if (null != method) {
+</span><span class="line">			// 判断是否包含自定义的注解
+</span><span class="line">			if (method.isAnnotationPresent(MyAnnotation.class)) {
+</span><span class="line">				// 获取自定义注解实体
+</span><span class="line">				MyAnnotation myAnnotation = method
+</span><span class="line">						.getAnnotation(MyAnnotation.class);
+</span><span class="line">				//日志类实体类
+</span><span class="line">				OptionLog log = new OptionLog();
+</span><span class="line">				
+</span><span class="line">				log.setUserid(myAnnotation.userid());
+</span><span class="line">				log.setModelname(myAnnotation.modelName());
+</span><span class="line">				log.setOp(myAnnotation.option());
+</span><span class="line">				maps.put("方法名", method.getName());
+</span><span class="line">				parammaps.put("方法名", method.getName());
+</span><span class="line">                //循环获得所有参数对象
+</span><span class="line">				for(int i=0; i&lt;args.length; i++){
+</span><span class="line">					if (null != args[i]) {
+</span><span class="line">						parammaps.put("args["+i+"]", args[i]);
+</span><span class="line">					}
+</span><span class="line">					else {
+</span><span class="line">						parammaps.put("args["+i+"]", "空参数");
+</span><span class="line">					}
+</span><span class="line">				}
+</span><span class="line">				maps.put("参数", parammaps);
+</span><span class="line">				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
+</span><span class="line">				maps.put("操作时间", sdf.format(new Date()));
+</span><span class="line">				// 获取服务运行结果
+</span><span class="line">				try {
+</span><span class="line">					object = pjp.proceed();// 执行该方法
+</span><span class="line">					maps.put("状态", "成功");
+</span><span class="line">					log.setStatus(1);
+</span><span class="line">				} catch (Exception e) {
+</span><span class="line">					System.err.println(e.getMessage());
+</span><span class="line">					maps.put("状态", "失败");
+</span><span class="line">					log.setStatus(0);
+</span><span class="line">					log.setComments(e.getMessage());
+</span><span class="line">				}
+</span><span class="line">				//将参数转化为Json字符串
+</span><span class="line">				log.setJs(new JSONObject(maps).toJSONString());
+</span><span class="line">				log.setOptime(new Date());
+</span><span class="line">				System.err.println(new JSONObject(maps).toJSONString());  
+</span><span class="line">				
+</span><span class="line">				//记录相关日志
+</span><span class="line">				if (null != logService) {
+</span><span class="line">					try {
+</span><span class="line">						if(1 == logService.Save(log)){
+</span><span class="line">							System.err.println("日志记录成功");
+</span><span class="line">						}
+</span><span class="line">						else{
+</span><span class="line">							System.err.println("日志记录失败");
+</span><span class="line">						}
+</span><span class="line">						
+</span><span class="line">					} catch (Exception e) {
+</span><span class="line">						e.printStackTrace();
+</span><span class="line">					}
+</span><span class="line">				}
+</span><span class="line">				else{
+</span><span class="line">					System.err.println("自动注入失败，日志未记录");
+</span><span class="line">				}
+</span><span class="line">
+</span><span class="line">			} else { // 没有包含该注解则不进行其他处理
+</span><span class="line">				object = pjp.proceed();// 执行该方法
+</span><span class="line">			}
+</span><span class="line">
+</span><span class="line">		} else { // 不需要拦截，直接运行
+</span><span class="line">			object = pjp.proceed(); // 执行该方法
+</span><span class="line">		}
+</span><span class="line">		return object;
+</span><span class="line">	}
+</span><span class="line">}</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h3 id="section-3">记录结果</h3>
+<p><img src="http://unkeltao.qiniudn.com/wailian/TestLog2.png" alt="记录结果" />  </p>
+
+<h3 id="json">最终的Json效果图</h3>
+<p><img src="http://unkeltao.qiniudn.com/wailian/LogTest.png" alt="效果图" /></p>
+
+<p class="post-footer">原文地址:&nbsp;<a href="http://www.UnkelTao.com/blog/2014/07/22/spring-plus-springmvc-plus-mybatis-aop/">http://www.UnkelTao.com/blog/2014/07/22/spring-plus-springmvc-plus-mybatis-aop/</a><br /><br />&nbsp;由 <a href="http://www.UnkelTao.com">UnkelTao</a>&nbsp;撰写并发表于 <a href="http://www.UnkelTao.com">http://www.UnkelTao.com</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[spring+springmvc+mybatis环境搭建]]></title>
@@ -40,15 +392,6 @@
   	&lt;version&gt;3.2.0.RELEASE&lt;/version&gt;  
 &lt;/dependency&gt;  
 </code></pre>
-</blockquote>
-
-<p>s</p>
-
-<blockquote>
-  <dependency>  
-<groupid>org.springframework</groupid>  
-<artifactid>spring-test</artifactid>  
-</dependency>
 </blockquote>
 
 <ul>
@@ -4146,36 +4489,6 @@ yes  </p>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p class="post-footer">原文地址:&nbsp;<a href="http://www.UnkelTao.com/blog/2011/02/18/ubuntu-problem/">http://www.UnkelTao.com/blog/2011/02/18/ubuntu-problem/</a><br /><br />&nbsp;由 <a href="http://www.UnkelTao.com">UnkelTao</a>&nbsp;撰写并发表于 <a href="http://www.UnkelTao.com">http://www.UnkelTao.com</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[雨季不再来]]></title>
-    <link href="http://www.UnkelTao.com/blog/2010/03/05/my-first-post/"/>
-    <updated>2010-03-05T12:10:42+00:00</updated>
-    <id>http://www.UnkelTao.com/blog/2010/03/05/my-first-post</id>
-    <content type="html"><![CDATA[<p><img src="http://unkeltao.qiniudn.com/IMG_001.jpg" alt="" />
-人之所以悲哀，是因为我们留不住岁月，更无法不承认，青春，有一日是要这么自然地消失过去。</p>
-
-<!--more-->
-
-<p>而人之可贵，也在于我们因着时光环境的改变，在生活上得到长进。岁月的流失固然是无可奈何，而人的逐渐蜕变，却又脱不出时光的力量。</p>
-
-<p>我想，一个人的过去，就像《圣经》上雅各的天梯一样，踏一步决不能上升到天国去。而人的过程，也是要一格一格地爬着梯子，才能到了某种高度。在那个高度上，满江风月，青山绿水，尽入眼前。这种境界心情与踏上第一步梯子而不知上面将是什么情形的迷惘惶惑是很不相同的。</p>
-
-<p>乐观与悲观，都不流于实际。一件明明没有希望的事情，如果乐观地去处理，在我，就是失之于天真，这跟悲观是一样的不正确，甚而更坏。</p>
-
-<p>我，只是一个实际的人，我要得着的东西，说起来十分普通。一切不着边际的想法，如果我守着自己淡泊宁静的生活原则，我根本不会刻意去追求它。对于生活的环境，我也抱着一样的态度。我唯一锲而不舍，愿意以自己的生命去努力的，只不过是保守我个人的心怀意念，在有生之日，不放弃对生活的热爱和执著，在有限的时空里，过无限广大的日子。</p>
-
-<p>人，是可以改变的，只是每个人都需要时间。我们要如何度过自己的一生，固执不变当然是可贵，而有时向生活中另找乐趣，亦是不可或缺的努力和目标。</p>
-
-<p>我的心中有一个不变的信仰，它是什么，我也不清楚，但我不会放弃这在冥冥中引导我的力量，直到有一天我离开人世，返回永恒的地方。-</p>
-
-<p>真正的快乐，不是狂喜，亦不是痛苦，在我很主观的来说，它是细水长流，碧海无波，在芸芸众生里做一个普通的人，享受生命一刹间喜悦，那么我们即使不死，也在天堂了。。。。</p>
-
-<p>—《雨季不再来》</p>
-
-<p class="post-footer">原文地址:&nbsp;<a href="http://www.UnkelTao.com/blog/2010/03/05/my-first-post/">http://www.UnkelTao.com/blog/2010/03/05/my-first-post/</a><br /><br />&nbsp;由 <a href="http://www.UnkelTao.com">UnkelTao</a>&nbsp;撰写并发表于 <a href="http://www.UnkelTao.com">http://www.UnkelTao.com</a></p>
 ]]></content>
   </entry>
   

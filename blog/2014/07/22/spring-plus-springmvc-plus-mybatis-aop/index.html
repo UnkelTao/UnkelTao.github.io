@@ -1,0 +1,693 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Spring+SpringMVC+Mybatis  利用AOP自定义注解实现可配置日志快照记录 - /UnkelTao</title>
+  <meta name="author" content="UnkelTao">
+
+  
+  <meta name="description" content="spring+springmvc+mybatis整合，环境搭建">
+  <meta name="keywords" content="java,spring,springmvc,mybatis">
+   <meta name="keywords" content="c/c++, ruby, latex, linux, java, web development, hadoop, MapReduce">
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.UnkelTao.com/blog/2014/07/22/spring-plus-springmvc-plus-mybatis-aop/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+   <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <script src="/javascripts/costem.js" type="text/javascript"></script>
+  <!-- <script src="/javascripts/instantclick.min.js" type="text/javascript"></script> -->
+  <link href="/atom.xml" rel="alternate" title="/UnkelTao" type="application/atom+xml">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lora:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700,900' rel='stylesheet' type='text/css'>
+
+
+ 
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-48154170-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+  
+  <style type="text/css">
+   html{background: url("http://unkeltao.qiniudn.com/bg/IMG_background.png") no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;
+   }
+  </style>
+
+  
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+</hgroup>
+
+</header>
+  <!-- <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.UnkelTao.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/blog/archives">About</a></li>
+</ul>
+
+</nav> -->
+  <div id="main">
+    <div id="content" data-no-instant>
+      <div data-no-instant>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Spring+SpringMVC+Mybatis 利用AOP自定义注解实现可配置日志快照记录</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-22T10:05:38+01:00" pubdate data-updated="true">Jul 22<span>nd</span>, 2014</time>
+        
+        
+          | <a href="#comments">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2 id="section">目的：</h2>
+<p>需要对一些事物的操作进行日志记录，如果在service内进行记录，大量的代码重复，并且维护比较麻烦。所以采用AOP的方式对service进行拦截。使用自定义注解的目的则是判断是否需要记录日志和传递额外的信息。</p>
+
+<h2 id="section-1">方式</h2>
+<p>本次解决方案十分感谢<a href="http://www.cnblogs.com/shipengzhi/articles/2716004.html">博主-跳刀的兔子的博文</a> 本文绝大部分参考与本文，略有不同，所以做一些整理，<a href="http://www.cnblogs.com/shipengzhi/articles/2716004.html">博主</a>的文章更详细一些。</p>
+
+<!-- more -->
+
+<h3 id="section-2">1.首先新建自定义注解</h3>
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">@Target({ElementType.METHOD})
+</span><span class="line">@Retention(RetentionPolicy.RUNTIME)
+</span><span class="line">@Documented  
+</span><span class="line">@Inherited
+</span><span class="line">public @interface LogWrite {
+</span><span class="line">    /**
+</span><span class="line">     *@param 模块名字 
+</span><span class="line">     */
+</span><span class="line">    String modelName() default "";
+</span><span class="line">    
+</span><span class="line">    /**
+</span><span class="line">     *@param 操作类型 
+</span><span class="line">     */
+</span><span class="line">    String option();
+</span><span class="line">}</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<ul>
+  <li>其中@Target注解用于描述该注解的范围，我们需要注解的方法，所以值为METHOD，相关含义如下表：  </li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>取值</th>
+      <th>含义</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CONSTRUCTOR</td>
+      <td>描述构造器</td>
+    </tr>
+    <tr>
+      <td>FIELD</td>
+      <td>描述域</td>
+    </tr>
+    <tr>
+      <td>LOCAL_VARIABLE</td>
+      <td>用于描述局部变量</td>
+    </tr>
+    <tr>
+      <td>METHOD</td>
+      <td>用于描述方法</td>
+    </tr>
+    <tr>
+      <td>PACKAGE</td>
+      <td>用于描述包</td>
+    </tr>
+    <tr>
+      <td>PARAMETER</td>
+      <td>用于描述参数</td>
+    </tr>
+    <tr>
+      <td>TYPE</td>
+      <td>用于描述类或接口</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>@Retention 用于描述注解的生命周期（即：被描述的注解在什么范围内有效），其取值有：  </li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>取值</th>
+      <th>含义</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SOURCE</td>
+      <td>在源文件中有效（即源文件保留）</td>
+    </tr>
+    <tr>
+      <td>CLASS</td>
+      <td>在 class 文件中有效（即 class 保留）</td>
+    </tr>
+    <tr>
+      <td>RUNTIME</td>
+      <td>在运行时有效(即运行时保留)</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>
+    <p>@Documented 在默认的情况下javadoc命令不会将我们的annotation生成再doc中去的，所以使用该标记就是告诉jdk让它也将annotation生成到doc中去  </p>
+  </li>
+  <li>
+    <p>@Inherited 比如有一个类A，在他上面有一个标记annotation，那么A的子类B是否不用再次标记annotation就可以继承得到呢，答案是肯定的  </p>
+  </li>
+</ul>
+
+<h3 id="aop">2.利用AOP方式拦截</h3>
+<ul>
+  <li>配置AOP，我使用的是利用注解的方式来配置AOP，方法有很多，就不详细说了。</li>
+  <li>使用的是@Around 环绕通知，因为需要记录该方法是否被执行成功了。</li>
+  <li>实现@Around方法中，记录日志：  获取拦截的方法，判断该方法是否含有自定义注解，如果没有的则不进行记录，否则，按照自己的方式进行记录。 我主要记录的是操作的方法，所属模块，以及所有参数所构成的Json字符串。  </li>
+</ul>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+<span class="line-number">22</span>
+<span class="line-number">23</span>
+<span class="line-number">24</span>
+<span class="line-number">25</span>
+<span class="line-number">26</span>
+<span class="line-number">27</span>
+<span class="line-number">28</span>
+<span class="line-number">29</span>
+<span class="line-number">30</span>
+<span class="line-number">31</span>
+<span class="line-number">32</span>
+<span class="line-number">33</span>
+<span class="line-number">34</span>
+<span class="line-number">35</span>
+<span class="line-number">36</span>
+<span class="line-number">37</span>
+<span class="line-number">38</span>
+<span class="line-number">39</span>
+<span class="line-number">40</span>
+<span class="line-number">41</span>
+<span class="line-number">42</span>
+<span class="line-number">43</span>
+<span class="line-number">44</span>
+<span class="line-number">45</span>
+<span class="line-number">46</span>
+<span class="line-number">47</span>
+<span class="line-number">48</span>
+<span class="line-number">49</span>
+<span class="line-number">50</span>
+<span class="line-number">51</span>
+<span class="line-number">52</span>
+<span class="line-number">53</span>
+<span class="line-number">54</span>
+<span class="line-number">55</span>
+<span class="line-number">56</span>
+<span class="line-number">57</span>
+<span class="line-number">58</span>
+<span class="line-number">59</span>
+<span class="line-number">60</span>
+<span class="line-number">61</span>
+<span class="line-number">62</span>
+<span class="line-number">63</span>
+<span class="line-number">64</span>
+<span class="line-number">65</span>
+<span class="line-number">66</span>
+<span class="line-number">67</span>
+<span class="line-number">68</span>
+<span class="line-number">69</span>
+<span class="line-number">70</span>
+<span class="line-number">71</span>
+<span class="line-number">72</span>
+<span class="line-number">73</span>
+<span class="line-number">74</span>
+<span class="line-number">75</span>
+<span class="line-number">76</span>
+<span class="line-number">77</span>
+<span class="line-number">78</span>
+<span class="line-number">79</span>
+<span class="line-number">80</span>
+<span class="line-number">81</span>
+<span class="line-number">82</span>
+<span class="line-number">83</span>
+<span class="line-number">84</span>
+<span class="line-number">85</span>
+<span class="line-number">86</span>
+<span class="line-number">87</span>
+<span class="line-number">88</span>
+<span class="line-number">89</span>
+<span class="line-number">90</span>
+<span class="line-number">91</span>
+<span class="line-number">92</span>
+<span class="line-number">93</span>
+<span class="line-number">94</span>
+<span class="line-number">95</span>
+<span class="line-number">96</span>
+<span class="line-number">97</span>
+<span class="line-number">98</span>
+<span class="line-number">99</span>
+<span class="line-number">100</span>
+<span class="line-number">101</span>
+<span class="line-number">102</span>
+<span class="line-number">103</span>
+<span class="line-number">104</span>
+<span class="line-number">105</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">@Aspect
+</span><span class="line">@Component
+</span><span class="line">public class SnapshotLogWriteService {
+</span><span class="line">	private LogService logService;
+</span><span class="line">	public LogService getLogService() {
+</span><span class="line">		return logService;
+</span><span class="line">	}
+</span><span class="line">
+</span><span class="line">	//自动注入日志记录service
+</span><span class="line">	@Autowired
+</span><span class="line">	public void setLogService(LogService logService) {
+</span><span class="line">		this.logService = logService;
+</span><span class="line">	}
+</span><span class="line">	//环绕通知方法
+</span><span class="line">	@Around("execution(* unkeltao.service.*.*(..))")
+</span><span class="line">	public Object doWriteLog(ProceedingJoinPoint pjp) throws Throwable {
+</span><span class="line">		System.err.println("拦截方法,进入日志记录");
+</span><span class="line">		// 拦截的实体类
+</span><span class="line">		Object target = pjp.getTarget();
+</span><span class="line">		// 拦截的方法名称
+</span><span class="line">		String methodName = pjp.getSignature().getName();
+</span><span class="line">		// 拦截的方法参数
+</span><span class="line">		Object[] args = pjp.getArgs();
+</span><span class="line">		
+</span><span class="line">		// 拦截的放参数类型
+</span><span class="line">		Class[] parameterTypes = ((MethodSignature) pjp.getSignature())
+</span><span class="line">				.getMethod().getParameterTypes();
+</span><span class="line">
+</span><span class="line">		Object object = null;
+</span><span class="line">		
+</span><span class="line">		//需要转换成Json的HashMap
+</span><span class="line">		Map&lt;String, Object&gt; maps = new HashMap&lt;String, Object&gt;();
+</span><span class="line">		Map&lt;String, Object&gt; parammaps = new HashMap&lt;String, Object&gt;();
+</span><span class="line">		// 获得被拦截的方法
+</span><span class="line">		Method method = target.getClass().getMethod(methodName, parameterTypes);
+</span><span class="line">		if (null != method) {
+</span><span class="line">			// 判断是否包含自定义的注解
+</span><span class="line">			if (method.isAnnotationPresent(MyAnnotation.class)) {
+</span><span class="line">				// 获取自定义注解实体
+</span><span class="line">				MyAnnotation myAnnotation = method
+</span><span class="line">						.getAnnotation(MyAnnotation.class);
+</span><span class="line">				//日志类实体类
+</span><span class="line">				OptionLog log = new OptionLog();
+</span><span class="line">				
+</span><span class="line">				log.setUserid(myAnnotation.userid());
+</span><span class="line">				log.setModelname(myAnnotation.modelName());
+</span><span class="line">				log.setOp(myAnnotation.option());
+</span><span class="line">				maps.put("方法名", method.getName());
+</span><span class="line">				parammaps.put("方法名", method.getName());
+</span><span class="line">                //循环获得所有参数对象
+</span><span class="line">				for(int i=0; i&lt;args.length; i++){
+</span><span class="line">					if (null != args[i]) {
+</span><span class="line">						parammaps.put("args["+i+"]", args[i]);
+</span><span class="line">					}
+</span><span class="line">					else {
+</span><span class="line">						parammaps.put("args["+i+"]", "空参数");
+</span><span class="line">					}
+</span><span class="line">				}
+</span><span class="line">				maps.put("参数", parammaps);
+</span><span class="line">				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
+</span><span class="line">				maps.put("操作时间", sdf.format(new Date()));
+</span><span class="line">				// 获取服务运行结果
+</span><span class="line">				try {
+</span><span class="line">					object = pjp.proceed();// 执行该方法
+</span><span class="line">					maps.put("状态", "成功");
+</span><span class="line">					log.setStatus(1);
+</span><span class="line">				} catch (Exception e) {
+</span><span class="line">					System.err.println(e.getMessage());
+</span><span class="line">					maps.put("状态", "失败");
+</span><span class="line">					log.setStatus(0);
+</span><span class="line">					log.setComments(e.getMessage());
+</span><span class="line">				}
+</span><span class="line">				//将参数转化为Json字符串
+</span><span class="line">				log.setJs(new JSONObject(maps).toJSONString());
+</span><span class="line">				log.setOptime(new Date());
+</span><span class="line">				System.err.println(new JSONObject(maps).toJSONString());  
+</span><span class="line">				
+</span><span class="line">				//记录相关日志
+</span><span class="line">				if (null != logService) {
+</span><span class="line">					try {
+</span><span class="line">						if(1 == logService.Save(log)){
+</span><span class="line">							System.err.println("日志记录成功");
+</span><span class="line">						}
+</span><span class="line">						else{
+</span><span class="line">							System.err.println("日志记录失败");
+</span><span class="line">						}
+</span><span class="line">						
+</span><span class="line">					} catch (Exception e) {
+</span><span class="line">						e.printStackTrace();
+</span><span class="line">					}
+</span><span class="line">				}
+</span><span class="line">				else{
+</span><span class="line">					System.err.println("自动注入失败，日志未记录");
+</span><span class="line">				}
+</span><span class="line">
+</span><span class="line">			} else { // 没有包含该注解则不进行其他处理
+</span><span class="line">				object = pjp.proceed();// 执行该方法
+</span><span class="line">			}
+</span><span class="line">
+</span><span class="line">		} else { // 不需要拦截，直接运行
+</span><span class="line">			object = pjp.proceed(); // 执行该方法
+</span><span class="line">		}
+</span><span class="line">		return object;
+</span><span class="line">	}
+</span><span class="line">}</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h3 id="section-3">记录结果</h3>
+<p><img src="http://unkeltao.qiniudn.com/wailian/TestLog2.png" alt="记录结果" />  </p>
+
+<h3 id="json">最终的Json效果图</h3>
+<p><img src="http://unkeltao.qiniudn.com/wailian/LogTest.png" alt="效果图" /></p>
+
+<p class="post-footer">原文地址:&nbsp;<a href="http://www.UnkelTao.com/blog/2014/07/22/spring-plus-springmvc-plus-mybatis-aop/">http://www.UnkelTao.com/blog/2014/07/22/spring-plus-springmvc-plus-mybatis-aop/</a><br /><br />&nbsp;由 <a href="http://www.UnkelTao.com">UnkelTao</a>&nbsp;撰写并发表于 <a href="http://www.UnkelTao.com">http://www.UnkelTao.com</a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+
+<span class="byline author vcard"></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-22T10:05:38+01:00" pubdate data-updated="true">Jul 22<span>nd</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/java/'>Java</a>, <a class='category' href='/blog/categories/spring/'>Spring</a>
+  
+</span>
+
+
+    </p>
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/07/17/spring-plus-springmvc-plus-mybatis/" title="Previous Post: spring+springmvc+mybatis环境搭建">&laquo; spring+springmvc+mybatis环境搭建</a>
+      
+      
+    </p>
+      
+          <!-- <div class="sharing">
+  
+  
+  
+<!-- -->
+<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分享到：</span>
+		<a class="jiathis_button_qzone">QQ空间</a>
+		<a class="jiathis_button_tsina">新浪微博</a>
+		<a class="jiathis_button_tqq">腾讯微博</a>
+		<a class="jiathis_button_weixin">微信</a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+		<a class="jiathis_counter_style"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1394031070305331" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+<!--  </div> <!-- -->
+
+      
+  </footer>
+</article>
+
+
+
+
+
+  <section data-no-instant>
+    <h1>Comments</h1>
+    <div id="comments" aria-live="polite"><!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"unkeltao"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END --></div>
+  </section>
+
+
+</div>
+
+
+
+<aside class="sidebar">
+  
+    <section id="titles">
+  <h1 id="site_title"><a href="http://www.UnkelTao.com" title="/UnkelTao">/UnkelTao</a></h1>
+  <h3 id="site_subtitle">一个还未开始搬砖的程序猿。</h3>
+</section>
+
+<section id="menu">
+  <ul>
+    <li><i class="fa fa-home fa-lg"></i><a href="/"> Home </a></li>
+    <li><i class="fa fa-calendar fa-lg"></i><a href="/blog/archives/"> Archives </a></li>
+    <li><i class="fa fa-user fa-lg"></i><a href="/about/"> About </a></li>
+    <li data-no-instant><i class="fa fa-rss fa-lg"></i><a href="/wiki/"> Wiki </a></li>
+  </ul>
+</section>
+
+<section id="social">
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+
+<section>
+	<h1>Friends Link</h1>
+	<ul>
+		<li><a href="http://xuyanconnie.sinaapp.com/blog/"  target="_blank" >徐小嘉</a></li>
+    <li><a href="http://songjiayang.github.io/"  target="_blank" >songjiayang</a></li>
+    <li><a href="http://herechen.github.io/" target="_blank">HereChen</a></li>
+	</ul>
+</section>
+<section >
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/07/22/spring-plus-springmvc-plus-mybatis-aop/">Spring+SpringMVC+Mybatis  利用AOP自定义注解实现可配置日志快照记录</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/17/spring-plus-springmvc-plus-mybatis/">spring+springmvc+mybatis环境搭建</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/05/28/latex-test/">octopress 支持Latex</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/04/29/intsall-tmux/">Linux 下安装 Tmux</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/25/lao-ren-yu-hai-hai-ming-wei-du-shu-bi-ji/"><老人与海 (海明威)> 读书笔记</a>
+      </li>
+    
+  </ul>
+</section>
+<section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/acm/'>ACM (6)</a></li>
+<li class='category'><a href='/blog/categories/cf/'>CF (4)</a></li>
+<li class='category'><a href='/blog/categories/cpp/'>Cpp (5)</a></li>
+<li class='category'><a href='/blog/categories/java/'>Java (2)</a></li>
+<li class='category'><a href='/blog/categories/ruby/'>Ruby (3)</a></li>
+<li class='category'><a href='/blog/categories/spring/'>Spring (2)</a></li>
+<li class='category'><a href='/blog/categories/sublime-text/'>Sublime Text (1)</a></li>
+<li class='category'><a href='/blog/categories/ubuntu/'>Ubuntu (1)</a></li>
+<li class='category'><a href='/blog/categories/kindle/'>kindle (2)</a></li>
+<li class='category'><a href='/blog/categories/latex/'>latex (2)</a></li>
+<li class='category'><a href='/blog/categories/octopress/'>octopress (1)</a></li>
+<li class='category'><a href='/blog/categories/ruby/'>ruby (1)</a></li>
+<li class='category'><a href='/blog/categories/tmux/'>tmux (1)</a></li>
+<li class='category'><a href='/blog/categories/xin-qing-bi-ji/'>心情笔记 (1)</a></li>
+<li class='category'><a href='/blog/categories/du-shu-bi-ji/'>读书笔记 (3)</a></li>
+<li class='category'><a href='/blog/categories/sui-bi/'>随笔 (1)</a></li>
+
+  </ul>
+</section>
+<section>
+  <h1>Tag Cloud</h1>
+    <span id="tag-cloud"><a href='/blog/categories/acm' style='font-size: 160.0%'>ACM</a> <a href='/blog/categories/cf' style='font-size: 140.0%'>CF</a> <a href='/blog/categories/cpp' style='font-size: 150.0%'>Cpp</a> <a href='/blog/categories/java' style='font-size: 120.0%'>Java</a> <a href='/blog/categories/kindle' style='font-size: 120.0%'>kindle</a> <a href='/blog/categories/latex' style='font-size: 120.0%'>latex</a> <a href='/blog/categories/octopress' style='font-size: 110.0%'>octopress</a> <a href='/blog/categories/ruby' style='font-size: 130.0%'>Ruby</a> <a href='/blog/categories/ruby' style='font-size: 110.0%'>ruby</a> <a href='/blog/categories/spring' style='font-size: 120.0%'>Spring</a> <a href='/blog/categories/sublime-text' style='font-size: 110.0%'>Sublime Text</a> <a href='/blog/categories/tmux' style='font-size: 110.0%'>tmux</a> <a href='/blog/categories/ubuntu' style='font-size: 110.0%'>Ubuntu</a> <a href='/blog/categories/xin-qing-bi-ji' style='font-size: 110.0%'>心情笔记</a> <a href='/blog/categories/du-shu-bi-ji' style='font-size: 130.0%'>读书笔记</a> <a href='/blog/categories/sui-bi' style='font-size: 110.0%'>随笔</a> </span>
+</section>
+<section>
+	<h1>个人微博</h1>
+		<iframe width="100%" height="450" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=450&fansRow=2&ptype=1&speed=300&skin=2&isTitle=0&noborder=0&isWeibo=1&isFans=0&uid=3303041202&verifier=6ee45e11&colors=f2f2f2,f2f2f2,666666,0082cb,ecfbfd&dpc=1"></iframe>
+</section>
+
+<!--
+<div style="display:none;">
+	<audio controls="controls" autoplay="autoplay" loop="loop">
+		<source src="http://unkeltao.qiniudn.com/mp3mowenwei.mp3" type="audio/mpeg">
+	</audio>
+</div> <!-- -->
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - UnkelTao -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+  <!--<script type="text/javascript">
+   RandomBackground(2);
+
+  </script> -->
+<!-- <script data-no-instant>InstantClick.init();</script> -->
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+</body>
+</html>

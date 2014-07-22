@@ -86,7 +86,11 @@
     </url>
     <url>
         <loc>http://www.UnkelTao.com/blog/2014/07/17/spring-plus-springmvc-plus-mybatis/</loc>
-        <lastmod>2014-07-17T15:38:39+01:00</lastmod>
+        <lastmod>2014-07-22T10:06:43+01:00</lastmod>
+    </url>
+    <url>
+        <loc>http://www.UnkelTao.com/blog/2014/07/22/spring-plus-springmvc-plus-mybatis-aop/</loc>
+        <lastmod>2014-07-22T10:14:36+01:00</lastmod>
     </url>
     <url>
         <loc>http://www.UnkelTao.com/404.html</loc>
@@ -94,15 +98,15 @@
     </url>
     <url>
         <loc>http://www.UnkelTao.com/blog/archives/</loc>
-        <lastmod>2014-07-17T15:38:39+01:00</lastmod>
+        <lastmod>2014-07-22T10:14:36+01:00</lastmod>
     </url>
     <url>
         <loc>http://www.UnkelTao.com/blog/</loc>
-        <lastmod>2014-07-17T15:38:39+01:00</lastmod>
+        <lastmod>2014-07-22T10:14:36+01:00</lastmod>
     </url>
     <url>
         <loc>http://www.UnkelTao.com/</loc>
-        <lastmod>2014-07-17T15:38:39+01:00</lastmod>
+        <lastmod>2014-07-22T10:14:36+01:00</lastmod>
     </url>
     <url>
         <loc>http://www.UnkelTao.com/wiki/hadoop/datanode.html</loc>

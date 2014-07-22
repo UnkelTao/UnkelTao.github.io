@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Java | /UnkelTao]]></title>
-  <link href="http://www.UnkelTao.com/blog/categories/java/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Spring | /UnkelTao]]></title>
+  <link href="http://www.UnkelTao.com/blog/categories/spring/atom.xml" rel="self"/>
   <link href="http://www.UnkelTao.com/"/>
   <updated>2014-07-22T10:14:54+01:00</updated>
   <id>http://www.UnkelTao.com/</id>

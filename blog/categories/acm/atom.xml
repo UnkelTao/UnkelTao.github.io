@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ACM | /UnkelTao]]></title>
   <link href="http://www.UnkelTao.com/blog/categories/acm/atom.xml" rel="self"/>
   <link href="http://www.UnkelTao.com/"/>
-  <updated>2014-08-17T14:12:38+01:00</updated>
+  <updated>2014-09-29T06:05:30+01:00</updated>
   <id>http://www.UnkelTao.com/</id>
   <author>
     <name><![CDATA[UnkelTao]]></name>
@@ -12,6 +12,247 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[bestcode #11 div2]]></title>
+    <link href="http://www.UnkelTao.com/blog/2014/09/29/bestcode-number-11-div2/"/>
+    <updated>2014-09-29T04:54:35+01:00</updated>
+    <id>http://www.UnkelTao.com/blog/2014/09/29/bestcode-number-11-div2</id>
+    <content type="html"><![CDATA[<p>博客还是要不定期更新下才行，表示存活。<br />
+~~昨天晚上做了杭电的best coder,div2果然还是比较适合我这种弱渣的，都可以做。最后1004出题人实在太恶意了，故意卡内存，MLE到死，1002坑死了一堆人，最后hack了6个（悲催的是自己想到数据了写错了一个字母，自己最后也挂掉了）。<br />
+<strong>题解间下面:</strong><br />
+<!-- more -->  </p>
+
+<h3 id="httpacmhdueducnshowproblemphppid5054"><a href="http://acm.hdu.edu.cn/showproblem.php?pid=5054">1001</a></h3>
+<p>签到题，没什么可说的，判断<code>2*x==n&amp;&amp;2*y==m</code>就行了  </p>
+
+<p>```
+int main(){
+   //data();</p>
+
+<p>int m,n,x,y;</p>
+
+<p>while(~scanf(“%d%d%d%d”,&amp;n,&amp;m,&amp;x,&amp;y)){
+      if(x<em>2==n&amp;&amp;y</em>2==m) cout«“YES”«endl;
+      else cout«“NO”«endl;
+   }
+   return 0;
+}
+```  </p>
+
+<h3 id="httpacmhdueducnshowproblemphppid5055"><a href="http://acm.hdu.edu.cn/showproblem.php?pid=5055">1002</a></h3>
+
+<p><strong>题意:</strong> 给你一堆0~9的数字，让你把他们组合成一个满足条件的最大的数:  </p>
+
+<ul>
+  <li>木有前导0  </li>
+  <li>最后一个必须是奇数  </li>
+</ul>
+
+<p>如果没有满足条件的，输出-1。
+**解法:  ** 贪心，选一个最小的奇数放最后，然后从大到小输出剩余的数就行了，注意判断无解的情况。<br />
+一些特殊数据  </p>
+
+<blockquote>
+  <p>5<br />
+1 0 0 0 0<br />
+out:-1<br />
+1<br />
+1<br />
+out:1<br />
+1<br />
+0<br />
+out:0  </p>
+</blockquote>
+
+<p>```
+#define rep(i, n) for (int i=0; i&lt;(n); ++i)
+void RD(int &amp;a) { 
+    int value = 0, s = 1; 
+    char c;
+    while ((c = getchar()) == ‘ ‘ || c == ‘\n’);
+    if (c == ‘-‘) s = -s; else value = c-48;
+    while ((c = getchar()) &gt;= ‘0’ &amp;&amp; c &lt;= ‘9’)
+        value = value * 10 + c - 48;
+    a = s * value;
+}
+int res[10];
+int main(){
+   //data();</p>
+
+<p>int n,a;
+   while(~scanf(“%d”,&amp;n)){
+      int fg=0,fg2=0,mi=11;
+      memset(res,0,sizeof(res));
+      rep(i,n){ 
+         RD(a);
+         if(a&amp;1){ fg++;if(mi&gt;a)mi=a;} 
+         res[a]++; 
+      }<br />
+      if(fg==0||(n&gt;1&amp;&amp;res[0]==n-1)){printf(“-1\n”);}
+      else{</p>
+
+<pre><code>     for(int i=9;i&gt;=0;i--){
+        if(i==mi) rep(j,res[i]-1)printf("%d",i);
+        else rep(j,res[i]) printf("%d",i);
+        
+     }
+     printf("%d\n",mi);
+  }    }
+</code></pre>
+
+<p>return 0;
+}
+```  </p>
+
+<h3 id="httpacmhdueducnshowproblemphppid5056"><a href="http://acm.hdu.edu.cn/showproblem.php?pid=5056">1003</a></h3>
+
+<p>**题意： ** 给你一个只包含小写字母的字符串，问你相同字母不超过k个的子串有多少种。<br />
+**解法:  ** 简单的dp吧对于某个i位置，找到该字母的第前k个相同字母的位置(不足k,就在起始位置)，同时维护前i-1的位置最远可以向前的位置。  </p>
+
+<p>```
+void RD(int &amp;a) { 
+    int value = 0, s = 1; 
+    char c;
+    while ((c = getchar()) == ‘ ‘ || c == ‘\n’);
+    if (c == ‘-‘) s = -s; else value = c-48;
+    while ((c = getchar()) &gt;= ‘0’ &amp;&amp; c &lt;= ‘9’)
+        value = value * 10 + c - 48;
+    a = s * value;
+}</p>
+
+<p>int cnt[27];
+vector<int> mark[26];
+char str[100100];
+int main(){
+   //data();</int></p>
+
+<p>int T,n,a,k;
+   RD(T);</p>
+
+<p>while(T–){
+        for(int i=0;i&lt;26;i++){ mark[i].clear();cnt[i]=0;}        <br />
+     scanf(“%s”,str);
+     RD(k);
+     int len=strlen(str);
+     ll res=1LL;
+     mark[str[0]-‘a’].push_back(0);
+     cnt[str[0]-‘a’]++;
+     int cur=-1;
+     for(int i=1;i&lt;len;i++)
+     {   int tp=str[i]-‘a’;</p>
+
+<pre><code>     if(cnt[tp]&lt;k) res+=(i-cur);
+     else{cur=max(cur,mark[tp][cnt[tp]-k]); res +=(i-cur);}
+     //cout&lt;&lt;tp&lt;&lt;"  "&lt;&lt;cnt[tp]&lt;&lt;"  "&lt;&lt;k&lt;&lt;"   "&lt;&lt;res&lt;&lt;endl;
+     cnt[tp]++;
+     mark[tp].push_back(i);
+ }
+ cout&lt;&lt;res&lt;&lt;endl;    }
+</code></pre>
+
+<p>return 0;
+}
+```</p>
+
+<h3 id="httpacmhdueducnshowproblemphppid5057"><a href="http://acm.hdu.edu.cn/showproblem.php?pid=5057">1004</a></h3>
+
+<p><strong>题意:</strong> 给你一串数字，两种操作  </p>
+
+<ul>
+  <li>S x y: 将第x个数变为y  </li>
+  <li>Q l r d p: 查询[l,r]区间内，第d位数字为p的数有多少个。  </li>
+</ul>
+
+<p>**解法: **一开始利用树状数组开了一个C[d][p][MaxN]的数组来维护第d位为p的一个区间和，结果出题人恶意的卡内存，不断的MLE，姿势不够，怎么优化内存都不行，有人说用无符号short型，但是n最大10^6，会溢出。最后改成离线算法，只开C[p][MaxN]的数组来维护某一位为p的区间和，然后预存所有操作，跑10遍，每一遍对应一位。这样内存就很随意了。 <br />
+<img src="http://unkeltao.qiniudn.com/wailian%2Fhdudiv211.png" alt="" /><br />
+都是泪~</p>
+
+<p>```
+#define MaxN 110000
+int  C[11][MaxN]={0};
+int n,n2,m;
+int read(int k,int i){
+    int sum=0;
+    if(k&lt;=0) return 0;
+    for(;k;k-=(k&amp;-k)) sum += C[i][k];
+    return sum;
+}</p>
+
+<p>void update(int k,int p,int i){
+    for(;k&lt;=n;k+=(k&amp;-k)) C[i][k] += p;
+}
+void RD(int &amp;a) { 
+    int value = 0, s = 1; 
+    char c;
+    while ((c = getchar()) == ‘ ‘ || c == ‘\n’);
+    if (c == ‘-‘) s = -s; else value = c-48;
+    while ((c = getchar()) &gt;= ‘0’ &amp;&amp; c &lt;= ‘9’)
+        value = value * 10 + c - 48;
+    a = s * value;
+}
+int CC[MaxN],A[MaxN];
+int p[11];
+int T,i,j,a[MaxN],b[MaxN],l[MaxN],r[MaxN],cnt[MaxN],tp1,tp2;
+int ans[MaxN];
+int mx[11];
+char Q[3];
+int main(){
+   // data();</p>
+
+<pre><code>RD(T);
+p[1]=1;
+for(i=2;i&lt;=10;i++) p[i]=p[i-1]*10;
+while(T--){
+   RD(n);
+   RD(m);        
+
+   for(i=0;i&lt;n;i++){ 
+        RD(A[i]);
+        //cout&lt;&lt;A[i]&lt;&lt;endl;
+   }
+   for(int i=0;i&lt;11;i++)mx[i]=n;
+   for(i=0;i&lt;m;i++){
+      scanf("%s",Q);
+         if(Q[0]=='S'){
+         cnt[i]=0;
+           RD(a[i]);RD(b[i]);
+      }else{
+           RD(l[i]);RD(r[i]);RD(a[i]);RD(b[i]);cnt[i]=1;
+           mx[a[i]]=i;
+      }
+      
+   }
+   
+   for(int i=1;i&lt;=10;i++)
+   {
+         memset(C,0,sizeof(C));
+         for(j=0;j&lt;n;j++){
+            n2 = (A[j]/p[i])%10;
+            update(j+1,1,n2);
+            CC[j]=A[j];
+         }   
+        for(int j=0;j&lt;m;j++){
+           // if(j&gt;mx[i]) break;
+            if(!cnt[j]) {
+                tp1=(CC[a[j]-1]/p[i])%10;
+                tp2=(b[j]/p[i])%10;
+                if(tp1==tp2) continue;
+               {update(a[j],-1,tp1); update(a[j],1,tp2);}
+               CC[a[j]-1]=b[j];
+            }else if(a[j]==i){
+                ans[j] = read(r[j],b[j])-read(l[j]-1,b[j]);
+            }
+        }
+   }
+   
+   for(i=0;i&lt;m;i++){
+      if(cnt[i])  printf("%d\n",ans[i]);
+   }                            
+} } ```
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Codeforces Round #237 (Div. 2) ]]></title>
@@ -785,334 +1026,6 @@ int main(){
 </code></p>
 
 <p>（效果似乎一般）</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[The 9th SWJTU Collegiate Programming Contest Qualification Round]]></title>
-    <link href="http://www.UnkelTao.com/blog/2013/04/13/the-9th-swjtu-collegiate-programming-contest-qualification-round/"/>
-    <updated>2013-04-13T23:16:28+01:00</updated>
-    <id>http://www.UnkelTao.com/blog/2013/04/13/the-9th-swjtu-collegiate-programming-contest-qualification-round</id>
-    <content type="html"><![CDATA[<p><strong>比赛链接：</strong>  <a href="http://acm.swjtu.edu.cn/JudgeOnline/showcontest?contest_id=1135" title="第九届ACM校赛资格赛">第九届ACM校赛资格赛</a>  </p>
-
-<p>资格赛嘛，本着大家熟悉环境增强自信心的原则~10道题没有太难的题目~适合新手练习.本次比赛D、E、F是我出的，本着简单的想法却没想到坑了一部分人，其中E题的数据再随机的时候超出了题目描述的范围造成一些人AC的程序WA了，在此表示抱歉,致以诚挚的歉意。下面给出我对着10道题的解法，可能我的解法并不是完全正确恰好过了数据而已，欢迎大家指正。</p>
-
-<!--more-->
-<p>##A <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1982">A+B</a>
-完全熟悉OJ环境的题目,上面都有标程,第一次接触ACM的需要知道怎么多组输入.</p>
-
-<p><code>c++ 
-int a, b; 
-while(scanf("%d %d", &amp;a, &amp;b)==2){
-    printf("%d\n", a + b);
-}
-</code></p>
-
-<h2 id="b-1httpacmswjtueducnjudgeonlineshowproblemproblemid1986">B <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1986">猴子爬楼梯1</a></h2>
-<p>因为数据不大，可以有3中解法:  </p>
-
-<ul>
-  <li>
-    <p>原理：看 n能被被整除<code>GCD(a,b)</code>整除，推论过程略,详见大牛(<a href="http://blog.csdn.net/openspirit/article/details/8797246">大牛题解</a>)。	</p>
-  </li>
-  <li>
-    <p>模拟法：我们可以确定只要大于 <code>a+b-1</code>的数 我们都可以通过加上a来得到,在+a ,-b的过程中，通过模拟产生出<code>(1，a+b-1)</code>所有的可能,把n对a取模既可以。	</p>
-  </li>
-  <li>
-    <p>搜索或者暴力,记忆化搜索，也就1000个点而已,代码未写,参见C题。	</p>
-  </li>
-</ul>
-
-<p><code>c++ 
-//模拟法
-int s[10000];
-int cnt(int a,int b)
-{
-    int tmp=a,cur=0;
-    memset(s,0,sizeof(s));
-    while(tmp!=0)
-    {
-        s[cur++]=tmp;         
-        if(tmp&gt;=b)tmp-=b;
-        else tmp+=a;           
-    } 
-    return cur;
-}
-</code></p>
-
-<h2 id="c-2httpacmswjtueducnjudgeonlineshowproblemproblemid1990">C <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1990">猴子爬楼梯2</a></h2>
-
-<p><strong>本题将我深深的伤害了</strong>  </p>
-
-<ul>
-  <li>
-    <p>模拟法:看着数据不大，于是暴力模拟,无限WA,基本思路同B题二解法，只是模拟过程中出现大于top就停止,至今未AC，未发现错误数据，回头对拍,有待考证。(<strong>忘记加特判了<code>a=0,b=0</code>时候挂掉了, 加上AC</strong>)	</p>
-  </li>
-  <li>
-    <p>记忆化搜索	</p>
-  </li>
-</ul>
-
-<p>```c++ 
-//模拟法
-#include<cstdio>
-#define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)
-int gcd(int a,int b){return b?gcd(b,a%b):a;}
-int s[1000];
-int cnt(int a,int b)
-{
-    int tmp=a,cur=0;
-    if(b==0){s[0]=a; return 1;}
-    while(tmp!=0){s[cur++]=tmp;if(tmp&gt;=b)tmp-=b;else tmp+=a;} 
-    return cur;
-}
-int main()
-{
-    //freopen("data.in","r",stdin);
-    //freopen("data2.out","w",stdout);
-    int T,a,b,n,m;
-    scanf("%d",&amp;T);
-    while(T--){
-       scanf("%d%d%d%d",&amp;a,&amp;b,&amp;n,&amp;m);
-       if(n&gt;m||a==0) printf("NO\n");
-       else {
-          if(n%a==0) printf("YES\n");
-          else {  
-               int len=cnt(a,b);
-               n=n%a; 
-               bool fg=0;
-               rep(i,0,len){
-                  if(s[i]==n) {fg=1;break;}
-                  if(s[i]&gt;m){fg=0;break;}
-               }
-               if(fg)printf("YES\n");else printf("NO\n");  </cstdio></p>
-
-<pre><code>      }
-   }
-}
-return 0; } ```
-</code></pre>
-
-<p><code>c++
-//记忆化搜索
-bool used[1100];
-bool bfs(int a,int b,int n,int m)
-{
-    queue&lt;int&gt; q;
-    memset(used,0,sizeof(used));
-    if(a&gt;m) return 0;
-    q.push(a);
-    used[a]=1;
-    int t;
-    while(!q.empty())
-    {
-       int tmp=q.front(); q.pop();
-       used[tmp]=1;
-       if(tmp==n) return 1;
-       if(tmp+a&lt;=m&amp;&amp;!used[tmp+a]){used[tmp+a]=1; q.push(tmp+a);}
-       if(tmp-b&gt;=0&amp;&amp;!used[tmp-b]){used[tmp-b]=1; q.push(tmp-b);}           
-    }
-    return 0;
-}
-</code></p>
-
-<h2 id="d-httpacmswjtueducnjudgeonlineshowproblemproblemid1991">D <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1991">统计学号</a></h2>
-
-<p>排序下，扫描一遍即可，秒杀级水题一枚。不会快排的可冒泡。</p>
-
-<p><code>c++ 
-#include&lt;cstdio&gt;
-#include&lt;cstring&gt;
-#include&lt;iostream&gt;
-#include&lt;algorithm&gt;
-using namespace std;
-#define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)
-int a[110];
-int main()
-{
- //   freopen("data.in","r",stdin);
- //   freopen("data.out","w",stdout);
-    int T,n;
-    scanf("%d",&amp;T);
-    while(T--){
-       scanf("%d",&amp;n);
-       rep(i,0,n)scanf("%d",&amp;a[i]);
-       sort(a,a+n);
-       int cnt=1;
-       rep(i,1,n) {if(a[i]!=a[i-1])cnt++;}
-       printf("%d\n",cnt);        
-    }
-    return 0;
-}
-</code></p>
-
-<h2 id="e-20httpacmswjtueducnjudgeonlineshowproblemproblemid1992">E <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1992">德德的嗜好2.0</a></h2>
-
-<p>此题也是一个排序题，当然如果直接<code>strcmp</code>是不行的，考虑90 9这组数据，结果很明显应该是990而不是909。<br />
-因为我们在排序的时候只要保证<code>(a+b)&gt;(b+a)</code>即可。<br />
-<strong>再次表示对数据中出现了大于1000的数表示抱歉</strong></p>
-
-<p><code>c++ 
-#include&lt;cstdio&gt;
-#include&lt;cstring&gt;
-#include&lt;iostream&gt;
-#include&lt;algorithm&gt;
-using namespace std;
-#define rep(i, n) for (int i=0; i&lt;(n); ++i)
-string s[81];
-bool cmp(string a,string b)
-{
-     return (a+b)&gt;(b+a);
-}
-int main()
-{
-    //freopen("data.in","r",stdin);
-    //freopen("data.out","w",stdout);
-    int T,n;
-    cin&gt;&gt;T;
-    while(T--)
-    {
-      cin&gt;&gt;n;
-      rep(i,n)cin&gt;&gt;s[i];
-      sort(s,s+n,cmp);   
-      rep(i,n)cout&lt;&lt;s[i];
-      cout&lt;&lt;endl;    
-    }
-    return 0;
-}
-</code></p>
-
-<h2 id="f-30httpacmswjtueducnjudgeonlineshowproblemproblemid1993">F <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1993">德德的嗜好3.0</a></h2>
-<p>公式题或者找规律  <code>b(8k+m)=b(m)+60k;  (k=n/8;m=n%8)</code> 打表出前8项就够了;其中<code>b(0)=-1;</code> 可以m等于1到8~这样就用不到b(0)但是计算k,m就多了几行代码。<br />
-下面是推论：  </p>
-
-<ul>
-  <li>
-    <p>由于<code>a(n+15)-a(n)=60</code>,故若<code>a(n)</code>是3或5的倍数,当且仅当<code>a(n+15)</code>是3或5的倍数. 	</p>
-  </li>
-  <li>
-    <p>于是每15个数是一个周期，前15个3-59~所以划分区间。	</p>
-  </li>
-  <li>
-    <p>现将数轴正向分成一系列长为60的区间段: <code>(0,+?)＝(0,60]∪(60,120]∪(120,180]∪…,</code>注意第一个区间段中含有{a(n)}的项15个,即<code>3,7,11,15,19,23,27,31,35,39,43,47,51,55,59</code>其中属于{ }的项8个,为:<code>b(1)=7, b(2)=11, b(3)=19, b(4)=23,   b(5)=31, b(6)=43, b(7)=47, b(8)=59</code>	</p>
-  </li>
-  <li>
-    <p>于是每个区间段中恰有15个{ }的项,8个{ }的项,且有<code>b(8k+m)-b(m)=60k;</code>	 </p>
-  </li>
-  <li>
-    <p>EG：由于<code>2006＝8×250+6</code>,而<code>b(6)=43</code>,所以<code>b(2006)=60*250+b(6)=15043</code>。	</p>
-  </li>
-</ul>
-
-<p>```c++ 
-#include<cstdio>
-#include<cstring>
-#include<iostream>
-#include<algorithm>
-using namespace std;
-#define ll long long
-#define rep(i, n) for (int i=0; i&lt;(n); ++i)
-int b[8]={-1,7,11,19,23,31,43,47};</algorithm></iostream></cstring></cstdio></p>
-
-<p>int main()
-{
-    //freopen(“data.in”,”r”,stdin);
-    //freopen(“data.out”,”w”,stdout);
-    int T,n;
-    scanf(“%d”,&amp;T);
-    while(T–)
-    {
-        scanf(“%d”,&amp;n);<br />
-        ll ans=60LL*(n/8)+b[n%8];
-        printf(“%lld\n”,ans);  <br />
-    }
-    return 0;
-}
-```</p>
-
-<h2 id="g-httpacmswjtueducnjudgeonlineshowproblemproblemid1994">G <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1994">不知道自己不知道</a></h2>
-
-<p>没什么好说的</p>
-
-<p><code>c
-while(~scanf("%d",&amp;n)) printf("%d\n",2013-n);
-</code></p>
-
-<h2 id="h-httpacmswjtueducnjudgeonlineshowproblemproblemid1995">H <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1995">知道自己不知道</a></h2>
-
-<p>数组求和除以M向上取整.  </p>
-
-<p><code>
-rep(i,0,n)  scanf("%d",&amp;a);
-sum+=a;     
-printf("%d\n",(sum+m-1)/m); //加上m-1为向上取整
-</code></p>
-
-<h2 id="i-httpacmswjtueducnjudgeonlineshowproblemproblemid1996">I <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1996">不知道自己知道</a></h2>
-
-<p>暴力比较即可</p>
-
-<p>```c++ 
-#define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)
-string s[110];
-int main()
-{</p>
-
-<pre><code>int t=0,T,m,n;
-cin&gt;&gt;T;
-string qurry;
-while(t++&lt;T)
-{
-    cin&gt;&gt;m;
-    rep(i,0,m){cin&gt;&gt;s[i];}
-    cin&gt;&gt;n;
-    cout&lt;&lt;"Case #"&lt;&lt;t&lt;&lt;":"&lt;&lt;endl;
-    rep(i,0,n){
-      cin&gt;&gt;qurry;
-      bool fg=0;
-      rep(j,0,m){if(qurry==s[j]){fg=1;break;}}
-      if(fg)cout&lt;&lt;"Yes"&lt;&lt;endl;
-      else cout&lt;&lt;"No"&lt;&lt;endl;
-    }        
-}
-return 0; } ```
-</code></pre>
-
-<h1 id="j-httpacmswjtueducnjudgeonlineshowproblemproblemid1997">J <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1997">知道自己知道</a></h1>
-
-<p>做一下结构体，保存i和和i出现的次数，有负数，i集体加上100，然后恢复即可。</p>
-
-<p><code>c++ 
-#define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)
-struct pt{     
-	int cnt;
-    int i;  
-};
-pt s[550];
-bool cmp(pt a,pt b){
-     if(a.cnt==b.cnt) return a.i&lt;b.i;     
-     return a.cnt&gt;b.cnt;
-}
-int main(){
-    int t,n,a;
-    scanf("%d",&amp;t);
-    while(t--){
-        rep(i,0,500){s[i].i=i-100;s[i].cnt=0;}
-        scanf("%d",&amp;n);
-        rep(i,0,n)  {  scanf("%d",&amp;a);      s[a+100].cnt++; }
-        sort(s,s+500,cmp);
-        int cnt=0;
-        rep(i,0,500){if(s[i].cnt!=0)cnt++;else break;}
-        printf("%d",cnt);
-        rep(i,0,500){  if(!s[i].cnt)break;  printf(" %d",s[i].i);   }
-        printf("\n");
-    }
-    return 0;
-}
-</code></p>
-
-<p>以上题目均为过测试数据的程序，不保证程序完全正确无误，欢迎指正,预赛题目难度很明显会增大很多，大家加油。 3Q</p>
 
 ]]></content>
   </entry>

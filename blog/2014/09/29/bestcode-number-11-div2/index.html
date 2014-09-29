@@ -1,0 +1,760 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>bestcode #11 div2 - /UnkelTao</title>
+  <meta name="author" content="UnkelTao">
+
+  
+  <meta name="description" content="bestcode #11 div2 杭电,bestcode,hdu,div2,ACM,C++,11">
+  <meta name="keywords" content="bestcode,hdu,div2,ACM,C++">
+   <meta name="keywords" content="c/c++, ruby, latex, linux, java, web development, hadoop, MapReduce">
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.UnkelTao.com/blog/2014/09/29/bestcode-number-11-div2/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+   <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <script src="/javascripts/costem.js" type="text/javascript"></script>
+  <!-- <script src="/javascripts/instantclick.min.js" type="text/javascript"></script> -->
+  <link href="/atom.xml" rel="alternate" title="/UnkelTao" type="application/atom+xml">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!--
+<link href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lora:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700,900' rel='stylesheet' type='text/css'>
+
+
+-->
+ 
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-48154170-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+  <!--html{background: url("http://unkeltao.qiniudn.com/bg/IMG_background.png") no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;
+   }-->
+  <style type="text/css">
+   
+   * { color: #555; font-family:Monospace; font-size:12px; }
+      
+    
+      canvas { opacity: .8; position:relative; z-index: -3;}
+  </style>
+  <!-- 画布程序 -->
+    <script type="text/javascript" src="/javascripts/paint/harmony.js"></script>
+    <script type="text/javascript" src="/javascripts/paint/dollar.js"></script>
+  <!-- 画布程序结束 -->  
+  
+</head>
+
+<body   >
+  <script>harmony()</script>
+  <header role="banner"><hgroup>
+</hgroup>
+
+</header>
+  <!-- <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.UnkelTao.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/blog/archives">About</a></li>
+</ul>
+
+</nav> -->
+  <div id="main">
+    <div id="content" data-no-instant>
+      <div data-no-instant>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Bestcode #11 Div2</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-29T04:54:35+01:00" pubdate data-updated="true">Sep 29<span>th</span>, 2014</time>
+        
+        
+          | <a href="#comments">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>博客还是要不定期更新下才行，表示存活。<br />
+~~昨天晚上做了杭电的best coder,div2果然还是比较适合我这种弱渣的，都可以做。最后1004出题人实在太恶意了，故意卡内存，MLE到死，1002坑死了一堆人，最后hack了6个（悲催的是自己想到数据了写错了一个字母，自己最后也挂掉了）。<br />
+<strong>题解间下面:</strong><br />
+<!-- more -->  </p>
+
+<h3 id="httpacmhdueducnshowproblemphppid5054"><a href="http://acm.hdu.edu.cn/showproblem.php?pid=5054">1001</a></h3>
+<p>签到题，没什么可说的，判断<code>2*x==n&amp;&amp;2*y==m</code>就行了  </p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">int main(){
+</span><span class="line">   //data();
+</span><span class="line">         
+</span><span class="line">   int m,n,x,y;
+</span><span class="line">   
+</span><span class="line">   while(~scanf("%d%d%d%d",&amp;n,&amp;m,&amp;x,&amp;y)){
+</span><span class="line">      if(x*2==n&amp;&amp;y*2==m) cout&lt;&lt;"YES"&lt;&lt;endl;
+</span><span class="line">      else cout&lt;&lt;"NO"&lt;&lt;endl;
+</span><span class="line">   }
+</span><span class="line">   return 0;
+</span><span class="line">}</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h3 id="httpacmhdueducnshowproblemphppid5055"><a href="http://acm.hdu.edu.cn/showproblem.php?pid=5055">1002</a></h3>
+
+<p><strong>题意:</strong> 给你一堆0~9的数字，让你把他们组合成一个满足条件的最大的数:  </p>
+
+<ul>
+  <li>木有前导0  </li>
+  <li>最后一个必须是奇数  </li>
+</ul>
+
+<p>如果没有满足条件的，输出-1。
+**解法:  ** 贪心，选一个最小的奇数放最后，然后从大到小输出剩余的数就行了，注意判断无解的情况。<br />
+一些特殊数据  </p>
+
+<blockquote>
+  <p>5<br />
+1 0 0 0 0<br />
+out:-1<br />
+1<br />
+1<br />
+out:1<br />
+1<br />
+0<br />
+out:0  </p>
+</blockquote>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+<span class="line-number">22</span>
+<span class="line-number">23</span>
+<span class="line-number">24</span>
+<span class="line-number">25</span>
+<span class="line-number">26</span>
+<span class="line-number">27</span>
+<span class="line-number">28</span>
+<span class="line-number">29</span>
+<span class="line-number">30</span>
+<span class="line-number">31</span>
+<span class="line-number">32</span>
+<span class="line-number">33</span>
+<span class="line-number">34</span>
+<span class="line-number">35</span>
+<span class="line-number">36</span>
+<span class="line-number">37</span>
+<span class="line-number">38</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">#define rep(i, n) for (int i=0; i&lt;(n); ++i)
+</span><span class="line">void RD(int &amp;a) { 
+</span><span class="line">    int value = 0, s = 1; 
+</span><span class="line">    char c;
+</span><span class="line">    while ((c = getchar()) == ' ' || c == '\n');
+</span><span class="line">    if (c == '-') s = -s; else value = c-48;
+</span><span class="line">    while ((c = getchar()) &gt;= '0' &amp;&amp; c &lt;= '9')
+</span><span class="line">        value = value * 10 + c - 48;
+</span><span class="line">    a = s * value;
+</span><span class="line">}
+</span><span class="line">int res[10];
+</span><span class="line">int main(){
+</span><span class="line">   //data();
+</span><span class="line">         
+</span><span class="line">   int n,a;
+</span><span class="line">   while(~scanf("%d",&amp;n)){
+</span><span class="line">      int fg=0,fg2=0,mi=11;
+</span><span class="line">      memset(res,0,sizeof(res));
+</span><span class="line">      rep(i,n){ 
+</span><span class="line">         RD(a);
+</span><span class="line">         if(a&amp;1){ fg++;if(mi&gt;a)mi=a;} 
+</span><span class="line">         res[a]++; 
+</span><span class="line">      }  
+</span><span class="line">      if(fg==0||(n&gt;1&amp;&amp;res[0]==n-1)){printf("-1\n");}
+</span><span class="line">      else{
+</span><span class="line">             
+</span><span class="line">         
+</span><span class="line">         for(int i=9;i&gt;=0;i--){
+</span><span class="line">            if(i==mi) rep(j,res[i]-1)printf("%d",i);
+</span><span class="line">            else rep(j,res[i]) printf("%d",i);
+</span><span class="line">            
+</span><span class="line">         }
+</span><span class="line">         printf("%d\n",mi);
+</span><span class="line">      }
+</span><span class="line">   }
+</span><span class="line">   
+</span><span class="line">   return 0;
+</span><span class="line">}</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h3 id="httpacmhdueducnshowproblemphppid5056"><a href="http://acm.hdu.edu.cn/showproblem.php?pid=5056">1003</a></h3>
+
+<p>**题意： ** 给你一个只包含小写字母的字符串，问你相同字母不超过k个的子串有多少种。<br />
+**解法:  ** 简单的dp吧对于某个i位置，找到该字母的第前k个相同字母的位置(不足k,就在起始位置)，同时维护前i-1的位置最远可以向前的位置。  </p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+<span class="line-number">22</span>
+<span class="line-number">23</span>
+<span class="line-number">24</span>
+<span class="line-number">25</span>
+<span class="line-number">26</span>
+<span class="line-number">27</span>
+<span class="line-number">28</span>
+<span class="line-number">29</span>
+<span class="line-number">30</span>
+<span class="line-number">31</span>
+<span class="line-number">32</span>
+<span class="line-number">33</span>
+<span class="line-number">34</span>
+<span class="line-number">35</span>
+<span class="line-number">36</span>
+<span class="line-number">37</span>
+<span class="line-number">38</span>
+<span class="line-number">39</span>
+<span class="line-number">40</span>
+<span class="line-number">41</span>
+<span class="line-number">42</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">void RD(int &amp;a) { 
+</span><span class="line">    int value = 0, s = 1; 
+</span><span class="line">    char c;
+</span><span class="line">    while ((c = getchar()) == ' ' || c == '\n');
+</span><span class="line">    if (c == '-') s = -s; else value = c-48;
+</span><span class="line">    while ((c = getchar()) &gt;= '0' &amp;&amp; c &lt;= '9')
+</span><span class="line">        value = value * 10 + c - 48;
+</span><span class="line">    a = s * value;
+</span><span class="line">}
+</span><span class="line">
+</span><span class="line">int cnt[27];
+</span><span class="line">vector&lt;int&gt; mark[26];
+</span><span class="line">char str[100100];
+</span><span class="line">int main(){
+</span><span class="line">   //data();
+</span><span class="line">          
+</span><span class="line">   int T,n,a,k;
+</span><span class="line">   RD(T);
+</span><span class="line">   
+</span><span class="line">   while(T--){
+</span><span class="line">        for(int i=0;i&lt;26;i++){ mark[i].clear();cnt[i]=0;}          
+</span><span class="line">     scanf("%s",str);
+</span><span class="line">     RD(k);
+</span><span class="line">     int len=strlen(str);
+</span><span class="line">     ll res=1LL;
+</span><span class="line">     mark[str[0]-'a'].push_back(0);
+</span><span class="line">     cnt[str[0]-'a']++;
+</span><span class="line">     int cur=-1;
+</span><span class="line">     for(int i=1;i&lt;len;i++)
+</span><span class="line">     {   int tp=str[i]-'a';
+</span><span class="line">         
+</span><span class="line">         if(cnt[tp]&lt;k) res+=(i-cur);
+</span><span class="line">         else{cur=max(cur,mark[tp][cnt[tp]-k]); res +=(i-cur);}
+</span><span class="line">         //cout&lt;&lt;tp&lt;&lt;"  "&lt;&lt;cnt[tp]&lt;&lt;"  "&lt;&lt;k&lt;&lt;"   "&lt;&lt;res&lt;&lt;endl;
+</span><span class="line">         cnt[tp]++;
+</span><span class="line">         mark[tp].push_back(i);
+</span><span class="line">     }
+</span><span class="line">     cout&lt;&lt;res&lt;&lt;endl;
+</span><span class="line">   }
+</span><span class="line">   
+</span><span class="line">   return 0;
+</span><span class="line">}</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h3 id="httpacmhdueducnshowproblemphppid5057"><a href="http://acm.hdu.edu.cn/showproblem.php?pid=5057">1004</a></h3>
+
+<p><strong>题意:</strong> 给你一串数字，两种操作  </p>
+
+<ul>
+  <li>S x y: 将第x个数变为y  </li>
+  <li>Q l r d p: 查询[l,r]区间内，第d位数字为p的数有多少个。  </li>
+</ul>
+
+<p>**解法: **一开始利用树状数组开了一个C[d][p][MaxN]的数组来维护第d位为p的一个区间和，结果出题人恶意的卡内存，不断的MLE，姿势不够，怎么优化内存都不行，有人说用无符号short型，但是n最大10^6，会溢出。最后改成离线算法，只开C[p][MaxN]的数组来维护某一位为p的区间和，然后预存所有操作，跑10遍，每一遍对应一位。这样内存就很随意了。 <br />
+<img src="http://unkeltao.qiniudn.com/wailian%2Fhdudiv211.png" alt="" /><br />
+都是泪~</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+<span class="line-number">22</span>
+<span class="line-number">23</span>
+<span class="line-number">24</span>
+<span class="line-number">25</span>
+<span class="line-number">26</span>
+<span class="line-number">27</span>
+<span class="line-number">28</span>
+<span class="line-number">29</span>
+<span class="line-number">30</span>
+<span class="line-number">31</span>
+<span class="line-number">32</span>
+<span class="line-number">33</span>
+<span class="line-number">34</span>
+<span class="line-number">35</span>
+<span class="line-number">36</span>
+<span class="line-number">37</span>
+<span class="line-number">38</span>
+<span class="line-number">39</span>
+<span class="line-number">40</span>
+<span class="line-number">41</span>
+<span class="line-number">42</span>
+<span class="line-number">43</span>
+<span class="line-number">44</span>
+<span class="line-number">45</span>
+<span class="line-number">46</span>
+<span class="line-number">47</span>
+<span class="line-number">48</span>
+<span class="line-number">49</span>
+<span class="line-number">50</span>
+<span class="line-number">51</span>
+<span class="line-number">52</span>
+<span class="line-number">53</span>
+<span class="line-number">54</span>
+<span class="line-number">55</span>
+<span class="line-number">56</span>
+<span class="line-number">57</span>
+<span class="line-number">58</span>
+<span class="line-number">59</span>
+<span class="line-number">60</span>
+<span class="line-number">61</span>
+<span class="line-number">62</span>
+<span class="line-number">63</span>
+<span class="line-number">64</span>
+<span class="line-number">65</span>
+<span class="line-number">66</span>
+<span class="line-number">67</span>
+<span class="line-number">68</span>
+<span class="line-number">69</span>
+<span class="line-number">70</span>
+<span class="line-number">71</span>
+<span class="line-number">72</span>
+<span class="line-number">73</span>
+<span class="line-number">74</span>
+<span class="line-number">75</span>
+<span class="line-number">76</span>
+<span class="line-number">77</span>
+<span class="line-number">78</span>
+<span class="line-number">79</span>
+<span class="line-number">80</span>
+<span class="line-number">81</span>
+<span class="line-number">82</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">#define MaxN 110000
+</span><span class="line">int  C[11][MaxN]={0};
+</span><span class="line">int n,n2,m;
+</span><span class="line">int read(int k,int i){
+</span><span class="line">    int sum=0;
+</span><span class="line">    if(k&lt;=0) return 0;
+</span><span class="line">    for(;k;k-=(k&amp;-k)) sum += C[i][k];
+</span><span class="line">    return sum;
+</span><span class="line">}
+</span><span class="line">
+</span><span class="line">void update(int k,int p,int i){
+</span><span class="line">    for(;k&lt;=n;k+=(k&amp;-k)) C[i][k] += p;
+</span><span class="line">}
+</span><span class="line">void RD(int &amp;a) { 
+</span><span class="line">    int value = 0, s = 1; 
+</span><span class="line">    char c;
+</span><span class="line">    while ((c = getchar()) == ' ' || c == '\n');
+</span><span class="line">    if (c == '-') s = -s; else value = c-48;
+</span><span class="line">    while ((c = getchar()) &gt;= '0' &amp;&amp; c &lt;= '9')
+</span><span class="line">        value = value * 10 + c - 48;
+</span><span class="line">    a = s * value;
+</span><span class="line">}
+</span><span class="line">int CC[MaxN],A[MaxN];
+</span><span class="line">int p[11];
+</span><span class="line">int T,i,j,a[MaxN],b[MaxN],l[MaxN],r[MaxN],cnt[MaxN],tp1,tp2;
+</span><span class="line">int ans[MaxN];
+</span><span class="line">int mx[11];
+</span><span class="line">char Q[3];
+</span><span class="line">int main(){
+</span><span class="line">   // data();
+</span><span class="line">
+</span><span class="line">    RD(T);
+</span><span class="line">    p[1]=1;
+</span><span class="line">    for(i=2;i&lt;=10;i++) p[i]=p[i-1]*10;
+</span><span class="line">    while(T--){
+</span><span class="line">       RD(n);
+</span><span class="line">       RD(m);        
+</span><span class="line">
+</span><span class="line">       for(i=0;i&lt;n;i++){ 
+</span><span class="line">            RD(A[i]);
+</span><span class="line">            //cout&lt;&lt;A[i]&lt;&lt;endl;
+</span><span class="line">       }
+</span><span class="line">       for(int i=0;i&lt;11;i++)mx[i]=n;
+</span><span class="line">       for(i=0;i&lt;m;i++){
+</span><span class="line">          scanf("%s",Q);
+</span><span class="line">             if(Q[0]=='S'){
+</span><span class="line">             cnt[i]=0;
+</span><span class="line">               RD(a[i]);RD(b[i]);
+</span><span class="line">          }else{
+</span><span class="line">               RD(l[i]);RD(r[i]);RD(a[i]);RD(b[i]);cnt[i]=1;
+</span><span class="line">               mx[a[i]]=i;
+</span><span class="line">          }
+</span><span class="line">          
+</span><span class="line">       }
+</span><span class="line">       
+</span><span class="line">       for(int i=1;i&lt;=10;i++)
+</span><span class="line">       {
+</span><span class="line">             memset(C,0,sizeof(C));
+</span><span class="line">             for(j=0;j&lt;n;j++){
+</span><span class="line">                n2 = (A[j]/p[i])%10;
+</span><span class="line">                update(j+1,1,n2);
+</span><span class="line">                CC[j]=A[j];
+</span><span class="line">             }   
+</span><span class="line">            for(int j=0;j&lt;m;j++){
+</span><span class="line">               // if(j&gt;mx[i]) break;
+</span><span class="line">                if(!cnt[j]) {
+</span><span class="line">                    tp1=(CC[a[j]-1]/p[i])%10;
+</span><span class="line">                    tp2=(b[j]/p[i])%10;
+</span><span class="line">                    if(tp1==tp2) continue;
+</span><span class="line">                   {update(a[j],-1,tp1); update(a[j],1,tp2);}
+</span><span class="line">                   CC[a[j]-1]=b[j];
+</span><span class="line">                }else if(a[j]==i){
+</span><span class="line">                    ans[j] = read(r[j],b[j])-read(l[j]-1,b[j]);
+</span><span class="line">                }
+</span><span class="line">            }
+</span><span class="line">       }
+</span><span class="line">       
+</span><span class="line">       for(i=0;i&lt;m;i++){
+</span><span class="line">          if(cnt[i])  printf("%d\n",ans[i]);
+</span><span class="line">       }                            
+</span><span class="line">    }
+</span><span class="line">}</span></code></pre></td></tr></table></div></figure></notextile></div>
+<p class="post-footer">原文地址:&nbsp;<a href="http://www.UnkelTao.com/blog/2014/09/29/bestcode-number-11-div2/">http://www.UnkelTao.com/blog/2014/09/29/bestcode-number-11-div2/</a><br /><br />&nbsp;由 <a href="http://www.UnkelTao.com">UnkelTao</a>&nbsp;撰写并发表于 <a href="http://www.UnkelTao.com">http://www.UnkelTao.com</a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+
+<span class="byline author vcard"></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-29T04:54:35+01:00" pubdate data-updated="true">Sep 29<span>th</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/acm/'>ACM</a>, <a class='category' href='/blog/categories/cpp/'>Cpp</a>
+  
+</span>
+
+
+    </p>
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/07/22/spring-plus-springmvc-plus-mybatis-aop/" title="Previous Post: Spring+SpringMVC+Mybatis  利用AOP自定义注解实现可配置日志快照记录">&laquo; Spring+SpringMVC+Mybatis  利用AOP自定义注解实现可配置日志快照记录</a>
+      
+      
+    </p>
+      
+          <!-- <div class="sharing">
+  
+  
+  
+<!-- -->
+<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分享到：</span>
+		<a class="jiathis_button_qzone">QQ空间</a>
+		<a class="jiathis_button_tsina">新浪微博</a>
+		<a class="jiathis_button_tqq">腾讯微博</a>
+		<a class="jiathis_button_weixin">微信</a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+		<a class="jiathis_counter_style"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1394031070305331" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+<!--  </div> <!-- -->
+
+      
+  </footer>
+</article>
+
+
+
+
+
+  <section data-no-instant>
+    <h1>Comments</h1>
+    <div id="comments" aria-live="polite"><!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"unkeltao"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END --></div>
+  </section>
+
+
+</div>
+
+
+
+<aside class="sidebar">
+  
+    <section id="titles">
+  <h1 id="site_title"><a href="http://www.UnkelTao.com" title="/UnkelTao">/UnkelTao</a></h1>
+  <h3 id="site_subtitle">一个还未开始搬砖的程序猿。</h3>
+</section>
+
+<section id="menu">
+  <ul>
+    <li><i class="fa fa-home fa-lg"></i><a href="/"> Home </a></li>
+    <li><i class="fa fa-calendar fa-lg"></i><a href="/blog/archives/"> Archives </a></li>
+    <li><i class="fa fa-user fa-lg"></i><a href="/about/"> About </a></li>
+    <li data-no-instant><i class="fa fa-rss fa-lg"></i><a href="/wiki/"> Wiki </a></li>
+  </ul>
+</section>
+
+<section id="social">
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+
+<section>
+	<h1>Friends Link</h1>
+	<ul>
+		<li><a href="http://xuyanconnie.sinaapp.com/blog/"  target="_blank" >徐小嘉</a></li>
+    <li><a href="http://songjiayang.github.io/"  target="_blank" >songjiayang</a></li>
+    <li><a href="http://herechen.github.io/" target="_blank">HereChen</a></li>
+	</ul>
+</section>
+<section >
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/09/29/bestcode-number-11-div2/">bestcode #11 div2</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/22/spring-plus-springmvc-plus-mybatis-aop/">Spring+SpringMVC+Mybatis  利用AOP自定义注解实现可配置日志快照记录</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/17/spring-plus-springmvc-plus-mybatis/">spring+springmvc+mybatis环境搭建</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/05/28/latex-test/">octopress 支持Latex</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/04/29/intsall-tmux/">Linux 下安装 Tmux</a>
+      </li>
+    
+  </ul>
+</section>
+<section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/acm/'>ACM (7)</a></li>
+<li class='category'><a href='/blog/categories/cf/'>CF (4)</a></li>
+<li class='category'><a href='/blog/categories/cpp/'>Cpp (6)</a></li>
+<li class='category'><a href='/blog/categories/java/'>Java (2)</a></li>
+<li class='category'><a href='/blog/categories/ruby/'>Ruby (3)</a></li>
+<li class='category'><a href='/blog/categories/spring/'>Spring (2)</a></li>
+<li class='category'><a href='/blog/categories/sublime-text/'>Sublime Text (1)</a></li>
+<li class='category'><a href='/blog/categories/ubuntu/'>Ubuntu (1)</a></li>
+<li class='category'><a href='/blog/categories/kindle/'>kindle (2)</a></li>
+<li class='category'><a href='/blog/categories/latex/'>latex (2)</a></li>
+<li class='category'><a href='/blog/categories/octopress/'>octopress (1)</a></li>
+<li class='category'><a href='/blog/categories/ruby/'>ruby (1)</a></li>
+<li class='category'><a href='/blog/categories/tmux/'>tmux (1)</a></li>
+<li class='category'><a href='/blog/categories/xin-qing-bi-ji/'>心情笔记 (1)</a></li>
+<li class='category'><a href='/blog/categories/du-shu-bi-ji/'>读书笔记 (3)</a></li>
+<li class='category'><a href='/blog/categories/sui-bi/'>随笔 (1)</a></li>
+
+  </ul>
+</section>
+<section>
+  <h1>Tag Cloud</h1>
+    <span id="tag-cloud"><a href='/blog/categories/acm' style='font-size: 160.0%'>ACM</a> <a href='/blog/categories/cf' style='font-size: 134.28571428571428%'>CF</a> <a href='/blog/categories/cpp' style='font-size: 151.42857142857144%'>Cpp</a> <a href='/blog/categories/java' style='font-size: 117.14285714285714%'>Java</a> <a href='/blog/categories/kindle' style='font-size: 117.14285714285714%'>kindle</a> <a href='/blog/categories/latex' style='font-size: 117.14285714285714%'>latex</a> <a href='/blog/categories/octopress' style='font-size: 108.57142857142857%'>octopress</a> <a href='/blog/categories/ruby' style='font-size: 125.71428571428572%'>Ruby</a> <a href='/blog/categories/ruby' style='font-size: 108.57142857142857%'>ruby</a> <a href='/blog/categories/spring' style='font-size: 117.14285714285714%'>Spring</a> <a href='/blog/categories/sublime-text' style='font-size: 108.57142857142857%'>Sublime Text</a> <a href='/blog/categories/tmux' style='font-size: 108.57142857142857%'>tmux</a> <a href='/blog/categories/ubuntu' style='font-size: 108.57142857142857%'>Ubuntu</a> <a href='/blog/categories/xin-qing-bi-ji' style='font-size: 108.57142857142857%'>心情笔记</a> <a href='/blog/categories/du-shu-bi-ji' style='font-size: 125.71428571428572%'>读书笔记</a> <a href='/blog/categories/sui-bi' style='font-size: 108.57142857142857%'>随笔</a> </span>
+</section>
+<section>
+	<h1>个人微博</h1>
+		<iframe width="100%" height="450" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=450&fansRow=2&ptype=1&speed=300&skin=2&isTitle=0&noborder=0&isWeibo=1&isFans=0&uid=3303041202&verifier=6ee45e11&colors=f2f2f2,f2f2f2,666666,0082cb,ecfbfd&dpc=1"></iframe>
+</section>
+
+<!--
+<div style="display:none;">
+	<audio controls="controls" autoplay="autoplay" loop="loop">
+		<source src="http://unkeltao.qiniudn.com/mp3mowenwei.mp3" type="audio/mpeg">
+	</audio>
+</div> <!-- -->
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - UnkelTao -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+  <!--<script type="text/javascript">
+   RandomBackground(2);
+
+  </script> -->
+<!-- <script data-no-instant>InstantClick.init();</script> -->
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+</body>
+</html>

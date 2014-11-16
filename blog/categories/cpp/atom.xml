@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Cpp | /UnkelTao]]></title>
   <link href="http://www.UnkelTao.com/blog/categories/cpp/atom.xml" rel="self"/>
   <link href="http://www.UnkelTao.com/"/>
-  <updated>2014-11-16T13:19:20+00:00</updated>
+  <updated>2014-11-16T13:23:39+00:00</updated>
   <id>http://www.UnkelTao.com/</id>
   <author>
     <name><![CDATA[UnkelTao]]></name>
@@ -576,7 +576,8 @@ int main() {
 return 0; } ```
 </code></pre>
 
-<p>以上题目均为过测试数据的程序，不保证程序完全正确无误。 3Q</p>
+<p>以上题目均为过测试数据的程序，不保证程序完全正确无误.
+Thanks for reading…  </p>
 ]]></content>
   </entry>
   

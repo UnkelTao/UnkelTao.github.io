@@ -4,7 +4,7 @@
   <title><![CDATA[/UnkelTao]]></title>
   <link href="http://www.UnkelTao.com/atom.xml" rel="self"/>
   <link href="http://www.UnkelTao.com/"/>
-  <updated>2014-11-16T13:04:24+00:00</updated>
+  <updated>2014-11-16T13:06:41+00:00</updated>
   <id>http://www.UnkelTao.com/</id>
   <author>
     <name><![CDATA[UnkelTao]]></name>
@@ -1032,8 +1032,9 @@
     <updated>2014-09-29T04:54:35+01:00</updated>
     <id>http://www.UnkelTao.com/blog/2014/09/29/bestcode-number-11-div2</id>
     <content type="html"><![CDATA[<p>博客还是要不定期更新下才行，表示存活。<br />
-~~昨天晚上做了杭电的best coder,div2果然还是比较适合我这种弱渣的，都可以做。最后1004出题人实在太恶意了，故意卡内存，MLE到死，1002坑死了一堆人，最后hack了6个（悲催的是自己想到数据了写错了一个字母，自己最后也挂掉了）。<br />
-<strong>题解间下面:</strong><br />
+~~昨天晚上做了杭电的best coder,div2果然还是比较适合我这种弱渣的，都可以做。最后1004出题人实在太恶意了，故意卡内存，MLE到死，1002坑死了一堆人，最后hack了6个（悲催的是自己想到数据了写错了一个字母，自己最后也挂掉了）。  </p>
+
+<p><strong>题解在下面:</strong><br />
 <!-- more -->  </p>
 
 <h3 id="httpacmhdueducnshowproblemphppid5054"><a href="http://acm.hdu.edu.cn/showproblem.php?pid=5054">1001</a></h3>

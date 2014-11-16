@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Cpp | /UnkelTao]]></title>
   <link href="http://www.UnkelTao.com/blog/categories/cpp/atom.xml" rel="self"/>
   <link href="http://www.UnkelTao.com/"/>
-  <updated>2014-09-29T06:05:30+01:00</updated>
+  <updated>2014-11-16T12:33:44+00:00</updated>
   <id>http://www.UnkelTao.com/</id>
   <author>
     <name><![CDATA[UnkelTao]]></name>
@@ -12,6 +12,593 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[2014年西南交通大学 “新秀杯” ACM程序设计大赛 决赛解题报告]]></title>
+    <link href="http://www.UnkelTao.com/blog/2014/11/16/2014-swjtu-acm-onsite-programming-contest/"/>
+    <updated>2014-11-16T10:41:05+00:00</updated>
+    <id>http://www.UnkelTao.com/blog/2014/11/16/2014-swjtu-acm-onsite-programming-contest</id>
+    <content type="html"><![CDATA[<p><strong>比赛链接：</strong>  <a href="http://acm.swjtu.edu.cn/JudgeOnline/showcontest?contest_id=1135" title="第九届ACM校赛资格赛">“新秀杯” ACM程序设计大赛决赛</a>  </p>
+
+<p>比赛还算成功，算上友情参赛，总共有7个题目有人通过，第一名最后成绩为5题，虽然离我想的差一点。不过还是不错~~</p>
+
+<!--more-->
+<p>##A <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=2173">从头再来</a>
+只需要简单的统计单词A中每个字母出现的次数，与B中每个字母出现的次数做比较即可。</p>
+
+<p>```c++ 
+#include <cstdio>
+#include <cmath>
+#include <algorithm>
+#include <iostream>
+#define SQR(x) ((x)*(x))
+#define rep(i, n) for (int i=0; i&lt;(n); ++i)
+#define repd(i,n)  for(int i=1;i&lt;=(n);++i)
+#define repf(i, a, b) for (int i=(a); i&lt;=(b); ++i)
+#define reps(i, a, b) for (int i=(a); i&gt;=(b); --i)
+#define MaxN  10010
+#define ll long long
+using namespace std;
+void data(){
+   freopen("data.in","r",stdin);
+   freopen("data.out","w",stdout);
+}
+char a[MaxN],b[MaxN];
+int s1[27],s2[27];
+int gao(){
+    memset(s1,0,sizeof(s1));
+    memset(s2,0,sizeof(s2));
+    int l1=strlen(a),l2=strlen(b);
+    rep(i,l1) s1[a[i]-'a']++;
+    rep(i,l2) s2[b[i]-'a']++;
+    rep(i,26){if(s1[i]&lt;s2[i]) return 0;}
+    return 1;</iostream></algorithm></cmath></cstdio></p>
+
+<p>}
+int main(){
+   //data();
+   while(cin»a»b){
+      printf(“%s\n”,gao()?”Yes”:”No”);
+   }
+   return 0;
+}</p>
+
+<p>```</p>
+
+<h2 id="b-httpacmswjtueducnjudgeonlineshowproblemproblemid2175">B <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=2175">挖掘机技术哪家强</a></h2>
+
+<p><img src="http://unkeltao.qiniudn.com/wailian/10_onsite_B.jpg" alt="" />
+  连接DF，那么ADF的面积为正方形的一半，也是矩形的一半，正方形的面积就等于矩形的面积。
+  AE=a<em>a/b; DE=sqrt(a</em>a-AE*AE)</p>
+
+<p><code>c++ 
+int main(){
+   //  data();
+   int a,b;
+   while(~scanf("%d%d",&amp;a,&amp;b)){
+       double res=sqrt(a*a-(a*a*1.0/b)*(a*a*1.0/b))*(a*a*1.0/b)/2.0;
+       printf("%.2lf\n",res);             
+   }
+   return 0;
+}
+</code></p>
+
+<h2 id="c-yogykwaniphonehttpacmswjtueducnjudgeonlineshowproblemproblemid2175">C <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=2175">YogyKwan的iPhone也弯了</a></h2>
+
+<p>假设半径为r,t为输入的数据那么可以写出如下等式：
+<code>r*sin(pi-15/r/2)=t/2</code>
+我们可以知道，当r越大时候，t就会越小，于是我们可以二分判定。</p>
+
+<p>```c++ 
+#include<cstdio>
+#include<cmath>
+const double PI=acos(-1);
+const double eps=1e-10;
+int main(){
+    //freopen("data.in","r",stdin);freopen("data2.out","w",stdout);
+    double l,w,r,a,sj,xj,m,t;
+    while(scanf("%lf",&amp;w)!=EOF){
+        l=15;
+        sj=l/PI,xj=0.5*l/PI;
+        w*=0.5,l*=0.5;
+        while(sj-xj&gt;eps){
+            m=(sj+xj)*0.5;
+            t=m*sin(l/m);
+            if(t&gt;w) sj=m;
+            else xj=m;
+        }
+        r=m;
+        a=l/r*2;
+        printf("%f %f\n",r,a);
+    }
+    return 0;
+}</cmath></cstdio></p>
+
+<p>```</p>
+
+<h2 id="d-httpacmswjtueducnjudgeonlineshowproblemproblemid2776">D <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=2776">强迫症改变世界</a></h2>
+
+<p>不妨用 f(k) 来表示摆放 k 个座位的方案数。我们可以把这些方案分成两类：最后一个座位是坐女生，或者最后一个座位是坐男生。如果是前一种情形，则我们只需要看前 k – 1 座位有多少摆法就可以了；如果是后一种情形，那么倒数第二个座位必须是女生，因而这种情形下的方案数就取决于前 k – 2 个座位的安排方案数。因此我们得到， f(k) = f(k – 1) + f(k – 2) 。。f[1]=2,f[2]=3;</p>
+
+<p>```c++ 
+#define SQR(x) ((x)*(x))
+#define rep(i, n) for (int i=0; i&lt;(n); ++i)
+#define repd(i,n)  for(int i=1;i&lt;=(n);++i)
+#define repf(i, a, b) for (int i=(a); i&lt;=(b); ++i)
+#define reps(i, a, b) for (int i=(a); i&gt;=(b); –i)
+int f[1002];
+void gao(){
+     f[0]=1;
+     f[1]=2;
+     repf(i,2,1001){
+         f[i]=(f[i-1]+f[i-2])%mod;         <br />
+     }
+}
+int main(){
+    //data();
+    int n;
+    gao();
+    while(~scanf(“%d”,&amp;n)){
+        printf(“%ld\n”,f[n]);
+    }
+    return 0;
+}</p>
+
+<p>```</p>
+
+<h2 id="e-2httpacmswjtueducnjudgeonlineshowproblemproblemid2177">E <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=2177">强迫症改变世界2</a></h2>
+
+<p>此题需要先会容斥定理， n以内a,b的倍数的个数有， sum=n/a+n/b+n/lcm(a,b);
+然后我们枚举出所有的只含有4或者7的数字（大概1000个），然后去掉是前面出现过得数的倍数的数（如44是4的倍数） 大概还剩下不到600个，看起来很大，因为容斥定理的复杂度是2^n次方，但是，此题r的范围不是小，我们在做lcm的时候，很快就会超过范围，就不需要继续向下了，然后我们从大往小做，大概只需要递归10万次左右。</p>
+
+<p>剩下的可以参考代码。</p>
+
+<p>```c++ 
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <cmath>
+#include <climits>
+#include <cctype>
+#include <ctime /></cctype></climits></cmath></cstring></cstdlib></cstdio></p>
+
+<h1 id="include-algorithm">include <algorithm /></h1>
+<p>#include <iostream>
+#include <queue>
+#include <vector>
+#include <set>
+#include &lt;map&gt;
+#include <stack>
+#define SQR(x) ((x)*(x))
+#define rep(i, n) for (int i=0; i&lt;(n); ++i)
+#define repd(i,n)  for(int i=1;i&lt;=(n);++i)
+#define repf(i, a, b) for (int i=(a); i&lt;=(b); ++i)
+#define reps(i, a, b) for (int i=(a); i&gt;=(b); --i)
+#define PB push_back
+#define MP(A, B) make_pair(A, B)
+#define pow2(n) (1&lt;&lt;(n))
+#define pi acos(-1)
+#define eps 0.00000001
+#define lg(n) log10((n)*1.0)
+#define MaxN  1000000000
+#define mod 1000000007
+#define md(x) (((x)%mod+mod)%mod)
+#define ll long long
+using namespace std;
+void data(){
+   freopen("sample.in","r",stdin);
+   freopen("sample.out","w",stdout);
+}
+ll gcd(ll a,ll b){return b?gcd(b,a%b):a;}
+int t,n,m;
+ll l,r,ans,a[3000],b[3000];
+bool vis[3000];
+void pre(int x,ll y)
+{
+	if(y&gt;MaxN)return;
+	if(x&gt;0)a[++m]=y;
+	pre(x+1,y*10+4);
+	pre(x+1,y*10+7);
+}
+void gao(){
+	sort(a+1,a+m+1);
+	repd(i,m)
+	   if(!vis[i])
+	   {
+	   	   b[++n]=a[i];
+	   	   for(int j=i+1;j&lt;=m;j++)
+	   	       if(!(a[j]%a[i]))
+	   	           vis[j]=1;
+	   }
+	repd(i,n) a[n-i+1]=b[i];
+}
+void dfs(int x,int y,ll z)
+{
+	if(x&gt;n)
+	{
+		if(y&amp;1)ans+=r/z-(l-1)/z;
+		else if(y)ans-=r/z-(l-1)/z;
+		return;
+	}
+	dfs(x+1,y,z);
+	ll tmp=z/gcd(a[x],z);
+	if((a[x]*tmp)&lt;=r) dfs(x+1,y+1,a[x]*tmp);
+}
+int main()
+{
+    //data();
+    pre(0,0);
+	gao();
+    while(~scanf("%lld%lld",&amp;l,&amp;r)){
+    	ans=0;
+		dfs(1,0,1);
+		printf("%lld\n",ans);
+    }
+	return 0;
+}
+```</stack></set></vector></queue></iostream></p>
+
+<h2 id="f-iihttpacmswjtueducnjudgeonlineshowproblemproblemid2178">F <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=2178">不幸的程序员II</a></h2>
+<p>矩阵快速幂，如果你还不会这个，那么该先去学习矩阵快速幂。</p>
+
+<p>简单公式推导如下:
+<img src="http://unkeltao.qiniudn.com/wailian/10_F_1.png" alt="" />
+<img src="http://unkeltao.qiniudn.com/wailian/10_F_2.png" alt="" /></p>
+
+<p>```c++ 
+#include <cstdio>
+#include<iostream>
+#include<cstdlib>
+#include<stdio.h>
+#include<math.h>
+using namespace std;
+const int MAX = 3;
+#define rep(i, n) for (int i=0; i&lt;(n); ++i)
+#define repd(i,n)  for(int i=1;i&lt;=(n);++i)
+#define repf(i, a, b) for (int i=(a); i&lt;=(b); ++i)
+#define reps(i, a, b) for (int i=(a); i&gt;=(b); --i)
+#define mod 1000000007
+#define ll long long</math.h></stdio.h></cstdlib></iostream></cstdio></p>
+
+<p>typedef struct
+{
+   ll m[MAX][MAX];
+} Matrix;</p>
+
+<p>Matrix P;
+Matrix I ={1,0,0,0,1,0,0,0,1};
+Matrix matrixmul(Matrix a,Matrix b) 
+{
+   int i,j,k;
+   Matrix c;
+   rep(i,MAX)
+   rep(j,MAX)
+   {
+   	   c.m[i][j] = 0;
+	   rep(k,MAX) c.m[i][j] += (a.m[i][k] * b.m[k][j])%(mod);
+	   c.m[i][j] %= (mod);
+   }
+   return c;
+}
+Matrix quickpow(ll n, Matrix P)
+{
+    Matrix m = P, b = I;
+    while (n &gt;= 1)
+    {
+        if (n &amp; 1)
+        b = matrixmul(b,m);
+        n = n » 1;
+        m = matrixmul(m,m);
+    }
+    return b;
+}
+void data(){
+	 freopen(“data.in”,”r”,stdin);
+	 freopen(“data.out”,”w”,stdout);
+}
+int main()
+{
+    ll a,b,n,m;
+    //data();
+    while(~scanf(“%lld%lld%lld%lld”,&amp;n,&amp;m,&amp;a,&amp;b))
+    { <br />
+        Matrix T1,T2,T;
+        Matrix P1 = {2,1,3,1,0,0,0,0,1};
+        Matrix P2 = {5<em>8,4</em>8+7,6<em>8+9,5,4,6,0,0,1};
+        T1=quickpow((m-2),P1);
+        T2=quickpow(1LL</em>n-1,matrixmul(T1,P2));
+        T=matrixmul(T2,T1);
+        Matrix tmp={b%mod,0,0,a%mod,0,0,1,0,0};
+        T=matrixmul(T,tmp);
+        printf(“%lld\n”,T.m[0][0]%mod);</p>
+
+<pre><code>}
+return 0;  }
+</code></pre>
+
+<p>```</p>
+
+<h2 id="g-httpacmswjtueducnjudgeonlineshowproblemproblemid2179">G <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=2179">你是一个好人</a></h2>
+
+<p>概率DP，我们假设dp[i][j]表示前i次表白收集了j张不同卡的概率，那么很明显:
+i==1,j==1时 dp[1][1] = 1;<br />
+i&lt;j,  dp[i][j] = 0;(一共都不到j张，怎么收集) <br />
+那么dp[i+1][j] = dp[i][j]<em>(j/n)+dp[i][j-1]</em>(n-(j-1))/n;
+第一个表示第i+1收集的与之前的j张是一样的，第二个表示第i+1次收集的与前j-1个不同，那么就就多收集了一个，变成j个。</p>
+
+<p>```c
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <cmath>
+#include <climits>
+#include <cctype>
+#include <ctime /></cctype></climits></cmath></cstring></cstdlib></cstdio></p>
+
+<h1 id="include-algorithm-1">include <algorithm /></h1>
+<p>#include <iostream>
+#include <queue>
+#include <vector>
+#include <set>
+#include &lt;map&gt;
+#include <stack>
+#define SQR(x) ((x)*(x))
+#define rep(i, n) for (int i=0; i&lt;(n); ++i)
+#define repd(i,n)  for(int i=1;i&lt;=(n);++i)
+#define repf(i, a, b) for (int i=(a); i&lt;=(b); ++i)
+#define reps(i, a, b) for (int i=(a); i&gt;=(b); --i)
+#define PB push_back
+#define MP(A, B) make_pair(A, B)
+#define pow2(n) (1&lt;&lt;(n))
+#define pi acos(-1)
+#define eps 0.00000001
+#define lg(n) log10((n)*1.0)
+#define MaxN  1000000
+#define mod 1000000007
+#define ll long long
+#define typed int
+using namespace std;
+void data(){
+   freopen("data.in","r",stdin);
+   freopen("data.out","w",stdout);
+}
+//fast read
+void RD(int &amp;a) {
+    int value = 0, s = 1;
+    char c;
+    while ((c = getchar()) == ' ' || c == '\n');
+    if (c == '-') s = -s; else value = c-48;
+    while ((c = getchar()) &gt;= '0' &amp;&amp; c &lt;= '9')
+        value = value * 10 + c - 48;
+    a = s * value;
+}</stack></set></vector></queue></iostream></p>
+
+<p>void RD(int &amp;a,int &amp;b){
+    RD(a),RD(b);
+}
+void RD(int &amp;a,int &amp;b,int &amp;c){
+    RD(a),RD(b),RD(c);
+}
+double dp[101][2002];
+double gao(int n,int m){
+     memset(dp,0,sizeof(0));
+     dp[0][0]=1.0;
+     repd(i,n)repf(j,i,m) dp[i][j]=dp[i-1][j-1]<em>(n-i+1)/n+dp[i][j-1]</em>i/n; 
+     return dp[n][m];
+}
+int main(){
+   //data();
+   int t,n,m;
+   RD(t);
+   rep(i,t){
+      RD(n,m);
+      if(m&lt;n)printf(“%.6lf\n”,0);
+      else printf(“%.6lf\n”,gao(n,m));
+   }
+   return 0;
+}</p>
+
+<p>```</p>
+
+<h2 id="h-httpacmswjtueducnjudgeonlineshowproblemproblemid2180">H <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=2180">最萌身高差</a></h2>
+
+<p>此题为树状数组的 YY 题。。。<br />
+首先我们考虑若 β 固定的情况，那么根据同模的性质。。如果 a%p == b%p 那么 ja  bj = k * p…<br />
+这样预处理一下，只要找到模相同的个数，就能知道有多少组了。。此题 β 很小，那么我们维护各个余数的前缀和就可以求个分别余数的区间和了。。。，因为此题要求支持修改，那么我们就使
+用树状数组（如果你还不会，那么赶紧学起吧）就可以满足要求了。。、、 <br />
+关键是怎么去修改更新；修改了一个数，我们需要一增一减，余数为 a% β 的减一， (a + p)% β 的加 1.. 这样就可以很好的查找和维护了。。 </p>
+
+<p>β不一样？ 但是β很小啊，我们再增加一维？这么做会MLE，那么我们离线处理每个β跑一次就好了。</p>
+
+<p>```
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <cmath>
+#include <climits>
+#include <cctype>
+#include <ctime /></cctype></climits></cmath></cstring></cstdlib></cstdio></p>
+
+<h1 id="include-algorithm-2">include <algorithm /></h1>
+<p>#include <iostream>
+#include <queue>
+#include <vector>
+#include <set>
+#include &lt;map&gt;
+#include <stack /></set></vector></queue></iostream></p>
+
+<h1 id="define-sqrx-xx">define SQR(x) ((x)*(x))</h1>
+<p>#define rep(i, n) for (int i=0; i&lt;(n); ++i)
+#define repd(i,n)  for(int i=1;i&lt;=(n);++i)
+#define repf(i, a, b) for (int i=(a); i&lt;=(b); ++i)
+#define reps(i, a, b) for (int i=(a); i&gt;=(b); –i)
+#define PB push_back
+#define MP(A, B) make_pair(A, B)
+#define pow2(n) (1«(n))
+#define pi acos(-1)
+#define eps 0.00000001
+#define lg(n) log10((n)*1.0)
+#define MaxN  200000
+#define mod 13041290
+#define mod2 1000000009
+#define mod3 1000007
+#define md(x) (((x)%mod+mod)%mod)
+#define inf 2147483647
+#define inf2 0x7fffffffffffffff
+#define ll long long
+#define typed int
+using namespace std;
+void data(){
+   freopen(“data.in”,”r”,stdin);
+   freopen(“data2.out”,”w”,stdout);
+}
+int C[10][MaxN]={0};
+int n,m;
+int read(int k,int i){
+	int sum=0;
+	for(;k;k-=(k&amp;-k)) sum += C[i][k];
+	return sum;
+}
+void update(int k,int p,int i){
+    for(;k&lt;=n;k+=(k&amp;-k)) C[i][k] += p;
+}
+//fast read
+void RD(int &amp;a) { 
+    int value = 0, s = 1; 
+    char c;
+    while ((c = getchar()) == ‘ ‘ || c == ‘\n’);
+    if (c == ‘-‘) s = -s; else value = c-48;
+    while ((c = getchar()) &gt;= ‘0’ &amp;&amp; c &lt;= ‘9’)
+        value = value * 10 + c - 48;
+    a = s * value;
+}
+int B[MaxN],A[MaxN];
+int l[MaxN],r[MaxN],beta[MaxN];
+int q[MaxN];
+ll ans[MaxN];
+int used[11];
+int Q,a,p,m,l1,r1,beta1;</p>
+
+<p>void gao(){
+	memset(used,0,sizeof(used));
+	rep(i,n) RD(A[i]);
+	int len=0,t=0;
+	rep(i,m){
+	    RD(Q);
+		if(Q==1)RD(a),RD(p),l[len]=a,r[len]=p,q[len++]=-1;
+		else{
+		  	 RD(l1),RD(r1),RD(beta1);
+		  	 l[len]=l1,r[len]=r1,beta[len]=beta1;
+		  	 used[beta1]=1,q[len++]=t++;
+			 if(beta1==1){ 
+			 	ll ttt=r1-l1+1; 
+			 	ans[q[len-1]]=ttt*(ttt-1)/2%mod;
+			 }
+		 }
+	}
+}
+int main(){
+	//data();</p>
+
+<pre><code>while(~scanf("%d%d",&amp;n,&amp;m)){
+   
+   gao();
+
+   repf(k,2,10){
+      if(!used[k])continue;
+   	  memset(C,0,sizeof(C));
+	  rep(i,n) B[i]=A[i],update(i+1,1,A[i]%k);
+      
+      rep(i,m){
+         if(q[i]==-1){
+	          update(l[i],-1,B[l[i]-1]%k);
+   		          update(l[i],1,(B[l[i]-1]+r[i])%k);
+   		          B[l[i]-1]+=r[i];
+   		          continue;
+	      }
+         if(beta[i]!=k)continue;
+         ll sum=0;
+  	      rep(j,beta[i]){
+  			       ll tp = read(r[i],j) - read(l[i]-1,j);
+			   sum += tp*(tp-1)/2;
+	  	 	   sum %=mod;
+ 		       }
+ 		       ans[q[i]]=sum%mod;
+   	  }	
+   }
+   rep(i,t) printf("%lld\n",ans[i]%mod);						
+}
+return 0; }
+</code></pre>
+
+<p>```</p>
+
+<h2 id="i-missinghttpacmswjtueducnjudgeonlineshowproblemproblemid2181">I <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=2181">Missing教大家画矩形</a></h2>
+
+<p>模拟题目，确定一个矩形只需要对角线确定，
+所以找出最小，最大的x值和y值就行了
+题目虽然简单，但是如果写法不好，也会被坑~
+(此题来自于Missing)</p>
+
+<p>```c++ 
+//Draw A Rectangle
+//Author: _missing
+// 模拟题，确定一个矩形只需要对角线确定，
+// 所以找出最小，最大的x值和y值就行了
+// 题目虽然简单，但是如果写法不好，也会被坑~
+#include <iostream>
+#include <cstdio>
+#include <cstring>
+#include <algorithm>
+using namespace std;
+void draw(int x1, int y1, int x2, int y2) {
+    for (int i = 0; i &lt; x1; ++i) puts("");
+    for (int i = x1; i &lt;= x2; ++i) {
+        for (int j = 0; j &lt; y1; ++j) putchar(' ');
+        for (int j = y1; j &lt;= y2; ++j)
+            if (i == x1 || i == x2) putchar('*');
+            else if (j == y1 || j == y2) putchar('*');
+            else putchar(' ');
+        putchar('\n');
+    }
+}
+int main() {
+    //freopen("data2.in", "r", stdin);
+    //freopen("data2.out", "w", stdout);</algorithm></cstring></cstdio></iostream></p>
+
+<pre><code>int T, ncase = 0, N;
+while (~scanf("%d", &amp;T)) {
+    while (T--) {
+        int x[4], y[4], minx = 100, maxx = -1, miny = 100, maxy = -1;
+        int ok = 1;
+
+        scanf("%d", &amp;N);
+        for (int i = 0; i &lt; N; ++i) scanf("%d %d", x+i, y+i);
+        for (int i = 0; i &lt; N; ++i) {
+            minx = min(minx, x[i]);
+            maxx = max(maxx, x[i]);
+            miny = min(miny, y[i]);
+            maxy = max(maxy, y[i]);
+        }
+        if (minx == maxx || miny == maxy) ok = 0;
+        for (int i = 0; ok &amp;&amp; i &lt; N; ++i) {
+            if ((x[i] == minx || x[i] == maxx) &amp;&amp;
+                (y[i] == miny || y[i] == maxy)) continue;
+            ok = 0;
+        }
+
+        printf("Case #%d:\n", ++ncase);
+        if (!ok) { puts("None"); continue; }
+        draw(minx, miny, maxx, maxy);
+    }
+}
+return 0; } ```
+</code></pre>
+
+<p>以上题目均为过测试数据的程序，不保证程序完全正确无误。 3Q</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[bestcode #11 div2]]></title>
@@ -1173,334 +1760,6 @@ int main(){
 </code></p>
 
 <p>（效果似乎一般）</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[The 9th SWJTU Collegiate Programming Contest Qualification Round]]></title>
-    <link href="http://www.UnkelTao.com/blog/2013/04/13/the-9th-swjtu-collegiate-programming-contest-qualification-round/"/>
-    <updated>2013-04-13T23:16:28+01:00</updated>
-    <id>http://www.UnkelTao.com/blog/2013/04/13/the-9th-swjtu-collegiate-programming-contest-qualification-round</id>
-    <content type="html"><![CDATA[<p><strong>比赛链接：</strong>  <a href="http://acm.swjtu.edu.cn/JudgeOnline/showcontest?contest_id=1135" title="第九届ACM校赛资格赛">第九届ACM校赛资格赛</a>  </p>
-
-<p>资格赛嘛，本着大家熟悉环境增强自信心的原则~10道题没有太难的题目~适合新手练习.本次比赛D、E、F是我出的，本着简单的想法却没想到坑了一部分人，其中E题的数据再随机的时候超出了题目描述的范围造成一些人AC的程序WA了，在此表示抱歉,致以诚挚的歉意。下面给出我对着10道题的解法，可能我的解法并不是完全正确恰好过了数据而已，欢迎大家指正。</p>
-
-<!--more-->
-<p>##A <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1982">A+B</a>
-完全熟悉OJ环境的题目,上面都有标程,第一次接触ACM的需要知道怎么多组输入.</p>
-
-<p><code>c++ 
-int a, b; 
-while(scanf("%d %d", &amp;a, &amp;b)==2){
-    printf("%d\n", a + b);
-}
-</code></p>
-
-<h2 id="b-1httpacmswjtueducnjudgeonlineshowproblemproblemid1986">B <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1986">猴子爬楼梯1</a></h2>
-<p>因为数据不大，可以有3中解法:  </p>
-
-<ul>
-  <li>
-    <p>原理：看 n能被被整除<code>GCD(a,b)</code>整除，推论过程略,详见大牛(<a href="http://blog.csdn.net/openspirit/article/details/8797246">大牛题解</a>)。	</p>
-  </li>
-  <li>
-    <p>模拟法：我们可以确定只要大于 <code>a+b-1</code>的数 我们都可以通过加上a来得到,在+a ,-b的过程中，通过模拟产生出<code>(1，a+b-1)</code>所有的可能,把n对a取模既可以。	</p>
-  </li>
-  <li>
-    <p>搜索或者暴力,记忆化搜索，也就1000个点而已,代码未写,参见C题。	</p>
-  </li>
-</ul>
-
-<p><code>c++ 
-//模拟法
-int s[10000];
-int cnt(int a,int b)
-{
-    int tmp=a,cur=0;
-    memset(s,0,sizeof(s));
-    while(tmp!=0)
-    {
-        s[cur++]=tmp;         
-        if(tmp&gt;=b)tmp-=b;
-        else tmp+=a;           
-    } 
-    return cur;
-}
-</code></p>
-
-<h2 id="c-2httpacmswjtueducnjudgeonlineshowproblemproblemid1990">C <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1990">猴子爬楼梯2</a></h2>
-
-<p><strong>本题将我深深的伤害了</strong>  </p>
-
-<ul>
-  <li>
-    <p>模拟法:看着数据不大，于是暴力模拟,无限WA,基本思路同B题二解法，只是模拟过程中出现大于top就停止,至今未AC，未发现错误数据，回头对拍,有待考证。(<strong>忘记加特判了<code>a=0,b=0</code>时候挂掉了, 加上AC</strong>)	</p>
-  </li>
-  <li>
-    <p>记忆化搜索	</p>
-  </li>
-</ul>
-
-<p>```c++ 
-//模拟法
-#include<cstdio>
-#define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)
-int gcd(int a,int b){return b?gcd(b,a%b):a;}
-int s[1000];
-int cnt(int a,int b)
-{
-    int tmp=a,cur=0;
-    if(b==0){s[0]=a; return 1;}
-    while(tmp!=0){s[cur++]=tmp;if(tmp&gt;=b)tmp-=b;else tmp+=a;} 
-    return cur;
-}
-int main()
-{
-    //freopen("data.in","r",stdin);
-    //freopen("data2.out","w",stdout);
-    int T,a,b,n,m;
-    scanf("%d",&amp;T);
-    while(T--){
-       scanf("%d%d%d%d",&amp;a,&amp;b,&amp;n,&amp;m);
-       if(n&gt;m||a==0) printf("NO\n");
-       else {
-          if(n%a==0) printf("YES\n");
-          else {  
-               int len=cnt(a,b);
-               n=n%a; 
-               bool fg=0;
-               rep(i,0,len){
-                  if(s[i]==n) {fg=1;break;}
-                  if(s[i]&gt;m){fg=0;break;}
-               }
-               if(fg)printf("YES\n");else printf("NO\n");  </cstdio></p>
-
-<pre><code>      }
-   }
-}
-return 0; } ```
-</code></pre>
-
-<p><code>c++
-//记忆化搜索
-bool used[1100];
-bool bfs(int a,int b,int n,int m)
-{
-    queue&lt;int&gt; q;
-    memset(used,0,sizeof(used));
-    if(a&gt;m) return 0;
-    q.push(a);
-    used[a]=1;
-    int t;
-    while(!q.empty())
-    {
-       int tmp=q.front(); q.pop();
-       used[tmp]=1;
-       if(tmp==n) return 1;
-       if(tmp+a&lt;=m&amp;&amp;!used[tmp+a]){used[tmp+a]=1; q.push(tmp+a);}
-       if(tmp-b&gt;=0&amp;&amp;!used[tmp-b]){used[tmp-b]=1; q.push(tmp-b);}           
-    }
-    return 0;
-}
-</code></p>
-
-<h2 id="d-httpacmswjtueducnjudgeonlineshowproblemproblemid1991">D <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1991">统计学号</a></h2>
-
-<p>排序下，扫描一遍即可，秒杀级水题一枚。不会快排的可冒泡。</p>
-
-<p><code>c++ 
-#include&lt;cstdio&gt;
-#include&lt;cstring&gt;
-#include&lt;iostream&gt;
-#include&lt;algorithm&gt;
-using namespace std;
-#define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)
-int a[110];
-int main()
-{
- //   freopen("data.in","r",stdin);
- //   freopen("data.out","w",stdout);
-    int T,n;
-    scanf("%d",&amp;T);
-    while(T--){
-       scanf("%d",&amp;n);
-       rep(i,0,n)scanf("%d",&amp;a[i]);
-       sort(a,a+n);
-       int cnt=1;
-       rep(i,1,n) {if(a[i]!=a[i-1])cnt++;}
-       printf("%d\n",cnt);        
-    }
-    return 0;
-}
-</code></p>
-
-<h2 id="e-20httpacmswjtueducnjudgeonlineshowproblemproblemid1992">E <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1992">德德的嗜好2.0</a></h2>
-
-<p>此题也是一个排序题，当然如果直接<code>strcmp</code>是不行的，考虑90 9这组数据，结果很明显应该是990而不是909。<br />
-因为我们在排序的时候只要保证<code>(a+b)&gt;(b+a)</code>即可。<br />
-<strong>再次表示对数据中出现了大于1000的数表示抱歉</strong></p>
-
-<p><code>c++ 
-#include&lt;cstdio&gt;
-#include&lt;cstring&gt;
-#include&lt;iostream&gt;
-#include&lt;algorithm&gt;
-using namespace std;
-#define rep(i, n) for (int i=0; i&lt;(n); ++i)
-string s[81];
-bool cmp(string a,string b)
-{
-     return (a+b)&gt;(b+a);
-}
-int main()
-{
-    //freopen("data.in","r",stdin);
-    //freopen("data.out","w",stdout);
-    int T,n;
-    cin&gt;&gt;T;
-    while(T--)
-    {
-      cin&gt;&gt;n;
-      rep(i,n)cin&gt;&gt;s[i];
-      sort(s,s+n,cmp);   
-      rep(i,n)cout&lt;&lt;s[i];
-      cout&lt;&lt;endl;    
-    }
-    return 0;
-}
-</code></p>
-
-<h2 id="f-30httpacmswjtueducnjudgeonlineshowproblemproblemid1993">F <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1993">德德的嗜好3.0</a></h2>
-<p>公式题或者找规律  <code>b(8k+m)=b(m)+60k;  (k=n/8;m=n%8)</code> 打表出前8项就够了;其中<code>b(0)=-1;</code> 可以m等于1到8~这样就用不到b(0)但是计算k,m就多了几行代码。<br />
-下面是推论：  </p>
-
-<ul>
-  <li>
-    <p>由于<code>a(n+15)-a(n)=60</code>,故若<code>a(n)</code>是3或5的倍数,当且仅当<code>a(n+15)</code>是3或5的倍数. 	</p>
-  </li>
-  <li>
-    <p>于是每15个数是一个周期，前15个3-59~所以划分区间。	</p>
-  </li>
-  <li>
-    <p>现将数轴正向分成一系列长为60的区间段: <code>(0,+?)＝(0,60]∪(60,120]∪(120,180]∪…,</code>注意第一个区间段中含有{a(n)}的项15个,即<code>3,7,11,15,19,23,27,31,35,39,43,47,51,55,59</code>其中属于{ }的项8个,为:<code>b(1)=7, b(2)=11, b(3)=19, b(4)=23,   b(5)=31, b(6)=43, b(7)=47, b(8)=59</code>	</p>
-  </li>
-  <li>
-    <p>于是每个区间段中恰有15个{ }的项,8个{ }的项,且有<code>b(8k+m)-b(m)=60k;</code>	 </p>
-  </li>
-  <li>
-    <p>EG：由于<code>2006＝8×250+6</code>,而<code>b(6)=43</code>,所以<code>b(2006)=60*250+b(6)=15043</code>。	</p>
-  </li>
-</ul>
-
-<p>```c++ 
-#include<cstdio>
-#include<cstring>
-#include<iostream>
-#include<algorithm>
-using namespace std;
-#define ll long long
-#define rep(i, n) for (int i=0; i&lt;(n); ++i)
-int b[8]={-1,7,11,19,23,31,43,47};</algorithm></iostream></cstring></cstdio></p>
-
-<p>int main()
-{
-    //freopen(“data.in”,”r”,stdin);
-    //freopen(“data.out”,”w”,stdout);
-    int T,n;
-    scanf(“%d”,&amp;T);
-    while(T–)
-    {
-        scanf(“%d”,&amp;n);<br />
-        ll ans=60LL*(n/8)+b[n%8];
-        printf(“%lld\n”,ans);  <br />
-    }
-    return 0;
-}
-```</p>
-
-<h2 id="g-httpacmswjtueducnjudgeonlineshowproblemproblemid1994">G <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1994">不知道自己不知道</a></h2>
-
-<p>没什么好说的</p>
-
-<p><code>c
-while(~scanf("%d",&amp;n)) printf("%d\n",2013-n);
-</code></p>
-
-<h2 id="h-httpacmswjtueducnjudgeonlineshowproblemproblemid1995">H <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1995">知道自己不知道</a></h2>
-
-<p>数组求和除以M向上取整.  </p>
-
-<p><code>
-rep(i,0,n)  scanf("%d",&amp;a);
-sum+=a;     
-printf("%d\n",(sum+m-1)/m); //加上m-1为向上取整
-</code></p>
-
-<h2 id="i-httpacmswjtueducnjudgeonlineshowproblemproblemid1996">I <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1996">不知道自己知道</a></h2>
-
-<p>暴力比较即可</p>
-
-<p>```c++ 
-#define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)
-string s[110];
-int main()
-{</p>
-
-<pre><code>int t=0,T,m,n;
-cin&gt;&gt;T;
-string qurry;
-while(t++&lt;T)
-{
-    cin&gt;&gt;m;
-    rep(i,0,m){cin&gt;&gt;s[i];}
-    cin&gt;&gt;n;
-    cout&lt;&lt;"Case #"&lt;&lt;t&lt;&lt;":"&lt;&lt;endl;
-    rep(i,0,n){
-      cin&gt;&gt;qurry;
-      bool fg=0;
-      rep(j,0,m){if(qurry==s[j]){fg=1;break;}}
-      if(fg)cout&lt;&lt;"Yes"&lt;&lt;endl;
-      else cout&lt;&lt;"No"&lt;&lt;endl;
-    }        
-}
-return 0; } ```
-</code></pre>
-
-<h1 id="j-httpacmswjtueducnjudgeonlineshowproblemproblemid1997">J <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1997">知道自己知道</a></h1>
-
-<p>做一下结构体，保存i和和i出现的次数，有负数，i集体加上100，然后恢复即可。</p>
-
-<p><code>c++ 
-#define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)
-struct pt{     
-	int cnt;
-    int i;  
-};
-pt s[550];
-bool cmp(pt a,pt b){
-     if(a.cnt==b.cnt) return a.i&lt;b.i;     
-     return a.cnt&gt;b.cnt;
-}
-int main(){
-    int t,n,a;
-    scanf("%d",&amp;t);
-    while(t--){
-        rep(i,0,500){s[i].i=i-100;s[i].cnt=0;}
-        scanf("%d",&amp;n);
-        rep(i,0,n)  {  scanf("%d",&amp;a);      s[a+100].cnt++; }
-        sort(s,s+500,cmp);
-        int cnt=0;
-        rep(i,0,500){if(s[i].cnt!=0)cnt++;else break;}
-        printf("%d",cnt);
-        rep(i,0,500){  if(!s[i].cnt)break;  printf(" %d",s[i].i);   }
-        printf("\n");
-    }
-    return 0;
-}
-</code></p>
-
-<p>以上题目均为过测试数据的程序，不保证程序完全正确无误，欢迎指正,预赛题目难度很明显会增大很多，大家加油。 3Q</p>
 
 ]]></content>
   </entry>

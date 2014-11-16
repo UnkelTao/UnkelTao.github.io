@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Cpp | /UnkelTao]]></title>
   <link href="http://www.UnkelTao.com/blog/categories/cpp/atom.xml" rel="self"/>
   <link href="http://www.UnkelTao.com/"/>
-  <updated>2014-11-16T13:23:39+00:00</updated>
+  <updated>2014-11-16T13:30:18+00:00</updated>
   <id>http://www.UnkelTao.com/</id>
   <author>
     <name><![CDATA[UnkelTao]]></name>
@@ -145,7 +145,7 @@ int main(){
 
 <h2 id="e-2httpacmswjtueducnjudgeonlineshowproblemproblemid2177">E <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=2177">强迫症改变世界2</a></h2>
 
-<p>此题需要先会容斥定理， <code>n</code>以内<code>a,b</code>的倍数的个数有， <code>sum=n/a+n/b+n/lcm(a,b)</code>;
+<p>此题需要先会容斥定理， <code>n</code>以内<code>a,b</code>的倍数的个数有， <code>sum=n/a+n/b-n/lcm(a,b)</code>;
 然后我们枚举出所有的只含有<code>4</code>或者<code>7</code>的数字（大概<code>1000</code>个），然后去掉是前面出现过得数的倍数的数（如<code>44</code>是<code>4</code>的倍数） 大概还剩下不到<code>600</code>个，看起来很大，因为容斥定理的复杂度是<code>2^n</code>次方，但是，此题<code>r</code>的范围不是小，我们在做<code>lcm</code>的时候，很快就会超过范围，就不需要继续向下了，然后我们从大往小做，大概只需要递归<code>10</code>万次左右。</p>
 
 <p>剩下的可以参考代码。</p>

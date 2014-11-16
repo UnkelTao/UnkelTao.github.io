@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ACM | /UnkelTao]]></title>
   <link href="http://www.UnkelTao.com/blog/categories/acm/atom.xml" rel="self"/>
   <link href="http://www.UnkelTao.com/"/>
-  <updated>2014-11-16T13:16:00+00:00</updated>
+  <updated>2014-11-16T13:19:20+00:00</updated>
   <id>http://www.UnkelTao.com/</id>
   <author>
     <name><![CDATA[UnkelTao]]></name>
@@ -20,10 +20,11 @@
     <id>http://www.UnkelTao.com/blog/2014/11/16/2014-swjtu-acm-onsite-programming-contest</id>
     <content type="html"><![CDATA[<p><strong>比赛链接：</strong>  <a href="http://acm.swjtu.edu.cn/JudgeOnline/showcontest?contest_id=1135">新秀杯 ACM程序设计大赛决赛</a>  </p>
 
-<p>比赛还算成功，算上友情参赛，总共有7个题目有人通过，第一名最后成绩为5题，虽然离我想的差一点。不过还是不错~~</p>
+<p>比赛还算成功，算上友情参赛，总共有7个题目有人通过，第一名最后成绩为5题，虽然离我想的差一点。不过还是不错~~  </p>
 
 <!--more-->
-<p>##A <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=2173">从头再来</a></p>
+
+<h2 id="a-httpacmswjtueducnjudgeonlineshowproblemproblemid2173">A <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=2173">从头再来</a></h2>
 
 <p>只需要简单的统计单词A中每个字母出现的次数，与B中每个字母出现的次数做比较即可。</p>
 

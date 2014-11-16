@@ -11,9 +11,11 @@ keywords: ACM,C++
 
 **比赛链接：**  [新秀杯 ACM程序设计大赛决赛](http://acm.swjtu.edu.cn/JudgeOnline/showcontest?contest_id=1135)  
 
-比赛还算成功，算上友情参赛，总共有7个题目有人通过，第一名最后成绩为5题，虽然离我想的差一点。不过还是不错~~
+比赛还算成功，算上友情参赛，总共有7个题目有人通过，第一名最后成绩为5题，虽然离我想的差一点。不过还是不错~~  
 
 <!--more-->
+
+
 ##A [从头再来](http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=2173)
 
 只需要简单的统计单词A中每个字母出现的次数，与B中每个字母出现的次数做比较即可。
@@ -579,4 +581,5 @@ int main() {
 ```
 
 
-以上题目均为过测试数据的程序，不保证程序完全正确无误。 3Q
+以上题目均为过测试数据的程序，不保证程序完全正确无误.
+Thanks for reading...  

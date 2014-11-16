@@ -9,7 +9,7 @@ keywords: ACM,C++
 ---
 
 
-**比赛链接：**  [新秀杯 ACM程序设计大赛决赛](http://acm.swjtu.edu.cn/JudgeOnline/showcontest?contest_id=1135)  
+**比赛链接：**  [新秀杯 ACM程序设计大赛决赛](http://acm.swjtu.edu.cn/JudgeOnline/showcontest?contest_id=1178)  
 
 比赛还算成功，算上友情参赛，总共有7个题目有人通过，第一名最后成绩为5题，虽然离我想的差一点。不过还是不错~~  
 
@@ -140,7 +140,7 @@ int main(){
 
 ##E [强迫症改变世界2](http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=2177)  
 
-此题需要先会容斥定理， <code>n</code>以内<code>a,b</code>的倍数的个数有， <code>sum=n/a+n/b+n/lcm(a,b)</code>;
+此题需要先会容斥定理， <code>n</code>以内<code>a,b</code>的倍数的个数有， <code>sum=n/a+n/b-n/lcm(a,b)</code>;
 然后我们枚举出所有的只含有<code>4</code>或者<code>7</code>的数字（大概<code>1000</code>个），然后去掉是前面出现过得数的倍数的数（如<code>44</code>是<code>4</code>的倍数） 大概还剩下不到<code>600</code>个，看起来很大，因为容斥定理的复杂度是<code>2^n</code>次方，但是，此题<code>r</code>的范围不是小，我们在做<code>lcm</code>的时候，很快就会超过范围，就不需要继续向下了，然后我们从大往小做，大概只需要递归<code>10</code>万次左右。
 
 剩下的可以参考代码。

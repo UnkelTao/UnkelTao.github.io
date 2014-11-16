@@ -15,6 +15,7 @@ keywords: ACM,C++
 
 <!--more-->
 ##A [从头再来](http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=2173)
+
 只需要简单的统计单词A中每个字母出现的次数，与B中每个字母出现的次数做比较即可。
 
 ```
@@ -56,9 +57,10 @@ int main(){
 
 ##B [挖掘机技术哪家强](http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=2175)
 
-![](http://unkeltao.qiniudn.com/wailian/10_onsite_B.jpg)
-  连接DF，那么ADF的面积为正方形的一半，也是矩形的一半，正方形的面积就等于矩形的面积。
-  AE=a*a/b; DE=sqrt(a*a-AE*AE)
+![](http://unkeltao.qiniudn.com/wailian/10_onsite_B.jpg)   
+
+~~连接DF，那么ADF的面积为正方形的一半，也是矩形的一半，正方形的面积就等于矩形的面积。
+<code>AE=a*a/b; DE=sqrt(a*a-AE*AE)</code>
 
 ```
 int main(){
@@ -74,9 +76,9 @@ int main(){
 
 ##C [YogyKwan的iPhone也弯了](http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=2175)
 
-假设半径为r,t为输入的数据那么可以写出如下等式：
+假设半径为<code>r,t</code>为输入的数据那么可以写出如下等式：
 <code>r*sin(pi-15/r/2)=t/2</code>
-我们可以知道，当r越大时候，t就会越小，于是我们可以二分判定。
+我们可以知道，当<code>r</code>越大时候，<code>t</code>就会越小，于是我们可以二分判定。
 
 
 ```
@@ -108,7 +110,7 @@ int main(){
 
 ##D [强迫症改变世界](http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=2776) 
 
-不妨用 <code>f(k)</code> 来表示摆放 k 个座位的方案数。我们可以把这些方案分成两类：最后一个座位是坐女生，或者最后一个座位是坐男生。如果是前一种情形，则我们只需要看前 k – 1 座位有多少摆法就可以了；如果是后一种情形，那么倒数第二个座位必须是女生，因而这种情形下的方案数就取决于前 k – 2 个座位的安排方案数。因此我们得到， <code>f(k) = f(k – 1) + f(k – 2)</code> 其中<code>f[1]=2,f[2]=3;</code>
+不妨用 <code>f(k)</code> 来表示摆放<code>k</code>个座位的方案数。我们可以把这些方案分成两类：最后一个座位是坐女生，或者最后一个座位是坐男生。如果是前一种情形，则我们只需要看前<code>k–1</code>座位有多少摆法就可以了；如果是后一种情形，那么倒数第二个座位必须是女生，因而这种情形下的方案数就取决于前 <code>k–2</code>个座位的安排方案数。因此我们得到， <code>f(k) = f(k – 1) + f(k – 2)</code> 其中<code>f[1]=2,f[2]=3;</code>
 
 
 ``` 
@@ -136,8 +138,8 @@ int main(){
 
 ##E [强迫症改变世界2](http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=2177)  
 
-此题需要先会容斥定理， n以内a,b的倍数的个数有， <code>sum=n/a+n/b+n/lcm(a,b)</code>;
-然后我们枚举出所有的只含有4或者7的数字（大概1000个），然后去掉是前面出现过得数的倍数的数（如44是4的倍数） 大概还剩下不到600个，看起来很大，因为容斥定理的复杂度是2^n次方，但是，此题r的范围不是小，我们在做lcm的时候，很快就会超过范围，就不需要继续向下了，然后我们从大往小做，大概只需要递归10万次左右。
+此题需要先会容斥定理， <code>n</code>以内<code>a,b</code>的倍数的个数有， <code>sum=n/a+n/b+n/lcm(a,b)</code>;
+然后我们枚举出所有的只含有<code>4</code>或者<code>7</code>的数字（大概<code>1000</code>个），然后去掉是前面出现过得数的倍数的数（如<code>44</code>是<code>4</code>的倍数） 大概还剩下不到<code>600</code>个，看起来很大，因为容斥定理的复杂度是<code>2^n</code>次方，但是，此题<code>r</code>的范围不是小，我们在做<code>lcm</code>的时候，很快就会超过范围，就不需要继续向下了，然后我们从大往小做，大概只需要递归<code>10</code>万次左右。
 
 剩下的可以参考代码。
 
@@ -390,12 +392,12 @@ int main(){
 ##H [最萌身高差](http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=2180)  
 
 此题为树状数组的 YY 题。。。  
-首先我们考虑若 &beta; 固定的情况，那么根据同模的性质。。如果 <code>a%p == b%p</code> 那么 <code>|a-b| = k * p</code>  
-这样预处理一下，只要找到模相同的个数，就能知道有多少组了。。此题 &beta; 很小，那么我们维护各个余数的前缀和就可以求个分别余数的区间和了。。。，因为此题要求支持修改，那么我们就使
+首先我们考虑若 <code>&beta;</code> 固定的情况，那么根据同模的性质。。如果 <code>a%p == b%p</code> 那么 <code>|a-b| = k * p</code>  
+这样预处理一下，只要找到模相同的个数，就能知道有多少组了。。此题 <code>&beta;</code>很小，那么我们维护各个余数的前缀和就可以求个分别余数的区间和了。。。，因为此题要求支持修改，那么我们就使
 用树状数组（如果你还不会，那么赶紧学起吧）就可以满足要求了。。、、   
-关键是怎么去修改更新；修改了一个数，我们需要一增一减，余数为 a% &beta; 的减一， (a + p)% &beta; 的加 1.. 这样就可以很好的查找和维护了。。 
+关键是怎么去修改更新；修改了一个数，我们需要一增一减，余数为 <code>a% &beta;</code> 的减一， <code>(a + p)% &beta;</code> 的加 1.. 这样就可以很好的查找和维护了。。 
 
-&beta;不一样？ 但是&beta;很小啊，我们再增加一维？这么做会MLE，那么我们离线处理每个&beta;跑一次就好了。
+<code>&beta;</code>不一样？ 但是<code>&beta;</code>很小啊，我们再增加一维？这么做会MLE，那么我们离线处理每个<code>&beta;</code>跑一次就好了。
 
 
 ```

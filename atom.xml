@@ -4,7 +4,7 @@
   <title><![CDATA[/UnkelTao]]></title>
   <link href="http://www.UnkelTao.com/atom.xml" rel="self"/>
   <link href="http://www.UnkelTao.com/"/>
-  <updated>2014-11-16T13:37:48+00:00</updated>
+  <updated>2015-05-01T16:27:59+01:00</updated>
   <id>http://www.UnkelTao.com/</id>
   <author>
     <name><![CDATA[UnkelTao]]></name>
@@ -12,6 +12,170 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[2015腾讯实习生面试]]></title>
+    <link href="http://www.UnkelTao.com/blog/2015/04/30/tencent-interview/"/>
+    <updated>2015-04-30T16:23:45+01:00</updated>
+    <id>http://www.UnkelTao.com/blog/2015/04/30/tencent-interview</id>
+    <content type="html"><![CDATA[<p><strong>说明</strong>： 个人面的是软件开发中的应用开发岗位，因为是打算去玩，所以比较随意，没有准备过。 后来看了下应用开发应该要求C++比较多。</p>
+
+<h2 id="section">一面</h2>
+
+<p><strong>时间</strong>： 5.8号  从18:05 - 16:21左右<br />
+<strong>经过</strong>： 自我介绍，然后开始面试，大概面了不到15分钟，期间面试官还接了一个电话。  </p>
+
+<!--more-->
+
+<h3 id="toc1.1.1">被问到的一些问题：</h3>
+
+<ul>
+  <li>笔试最后一道题，C++malloc的内存被free掉后，是否会立刻被计算机收回？（PS： 这道题笔试的时候没有答，写的不太清楚）  </li>
+</ul>
+
+<blockquote>
+  <p>答： 不是特别清楚C++的这个机制，我用Java比较多。</p>
+</blockquote>
+
+<ul>
+  <li>转向Java, Java内存回收机制。   </li>
+</ul>
+
+<blockquote>
+  <p>答： GC  算法，具体的忘记了。 然后瞎说了一个</p>
+</blockquote>
+
+<ul>
+  <li>笔试大题的第一个，1亿个QQ号码的Set容器和Vector容器怎么删除其中奇数的数，问了怎么判断是奇数，然后set和vector直接的区别。 </li>
+</ul>
+
+<blockquote>
+  <p>答： 判断奇数，如果是数字就与1相与，字符串就看最后一位。 删除答的是set直接删，vector直接删代价太大，我给的答案是新建一个容器，迭代将偶数放进去。 </p>
+</blockquote>
+
+<ul>
+  <li>然后问两个谁更快   </li>
+</ul>
+
+<blockquote>
+  <p>我说vector用新的容器更快。 vector还给了个分块的思想，好像面试官觉得不怎么样。   </p>
+</blockquote>
+
+<ul>
+  <li>问了map的查询时间复杂度，以及实现原理。   </li>
+</ul>
+
+<blockquote>
+  <p>答： 红黑树，具体的忘记了。 查询复杂度应该是Log(n) ,添了一句不太确定，可能是常数级别，似乎被鄙视了。</p>
+</blockquote>
+
+<ul>
+  <li>问了下Hash 的原理。</li>
+</ul>
+
+<blockquote>
+  <p>答： 不太清楚</p>
+</blockquote>
+
+<ul>
+  <li>问了点项目   </li>
+</ul>
+
+<blockquote>
+  <p>答： 扯了下Hadoop，似乎不太感兴趣，很快就过了   </p>
+</blockquote>
+
+<ul>
+  <li>还有什么要问的么？   </li>
+</ul>
+
+<blockquote>
+  <p>答： 是不是跟你们组不太匹配，我做Java比较多。 面试官犹豫了会说还好，他们组也有Java。</p>
+</blockquote>
+
+<blockquote>
+  <p>一面完毕，个人感受，面试官可能对我不是特别感兴趣，没有怎么聊，问的问题我也基本没怎么答，10来分钟就结束了整个过程，以为挂了，结果在回来的路上收到复试通知，第二天早上11:30复试。</p>
+</blockquote>
+
+<h2 id="section-1">二面</h2>
+<p><strong>时间:</strong>  5.9   11:25-12:00 大概30-40分钟<br />
+<strong>经过:</strong> 自我介绍，然后面试，最后聊人生  </p>
+
+<h3 id="toc1.1.1">被问到的一些问题：</h3>
+
+<ul>
+  <li>循环链表的优势？   </li>
+</ul>
+
+<blockquote>
+  <p>答： 不需要头指针。 还答了啥我都忘了，瞎编的。   </p>
+</blockquote>
+
+<ul>
+  <li>抽象类和接口的区别？   </li>
+</ul>
+
+<blockquote>
+  <p>答： 抽象类不能被实例化。 后面答了啥也忘了，大概说了什么接口是公开的，然后什么抽象类是实现接口之类不太确定的东西。（这个实在是忘记了，虽然看过）   </p>
+</blockquote>
+
+<ul>
+  <li>问用过哪些数据库，问聚集索引与非聚集索引有什么优缺点？   </li>
+</ul>
+
+<blockquote>
+  <p>答： 不太清楚，用数据库的时候还没有使用过这些索引。   </p>
+</blockquote>
+
+<ul>
+  <li>分别讲讲进程和线程，进程间能够共享内存吗？   </li>
+</ul>
+
+<blockquote>
+  <p>答：进程可以看做一个正在运行的程序，一个进程有多个线程.能（补了一句，没做过这方面的内容，所以不太确定）   </p>
+</blockquote>
+
+<ul>
+  <li>让做一道算法题， 大概意思是给一颗任意形状的二叉树，问最远的两个节点之间的距离，叙述下思路？   </li>
+</ul>
+
+<blockquote>
+  <p>答： 这个过程比较曲折，就不详细说了， 大概应该是一个树形DP吧，求树的直径，我给忘了，现场给了一个思路，面试官觉得有bug，然后想起来了改了一些想法。 但是我给的方案不一定是二叉树都可以给出答案，所以可能二叉树会有更好的解法，可能时间稍微有点长就没有再让继续了。   </p>
+</blockquote>
+
+<ul>
+  <li>聊项目   </li>
+</ul>
+
+<blockquote>
+  <p>答： 说了下暑假去小公司做得一个小项目，问实现了什么功能，是一个人做得么，上线没有，用了哪些框架，答了下，面试官插了一句会轻量级一点的么，Python会么，我说我会ruby（- -#)。   </p>
+</blockquote>
+
+<ul>
+  <li>
+    <p>到此为止，我的所有技术问题全问完了，剩下时间就是在聊什么家是哪里的，为什么选腾讯，职业规划，有没有女朋友(我估计是我说分手了感动了面试官！！！)   </p>
+  </li>
+  <li>
+    <p>有什么想问的？   </p>
+  </li>
+</ul>
+
+<blockquote>
+  <p>答： 7月再来实习可以么，面试官说这个得问问HR。
+感受： 这一轮其实面的比上一轮愉快多了，期间氛围也还不错，虽然答的不是很好，但是比上一轮好好很多。</p>
+</blockquote>
+
+<p>~~~~面试这个东西跟人品有很大关系，不同面试官可能问的完全不一样。   </p>
+
+<p>~~~~面完一直等，期间学校还有一个同学认识妹子也是面相同岗位，恰好一面二面都跟我的一面二面面试官相同，她告诉我二面面试官跟她说他们组只要3个人，瞬间觉得肯定挂了。 大概10点状态从复试变成了HR面环节。隔了15分钟收到邮件和短信，让明天下午5点去HR面。    </p>
+
+<h2 id="hr">HR面</h2>
+<p><strong>时间:</strong>  5.10    大概半小时
+*   主要就问了下简历上的东西（经历），工作地点要求，个人职业规划，理想。   </p>
+<p />
+<p class="post-footer">原文地址:&nbsp;<a href="http://www.UnkelTao.com/blog/2015/04/30/tencent-interview/">http://www.UnkelTao.com/blog/2015/04/30/tencent-interview/</a><br /><br />&nbsp;由 <a href="http://www.UnkelTao.com">UnkelTao</a>&nbsp;撰写并发表于 <a href="http://www.UnkelTao.com">http://www.UnkelTao.com</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[2014年西南交通大学 新秀杯 ACM程序设计大赛 决赛解题报告]]></title>
@@ -1025,8 +1189,9 @@
 </span><span class="line">}</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>以上题目均为过测试数据的程序，不保证程序完全正确无误.
-Thanks for reading…<br />
-&lt;p class=&#8217;post-footer&#8217;&gt;原文地址: <a href="http://www.UnkelTao.com/blog/2014/11/16/2014-swjtu-acm-onsite-programming-contest/">http://www.UnkelTao.com/blog/2014/11/16/2014-swjtu-acm-onsite-programming-contest/</a><br /><br /> 由 <a href="http://www.UnkelTao.com">UnkelTao</a> 撰写并发表于 <a href="http://www.UnkelTao.com">http://www.UnkelTao.com</a>&lt;/p&gt;</p>
+Thanks for reading…  </p>
+<p />
+<p class="post-footer">原文地址:&nbsp;<a href="http://www.UnkelTao.com/blog/2014/11/16/2014-swjtu-acm-onsite-programming-contest/">http://www.UnkelTao.com/blog/2014/11/16/2014-swjtu-acm-onsite-programming-contest/</a><br /><br />&nbsp;由 <a href="http://www.UnkelTao.com">UnkelTao</a>&nbsp;撰写并发表于 <a href="http://www.UnkelTao.com">http://www.UnkelTao.com</a></p>
 ]]></content>
   </entry>
   
@@ -1436,6 +1601,7 @@ out:0  </p>
 </span><span class="line">       }                            
 </span><span class="line">    }
 </span><span class="line">}</span></code></pre></td></tr></table></div></figure></notextile></div>
+<p />
 <p class="post-footer">原文地址:&nbsp;<a href="http://www.UnkelTao.com/blog/2014/09/29/bestcode-number-11-div2/">http://www.UnkelTao.com/blog/2014/09/29/bestcode-number-11-div2/</a><br /><br />&nbsp;由 <a href="http://www.UnkelTao.com">UnkelTao</a>&nbsp;撰写并发表于 <a href="http://www.UnkelTao.com">http://www.UnkelTao.com</a></p>
 ]]></content>
   </entry>
@@ -1788,6 +1954,7 @@ out:0  </p>
 <h3 id="json">最终的Json效果图</h3>
 <p><img src="http://unkeltao.qiniudn.com/wailian/LogTest.png" alt="效果图" /></p>
 
+<p />
 <p class="post-footer">原文地址:&nbsp;<a href="http://www.UnkelTao.com/blog/2014/07/22/spring-plus-springmvc-plus-mybatis-aop/">http://www.UnkelTao.com/blog/2014/07/22/spring-plus-springmvc-plus-mybatis-aop/</a><br /><br />&nbsp;由 <a href="http://www.UnkelTao.com">UnkelTao</a>&nbsp;撰写并发表于 <a href="http://www.UnkelTao.com">http://www.UnkelTao.com</a></p>
 ]]></content>
   </entry>
@@ -2453,6 +2620,7 @@ out:0  </p>
 
 <p>这样配置就算完成了。。。可以做做简单的测试</p>
 
+<p />
 <p class="post-footer">原文地址:&nbsp;<a href="http://www.UnkelTao.com/blog/2014/07/17/spring-plus-springmvc-plus-mybatis/">http://www.UnkelTao.com/blog/2014/07/17/spring-plus-springmvc-plus-mybatis/</a><br /><br />&nbsp;由 <a href="http://www.UnkelTao.com">UnkelTao</a>&nbsp;撰写并发表于 <a href="http://www.UnkelTao.com">http://www.UnkelTao.com</a></p>
 ]]></content>
   </entry>
@@ -2544,6 +2712,7 @@ out:0  </p>
 
 <p>需要注意的是kramdown解析方式跟原来的rdiscount相比更为严格，比如代码段前必须一个空行，所以需要检查之前的Markdown</p>
 
+<p />
 <p class="post-footer">原文地址:&nbsp;<a href="http://www.UnkelTao.com/blog/2014/05/28/latex-test/">http://www.UnkelTao.com/blog/2014/05/28/latex-test/</a><br /><br />&nbsp;由 <a href="http://www.UnkelTao.com">UnkelTao</a>&nbsp;撰写并发表于 <a href="http://www.UnkelTao.com">http://www.UnkelTao.com</a></p>
 ]]></content>
   </entry>
@@ -2655,6 +2824,7 @@ bind C-a send-prefix  </p>
 <h2 id="section-2">使用</h2>
 <p><a href="https://wiki.freebsdchina.org/software/t/tmux">使用tmux——freebsdchina</a>  </p>
 
+<p />
 <p class="post-footer">原文地址:&nbsp;<a href="http://www.UnkelTao.com/blog/2014/04/29/intsall-tmux/">http://www.UnkelTao.com/blog/2014/04/29/intsall-tmux/</a><br /><br />&nbsp;由 <a href="http://www.UnkelTao.com">UnkelTao</a>&nbsp;撰写并发表于 <a href="http://www.UnkelTao.com">http://www.UnkelTao.com</a></p>
 ]]></content>
   </entry>
@@ -2707,6 +2877,7 @@ bind C-a send-prefix  </p>
 
 <hr />
 
+<p />
 <p class="post-footer">原文地址:&nbsp;<a href="http://www.UnkelTao.com/blog/2014/03/25/lao-ren-yu-hai-hai-ming-wei-du-shu-bi-ji/">http://www.UnkelTao.com/blog/2014/03/25/lao-ren-yu-hai-hai-ming-wei-du-shu-bi-ji/</a><br /><br />&nbsp;由 <a href="http://www.UnkelTao.com">UnkelTao</a>&nbsp;撰写并发表于 <a href="http://www.UnkelTao.com">http://www.UnkelTao.com</a></p>
 ]]></content>
   </entry>
@@ -3328,6 +3499,7 @@ bind C-a send-prefix  </p>
 
 <h1 id="section">最后祝学第们加油。</h1>
 
+<p />
 <p class="post-footer">原文地址:&nbsp;<a href="http://www.UnkelTao.com/blog/2014/03/23/codeforces-round-number-238-div-dot-1-a/">http://www.UnkelTao.com/blog/2014/03/23/codeforces-round-number-238-div-dot-1-a/</a><br /><br />&nbsp;由 <a href="http://www.UnkelTao.com">UnkelTao</a>&nbsp;撰写并发表于 <a href="http://www.UnkelTao.com">http://www.UnkelTao.com</a></p>
 ]]></content>
   </entry>
@@ -3427,6 +3599,7 @@ bind C-a send-prefix  </p>
 <p>-At Kindle page:2661-2663 	 time: 2014-3-23 1:21:03 </p>
 
 <hr />
+<p />
 <p class="post-footer">原文地址:&nbsp;<a href="http://www.UnkelTao.com/blog/2014/03/23/ren-sheng-ruo-zhi-ru-chu-jian-an-yi-ru-du-shu-bi-ji/">http://www.UnkelTao.com/blog/2014/03/23/ren-sheng-ruo-zhi-ru-chu-jian-an-yi-ru-du-shu-bi-ji/</a><br /><br />&nbsp;由 <a href="http://www.UnkelTao.com">UnkelTao</a>&nbsp;撰写并发表于 <a href="http://www.UnkelTao.com">http://www.UnkelTao.com</a></p>
 ]]></content>
   </entry>
@@ -4066,6 +4239,7 @@ bind C-a send-prefix  </p>
 </span><span class="line"><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 
+<p />
 <p class="post-footer">原文地址:&nbsp;<a href="http://www.UnkelTao.com/blog/2014/03/21/codeforces-round-number-237-div-2/">http://www.UnkelTao.com/blog/2014/03/21/codeforces-round-number-237-div-2/</a><br /><br />&nbsp;由 <a href="http://www.UnkelTao.com">UnkelTao</a>&nbsp;撰写并发表于 <a href="http://www.UnkelTao.com">http://www.UnkelTao.com</a></p>
 ]]></content>
   </entry>
@@ -4093,6 +4267,7 @@ bind C-a send-prefix  </p>
 <p><a href="https://github.com/UnkelTao/2048/tree/gh-pages">改版</a><br />
 <a href="https://github.com/gabrielecirulli/2048">2048原版</a></p>
 
+<p />
 <p class="post-footer">原文地址:&nbsp;<a href="http://www.UnkelTao.com/blog/2014/03/16/2048-gai-ban-you-xi/">http://www.UnkelTao.com/blog/2014/03/16/2048-gai-ban-you-xi/</a><br /><br />&nbsp;由 <a href="http://www.UnkelTao.com">UnkelTao</a>&nbsp;撰写并发表于 <a href="http://www.UnkelTao.com">http://www.UnkelTao.com</a></p>
 ]]></content>
   </entry>
@@ -4192,6 +4367,7 @@ Book Title\r\n
   <li><a href="https://github.com/lxyu/kindle-clippings">lxyu-Kindle Clippings</a></li>
 </ul>
 
+<p />
 <p class="post-footer">原文地址:&nbsp;<a href="http://www.UnkelTao.com/blog/2014/03/14/kindlebi-ji-zhuan-huan/">http://www.UnkelTao.com/blog/2014/03/14/kindlebi-ji-zhuan-huan/</a><br /><br />&nbsp;由 <a href="http://www.UnkelTao.com">UnkelTao</a>&nbsp;撰写并发表于 <a href="http://www.UnkelTao.com">http://www.UnkelTao.com</a></p>
 ]]></content>
   </entry>
@@ -4277,6 +4453,7 @@ Book Title\r\n
 
 <h4 id="section">断断续续的还是把这本书读完了</h4>
 
+<p />
 <p class="post-footer">原文地址:&nbsp;<a href="http://www.UnkelTao.com/blog/2014/03/14/bei-dao-shi-bai-zhi-shu-du-shu-bi-ji/">http://www.UnkelTao.com/blog/2014/03/14/bei-dao-shi-bai-zhi-shu-du-shu-bi-ji/</a><br /><br />&nbsp;由 <a href="http://www.UnkelTao.com">UnkelTao</a>&nbsp;撰写并发表于 <a href="http://www.UnkelTao.com">http://www.UnkelTao.com</a></p>
 ]]></content>
   </entry>
@@ -4470,6 +4647,7 @@ ruby似乎跑的很慢，不幸TLE的，C++可以过 </p>
 <h2 id="e-olympic-gameshttpcodeforcescomcontest401probleme"><a href="http://codeforces.com/contest/401/problem/E">E. Olympic Games</a></h2>
 <p>略难，暂时不会</p>
 
+<p />
 <p class="post-footer">原文地址:&nbsp;<a href="http://www.UnkelTao.com/blog/2014/03/11/codeforce-235/">http://www.UnkelTao.com/blog/2014/03/11/codeforce-235/</a><br /><br />&nbsp;由 <a href="http://www.UnkelTao.com">UnkelTao</a>&nbsp;撰写并发表于 <a href="http://www.UnkelTao.com">http://www.UnkelTao.com</a></p>
 ]]></content>
   </entry>
@@ -4553,6 +4731,7 @@ ruby似乎跑的很慢，不幸TLE的，C++可以过 </p>
 <p>最终结果：
 <img src="http://unkeltao.qiniudn.com/img/IMG_ruby_2.png" alt="" /></p>
 
+<p />
 <p class="post-footer">原文地址:&nbsp;<a href="http://www.UnkelTao.com/blog/2014/03/02/ruby-for-hustoj/">http://www.UnkelTao.com/blog/2014/03/02/ruby-for-hustoj/</a><br /><br />&nbsp;由 <a href="http://www.UnkelTao.com">UnkelTao</a>&nbsp;撰写并发表于 <a href="http://www.UnkelTao.com">http://www.UnkelTao.com</a></p>
 ]]></content>
   </entry>
@@ -4680,6 +4859,7 @@ ruby似乎跑的很慢，不幸TLE的，C++可以过 </p>
 
 <p><img src="http://unkeltao.qiniudn.com/img/004.png" alt="" /></p>
 
+<p />
 <p class="post-footer">原文地址:&nbsp;<a href="http://www.UnkelTao.com/blog/2014/02/24/latex-table/">http://www.UnkelTao.com/blog/2014/02/24/latex-table/</a><br /><br />&nbsp;由 <a href="http://www.UnkelTao.com">UnkelTao</a>&nbsp;撰写并发表于 <a href="http://www.UnkelTao.com">http://www.UnkelTao.com</a></p>
 ]]></content>
   </entry>
@@ -4702,6 +4882,7 @@ ruby似乎跑的很慢，不幸TLE的，C++可以过 </p>
 
 <p><img src="http://unkeltao.qiniudn.com/IMG_latex.png" alt="" /></p>
 
+<p />
 <p class="post-footer">原文地址:&nbsp;<a href="http://www.UnkelTao.com/blog/2014/02/20/sublime-text-for-ctex/">http://www.UnkelTao.com/blog/2014/02/20/sublime-text-for-ctex/</a><br /><br />&nbsp;由 <a href="http://www.UnkelTao.com">UnkelTao</a>&nbsp;撰写并发表于 <a href="http://www.UnkelTao.com">http://www.UnkelTao.com</a></p>
 ]]></content>
   </entry>
@@ -4730,6 +4911,7 @@ ruby似乎跑的很慢，不幸TLE的，C++可以过 </p>
 
 <p>以后的博客就是这个了，试用了一下还可以哟。</p>
 
+<p />
 <p class="post-footer">原文地址:&nbsp;<a href="http://www.UnkelTao.com/blog/2014/02/18/wordpress-to-octopress/">http://www.UnkelTao.com/blog/2014/02/18/wordpress-to-octopress/</a><br /><br />&nbsp;由 <a href="http://www.UnkelTao.com">UnkelTao</a>&nbsp;撰写并发表于 <a href="http://www.UnkelTao.com">http://www.UnkelTao.com</a></p>
 ]]></content>
   </entry>
@@ -5127,530 +5309,8 @@ ruby似乎跑的很慢，不幸TLE的，C++可以过 </p>
 
 <p>（效果似乎一般）</p>
 
+<p />
 <p class="post-footer">原文地址:&nbsp;<a href="http://www.UnkelTao.com/blog/2013/08/04/memsql-start/">http://www.UnkelTao.com/blog/2013/08/04/memsql-start/</a><br /><br />&nbsp;由 <a href="http://www.UnkelTao.com">UnkelTao</a>&nbsp;撰写并发表于 <a href="http://www.UnkelTao.com">http://www.UnkelTao.com</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[The 9th SWJTU Collegiate Programming Contest Qualification Round]]></title>
-    <link href="http://www.UnkelTao.com/blog/2013/04/13/the-9th-swjtu-collegiate-programming-contest-qualification-round/"/>
-    <updated>2013-04-13T23:16:28+01:00</updated>
-    <id>http://www.UnkelTao.com/blog/2013/04/13/the-9th-swjtu-collegiate-programming-contest-qualification-round</id>
-    <content type="html"><![CDATA[<p><strong>比赛链接：</strong>  <a href="http://acm.swjtu.edu.cn/JudgeOnline/showcontest?contest_id=1135" title="第九届ACM校赛资格赛">第九届ACM校赛资格赛</a>  </p>
-
-<p>资格赛嘛，本着大家熟悉环境增强自信心的原则~10道题没有太难的题目~适合新手练习.本次比赛D、E、F是我出的，本着简单的想法却没想到坑了一部分人，其中E题的数据再随机的时候超出了题目描述的范围造成一些人AC的程序WA了，在此表示抱歉,致以诚挚的歉意。下面给出我对着10道题的解法，可能我的解法并不是完全正确恰好过了数据而已，欢迎大家指正。</p>
-
-<!--more-->
-<p>##A <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1982">A+B</a>
-完全熟悉OJ环境的题目,上面都有标程,第一次接触ACM的需要知道怎么多组输入.</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-</pre></td><td class="code"><pre><code class="c++"><span class="line"><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
-</span><span class="line"><span class="k">while</span><span class="p">(</span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d %d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">)</span><span class="o">==</span><span class="mi">2</span><span class="p">){</span>
-</span><span class="line">    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">);</span>
-</span><span class="line"><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<h2 id="b-1httpacmswjtueducnjudgeonlineshowproblemproblemid1986">B <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1986">猴子爬楼梯1</a></h2>
-<p>因为数据不大，可以有3中解法:  </p>
-
-<ul>
-  <li>
-    <p>原理：看 n能被被整除<code>GCD(a,b)</code>整除，推论过程略,详见大牛(<a href="http://blog.csdn.net/openspirit/article/details/8797246">大牛题解</a>)。	</p>
-  </li>
-  <li>
-    <p>模拟法：我们可以确定只要大于 <code>a+b-1</code>的数 我们都可以通过加上a来得到,在+a ,-b的过程中，通过模拟产生出<code>(1，a+b-1)</code>所有的可能,把n对a取模既可以。	</p>
-  </li>
-  <li>
-    <p>搜索或者暴力,记忆化搜索，也就1000个点而已,代码未写,参见C题。	</p>
-  </li>
-</ul>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-<span class="line-number">5</span>
-<span class="line-number">6</span>
-<span class="line-number">7</span>
-<span class="line-number">8</span>
-<span class="line-number">9</span>
-<span class="line-number">10</span>
-<span class="line-number">11</span>
-<span class="line-number">12</span>
-<span class="line-number">13</span>
-<span class="line-number">14</span>
-</pre></td><td class="code"><pre><code class="c++"><span class="line"><span class="c1">//模拟法</span>
-</span><span class="line"><span class="kt">int</span> <span class="n">s</span><span class="p">[</span><span class="mi">10000</span><span class="p">];</span>
-</span><span class="line"><span class="kt">int</span> <span class="n">cnt</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span><span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
-</span><span class="line"><span class="p">{</span>
-</span><span class="line">    <span class="kt">int</span> <span class="n">tmp</span><span class="o">=</span><span class="n">a</span><span class="p">,</span><span class="n">cur</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-</span><span class="line">    <span class="n">memset</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="n">s</span><span class="p">));</span>
-</span><span class="line">    <span class="k">while</span><span class="p">(</span><span class="n">tmp</span><span class="o">!=</span><span class="mi">0</span><span class="p">)</span>
-</span><span class="line">    <span class="p">{</span>
-</span><span class="line">        <span class="n">s</span><span class="p">[</span><span class="n">cur</span><span class="o">++</span><span class="p">]</span><span class="o">=</span><span class="n">tmp</span><span class="p">;</span>
-</span><span class="line">        <span class="k">if</span><span class="p">(</span><span class="n">tmp</span><span class="o">&gt;=</span><span class="n">b</span><span class="p">)</span><span class="n">tmp</span><span class="o">-=</span><span class="n">b</span><span class="p">;</span>
-</span><span class="line">        <span class="k">else</span> <span class="n">tmp</span><span class="o">+=</span><span class="n">a</span><span class="p">;</span>
-</span><span class="line">    <span class="p">}</span>
-</span><span class="line">    <span class="k">return</span> <span class="n">cur</span><span class="p">;</span>
-</span><span class="line"><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<h2 id="c-2httpacmswjtueducnjudgeonlineshowproblemproblemid1990">C <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1990">猴子爬楼梯2</a></h2>
-
-<p><strong>本题将我深深的伤害了</strong>  </p>
-
-<ul>
-  <li>
-    <p>模拟法:看着数据不大，于是暴力模拟,无限WA,基本思路同B题二解法，只是模拟过程中出现大于top就停止,至今未AC，未发现错误数据，回头对拍,有待考证。(<strong>忘记加特判了<code>a=0,b=0</code>时候挂掉了, 加上AC</strong>)	</p>
-  </li>
-  <li>
-    <p>记忆化搜索	</p>
-  </li>
-</ul>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-<span class="line-number">5</span>
-<span class="line-number">6</span>
-<span class="line-number">7</span>
-<span class="line-number">8</span>
-<span class="line-number">9</span>
-<span class="line-number">10</span>
-<span class="line-number">11</span>
-<span class="line-number">12</span>
-<span class="line-number">13</span>
-<span class="line-number">14</span>
-<span class="line-number">15</span>
-<span class="line-number">16</span>
-<span class="line-number">17</span>
-<span class="line-number">18</span>
-<span class="line-number">19</span>
-<span class="line-number">20</span>
-<span class="line-number">21</span>
-<span class="line-number">22</span>
-<span class="line-number">23</span>
-<span class="line-number">24</span>
-<span class="line-number">25</span>
-<span class="line-number">26</span>
-<span class="line-number">27</span>
-<span class="line-number">28</span>
-<span class="line-number">29</span>
-<span class="line-number">30</span>
-<span class="line-number">31</span>
-<span class="line-number">32</span>
-<span class="line-number">33</span>
-<span class="line-number">34</span>
-<span class="line-number">35</span>
-<span class="line-number">36</span>
-<span class="line-number">37</span>
-<span class="line-number">38</span>
-</pre></td><td class="code"><pre><code class="c++"><span class="line"><span class="c1">//模拟法</span>
-</span><span class="line"><span class="cp">#include&lt;cstdio&gt;</span>
-</span><span class="line"><span class="cp">#define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)</span>
-</span><span class="line"><span class="kt">int</span> <span class="n">gcd</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span><span class="kt">int</span> <span class="n">b</span><span class="p">){</span><span class="k">return</span> <span class="n">b</span><span class="o">?</span><span class="n">gcd</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="o">%</span><span class="n">b</span><span class="p">)</span><span class="o">:</span><span class="n">a</span><span class="p">;}</span>
-</span><span class="line"><span class="kt">int</span> <span class="n">s</span><span class="p">[</span><span class="mi">1000</span><span class="p">];</span>
-</span><span class="line"><span class="kt">int</span> <span class="n">cnt</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span><span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
-</span><span class="line"><span class="p">{</span>
-</span><span class="line">    <span class="kt">int</span> <span class="n">tmp</span><span class="o">=</span><span class="n">a</span><span class="p">,</span><span class="n">cur</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-</span><span class="line">    <span class="k">if</span><span class="p">(</span><span class="n">b</span><span class="o">==</span><span class="mi">0</span><span class="p">){</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">a</span><span class="p">;</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;}</span>
-</span><span class="line">    <span class="k">while</span><span class="p">(</span><span class="n">tmp</span><span class="o">!=</span><span class="mi">0</span><span class="p">){</span><span class="n">s</span><span class="p">[</span><span class="n">cur</span><span class="o">++</span><span class="p">]</span><span class="o">=</span><span class="n">tmp</span><span class="p">;</span><span class="k">if</span><span class="p">(</span><span class="n">tmp</span><span class="o">&gt;=</span><span class="n">b</span><span class="p">)</span><span class="n">tmp</span><span class="o">-=</span><span class="n">b</span><span class="p">;</span><span class="k">else</span> <span class="n">tmp</span><span class="o">+=</span><span class="n">a</span><span class="p">;}</span>
-</span><span class="line">    <span class="k">return</span> <span class="n">cur</span><span class="p">;</span>
-</span><span class="line"><span class="p">}</span>
-</span><span class="line"><span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
-</span><span class="line"><span class="p">{</span>
-</span><span class="line">    <span class="c1">//freopen(&quot;data.in&quot;,&quot;r&quot;,stdin);</span>
-</span><span class="line">    <span class="c1">//freopen(&quot;data2.out&quot;,&quot;w&quot;,stdout);</span>
-</span><span class="line">    <span class="kt">int</span> <span class="n">T</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">;</span>
-</span><span class="line">    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">T</span><span class="p">);</span>
-</span><span class="line">    <span class="k">while</span><span class="p">(</span><span class="n">T</span><span class="o">--</span><span class="p">){</span>
-</span><span class="line">       <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d%d%d%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">a</span><span class="p">,</span><span class="o">&amp;</span><span class="n">b</span><span class="p">,</span><span class="o">&amp;</span><span class="n">n</span><span class="p">,</span><span class="o">&amp;</span><span class="n">m</span><span class="p">);</span>
-</span><span class="line">       <span class="k">if</span><span class="p">(</span><span class="n">n</span><span class="o">&gt;</span><span class="n">m</span><span class="o">||</span><span class="n">a</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&quot;NO</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-</span><span class="line">       <span class="k">else</span> <span class="p">{</span>
-</span><span class="line">          <span class="k">if</span><span class="p">(</span><span class="n">n</span><span class="o">%</span><span class="n">a</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&quot;YES</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-</span><span class="line">          <span class="k">else</span> <span class="p">{</span>
-</span><span class="line">               <span class="kt">int</span> <span class="n">len</span><span class="o">=</span><span class="n">cnt</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">);</span>
-</span><span class="line">               <span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="o">%</span><span class="n">a</span><span class="p">;</span>
-</span><span class="line">               <span class="kt">bool</span> <span class="n">fg</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-</span><span class="line">               <span class="n">rep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">len</span><span class="p">){</span>
-</span><span class="line">                  <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="n">n</span><span class="p">)</span> <span class="p">{</span><span class="n">fg</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="k">break</span><span class="p">;}</span>
-</span><span class="line">                  <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&gt;</span><span class="n">m</span><span class="p">){</span><span class="n">fg</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="k">break</span><span class="p">;}</span>
-</span><span class="line">               <span class="p">}</span>
-</span><span class="line">               <span class="k">if</span><span class="p">(</span><span class="n">fg</span><span class="p">)</span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;YES</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="k">else</span> <span class="n">printf</span><span class="p">(</span><span class="s">&quot;NO</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-</span><span class="line">
-</span><span class="line">          <span class="p">}</span>
-</span><span class="line">       <span class="p">}</span>
-</span><span class="line">    <span class="p">}</span>
-</span><span class="line">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class="line"><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-<span class="line-number">5</span>
-<span class="line-number">6</span>
-<span class="line-number">7</span>
-<span class="line-number">8</span>
-<span class="line-number">9</span>
-<span class="line-number">10</span>
-<span class="line-number">11</span>
-<span class="line-number">12</span>
-<span class="line-number">13</span>
-<span class="line-number">14</span>
-<span class="line-number">15</span>
-<span class="line-number">16</span>
-<span class="line-number">17</span>
-<span class="line-number">18</span>
-<span class="line-number">19</span>
-<span class="line-number">20</span>
-</pre></td><td class="code"><pre><code class="c++"><span class="line"><span class="c1">//记忆化搜索</span>
-</span><span class="line"><span class="kt">bool</span> <span class="n">used</span><span class="p">[</span><span class="mi">1100</span><span class="p">];</span>
-</span><span class="line"><span class="kt">bool</span> <span class="n">bfs</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span><span class="kt">int</span> <span class="n">b</span><span class="p">,</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span><span class="kt">int</span> <span class="n">m</span><span class="p">)</span>
-</span><span class="line"><span class="p">{</span>
-</span><span class="line">    <span class="n">queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">q</span><span class="p">;</span>
-</span><span class="line">    <span class="n">memset</span><span class="p">(</span><span class="n">used</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="n">used</span><span class="p">));</span>
-</span><span class="line">    <span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="o">&gt;</span><span class="n">m</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class="line">    <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
-</span><span class="line">    <span class="n">used</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
-</span><span class="line">    <span class="kt">int</span> <span class="n">t</span><span class="p">;</span>
-</span><span class="line">    <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">q</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
-</span><span class="line">    <span class="p">{</span>
-</span><span class="line">       <span class="kt">int</span> <span class="n">tmp</span><span class="o">=</span><span class="n">q</span><span class="p">.</span><span class="n">front</span><span class="p">();</span> <span class="n">q</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
-</span><span class="line">       <span class="n">used</span><span class="p">[</span><span class="n">tmp</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
-</span><span class="line">       <span class="k">if</span><span class="p">(</span><span class="n">tmp</span><span class="o">==</span><span class="n">n</span><span class="p">)</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
-</span><span class="line">       <span class="k">if</span><span class="p">(</span><span class="n">tmp</span><span class="o">+</span><span class="n">a</span><span class="o">&lt;=</span><span class="n">m</span><span class="o">&amp;&amp;!</span><span class="n">used</span><span class="p">[</span><span class="n">tmp</span><span class="o">+</span><span class="n">a</span><span class="p">]){</span><span class="n">used</span><span class="p">[</span><span class="n">tmp</span><span class="o">+</span><span class="n">a</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">tmp</span><span class="o">+</span><span class="n">a</span><span class="p">);}</span>
-</span><span class="line">       <span class="k">if</span><span class="p">(</span><span class="n">tmp</span><span class="o">-</span><span class="n">b</span><span class="o">&gt;=</span><span class="mi">0</span><span class="o">&amp;&amp;!</span><span class="n">used</span><span class="p">[</span><span class="n">tmp</span><span class="o">-</span><span class="n">b</span><span class="p">]){</span><span class="n">used</span><span class="p">[</span><span class="n">tmp</span><span class="o">-</span><span class="n">b</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">tmp</span><span class="o">-</span><span class="n">b</span><span class="p">);}</span>
-</span><span class="line">    <span class="p">}</span>
-</span><span class="line">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class="line"><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<h2 id="d-httpacmswjtueducnjudgeonlineshowproblemproblemid1991">D <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1991">统计学号</a></h2>
-
-<p>排序下，扫描一遍即可，秒杀级水题一枚。不会快排的可冒泡。</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-<span class="line-number">5</span>
-<span class="line-number">6</span>
-<span class="line-number">7</span>
-<span class="line-number">8</span>
-<span class="line-number">9</span>
-<span class="line-number">10</span>
-<span class="line-number">11</span>
-<span class="line-number">12</span>
-<span class="line-number">13</span>
-<span class="line-number">14</span>
-<span class="line-number">15</span>
-<span class="line-number">16</span>
-<span class="line-number">17</span>
-<span class="line-number">18</span>
-<span class="line-number">19</span>
-<span class="line-number">20</span>
-<span class="line-number">21</span>
-<span class="line-number">22</span>
-<span class="line-number">23</span>
-</pre></td><td class="code"><pre><code class="c++"><span class="line"><span class="cp">#include&lt;cstdio&gt;</span>
-</span><span class="line"><span class="cp">#include&lt;cstring&gt;</span>
-</span><span class="line"><span class="cp">#include&lt;iostream&gt;</span>
-</span><span class="line"><span class="cp">#include&lt;algorithm&gt;</span>
-</span><span class="line"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-</span><span class="line"><span class="cp">#define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)</span>
-</span><span class="line"><span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">110</span><span class="p">];</span>
-</span><span class="line"><span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
-</span><span class="line"><span class="p">{</span>
-</span><span class="line"> <span class="c1">//   freopen(&quot;data.in&quot;,&quot;r&quot;,stdin);</span>
-</span><span class="line"> <span class="c1">//   freopen(&quot;data.out&quot;,&quot;w&quot;,stdout);</span>
-</span><span class="line">    <span class="kt">int</span> <span class="n">T</span><span class="p">,</span><span class="n">n</span><span class="p">;</span>
-</span><span class="line">    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">T</span><span class="p">);</span>
-</span><span class="line">    <span class="k">while</span><span class="p">(</span><span class="n">T</span><span class="o">--</span><span class="p">){</span>
-</span><span class="line">       <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
-</span><span class="line">       <span class="n">rep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">)</span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-</span><span class="line">       <span class="n">sort</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="o">+</span><span class="n">n</span><span class="p">);</span>
-</span><span class="line">       <span class="kt">int</span> <span class="n">cnt</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
-</span><span class="line">       <span class="n">rep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">)</span> <span class="p">{</span><span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">!=</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="n">cnt</span><span class="o">++</span><span class="p">;}</span>
-</span><span class="line">       <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">cnt</span><span class="p">);</span>
-</span><span class="line">    <span class="p">}</span>
-</span><span class="line">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class="line"><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<h2 id="e-20httpacmswjtueducnjudgeonlineshowproblemproblemid1992">E <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1992">德德的嗜好2.0</a></h2>
-
-<p>此题也是一个排序题，当然如果直接<code>strcmp</code>是不行的，考虑90 9这组数据，结果很明显应该是990而不是909。<br />
-因为我们在排序的时候只要保证<code>(a+b)&gt;(b+a)</code>即可。<br />
-<strong>再次表示对数据中出现了大于1000的数表示抱歉</strong></p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-<span class="line-number">5</span>
-<span class="line-number">6</span>
-<span class="line-number">7</span>
-<span class="line-number">8</span>
-<span class="line-number">9</span>
-<span class="line-number">10</span>
-<span class="line-number">11</span>
-<span class="line-number">12</span>
-<span class="line-number">13</span>
-<span class="line-number">14</span>
-<span class="line-number">15</span>
-<span class="line-number">16</span>
-<span class="line-number">17</span>
-<span class="line-number">18</span>
-<span class="line-number">19</span>
-<span class="line-number">20</span>
-<span class="line-number">21</span>
-<span class="line-number">22</span>
-<span class="line-number">23</span>
-<span class="line-number">24</span>
-<span class="line-number">25</span>
-<span class="line-number">26</span>
-<span class="line-number">27</span>
-</pre></td><td class="code"><pre><code class="c++"><span class="line"><span class="cp">#include&lt;cstdio&gt;</span>
-</span><span class="line"><span class="cp">#include&lt;cstring&gt;</span>
-</span><span class="line"><span class="cp">#include&lt;iostream&gt;</span>
-</span><span class="line"><span class="cp">#include&lt;algorithm&gt;</span>
-</span><span class="line"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-</span><span class="line"><span class="cp">#define rep(i, n) for (int i=0; i&lt;(n); ++i)</span>
-</span><span class="line"><span class="n">string</span> <span class="n">s</span><span class="p">[</span><span class="mi">81</span><span class="p">];</span>
-</span><span class="line"><span class="kt">bool</span> <span class="n">cmp</span><span class="p">(</span><span class="n">string</span> <span class="n">a</span><span class="p">,</span><span class="n">string</span> <span class="n">b</span><span class="p">)</span>
-</span><span class="line"><span class="p">{</span>
-</span><span class="line">     <span class="k">return</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="o">&gt;</span><span class="p">(</span><span class="n">b</span><span class="o">+</span><span class="n">a</span><span class="p">);</span>
-</span><span class="line"><span class="p">}</span>
-</span><span class="line"><span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
-</span><span class="line"><span class="p">{</span>
-</span><span class="line">    <span class="c1">//freopen(&quot;data.in&quot;,&quot;r&quot;,stdin);</span>
-</span><span class="line">    <span class="c1">//freopen(&quot;data.out&quot;,&quot;w&quot;,stdout);</span>
-</span><span class="line">    <span class="kt">int</span> <span class="n">T</span><span class="p">,</span><span class="n">n</span><span class="p">;</span>
-</span><span class="line">    <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">T</span><span class="p">;</span>
-</span><span class="line">    <span class="k">while</span><span class="p">(</span><span class="n">T</span><span class="o">--</span><span class="p">)</span>
-</span><span class="line">    <span class="p">{</span>
-</span><span class="line">      <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">n</span><span class="p">;</span>
-</span><span class="line">      <span class="n">rep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">n</span><span class="p">)</span><span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-</span><span class="line">      <span class="n">sort</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">s</span><span class="o">+</span><span class="n">n</span><span class="p">,</span><span class="n">cmp</span><span class="p">);</span>
-</span><span class="line">      <span class="n">rep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">n</span><span class="p">)</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-</span><span class="line">      <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
-</span><span class="line">    <span class="p">}</span>
-</span><span class="line">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class="line"><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<h2 id="f-30httpacmswjtueducnjudgeonlineshowproblemproblemid1993">F <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1993">德德的嗜好3.0</a></h2>
-<p>公式题或者找规律  <code>b(8k+m)=b(m)+60k;  (k=n/8;m=n%8)</code> 打表出前8项就够了;其中<code>b(0)=-1;</code> 可以m等于1到8~这样就用不到b(0)但是计算k,m就多了几行代码。<br />
-下面是推论：  </p>
-
-<ul>
-  <li>
-    <p>由于<code>a(n+15)-a(n)=60</code>,故若<code>a(n)</code>是3或5的倍数,当且仅当<code>a(n+15)</code>是3或5的倍数. 	</p>
-  </li>
-  <li>
-    <p>于是每15个数是一个周期，前15个3-59~所以划分区间。	</p>
-  </li>
-  <li>
-    <p>现将数轴正向分成一系列长为60的区间段: <code>(0,+?)＝(0,60]∪(60,120]∪(120,180]∪…,</code>注意第一个区间段中含有{a(n)}的项15个,即<code>3,7,11,15,19,23,27,31,35,39,43,47,51,55,59</code>其中属于{ }的项8个,为:<code>b(1)=7, b(2)=11, b(3)=19, b(4)=23,   b(5)=31, b(6)=43, b(7)=47, b(8)=59</code>	</p>
-  </li>
-  <li>
-    <p>于是每个区间段中恰有15个{ }的项,8个{ }的项,且有<code>b(8k+m)-b(m)=60k;</code>	 </p>
-  </li>
-  <li>
-    <p>EG：由于<code>2006＝8×250+6</code>,而<code>b(6)=43</code>,所以<code>b(2006)=60*250+b(6)=15043</code>。	</p>
-  </li>
-</ul>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-<span class="line-number">5</span>
-<span class="line-number">6</span>
-<span class="line-number">7</span>
-<span class="line-number">8</span>
-<span class="line-number">9</span>
-<span class="line-number">10</span>
-<span class="line-number">11</span>
-<span class="line-number">12</span>
-<span class="line-number">13</span>
-<span class="line-number">14</span>
-<span class="line-number">15</span>
-<span class="line-number">16</span>
-<span class="line-number">17</span>
-<span class="line-number">18</span>
-<span class="line-number">19</span>
-<span class="line-number">20</span>
-<span class="line-number">21</span>
-<span class="line-number">22</span>
-<span class="line-number">23</span>
-</pre></td><td class="code"><pre><code class="c++"><span class="line"><span class="cp">#include&lt;cstdio&gt;</span>
-</span><span class="line"><span class="cp">#include&lt;cstring&gt;</span>
-</span><span class="line"><span class="cp">#include&lt;iostream&gt;</span>
-</span><span class="line"><span class="cp">#include&lt;algorithm&gt;</span>
-</span><span class="line"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-</span><span class="line"><span class="cp">#define ll long long</span>
-</span><span class="line"><span class="cp">#define rep(i, n) for (int i=0; i&lt;(n); ++i)</span>
-</span><span class="line"><span class="kt">int</span> <span class="n">b</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">43</span><span class="p">,</span><span class="mi">47</span><span class="p">};</span>
-</span><span class="line">
-</span><span class="line"><span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
-</span><span class="line"><span class="p">{</span>
-</span><span class="line">    <span class="c1">//freopen(&quot;data.in&quot;,&quot;r&quot;,stdin);</span>
-</span><span class="line">    <span class="c1">//freopen(&quot;data.out&quot;,&quot;w&quot;,stdout);</span>
-</span><span class="line">    <span class="kt">int</span> <span class="n">T</span><span class="p">,</span><span class="n">n</span><span class="p">;</span>
-</span><span class="line">    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">T</span><span class="p">);</span>
-</span><span class="line">    <span class="k">while</span><span class="p">(</span><span class="n">T</span><span class="o">--</span><span class="p">)</span>
-</span><span class="line">    <span class="p">{</span>
-</span><span class="line">        <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
-</span><span class="line">        <span class="n">ll</span> <span class="n">ans</span><span class="o">=</span><span class="mi">60LL</span><span class="o">*</span><span class="p">(</span><span class="n">n</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span><span class="o">+</span><span class="n">b</span><span class="p">[</span><span class="n">n</span><span class="o">%</span><span class="mi">8</span><span class="p">];</span>
-</span><span class="line">        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%lld</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">ans</span><span class="p">);</span>
-</span><span class="line">    <span class="p">}</span>
-</span><span class="line">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class="line"><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<h2 id="g-httpacmswjtueducnjudgeonlineshowproblemproblemid1994">G <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1994">不知道自己不知道</a></h2>
-
-<p>没什么好说的</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-</pre></td><td class="code"><pre><code class="c"><span class="line"><span class="k">while</span><span class="p">(</span><span class="o">~</span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">n</span><span class="p">))</span> <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="mi">2013</span><span class="o">-</span><span class="n">n</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<h2 id="h-httpacmswjtueducnjudgeonlineshowproblemproblemid1995">H <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1995">知道自己不知道</a></h2>
-
-<p>数组求和除以M向上取整.  </p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-</pre></td><td class="code"><pre><code class="c"><span class="line"><span class="n">rep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>  <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
-</span><span class="line"><span class="n">sum</span><span class="o">+=</span><span class="n">a</span><span class="p">;</span>
-</span><span class="line"><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,(</span><span class="n">sum</span><span class="o">+</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">m</span><span class="p">);</span> <span class="c1">//加上m-1为向上取整</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<h2 id="i-httpacmswjtueducnjudgeonlineshowproblemproblemid1996">I <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1996">不知道自己知道</a></h2>
-
-<p>暴力比较即可</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-<span class="line-number">5</span>
-<span class="line-number">6</span>
-<span class="line-number">7</span>
-<span class="line-number">8</span>
-<span class="line-number">9</span>
-<span class="line-number">10</span>
-<span class="line-number">11</span>
-<span class="line-number">12</span>
-<span class="line-number">13</span>
-<span class="line-number">14</span>
-<span class="line-number">15</span>
-<span class="line-number">16</span>
-<span class="line-number">17</span>
-<span class="line-number">18</span>
-<span class="line-number">19</span>
-<span class="line-number">20</span>
-<span class="line-number">21</span>
-<span class="line-number">22</span>
-<span class="line-number">23</span>
-<span class="line-number">24</span>
-</pre></td><td class="code"><pre><code class="c++"><span class="line"><span class="cp">#define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)</span>
-</span><span class="line"><span class="n">string</span> <span class="n">s</span><span class="p">[</span><span class="mi">110</span><span class="p">];</span>
-</span><span class="line"><span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
-</span><span class="line"><span class="p">{</span>
-</span><span class="line">
-</span><span class="line">    <span class="kt">int</span> <span class="n">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">;</span>
-</span><span class="line">    <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">T</span><span class="p">;</span>
-</span><span class="line">    <span class="n">string</span> <span class="n">qurry</span><span class="p">;</span>
-</span><span class="line">    <span class="k">while</span><span class="p">(</span><span class="n">t</span><span class="o">++&lt;</span><span class="n">T</span><span class="p">)</span>
-</span><span class="line">    <span class="p">{</span>
-</span><span class="line">        <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">m</span><span class="p">;</span>
-</span><span class="line">        <span class="n">rep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">m</span><span class="p">){</span><span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">];}</span>
-</span><span class="line">        <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">n</span><span class="p">;</span>
-</span><span class="line">        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;Case #&quot;</span><span class="o">&lt;&lt;</span><span class="n">t</span><span class="o">&lt;&lt;</span><span class="s">&quot;:&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
-</span><span class="line">        <span class="n">rep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">){</span>
-</span><span class="line">          <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">qurry</span><span class="p">;</span>
-</span><span class="line">          <span class="kt">bool</span> <span class="n">fg</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-</span><span class="line">          <span class="n">rep</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">m</span><span class="p">){</span><span class="k">if</span><span class="p">(</span><span class="n">qurry</span><span class="o">==</span><span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="p">]){</span><span class="n">fg</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="k">break</span><span class="p">;}}</span>
-</span><span class="line">          <span class="k">if</span><span class="p">(</span><span class="n">fg</span><span class="p">)</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;Yes&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
-</span><span class="line">          <span class="k">else</span> <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;No&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
-</span><span class="line">        <span class="p">}</span>
-</span><span class="line">    <span class="p">}</span>
-</span><span class="line">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class="line"><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<h1 id="j-httpacmswjtueducnjudgeonlineshowproblemproblemid1997">J <a href="http://acm.swjtu.edu.cn/JudgeOnline/showproblem?problem_id=1997">知道自己知道</a></h1>
-
-<p>做一下结构体，保存i和和i出现的次数，有负数，i集体加上100，然后恢复即可。</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-<span class="line-number">5</span>
-<span class="line-number">6</span>
-<span class="line-number">7</span>
-<span class="line-number">8</span>
-<span class="line-number">9</span>
-<span class="line-number">10</span>
-<span class="line-number">11</span>
-<span class="line-number">12</span>
-<span class="line-number">13</span>
-<span class="line-number">14</span>
-<span class="line-number">15</span>
-<span class="line-number">16</span>
-<span class="line-number">17</span>
-<span class="line-number">18</span>
-<span class="line-number">19</span>
-<span class="line-number">20</span>
-<span class="line-number">21</span>
-<span class="line-number">22</span>
-<span class="line-number">23</span>
-<span class="line-number">24</span>
-<span class="line-number">25</span>
-<span class="line-number">26</span>
-</pre></td><td class="code"><pre><code class="c++"><span class="line"><span class="cp">#define rep(i,a,n) for (int i=(a); i&lt;(n); ++i)</span>
-</span><span class="line"><span class="k">struct</span> <span class="n">pt</span><span class="p">{</span>
-</span><span class="line">	<span class="kt">int</span> <span class="n">cnt</span><span class="p">;</span>
-</span><span class="line">    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
-</span><span class="line"><span class="p">};</span>
-</span><span class="line"><span class="n">pt</span> <span class="n">s</span><span class="p">[</span><span class="mi">550</span><span class="p">];</span>
-</span><span class="line"><span class="kt">bool</span> <span class="n">cmp</span><span class="p">(</span><span class="n">pt</span> <span class="n">a</span><span class="p">,</span><span class="n">pt</span> <span class="n">b</span><span class="p">){</span>
-</span><span class="line">     <span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">cnt</span><span class="o">==</span><span class="n">b</span><span class="p">.</span><span class="n">cnt</span><span class="p">)</span> <span class="k">return</span> <span class="n">a</span><span class="p">.</span><span class="n">i</span><span class="o">&lt;</span><span class="n">b</span><span class="p">.</span><span class="n">i</span><span class="p">;</span>
-</span><span class="line">     <span class="k">return</span> <span class="n">a</span><span class="p">.</span><span class="n">cnt</span><span class="o">&gt;</span><span class="n">b</span><span class="p">.</span><span class="n">cnt</span><span class="p">;</span>
-</span><span class="line"><span class="p">}</span>
-</span><span class="line"><span class="kt">int</span> <span class="n">main</span><span class="p">(){</span>
-</span><span class="line">    <span class="kt">int</span> <span class="n">t</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">a</span><span class="p">;</span>
-</span><span class="line">    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">t</span><span class="p">);</span>
-</span><span class="line">    <span class="k">while</span><span class="p">(</span><span class="n">t</span><span class="o">--</span><span class="p">){</span>
-</span><span class="line">        <span class="n">rep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">500</span><span class="p">){</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="o">-</span><span class="mi">100</span><span class="p">;</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">cnt</span><span class="o">=</span><span class="mi">0</span><span class="p">;}</span>
-</span><span class="line">        <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
-</span><span class="line">        <span class="n">rep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>  <span class="p">{</span>  <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>      <span class="n">s</span><span class="p">[</span><span class="n">a</span><span class="o">+</span><span class="mi">100</span><span class="p">].</span><span class="n">cnt</span><span class="o">++</span><span class="p">;</span> <span class="p">}</span>
-</span><span class="line">        <span class="n">sort</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">s</span><span class="o">+</span><span class="mi">500</span><span class="p">,</span><span class="n">cmp</span><span class="p">);</span>
-</span><span class="line">        <span class="kt">int</span> <span class="n">cnt</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-</span><span class="line">        <span class="n">rep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">500</span><span class="p">){</span><span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">cnt</span><span class="o">!=</span><span class="mi">0</span><span class="p">)</span><span class="n">cnt</span><span class="o">++</span><span class="p">;</span><span class="k">else</span> <span class="k">break</span><span class="p">;}</span>
-</span><span class="line">        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="n">cnt</span><span class="p">);</span>
-</span><span class="line">        <span class="n">rep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">500</span><span class="p">){</span>  <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">cnt</span><span class="p">)</span><span class="k">break</span><span class="p">;</span>  <span class="n">printf</span><span class="p">(</span><span class="s">&quot; %d&quot;</span><span class="p">,</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">i</span><span class="p">);</span>   <span class="p">}</span>
-</span><span class="line">        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-</span><span class="line">    <span class="p">}</span>
-</span><span class="line">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class="line"><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>以上题目均为过测试数据的程序，不保证程序完全正确无误，欢迎指正,预赛题目难度很明显会增大很多，大家加油。 3Q</p>
-
-<p class="post-footer">原文地址:&nbsp;<a href="http://www.UnkelTao.com/blog/2013/04/13/the-9th-swjtu-collegiate-programming-contest-qualification-round/">http://www.UnkelTao.com/blog/2013/04/13/the-9th-swjtu-collegiate-programming-contest-qualification-round/</a><br /><br />&nbsp;由 <a href="http://www.UnkelTao.com">UnkelTao</a>&nbsp;撰写并发表于 <a href="http://www.UnkelTao.com">http://www.UnkelTao.com</a></p>
 ]]></content>
   </entry>
   
